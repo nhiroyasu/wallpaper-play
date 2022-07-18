@@ -17,7 +17,7 @@
                BlueprintIdentifier = "4F8A58D5284CA01A00557FDD"
                BuildableName = "Wallpaper Play.app"
                BlueprintName = "Wallpaper Play"
-               ReferencedContainer = "container:WallMovie.xcodeproj">
+               ReferencedContainer = "container:wallpaper-play.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -35,7 +35,7 @@
                BlueprintIdentifier = "4F8A58E6284CA01B00557FDD"
                BuildableName = "Wallpaper Play Tests.xctest"
                BlueprintName = "Wallpaper Play Tests"
-               ReferencedContainer = "container:WallMovie.xcodeproj">
+               ReferencedContainer = "container:wallpaper-play.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -45,7 +45,7 @@
                BlueprintIdentifier = "4F8A58F0284CA01B00557FDD"
                BuildableName = "Wallpaper Play UITests.xctest"
                BlueprintName = "Wallpaper Play UITests"
-               ReferencedContainer = "container:WallMovie.xcodeproj">
+               ReferencedContainer = "container:wallpaper-play.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -67,7 +67,7 @@
             BlueprintIdentifier = "4F8A58D5284CA01A00557FDD"
             BuildableName = "Wallpaper Play.app"
             BlueprintName = "Wallpaper Play"
-            ReferencedContainer = "container:WallMovie.xcodeproj">
+            ReferencedContainer = "container:wallpaper-play.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -84,7 +84,7 @@
             BlueprintIdentifier = "4F8A58D5284CA01A00557FDD"
             BuildableName = "Wallpaper Play.app"
             BlueprintName = "Wallpaper Play"
-            ReferencedContainer = "container:WallMovie.xcodeproj">
+            ReferencedContainer = "container:wallpaper-play.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

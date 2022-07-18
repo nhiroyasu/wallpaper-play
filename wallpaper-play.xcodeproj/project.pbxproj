@@ -33,6 +33,7 @@
 		4F25C1D2284E644600397737 /* LocalVideoSelectionAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25C1D1284E644600397737 /* LocalVideoSelectionAction.swift */; };
 		4F25C1D4284E673A00397737 /* URLResolverService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25C1D3284E673A00397737 /* URLResolverService.swift */; };
 		4F25C1D6284F718C00397737 /* NSImageView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25C1D5284F718C00397737 /* NSImageView+.swift */; };
+		4F306E9028859CB40032CA12 /* LaunchAtLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 4F306E8F28859CB40032CA12 /* LaunchAtLogin */; };
 		4F8A58DA284CA01A00557FDD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8A58D9284CA01A00557FDD /* AppDelegate.swift */; };
 		4F8A58DC284CA01A00557FDD /* WallMovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8A58DB284CA01A00557FDD /* WallMovieViewController.swift */; };
 		4F8A58DE284CA01A00557FDD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F8A58DD284CA01A00557FDD /* Assets.xcassets */; };
@@ -89,7 +90,6 @@
 		4FC182F8285E06EA0042FAF6 /* PreferencePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC182F7285E06EA0042FAF6 /* PreferencePresenter.swift */; };
 		4FC182FA285E1B780042FAF6 /* PreferenceCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC182F9285E1B780042FAF6 /* PreferenceCoordinator.swift */; };
 		4FDE8AD1286DE1750028E062 /* Statable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDE8AD0286DE1750028E062 /* Statable.swift */; };
-		4FDF1DEC285EA6F100ABBE8D /* LaunchAtLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 4FDF1DEB285EA6F100ABBE8D /* LaunchAtLogin */; };
 		4FDF1DEF285EAF7100ABBE8D /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDF1DEE285EAF7100ABBE8D /* AppManager.swift */; };
 		4FDF1DF2285EC9B700ABBE8D /* Injectable in Frameworks */ = {isa = PBXBuildFile; productRef = 4FDF1DF1285EC9B700ABBE8D /* Injectable */; };
 		4FDF1DF5285ECA1900ABBE8D /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 4FDF1DF4285ECA1900ABBE8D /* Swinject */; };
@@ -144,7 +144,7 @@
 		4F8A58DB284CA01A00557FDD /* WallMovieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallMovieViewController.swift; sourceTree = "<group>"; };
 		4F8A58DD284CA01A00557FDD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4F8A58E0284CA01A00557FDD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		4F8A58E2284CA01A00557FDD /* WallMovie.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WallMovie.entitlements; sourceTree = "<group>"; };
+		4F8A58E2284CA01A00557FDD /* wallpaper-play.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "wallpaper-play.entitlements"; sourceTree = "<group>"; };
 		4F8A58E7284CA01B00557FDD /* Wallpaper Play Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Wallpaper Play Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F8A58EB284CA01B00557FDD /* WallMovieTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallMovieTests.swift; sourceTree = "<group>"; };
 		4F8A58F1284CA01B00557FDD /* Wallpaper Play UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Wallpaper Play UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -209,7 +209,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4FDF1DEC285EA6F100ABBE8D /* LaunchAtLogin in Frameworks */,
+				4F306E9028859CB40032CA12 /* LaunchAtLogin in Frameworks */,
 				4FDF1DF2285EC9B700ABBE8D /* Injectable in Frameworks */,
 				4F8A590B284CA0FA00557FDD /* WebKit.framework in Frameworks */,
 				4F03CEDF285A09FA009FDC6F /* Realm in Frameworks */,
@@ -274,9 +274,9 @@
 		4F8A58CD284CA01A00557FDD = {
 			isa = PBXGroup;
 			children = (
-				4F8A58D8284CA01A00557FDD /* WallMovie */,
-				4F8A58EA284CA01B00557FDD /* WallMovieTests */,
-				4F8A58F4284CA01B00557FDD /* WallMovieUITests */,
+				4F8A58D8284CA01A00557FDD /* wallpaper-play */,
+				4F8A58EA284CA01B00557FDD /* wallpaper-playTests */,
+				4F8A58F4284CA01B00557FDD /* wallpaper-playUITests */,
 				4F8A58D7284CA01A00557FDD /* Products */,
 				4F8A5909284CA0FA00557FDD /* Frameworks */,
 			);
@@ -292,7 +292,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		4F8A58D8284CA01A00557FDD /* WallMovie */ = {
+		4F8A58D8284CA01A00557FDD /* wallpaper-play */ = {
 			isa = PBXGroup;
 			children = (
 				4F03CEE4285A1076009FDC6F /* Entity */,
@@ -306,26 +306,26 @@
 				4F8A5915284CA1FB00557FDD /* AppContainer.swift */,
 				4F8A58DD284CA01A00557FDD /* Assets.xcassets */,
 				4F8A58DF284CA01A00557FDD /* Main.storyboard */,
-				4F8A58E2284CA01A00557FDD /* WallMovie.entitlements */,
+				4F8A58E2284CA01A00557FDD /* wallpaper-play.entitlements */,
 			);
-			path = WallMovie;
+			path = "wallpaper-play";
 			sourceTree = "<group>";
 		};
-		4F8A58EA284CA01B00557FDD /* WallMovieTests */ = {
+		4F8A58EA284CA01B00557FDD /* wallpaper-playTests */ = {
 			isa = PBXGroup;
 			children = (
 				4F8A58EB284CA01B00557FDD /* WallMovieTests.swift */,
 			);
-			path = WallMovieTests;
+			path = "wallpaper-playTests";
 			sourceTree = "<group>";
 		};
-		4F8A58F4284CA01B00557FDD /* WallMovieUITests */ = {
+		4F8A58F4284CA01B00557FDD /* wallpaper-playUITests */ = {
 			isa = PBXGroup;
 			children = (
 				4F8A58F5284CA01B00557FDD /* WallMovieUITests.swift */,
 				4F8A58F7284CA01B00557FDD /* WallMovieUITestsLaunchTests.swift */,
 			);
-			path = WallMovieUITests;
+			path = "wallpaper-playUITests";
 			sourceTree = "<group>";
 		};
 		4F8A5904284CA02F00557FDD /* Page */ = {
@@ -524,9 +524,9 @@
 			packageProductDependencies = (
 				4F03CEDE285A09FA009FDC6F /* Realm */,
 				4F03CEE0285A09FA009FDC6F /* RealmSwift */,
-				4FDF1DEB285EA6F100ABBE8D /* LaunchAtLogin */,
 				4FDF1DF1285EC9B700ABBE8D /* Injectable */,
 				4FDF1DF4285ECA1900ABBE8D /* Swinject */,
+				4F306E8F28859CB40032CA12 /* LaunchAtLogin */,
 			);
 			productName = WallMovie;
 			productReference = 4F8A58D6284CA01A00557FDD /* Wallpaper Play.app */;
@@ -591,7 +591,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 4F8A58D1284CA01A00557FDD /* Build configuration list for PBXProject "WallMovie" */;
+			buildConfigurationList = 4F8A58D1284CA01A00557FDD /* Build configuration list for PBXProject "wallpaper-play" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -602,9 +602,9 @@
 			mainGroup = 4F8A58CD284CA01A00557FDD;
 			packageReferences = (
 				4F03CEDD285A09FA009FDC6F /* XCRemoteSwiftPackageReference "realm-swift" */,
-				4FDF1DEA285EA6F100ABBE8D /* XCRemoteSwiftPackageReference "LaunchAtLogin" */,
 				4FDF1DF0285EC9B700ABBE8D /* XCRemoteSwiftPackageReference "Injectable" */,
 				4FDF1DF3285ECA1900ABBE8D /* XCRemoteSwiftPackageReference "Swinject" */,
+				4F306E8E28859CB40032CA12 /* XCRemoteSwiftPackageReference "LaunchAtLogin" */,
 			);
 			productRefGroup = 4F8A58D7284CA01A00557FDD /* Products */;
 			projectDirPath = "";
@@ -911,7 +911,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = WallMovie/WallMovie.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "wallpaper-play/wallpaper-play.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -929,6 +930,7 @@
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.debug.nhiro1109.wallpaper-play";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 			};
@@ -939,7 +941,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = WallMovie/WallMovie.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "wallpaper-play/wallpaper-play.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -1037,7 +1039,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4F8A58D1284CA01A00557FDD /* Build configuration list for PBXProject "WallMovie" */ = {
+		4F8A58D1284CA01A00557FDD /* Build configuration list for PBXProject "wallpaper-play" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4F8A58F9284CA01B00557FDD /* Debug */,
@@ -1084,7 +1086,7 @@
 				minimumVersion = 10.0.0;
 			};
 		};
-		4FDF1DEA285EA6F100ABBE8D /* XCRemoteSwiftPackageReference "LaunchAtLogin" */ = {
+		4F306E8E28859CB40032CA12 /* XCRemoteSwiftPackageReference "LaunchAtLogin" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/sindresorhus/LaunchAtLogin";
 			requirement = {
@@ -1121,9 +1123,9 @@
 			package = 4F03CEDD285A09FA009FDC6F /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
 		};
-		4FDF1DEB285EA6F100ABBE8D /* LaunchAtLogin */ = {
+		4F306E8F28859CB40032CA12 /* LaunchAtLogin */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 4FDF1DEA285EA6F100ABBE8D /* XCRemoteSwiftPackageReference "LaunchAtLogin" */;
+			package = 4F306E8E28859CB40032CA12 /* XCRemoteSwiftPackageReference "LaunchAtLogin" */;
 			productName = LaunchAtLogin;
 		};
 		4FDF1DF1285EC9B700ABBE8D /* Injectable */ = {

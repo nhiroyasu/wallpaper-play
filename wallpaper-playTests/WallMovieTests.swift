@@ -6,7 +6,7 @@
 //
 
 import XCTest
-@testable import WallMovie
+@testable import Wallpaper_Play
 
 class WallMovieTests: XCTestCase {
 
