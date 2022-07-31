@@ -29,8 +29,6 @@ class LocalVideoSelectionActionImpl: LocalVideoSelectionAction {
     func didTapVideoSelectionButton() {
         if let url = fileSelectionService.open(fileType: .movie) {
             useCase.confirmVideo(url: url)
-        } else {
-            useCase.videoLoadingError()
         }
     }
     
