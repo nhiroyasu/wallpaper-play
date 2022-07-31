@@ -26,8 +26,3 @@ class AboutViewController: NSViewController {
         
     }
 }
-
-class SelfSizingHostingController<Content>: NSHostingController<Content> where Content: View {
-
-}
-
