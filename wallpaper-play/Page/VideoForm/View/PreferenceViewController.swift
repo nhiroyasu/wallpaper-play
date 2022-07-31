@@ -3,6 +3,7 @@ import Cocoa
 enum PreferenceCell {
     case launchAtLogin(viewData: SwitchCellViewData)
     case visibilityIcon(viewData: SwitchCellViewData)
+    case openThisWindowAtFirst(viewData: SwitchCellViewData)
 }
 
 struct PreferenceViewData {
@@ -71,6 +72,10 @@ extension PreferenceViewController: NSCollectionViewDataSource {
         case .visibilityIcon(let viewData):
             viewItem.set(viewData) { [weak self] state in
                 self?.action.didTapVisibilityIcon(state: state)
+            }
+        case .openThisWindowAtFirst(let viewData):
+            viewItem.set(viewData) { [weak self] state in
+                self?.action.didTapOpenThisWindowAtFirst(state: state)
             }
         }
         return viewItem

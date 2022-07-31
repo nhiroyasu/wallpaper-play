@@ -5,6 +5,7 @@ protocol PreferenceAction {
     func viewDidLoad()
     func didTapLaunchAtLogin(state: Bool)
     func didTapVisibilityIcon(state: Bool)
+    func didTapOpenThisWindowAtFirst(state: Bool)
 }
 
 class PreferenceActionImpl: PreferenceAction {
@@ -25,6 +26,10 @@ class PreferenceActionImpl: PreferenceAction {
     
     func didTapVisibilityIcon(state: Bool) {
         useCase.updateVisibilityIconSetting(state)
+    }
+
+    func didTapOpenThisWindowAtFirst(state: Bool) {
+        useCase.updateOpenThisWindowAtFirst(state)
     }
 }
 

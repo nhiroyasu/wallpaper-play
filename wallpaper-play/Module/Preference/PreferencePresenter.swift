@@ -5,6 +5,7 @@ import AppKit
 struct PreferenceSetUpOutput {
     let launchAtLogin: Bool
     let visibilityIcon: Bool
+    let openThisWindowAtFirst: Bool
 }
 
 protocol PreferencePresenter {
@@ -28,6 +29,11 @@ class PreferencePresenterImpl: PreferencePresenter {
                 switchState: output.visibilityIcon,
                 title: "Display application icon",
                 description: "If Selected, this application dock icon will be invisible. This is reflected after this window is closed."
+            )),
+            .openThisWindowAtFirst(viewData: SwitchCellViewData(
+                switchState: output.openThisWindowAtFirst,
+                title: "Open this window at application launch",
+                description: "If Selected, this window will open when launch application."
             ))
         ]
         viewController.viewData = .init(switchPreferences: preferenceCellList)

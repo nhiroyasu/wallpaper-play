@@ -5,6 +5,7 @@ protocol PreferenceUseCase {
     func setUp()
     func updateLaunchAtLoginSetting(_ value: Bool)
     func updateVisibilityIconSetting(_ value: Bool)
+    func updateOpenThisWindowAtFirst(_ value: Bool)
 }
 
 class PreferenceInteractor: PreferenceUseCase {
@@ -24,7 +25,8 @@ class PreferenceInteractor: PreferenceUseCase {
     func setUp() {
         presenter.setUpUI(.init(
             launchAtLogin: userSetting.launchAtLogin,
-            visibilityIcon: userSetting.visibilityIcon
+            visibilityIcon: userSetting.visibilityIcon,
+            openThisWindowAtFirst: userSetting.openThisWindowAtFirst
         ))
     }
     
@@ -34,6 +36,10 @@ class PreferenceInteractor: PreferenceUseCase {
     
     func updateVisibilityIconSetting(_ value: Bool) {
         userSetting.visibilityIcon = value
+    }
+
+    func updateOpenThisWindowAtFirst(_ value: Bool) {
+        userSetting.openThisWindowAtFirst = value
     }
 }
 

@@ -5,6 +5,7 @@ import LaunchAtLogin
 protocol UserSettingService {
     var launchAtLogin: Bool { get set }
     var visibilityIcon: Bool { get set }
+    var openThisWindowAtFirst: Bool { get set }
 }
 
 class UserSettingServiceImpl: UserSettingService {
@@ -32,6 +33,18 @@ class UserSettingServiceImpl: UserSettingService {
         }
         set {
             userDefaults.set(newValue, forKey: "visibilityIcon")
+        }
+    }
+
+    var openThisWindowAtFirst: Bool {
+        get {
+            if userDefaults.object(forKey: "openThisWindowAtFirst") == nil {
+                userDefaults.set(true, forKey: "openThisWindowAtFirst")
+            }
+            return userDefaults.bool(forKey: "openThisWindowAtFirst")
+        }
+        set {
+            userDefaults.set(newValue, forKey: "openThisWindowAtFirst")
         }
     }
 }

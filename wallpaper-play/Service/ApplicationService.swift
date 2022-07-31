@@ -38,6 +38,7 @@ class ApplicationServiceImpl: ApplicationService {
         setUpRequestWebPageNotification()
         setUpAppIcon()
         initWallpaper()
+        openVideoFormIfNeeded()
     }
     
     func didTapWallPaperItem() {
@@ -126,8 +127,9 @@ class ApplicationServiceImpl: ApplicationService {
     }
     
     private func initWallpaper() {
-        guard let latestWallpaper = wallpaperHistoryService.fetchLatestWallpaper() else { return }
-        wallpaperWindowManager.display(display: latestWallpaper)
+        if let latestWallpaper = wallpaperHistoryService.fetchLatestWallpaper() {
+            wallpaperWindowManager.display(display: latestWallpaper)
+        }
     }
     
     private func setUpAppIcon() {
@@ -138,6 +140,16 @@ class ApplicationServiceImpl: ApplicationService {
         notificationManager.observe(name: .requestVisibilityIcon) { [weak self] _ in
             guard let self = self else { return }
             self.appManager.setVisibilityIcon(self.userSetting.visibilityIcon)
+        }
+    }
+
+    private func openVideoFormIfNeeded() {
+        if userSetting.openThisWindowAtFirst {
+            if (videoFormWindowController.contentViewController as? VideoFormSplitViewController) == nil {
+                let coordinator = VideoFormCoordinator()
+                videoFormWindowController.contentViewController = coordinator.create()
+            }
+            videoFormWindowController.showWindow(nil)
         }
     }
 }

@@ -37,7 +37,7 @@
 		4F2D558F289567D200363292 /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F2D558D289567D200363292 /* AboutViewController.xib */; };
 		4F2D5591289567E900363292 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2D5590289567E900363292 /* AboutView.swift */; };
 		4F2D559328956D4F00363292 /* AboutCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2D559228956D4F00363292 /* AboutCoordinator.swift */; };
-		4F306E9028859CB40032CA12 /* LaunchAtLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 4F306E8F28859CB40032CA12 /* LaunchAtLogin */; };
+		4F6A4D052896444100F7B40D /* LaunchAtLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 4F6A4D042896444100F7B40D /* LaunchAtLogin */; };
 		4F8A58DA284CA01A00557FDD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8A58D9284CA01A00557FDD /* AppDelegate.swift */; };
 		4F8A58DC284CA01A00557FDD /* WallMovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8A58DB284CA01A00557FDD /* WallMovieViewController.swift */; };
 		4F8A58DE284CA01A00557FDD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F8A58DD284CA01A00557FDD /* Assets.xcassets */; };
@@ -217,7 +217,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4F306E9028859CB40032CA12 /* LaunchAtLogin in Frameworks */,
+				4F6A4D052896444100F7B40D /* LaunchAtLogin in Frameworks */,
 				4FDF1DF2285EC9B700ABBE8D /* Injectable in Frameworks */,
 				4F8A590B284CA0FA00557FDD /* WebKit.framework in Frameworks */,
 				4F03CEDF285A09FA009FDC6F /* Realm in Frameworks */,
@@ -538,7 +538,7 @@
 				4F03CEE0285A09FA009FDC6F /* RealmSwift */,
 				4FDF1DF1285EC9B700ABBE8D /* Injectable */,
 				4FDF1DF4285ECA1900ABBE8D /* Swinject */,
-				4F306E8F28859CB40032CA12 /* LaunchAtLogin */,
+				4F6A4D042896444100F7B40D /* LaunchAtLogin */,
 			);
 			productName = WallMovie;
 			productReference = 4F8A58D6284CA01A00557FDD /* Wallpaper Play.app */;
@@ -616,7 +616,7 @@
 				4F03CEDD285A09FA009FDC6F /* XCRemoteSwiftPackageReference "realm-swift" */,
 				4FDF1DF0285EC9B700ABBE8D /* XCRemoteSwiftPackageReference "Injectable" */,
 				4FDF1DF3285ECA1900ABBE8D /* XCRemoteSwiftPackageReference "Swinject" */,
-				4F306E8E28859CB40032CA12 /* XCRemoteSwiftPackageReference "LaunchAtLogin" */,
+				4F6A4D032896444100F7B40D /* XCRemoteSwiftPackageReference "LaunchAtLogin" */,
 			);
 			productRefGroup = 4F8A58D7284CA01A00557FDD /* Products */;
 			projectDirPath = "";
@@ -1102,7 +1102,7 @@
 				minimumVersion = 10.0.0;
 			};
 		};
-		4F306E8E28859CB40032CA12 /* XCRemoteSwiftPackageReference "LaunchAtLogin" */ = {
+		4F6A4D032896444100F7B40D /* XCRemoteSwiftPackageReference "LaunchAtLogin" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/sindresorhus/LaunchAtLogin";
 			requirement = {
@@ -1139,9 +1139,9 @@
 			package = 4F03CEDD285A09FA009FDC6F /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
 		};
-		4F306E8F28859CB40032CA12 /* LaunchAtLogin */ = {
+		4F6A4D042896444100F7B40D /* LaunchAtLogin */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 4F306E8E28859CB40032CA12 /* XCRemoteSwiftPackageReference "LaunchAtLogin" */;
+			package = 4F6A4D032896444100F7B40D /* XCRemoteSwiftPackageReference "LaunchAtLogin" */;
 			productName = LaunchAtLogin;
 		};
 		4FDF1DF1285EC9B700ABBE8D /* Injectable */ = {
