@@ -19,6 +19,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // Insert code here to tear down your application
     }
 
+    func applicationDidBecomeActive(_ notification: Notification) {
+        applicationService.applicationDidBecomeActive()
+    }
+
     func applicationSupportsSecureRestorableState(_ app: NSApplication) -> Bool {
         return true
     }
