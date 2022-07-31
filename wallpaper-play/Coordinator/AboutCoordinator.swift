@@ -21,7 +21,7 @@ class AboutCoordinator: Coordinator {
     }
     
     func create() -> NSViewController {
-        viewController = AboutViewController()
+        viewController = AboutViewController(injector: injector)
         return viewController
     }
 }

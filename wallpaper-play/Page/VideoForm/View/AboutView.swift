@@ -11,8 +11,7 @@ struct AboutView: View {
                 .frame(width: imageSize, height: imageSize, alignment: .center)
             Text("Wallpaper Play")
                 .font(.system(size: 18, weight: .medium, design: .default))
-            Text("© Hiroyasu Niitsuma")
-                .font(.system(size: 14, weight: .medium, design: .default))
+            Link("© Hiroyasu Niitsuma", destination: URL(string: "https://nhiroyasu.com/")!)
         }
     }
 }
