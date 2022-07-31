@@ -17,6 +17,7 @@ class VideoFormCoordinator: Coordinator {
     private let youtubeSelectionCoordinator: YouTubeSelectionCoordinator
     private let webpageSelectionCoordinator: WebPageSelectionCoordinator
     private let preferenceCoordinator: PreferenceCoordinator
+    private let aboutCoordinator: AboutCoordinator
     private var viewController: VideoFormSplitViewController!
     
     init() {
@@ -51,6 +52,13 @@ class VideoFormCoordinator: Coordinator {
                 )
             )
         )
+        self.aboutCoordinator = .init(
+            injector: Injector(
+                container: AboutContainerBuilder.build(
+                    parent: Injector.shared.container
+                )
+            )
+        )
     }
     
     func create() -> NSViewController {
@@ -59,6 +67,7 @@ class VideoFormCoordinator: Coordinator {
         viewController.youtubeSelectionViewController = youtubeSelectionCoordinator.create() as? YouTubeSelectionViewController
         viewController.webpageSelectionViewController = webpageSelectionCoordinator.create() as? WebPageSelectionViewController
         viewController.preferenceViewController = preferenceCoordinator.create() as? PreferenceViewController
+        viewController.aboutViewController = aboutCoordinator.create() as? AboutViewController
         return viewController
     }
 }

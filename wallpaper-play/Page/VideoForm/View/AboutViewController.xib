@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="20037" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="20037"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="AboutViewController" customModule="Wallpaper_Play" customModuleProvider="target">
+            <connections>
+                <outlet property="stackView" destination="N1u-hQ-bJV" id="XmR-jb-CKp"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView translatesAutoresizingMaskIntoConstraints="NO" id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="596" height="382"/>
+            <subviews>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="CLq-9w-DVh">
+                    <rect key="frame" x="0.0" y="0.0" width="596" height="382"/>
+                    <subviews>
+                        <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="N1u-hQ-bJV">
+                            <rect key="frame" x="298" y="191" width="0.0" height="0.0"/>
+                        </stackView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="N1u-hQ-bJV" firstAttribute="centerY" secondItem="CLq-9w-DVh" secondAttribute="centerY" id="9Ay-oy-8oS"/>
+                        <constraint firstItem="N1u-hQ-bJV" firstAttribute="centerX" secondItem="CLq-9w-DVh" secondAttribute="centerX" id="g3z-Ol-TPd"/>
+                    </constraints>
+                </customView>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="CLq-9w-DVh" secondAttribute="trailing" id="D6p-Hi-6Tf"/>
+                <constraint firstAttribute="bottom" secondItem="CLq-9w-DVh" secondAttribute="bottom" id="QTI-nH-EeL"/>
+                <constraint firstItem="CLq-9w-DVh" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="eJ5-j5-szR"/>
+                <constraint firstItem="CLq-9w-DVh" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="nNm-s6-xoM"/>
+            </constraints>
+            <point key="canvasLocation" x="198" y="209"/>
+        </customView>
+    </objects>
+</document>

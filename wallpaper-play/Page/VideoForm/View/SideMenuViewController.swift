@@ -6,6 +6,7 @@ enum SideMenuItem: String, CaseIterable {
     case youtube = "YouTube"
     case webpage = "Web"
     case preference = "Preference"
+    case about = "About"
     
     var icon: NSImage? {
         switch self {
@@ -17,6 +18,8 @@ enum SideMenuItem: String, CaseIterable {
             return NSImage(systemSymbolName: "safari.fill", accessibilityDescription: nil)
         case .preference:
             return NSImage(systemSymbolName: "gearshape.fill", accessibilityDescription: nil)
+        case .about:
+            return NSImage(systemSymbolName: "person.fill", accessibilityDescription: nil)
         }
     }
 }

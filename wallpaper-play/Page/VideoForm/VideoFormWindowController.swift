@@ -6,7 +6,6 @@ class VideoFormWindowController: NSWindowController, NSWindowDelegate {
     override func windowDidLoad() {
         super.windowDidLoad()
         window?.title = Bundle.main.infoDictionary!["CFBundleName"] as! String
-        window?.level = .floating
     }
     
     override func showWindow(_ sender: Any?) {

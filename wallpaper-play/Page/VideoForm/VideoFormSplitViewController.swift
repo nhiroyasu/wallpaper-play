@@ -13,6 +13,7 @@ class VideoFormSplitViewController: NSSplitViewController {
     var youtubeSelectionViewController: YouTubeSelectionViewController!
     var webpageSelectionViewController: WebPageSelectionViewController!
     var preferenceViewController: PreferenceViewController!
+    var aboutViewController: AboutViewController!
     lazy var notificationManager: NotificationManager = Injector.shared.build()
 
     override func viewDidLoad() {
@@ -99,6 +100,8 @@ class VideoFormSplitViewController: NSSplitViewController {
             return webpageSelectionViewController
         case .preference:
             return preferenceViewController
+        case .about:
+            return aboutViewController
         case .none:
             return nil
         }

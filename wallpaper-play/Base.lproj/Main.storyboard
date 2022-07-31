@@ -676,7 +676,7 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="WallMovie" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Wallpaper_Play" customModuleProvider="target"/>
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -685,7 +685,7 @@
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
             <objects>
-                <windowController storyboardIdentifier="WallMovieWindowController" id="B8D-0N-5wS" customClass="WallMovieWindowController" customModule="WallMovie" customModuleProvider="target" sceneMemberID="viewController">
+                <windowController storyboardIdentifier="WallMovieWindowController" id="B8D-0N-5wS" customClass="WallMovieWindowController" customModule="Wallpaper_Play" customModuleProvider="target" sceneMemberID="viewController">
                     <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
@@ -703,9 +703,9 @@
         <!--Video Form Split View Controller-->
         <scene sceneID="gkp-cz-W74">
             <objects>
-                <splitViewController storyboardIdentifier="VideoFormSplitViewController" id="cfq-Zz-ncd" customClass="VideoFormSplitViewController" customModule="WallMovie" customModuleProvider="target" sceneMemberID="viewController">
+                <splitViewController storyboardIdentifier="VideoFormSplitViewController" id="cfq-Zz-ncd" customClass="VideoFormSplitViewController" customModule="Wallpaper_Play" customModuleProvider="target" sceneMemberID="viewController">
                     <splitViewItems>
-                        <splitViewItem canCollapse="YES" holdingPriority="260" behavior="sidebar" id="R8X-AC-cXt"/>
+                        <splitViewItem canCollapse="YES" holdingPriority="240" behavior="sidebar" id="R8X-AC-cXt"/>
                         <splitViewItem id="Q3Q-ze-4Hz"/>
                     </splitViewItems>
                     <splitView key="splitView" arrangesAllSubviews="NO" dividerStyle="thin" vertical="YES" id="2jz-FD-p2H">
@@ -726,8 +726,8 @@
         <!--Side Menu View Controller-->
         <scene sceneID="AeM-hR-f5m">
             <objects>
-                <viewController id="Pfm-2R-Een" customClass="SideMenuViewController" customModule="WallMovie" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" misplaced="YES" id="O2W-CB-Qi1">
+                <viewController id="Pfm-2R-Een" customClass="SideMenuViewController" customModule="Wallpaper_Play" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="O2W-CB-Qi1">
                         <rect key="frame" x="0.0" y="0.0" width="154" height="196"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
@@ -756,7 +756,7 @@
                                                     </textFieldCell>
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
-                                                        <tableCellView identifier="sideMenuCell" id="HC0-k1-bPM" customClass="SideMenuCell" customModule="WallMovie" customModuleProvider="target">
+                                                        <tableCellView identifier="sideMenuCell" id="HC0-k1-bPM" customClass="SideMenuCell" customModule="Wallpaper_Play" customModuleProvider="target">
                                                             <rect key="frame" x="11" y="0.0" width="129" height="24"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
@@ -852,7 +852,7 @@
         <!--Wall Movie View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController storyboardIdentifier="WallMovieViewController" id="XfG-lQ-9wD" customClass="WallMovieViewController" customModule="WallMovie" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WallMovieViewController" id="XfG-lQ-9wD" customClass="WallMovieViewController" customModule="Wallpaper_Play" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="m2S-Jp-Qdl">
                         <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
