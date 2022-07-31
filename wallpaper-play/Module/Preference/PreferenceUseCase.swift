@@ -23,23 +23,34 @@ class PreferenceInteractor: PreferenceUseCase {
     }
     
     func setUp() {
-        presenter.setUpUI(.init(
+        presenter.setUpUI(PreferenceSetUpOutput(
             launchAtLogin: userSetting.launchAtLogin,
             visibilityIcon: userSetting.visibilityIcon,
             openThisWindowAtFirst: userSetting.openThisWindowAtFirst
         ))
     }
-    
+
+    fileprivate func reloadData() {
+        presenter.updateViewData(PreferenceSetUpOutput(
+            launchAtLogin: userSetting.launchAtLogin,
+            visibilityIcon: userSetting.visibilityIcon,
+            openThisWindowAtFirst: userSetting.openThisWindowAtFirst
+        ))
+    }
+
     func updateLaunchAtLoginSetting(_ value: Bool) {
         userSetting.launchAtLogin = value
+        reloadData()
     }
     
     func updateVisibilityIconSetting(_ value: Bool) {
         userSetting.visibilityIcon = value
+        reloadData()
     }
 
     func updateOpenThisWindowAtFirst(_ value: Bool) {
         userSetting.openThisWindowAtFirst = value
+        reloadData()
     }
 }
 

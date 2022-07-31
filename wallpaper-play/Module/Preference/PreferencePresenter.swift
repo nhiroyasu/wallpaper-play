@@ -9,7 +9,18 @@ struct PreferenceSetUpOutput {
 }
 
 protocol PreferencePresenter {
+    /// PreferenceViewの更新処理
+    /// - Parameter output: Viewに必要な情報
+    ///
+    /// Outputを元にViewDataの更新と画面のリロードが行われる
     func setUpUI(_ output: PreferenceSetUpOutput)
+    /// PreferenceViewのViewData更新
+    /// - Parameter output: ViewDataに必要な情報
+    ///
+    /// Outputを元にViewDataの更新が行われる。
+    ///
+    /// Switchが独自に状態を持っていることによりデータを同期する必要があるため、このメソッドが存在する。（なんとかしたい）
+    func updateViewData(_ output: PreferenceSetUpOutput)
 }
 
 class PreferencePresenterImpl: PreferencePresenter {
@@ -19,6 +30,11 @@ class PreferencePresenterImpl: PreferencePresenter {
     }
     
     func setUpUI(_ output: PreferenceSetUpOutput) {
+        updateViewData(output)
+        viewController.collectionView.reloadData()
+    }
+
+    func updateViewData(_ output: PreferenceSetUpOutput) {
         let preferenceCellList: [PreferenceCell] = [
             .launchAtLogin(viewData: SwitchCellViewData(
                 switchState: output.launchAtLogin,
@@ -37,6 +53,5 @@ class PreferencePresenterImpl: PreferencePresenter {
             ))
         ]
         viewController.viewData = .init(switchPreferences: preferenceCellList)
-        viewController.collectionView.reloadData()
     }
 }
