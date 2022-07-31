@@ -22,7 +22,7 @@ class WebPageSelectionInteractor: WebPageSelectionUseCase {
             presenter.setPreview(url: url)
         } else {
             presenter.clearPreview()
-            presenter.showAlert(message: "URLが正しくありません")
+            presenter.showAlert(message: LocalizedString(key: .error_invalid_url))
         }
     }
     

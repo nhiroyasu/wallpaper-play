@@ -28,7 +28,7 @@ class WebPageSelectionActionImpl: WebPageSelectionAction {
         if let url = state.previewUrl {
             useCase.setUpWallpaper(for: url)
         } else {
-            useCase.showError(message: "プレビューが正しく設定されていません")
+            useCase.showError(message: LocalizedString(key: .error_invalid_preview))
         }
     }
     

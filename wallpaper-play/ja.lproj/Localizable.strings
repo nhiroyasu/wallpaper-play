@@ -1,0 +1,11 @@
+"preference_launch_at_login_title" = "ログイン時にアプリケーションを起動する";
+"preference_display_icon_title" = "アプリケーションアイコンを表示する";
+"preference_open_window_title" = "アプリケーション起動時にこのウィンドウを表示する";
+"preference_launch_at_login_description" = "スイッチONの場合、システムの起動と同時にアプリケーションが立ち上がります。";
+"preference_display_icon_description" = "スイッチONの場合、Dockにアプリケーションのアイコンが表示されます。これは、このウィンドウを閉じた後に反映されます。";
+"preference_open_window_description" = "スイッチONの場合、アプリケーションの起動と同時にこのウィンドウも表示されます。";
+"error_invalid_url" = "URLが正しくありません";
+"error_invalid_preview" = "プレビューが設定されていません";
+"error_invalid_video" = "動画が読み込めませんでした";
+"error_invalid_youtube_url" = "YouTubeのリンクが正しくありません";
+"error_common" = "予期せぬエラーが発生しました";

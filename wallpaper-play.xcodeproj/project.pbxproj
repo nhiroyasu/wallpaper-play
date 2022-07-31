@@ -38,11 +38,12 @@
 		4F2D5591289567E900363292 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2D5590289567E900363292 /* AboutView.swift */; };
 		4F2D559328956D4F00363292 /* AboutCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2D559228956D4F00363292 /* AboutCoordinator.swift */; };
 		4F6A4D052896444100F7B40D /* LaunchAtLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 4F6A4D042896444100F7B40D /* LaunchAtLogin */; };
-		4F6A4D0928964EAB00F7B40D /* Localizable.japanese.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F6A4D0B28964EAB00F7B40D /* Localizable.japanese.strings */; };
-		4F6A4D0E28964EE800F7B40D /* Localizable.english.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F6A4D1028964EE800F7B40D /* Localizable.english.strings */; };
+		4F6A4D0928964EAB00F7B40D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F6A4D0B28964EAB00F7B40D /* Localizable.strings */; };
+		4F6A4D0E28964EE800F7B40D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F6A4D1028964EE800F7B40D /* Localizable.strings */; };
 		4F6A4D112896505500F7B40D /* YouTubeSelectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F6A4D132896505500F7B40D /* YouTubeSelectionViewController.xib */; };
 		4F6A4D17289650D900F7B40D /* LocalVideoSelectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F6A4D19289650D900F7B40D /* LocalVideoSelectionViewController.xib */; };
 		4F6A4D1B2896512400F7B40D /* WebPageSelectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F6A4D1D2896512400F7B40D /* WebPageSelectionViewController.xib */; };
+		4F6A4D22289653F100F7B40D /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6A4D21289653F100F7B40D /* Localization.swift */; };
 		4F8A58DA284CA01A00557FDD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8A58D9284CA01A00557FDD /* AppDelegate.swift */; };
 		4F8A58DC284CA01A00557FDD /* WallMovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8A58DB284CA01A00557FDD /* WallMovieViewController.swift */; };
 		4F8A58DE284CA01A00557FDD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F8A58DD284CA01A00557FDD /* Assets.xcassets */; };
@@ -150,14 +151,15 @@
 		4F2D5590289567E900363292 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		4F2D559228956D4F00363292 /* AboutCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutCoordinator.swift; sourceTree = "<group>"; };
 		4F6A4D0628964E5100F7B40D /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
-		4F6A4D0A28964EAB00F7B40D /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.japanese.strings; sourceTree = "<group>"; };
-		4F6A4D0F28964EE800F7B40D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.english.strings; sourceTree = "<group>"; };
+		4F6A4D0A28964EAB00F7B40D /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		4F6A4D0F28964EE800F7B40D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4F6A4D142896505A00F7B40D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/YouTubeSelectionViewController.xib; sourceTree = "<group>"; };
 		4F6A4D162896507100F7B40D /* ja */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ja; path = ja.lproj/YouTubeSelectionViewController.xib; sourceTree = "<group>"; };
 		4F6A4D18289650D900F7B40D /* ja */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ja; path = ja.lproj/LocalVideoSelectionViewController.xib; sourceTree = "<group>"; };
 		4F6A4D1A289650DC00F7B40D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LocalVideoSelectionViewController.xib; sourceTree = "<group>"; };
 		4F6A4D1C2896512400F7B40D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/WebPageSelectionViewController.xib; sourceTree = "<group>"; };
 		4F6A4D202896513000F7B40D /* ja */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ja; path = ja.lproj/WebPageSelectionViewController.xib; sourceTree = "<group>"; };
+		4F6A4D21289653F100F7B40D /* Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
 		4F8A58D6284CA01A00557FDD /* Wallpaper Play.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Wallpaper Play.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F8A58D9284CA01A00557FDD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4F8A58DB284CA01A00557FDD /* WallMovieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallMovieViewController.swift; sourceTree = "<group>"; };
@@ -263,6 +265,7 @@
 				4F03CEE9285A158F009FDC6F /* URL+.swift */,
 				4F2161F82850BB4F000673EF /* CGImage+.swift */,
 				4FDE8AD0286DE1750028E062 /* Statable.swift */,
+				4F6A4D21289653F100F7B40D /* Localization.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -323,8 +326,8 @@
 				4F8A58DD284CA01A00557FDD /* Assets.xcassets */,
 				4F8A58DF284CA01A00557FDD /* Main.storyboard */,
 				4F8A58E2284CA01A00557FDD /* wallpaper-play.entitlements */,
-				4F6A4D0B28964EAB00F7B40D /* Localizable.japanese.strings */,
-				4F6A4D1028964EE800F7B40D /* Localizable.english.strings */,
+				4F6A4D0B28964EAB00F7B40D /* Localizable.strings */,
+				4F6A4D1028964EE800F7B40D /* Localizable.strings */,
 			);
 			path = "wallpaper-play";
 			sourceTree = "<group>";
@@ -646,7 +649,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4FB0F3E82854A0F2004E6D51 /* WallMovieWindowController.xib in Resources */,
-				4F6A4D0928964EAB00F7B40D /* Localizable.japanese.strings in Resources */,
+				4F6A4D0928964EAB00F7B40D /* Localizable.strings in Resources */,
 				4FB0F3EC2854A112004E6D51 /* WallMovieViewController.xib in Resources */,
 				4F2161FF2850FA37000673EF /* PreferenceViewController.xib in Resources */,
 				4F8A58DE284CA01A00557FDD /* Assets.xcassets in Resources */,
@@ -655,7 +658,7 @@
 				4FB0F3FB2854D6DA004E6D51 /* VideoFormWindowController.xib in Resources */,
 				4F8A58E1284CA01A00557FDD /* Main.storyboard in Resources */,
 				4F6A4D17289650D900F7B40D /* LocalVideoSelectionViewController.xib in Resources */,
-				4F6A4D0E28964EE800F7B40D /* Localizable.english.strings in Resources */,
+				4F6A4D0E28964EE800F7B40D /* Localizable.strings in Resources */,
 				4F2D558F289567D200363292 /* AboutViewController.xib in Resources */,
 				4F6A4D1B2896512400F7B40D /* WebPageSelectionViewController.xib in Resources */,
 			);
@@ -725,6 +728,7 @@
 				4F03CEEC285A1654009FDC6F /* DateSortable.swift in Sources */,
 				4F8A5954284D18E400557FDD /* SideMenuViewController.swift in Sources */,
 				4F01693C284D1D2E00C12ED6 /* SideMenuCell.swift in Sources */,
+				4F6A4D22289653F100F7B40D /* Localization.swift in Sources */,
 				4FBD50FF28850A38002DF955 /* WebPageSelectionCoordinator.swift in Sources */,
 				4F8A590D284CA1B200557FDD /* YouTubeWebView.swift in Sources */,
 				4FBD510228850A9D002DF955 /* WebPageSelectionAction.swift in Sources */,
@@ -811,20 +815,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		4F6A4D0B28964EAB00F7B40D /* Localizable.japanese.strings */ = {
+		4F6A4D0B28964EAB00F7B40D /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				4F6A4D0A28964EAB00F7B40D /* ja */,
 			);
-			name = Localizable.japanese.strings;
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
-		4F6A4D1028964EE800F7B40D /* Localizable.english.strings */ = {
+		4F6A4D1028964EE800F7B40D /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				4F6A4D0F28964EE800F7B40D /* en */,
 			);
-			name = Localizable.english.strings;
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 		4F6A4D132896505500F7B40D /* YouTubeSelectionViewController.xib */ = {

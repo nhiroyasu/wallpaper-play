@@ -3,7 +3,11 @@ import Injectable
 
 class VideoFormSplitViewController: NSSplitViewController {
 
-    @IBOutlet weak var sidebarViewItem: NSSplitViewItem!
+    @IBOutlet weak var sidebarViewItem: NSSplitViewItem! {
+        didSet {
+            sidebarViewItem.maximumThickness = 280
+        }
+    }
     @IBOutlet weak var contentViewItem: NSSplitViewItem!
     
     private var verticalConstraints: [NSLayoutConstraint] = []

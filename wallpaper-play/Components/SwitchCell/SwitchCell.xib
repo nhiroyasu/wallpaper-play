@@ -42,7 +42,7 @@
                                 </textField>
                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Fz4-Yr-nCX">
                                     <rect key="frame" x="-2" y="0.0" width="68" height="15"/>
-                                    <textFieldCell key="cell" lineBreakMode="clipping" title="description" id="086-Hm-1q4">
+                                    <textFieldCell key="cell" title="description" id="086-Hm-1q4">
                                         <font key="font" metaFont="cellTitle"/>
                                         <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>

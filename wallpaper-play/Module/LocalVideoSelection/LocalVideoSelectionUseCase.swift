@@ -46,6 +46,6 @@ class LocalVideoSelectionInteractor: LocalVideoSelectionUseCase {
     }
     
     func videoLoadingError() {
-        presenter.showError(msg: "動画を読み取れませんでした")
+        presenter.showError(msg: LocalizedString(key: .error_invalid_video))
     }
 }

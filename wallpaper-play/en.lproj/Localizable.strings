@@ -1,0 +1,11 @@
+"preference_launch_at_login_title" = "Launch this application at login";
+"preference_display_icon_title" = "Display application icon";
+"preference_open_window_title" = "Open this window at application launch";
+"preference_launch_at_login_description" = "If Selected, this application will launch even if your system restart.";
+"preference_display_icon_description" = "If selected, the application icon will appear in the Dock. This will be reflected after this window is closed.";
+"preference_open_window_description" = "If Selected, this window will open when launch application.";
+"error_invalid_url" = "Invalid URL";
+"error_invalid_preview" = "Preview is not set";
+"error_invalid_video" = "Invalid video";
+"error_invalid_youtube_url" = "Invalid YouTube link";
+"error_common" = "An unexpected error has occurred";

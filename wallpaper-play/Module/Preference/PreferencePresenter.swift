@@ -22,18 +22,18 @@ class PreferencePresenterImpl: PreferencePresenter {
         let preferenceCellList: [PreferenceCell] = [
             .launchAtLogin(viewData: SwitchCellViewData(
                 switchState: output.launchAtLogin,
-                title: "Launch this application at login",
-                description: "If Selected, this application will launch even if your system restart."
+                title: LocalizedString(key: .preference_launch_at_login_title),
+                description: LocalizedString(key: .preference_launch_at_login_description)
             )),
             .visibilityIcon(viewData: SwitchCellViewData(
                 switchState: output.visibilityIcon,
-                title: "Display application icon",
-                description: "If Selected, this application dock icon will be invisible. This is reflected after this window is closed."
+                title: LocalizedString(key: .preference_display_icon_title),
+                description: LocalizedString(key: .preference_display_icon_description)
             )),
             .openThisWindowAtFirst(viewData: SwitchCellViewData(
                 switchState: output.openThisWindowAtFirst,
-                title: "Open this window at application launch",
-                description: "If Selected, this window will open when launch application."
+                title: LocalizedString(key: .preference_open_window_title),
+                description: LocalizedString(key: .preference_open_window_description)
             ))
         ]
         viewController.viewData = .init(switchPreferences: preferenceCellList)

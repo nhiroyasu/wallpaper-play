@@ -705,7 +705,7 @@
             <objects>
                 <splitViewController storyboardIdentifier="VideoFormSplitViewController" id="cfq-Zz-ncd" customClass="VideoFormSplitViewController" customModule="Wallpaper_Play" customModuleProvider="target" sceneMemberID="viewController">
                     <splitViewItems>
-                        <splitViewItem canCollapse="YES" holdingPriority="260" behavior="sidebar" id="R8X-AC-cXt"/>
+                        <splitViewItem holdingPriority="255" behavior="contentList" id="R8X-AC-cXt"/>
                         <splitViewItem id="Q3Q-ze-4Hz"/>
                     </splitViewItems>
                     <splitView key="splitView" arrangesAllSubviews="NO" dividerStyle="thin" vertical="YES" id="2jz-FD-p2H">

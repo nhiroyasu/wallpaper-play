@@ -30,10 +30,10 @@ class YouTubeSelectionPresenterImpl: YouTubeSelectionPresenter {
     }
     
     func showValidateAlert() {
-        alertService.warning(msg: "YouTubeのリンクが正しくありません", completionHandler: {})
+        alertService.warning(msg: LocalizedString(key: .error_invalid_youtube_url), completionHandler: {})
     }
     
     func showCommonAlert() {
-        alertService.warning(msg: "予期せぬエラーが発生しました", completionHandler: {})
+        alertService.warning(msg: LocalizedString(key: .error_common), completionHandler: {})
     }
 }
