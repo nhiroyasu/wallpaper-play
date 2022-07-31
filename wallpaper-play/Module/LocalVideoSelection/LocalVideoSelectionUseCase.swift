@@ -14,6 +14,7 @@ protocol LocalVideoSelectionUseCase {
     func confirmVideo(url: URL)
     func clearPreview()
     func requestSettingWallpaper(_ input: VideoConfigInput)
+    func videoLoadingError()
 }
 
 class LocalVideoSelectionInteractor: LocalVideoSelectionUseCase {
@@ -42,5 +43,9 @@ class LocalVideoSelectionInteractor: LocalVideoSelectionUseCase {
     
     func requestSettingWallpaper(_ input: VideoConfigInput) {
         notificationManager.push(name: .requestVideo, param: VideoPlayValue(urls: [input.link], mute: input.mute, videoSize: input.videoSize))
+    }
+    
+    func videoLoadingError() {
+        presenter.showError(msg: "動画を読み取れませんでした")
     }
 }

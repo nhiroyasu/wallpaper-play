@@ -27,13 +27,19 @@ class LocalVideoSelectionActionImpl: LocalVideoSelectionAction {
     }
     
     func didTapVideoSelectionButton() {
-        guard let url = fileSelectionService.open(fileType: .movie) else { return }
-        useCase.confirmVideo(url: url)
+        if let url = fileSelectionService.open(fileType: .movie) {
+            useCase.confirmVideo(url: url)
+        } else {
+            useCase.videoLoadingError()
+        }
     }
     
     func didTapWallpaperButton(videoLink: String, mute: Bool, videoSize: VideoSize) {
-        guard let url = URL(string: videoLink) else { return }
-        let input = VideoConfigInput(link: url, mute: mute, videoSize: videoSize)
-        useCase.requestSettingWallpaper(input)
+        if let url = URL(string: videoLink) {
+            let input = VideoConfigInput(link: url, mute: mute, videoSize: videoSize)
+            useCase.requestSettingWallpaper(input)
+        } else {
+            useCase.videoLoadingError()
+        }
     }
 }

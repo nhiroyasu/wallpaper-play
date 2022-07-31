@@ -11,7 +11,7 @@ class WallMovieWindowController: NSWindowController {
         window?.collectionBehavior = [.canJoinAllSpaces, .fullScreenAuxiliary, .stationary, .ignoresCycle]
         window?.canBecomeVisibleWithoutLogin = true
         window?.hasShadow = false
-        window?.level = .init(Int(CGWindowLevelForKey(.desktopIconWindow)) - 1)
+        window?.level = .init(Int(CGWindowLevelForKey(.desktopWindow)) + 1)
     }
 
     override func showWindow(_ sender: Any?) {

@@ -9,14 +9,17 @@ protocol LocalVideoSelectionPresenter {
     func setPreview(videoUrl: URL)
     func setFilePath(videoUrl: URL)
     func removePreview()
+    func showError(msg: String)
 }
 
 class LocalVideoSelectionPresenterImpl: LocalVideoSelectionPresenter {
     private let avManager: AVPlayerManager
     var output: LocalVideoSelectionViewController!
+    var alertManager: AlertManager
     
     init(injector: Injectable) {
         self.avManager = injector.build()
+        self.alertManager = injector.build()
     }
     
     func initViews() {
@@ -68,5 +71,9 @@ class LocalVideoSelectionPresenterImpl: LocalVideoSelectionPresenter {
     
     func setFilePath(videoUrl: URL) {
         output.state.modify(\.videoFile, value: videoUrl)
+    }
+    
+    func showError(msg: String) {
+        alertManager.warning(msg: msg, completionHandler: {})
     }
 }
