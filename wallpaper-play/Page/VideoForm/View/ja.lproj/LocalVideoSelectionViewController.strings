@@ -1,0 +1,21 @@
+
+/* Class = "NSMenuItem"; title = "Aspect Fit"; ObjectID = "4EM-kb-dIK"; */
+"4EM-kb-dIK.title" = "Aspect Fit";
+
+/* Class = "NSTextFieldCell"; title = "プレビュー"; ObjectID = "It5-Xk-3j5"; */
+"It5-Xk-3j5.title" = "プレビュー";
+
+/* Class = "NSButtonCell"; title = "壁紙に設定する"; ObjectID = "Jdh-1O-XV6"; */
+"Jdh-1O-XV6.title" = "壁紙に設定する";
+
+/* Class = "NSTextFieldCell"; title = "Non Select File"; ObjectID = "Spa-ou-RQn"; */
+"Spa-ou-RQn.title" = "Non Select File";
+
+/* Class = "NSBox"; title = "Preview"; ObjectID = "eT8-Az-uyr"; */
+"eT8-Az-uyr.title" = "Preview";
+
+/* Class = "NSMenuItem"; title = "Aspect Fill"; ObjectID = "ij7-vA-vGR"; */
+"ij7-vA-vGR.title" = "Aspect Fill";
+
+/* Class = "NSButtonCell"; title = "動画を選択"; ObjectID = "wCg-oK-dNC"; */
+"wCg-oK-dNC.title" = "動画を選択";

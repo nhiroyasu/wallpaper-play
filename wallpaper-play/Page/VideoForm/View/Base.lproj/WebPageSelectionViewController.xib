@@ -45,7 +45,7 @@
                         </stackView>
                         <box title="Preview" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="dct-fX-OBJ">
                             <rect key="frame" x="29" y="-4" width="791" height="374"/>
-                            <view key="contentView" id="ode-eN-Vyh">
+                            <view key="contentView" id="ode-eN-Vyh" customClass="NonInteractionView" customModule="Wallpaper_Play" customModuleProvider="target">
                                 <rect key="frame" x="3" y="3" width="785" height="368"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </view>

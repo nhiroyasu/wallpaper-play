@@ -1,0 +1,21 @@
+
+/* Class = "NSSearchFieldCell"; placeholderString = "https://www.youtube.com/watch?v=jwmS1gc9S5A"; ObjectID = "7eo-L3-fmp"; */
+"7eo-L3-fmp.placeholderString" = "https://www.youtube.com/watch?v=jwmS1gc9S5A";
+
+/* Class = "NSBox"; title = "Preview"; ObjectID = "LyC-eu-Ypg"; */
+"LyC-eu-Ypg.title" = "Preview";
+
+/* Class = "NSTextFieldCell"; title = "プレビュー"; ObjectID = "Qqg-KN-r8T"; */
+"Qqg-KN-r8T.title" = "プレビュー";
+
+/* Class = "NSTextFieldCell"; title = "・YouTubeの再生には、安定したネットワーク環境が必要です"; ObjectID = "Rlo-EL-CW2"; */
+"Rlo-EL-CW2.title" = "・YouTubeの再生には、安定したネットワーク環境が必要です";
+
+/* Class = "NSButtonCell"; title = "確認"; ObjectID = "aDi-Gq-gqQ"; */
+"aDi-Gq-gqQ.title" = "確認";
+
+/* Class = "NSButtonCell"; title = "壁紙に設定する"; ObjectID = "pRD-oK-Adb"; */
+"pRD-oK-Adb.title" = "壁紙に設定する";
+
+/* Class = "NSTextFieldCell"; title = "・一部の動画は再生できない場合があります"; ObjectID = "vZy-zF-zdg"; */
+"vZy-zF-zdg.title" = "・一部の動画は再生できない場合があります";

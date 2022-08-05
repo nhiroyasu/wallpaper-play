@@ -2,6 +2,7 @@ import Foundation
 import Injectable
 
 protocol YouTubeSelectionUseCase {
+    func initialSetUp()
     func confirm(_ youtubeLink: String)
     func requestSettingWallpaper(youtubeLink: String, mute: Bool)
 }
@@ -17,6 +18,12 @@ class YouTubeSelectionInteractor: YouTubeSelectionUseCase {
         self.urlResolverService = injector.build()
         self.youtubeContentService = injector.build()
         self.notificationManager = injector.build()
+    }
+
+    func initialSetUp() {
+        if let path = Bundle.main.path(forResource: "youtube_description", ofType: "png") {
+            presenter.updatePreview(youtubeLink: URL(fileURLWithPath: path))
+        }
     }
     
     func confirm(_ youtubeLink: String) {

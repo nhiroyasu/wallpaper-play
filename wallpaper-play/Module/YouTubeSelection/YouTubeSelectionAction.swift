@@ -2,6 +2,7 @@ import Foundation
 import Injectable
 
 protocol YouTubeSelectionAction {
+    func viewDidLoad()
     func enteredYouTubeLink(_ value: String)
     func didTapConfirmButton(youtubeLink: String)
     func didTapWallpaperButton(youtubeLink: String, mute: Bool)
@@ -13,6 +14,10 @@ class YouTubeSelectionActionImpl: YouTubeSelectionAction {
     
     public init(injector: Injectable = Injector.shared) {
         self.useCase = injector.build(YouTubeSelectionUseCase.self)
+    }
+
+    func viewDidLoad() {
+        useCase.initialSetUp()
     }
     
     func enteredYouTubeLink(_ value: String) {

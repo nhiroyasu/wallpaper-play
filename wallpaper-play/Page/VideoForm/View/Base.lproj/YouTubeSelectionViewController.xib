@@ -162,7 +162,7 @@
                         </stackView>
                         <box title="Preview" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="LyC-eu-Ypg">
                             <rect key="frame" x="29" y="-4" width="660" height="407"/>
-                            <view key="contentView" id="c1l-bi-7A8">
+                            <view key="contentView" id="c1l-bi-7A8" customClass="NonInteractionView" customModule="Wallpaper_Play" customModuleProvider="target">
                                 <rect key="frame" x="3" y="3" width="654" height="401"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </view>

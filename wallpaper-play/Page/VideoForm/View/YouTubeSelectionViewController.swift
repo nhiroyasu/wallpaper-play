@@ -29,6 +29,7 @@ class YouTubeSelectionViewController: NSViewController {
         // Do view setup here.
         youtubeWebView = .init(frame: .zero, configuration: .init())
         youtubeWrappingView.fitAllAnchor(youtubeWebView)
+        action.viewDidLoad()
     }
     
     @IBAction func didTapConfirmButton(_ sender: Any) {
