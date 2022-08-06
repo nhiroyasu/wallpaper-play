@@ -13,6 +13,11 @@ enum LocalizationKey: String {
     case error_invalid_video
     case error_invalid_youtube_url
     case error_common
+
+    case term_of_use
+    case term_of_use_link
+    case privacy_policy
+    case privacy_policy_link
 }
 
 func LocalizedString(key: LocalizationKey) -> String {

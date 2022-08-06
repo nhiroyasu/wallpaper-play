@@ -9,3 +9,7 @@
 "error_invalid_video" = "動画が読み込めませんでした";
 "error_invalid_youtube_url" = "YouTubeのリンクが正しくありません";
 "error_common" = "予期せぬエラーが発生しました";
+"term_of_use" = "利用規約";
+"term_of_use_link" = "https://nhiro.notion.site/Wallpaper-Play-686bf4a0d7a34a828a2f4fde0214f230";
+"privacy_policy" = "プライバシーポリシー";
+"privacy_policy_link" = "https://nhiro.notion.site/Wallpaper-Play-a23f9b5d07a44b0fa20d46a78d1f9b0f";
