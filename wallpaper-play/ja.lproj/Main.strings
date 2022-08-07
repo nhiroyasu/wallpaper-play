@@ -2,8 +2,8 @@
 /* Class = "NSMenuItem"; title = "Customize Toolbar…"; ObjectID = "1UK-8n-QPP"; */
 "1UK-8n-QPP.title" = "Customize Toolbar…";
 
-/* Class = "NSMenuItem"; title = "WallMovie"; ObjectID = "1Xt-HY-uBw"; */
-"1Xt-HY-uBw.title" = "WallMovie";
+/* Class = "NSMenuItem"; title = "Wallpaper Play"; ObjectID = "1Xt-HY-uBw"; */
+"1Xt-HY-uBw.title" = "Wallpaper Play";
 
 /* Class = "NSMenu"; title = "Find"; ObjectID = "1b7-l0-nxx"; */
 "1b7-l0-nxx.title" = "Find";
@@ -35,8 +35,8 @@
 /* Class = "NSMenuItem"; title = "Enter Full Screen"; ObjectID = "4J7-dP-txa"; */
 "4J7-dP-txa.title" = "Enter Full Screen";
 
-/* Class = "NSMenuItem"; title = "Quit WallMovie"; ObjectID = "4sb-4s-VLi"; */
-"4sb-4s-VLi.title" = "Quit WallMovie";
+/* Class = "NSMenuItem"; title = "Quit Wallpaper Play"; ObjectID = "4sb-4s-VLi"; */
+"4sb-4s-VLi.title" = "Quit Wallpaper Play";
 
 /* Class = "NSMenuItem"; title = "Edit"; ObjectID = "5QF-Oa-p0T"; */
 "5QF-Oa-p0T.title" = "Edit";
@@ -44,8 +44,8 @@
 /* Class = "NSMenuItem"; title = "Copy Style"; ObjectID = "5Vv-lz-BsD"; */
 "5Vv-lz-BsD.title" = "Copy Style";
 
-/* Class = "NSMenuItem"; title = "About WallMovie"; ObjectID = "5kV-Vb-QxS"; */
-"5kV-Vb-QxS.title" = "About WallMovie";
+/* Class = "NSMenuItem"; title = "About Wallpaper Play"; ObjectID = "5kV-Vb-QxS"; */
+"5kV-Vb-QxS.title" = "About Wallpaper Play";
 
 /* Class = "NSMenuItem"; title = "Redo"; ObjectID = "6dh-zS-Vam"; */
 "6dh-zS-Vam.title" = "Redo";
@@ -86,8 +86,8 @@
 /* Class = "NSMenu"; title = "Help"; ObjectID = "F2S-fz-NVQ"; */
 "F2S-fz-NVQ.title" = "Help";
 
-/* Class = "NSMenuItem"; title = "WallMovie Help"; ObjectID = "FKE-Sm-Kum"; */
-"FKE-Sm-Kum.title" = "WallMovie Help";
+/* Class = "NSMenuItem"; title = "Wallpaper Play Help"; ObjectID = "FKE-Sm-Kum"; */
+"FKE-Sm-Kum.title" = "Wallpaper Play Help";
 
 /* Class = "NSMenuItem"; title = "Text"; ObjectID = "Fal-I4-PZk"; */
 "Fal-I4-PZk.title" = "Text";
@@ -167,8 +167,8 @@
 /* Class = "NSMenuItem"; title = "Baseline"; ObjectID = "OaQ-X3-Vso"; */
 "OaQ-X3-Vso.title" = "Baseline";
 
-/* Class = "NSMenuItem"; title = "Hide WallMovie"; ObjectID = "Olw-nP-bQN"; */
-"Olw-nP-bQN.title" = "Hide WallMovie";
+/* Class = "NSMenuItem"; title = "Hide Wallpaper Play"; ObjectID = "Olw-nP-bQN"; */
+"Olw-nP-bQN.title" = "Hide Wallpaper Play";
 
 /* Class = "NSMenuItem"; title = "Find Previous"; ObjectID = "OwM-mh-QMV"; */
 "OwM-mh-QMV.title" = "Find Previous";
@@ -362,8 +362,8 @@
 /* Class = "NSMenu"; title = "Kern"; ObjectID = "tlD-Oa-oAM"; */
 "tlD-Oa-oAM.title" = "Kern";
 
-/* Class = "NSMenu"; title = "WallMovie"; ObjectID = "uQy-DD-JDr"; */
-"uQy-DD-JDr.title" = "WallMovie";
+/* Class = "NSMenu"; title = "Wallpaper Play"; ObjectID = "uQy-DD-JDr"; */
+"uQy-DD-JDr.title" = "Wallpaper Play";
 
 /* Class = "NSMenuItem"; title = "Cut"; ObjectID = "uRl-iY-unG"; */
 "uRl-iY-unG.title" = "Cut";
