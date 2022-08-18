@@ -11,6 +11,7 @@ class WallMovieWindowController: NSWindowController {
         window?.collectionBehavior = [.canJoinAllSpaces, .fullScreenAuxiliary, .stationary, .ignoresCycle]
         window?.canBecomeVisibleWithoutLogin = true
         window?.hasShadow = false
+        window?.canHide = false
         window?.level = .init(Int(CGWindowLevelForKey(.desktopWindow)) + 1)
     }
 
