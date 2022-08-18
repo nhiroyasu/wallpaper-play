@@ -56,6 +56,7 @@ class ApplicationServiceImpl: ApplicationService {
             videoFormWindowController.contentViewController = coordinator.create()
         }
         videoFormWindowController.showWindow(nil)
+        NSApp.activate(ignoringOtherApps: true)
     }
     
     func didTapPreferenceItem() {
@@ -67,6 +68,7 @@ class ApplicationServiceImpl: ApplicationService {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
             self.notificationManager.push(name: .selectedSideMenu, param: SideMenuItem.preference)
         }
+        NSApp.activate(ignoringOtherApps: true)
     }
     
     private func setUpRequestYouTubeNotification() {
