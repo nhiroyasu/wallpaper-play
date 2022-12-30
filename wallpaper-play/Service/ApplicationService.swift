@@ -4,7 +4,6 @@ import RealmSwift
 
 protocol ApplicationService {
     func applicationDidFinishLaunching()
-    func applicationDidBecomeActive()
     func didTapWallPaperItem()
     func didTapPreferenceItem()
 }
@@ -20,7 +19,7 @@ class ApplicationServiceImpl: ApplicationService {
     private let userSetting: UserSettingService
     private let appManager: AppManager
     private lazy var videoFormWindowController: VideoFormWindowController = VideoFormWindowController(windowNibName: .windowController.videForm)
-    
+
     init(injector: Injectable) {
         realmService = injector.build()
         notificationManager = injector.build()
@@ -42,14 +41,6 @@ class ApplicationServiceImpl: ApplicationService {
         openVideoFormIfNeeded()
     }
 
-    func applicationDidBecomeActive() {
-        if (videoFormWindowController.contentViewController as? VideoFormSplitViewController) == nil {
-            let coordinator = VideoFormCoordinator()
-            videoFormWindowController.contentViewController = coordinator.create()
-        }
-        videoFormWindowController.showWindow(nil)
-    }
-    
     func didTapWallPaperItem() {
         if (videoFormWindowController.contentViewController as? VideoFormSplitViewController) == nil {
             let coordinator = VideoFormCoordinator()
