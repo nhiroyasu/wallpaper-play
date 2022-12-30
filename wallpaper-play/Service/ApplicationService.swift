@@ -1,11 +1,13 @@
-import AppKit
+import Foundation
 import Injectable
 import RealmSwift
+import AppKit
 
 protocol ApplicationService {
     func applicationDidFinishLaunching()
     func didTapWallPaperItem()
     func didTapPreferenceItem()
+    func dockMenu() -> NSMenu
 }
 
 class ApplicationServiceImpl: ApplicationService {
@@ -13,22 +15,25 @@ class ApplicationServiceImpl: ApplicationService {
     private let realmService: RealmService
     private let notificationManager: NotificationManager
     private let wallpaperWindowManager: WallpaperWindowService
+    private let videoFormWindowPresenter: VideoFormWindowPresenter
     private let wallpaperHistoryService: WallpaperHistoryService
     private let applicationFileManager: ApplicationFileManager
     private let fileManager: FileManager
     private let userSetting: UserSettingService
     private let appManager: AppManager
-    private lazy var videoFormWindowController: VideoFormWindowController = VideoFormWindowController(windowNibName: .windowController.videForm)
+    private let dockMenuBuilder: DockMenuBuilder
 
     init(injector: Injectable) {
         realmService = injector.build()
         notificationManager = injector.build()
         wallpaperWindowManager = injector.build()
+        videoFormWindowPresenter = injector.build()
         wallpaperHistoryService = injector.build()
         applicationFileManager = injector.build()
         userSetting = injector.build()
         appManager = injector.build()
         fileManager = .default
+        dockMenuBuilder = injector.build()
     }
     
     func applicationDidFinishLaunching() {
@@ -42,24 +47,20 @@ class ApplicationServiceImpl: ApplicationService {
     }
 
     func didTapWallPaperItem() {
-        if (videoFormWindowController.contentViewController as? VideoFormSplitViewController) == nil {
-            let coordinator = VideoFormCoordinator()
-            videoFormWindowController.contentViewController = coordinator.create()
-        }
-        videoFormWindowController.showWindow(nil)
-        NSApp.activate(ignoringOtherApps: true)
+        videoFormWindowPresenter.show()
+        appManager.activate()
     }
     
     func didTapPreferenceItem() {
-        if (videoFormWindowController.contentViewController as? VideoFormSplitViewController) == nil {
-            let coordinator = VideoFormCoordinator()
-            videoFormWindowController.contentViewController = coordinator.create()
-        }
-        videoFormWindowController.showWindow(nil)
+        videoFormWindowPresenter.show()
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
             self.notificationManager.push(name: .selectedSideMenu, param: SideMenuItem.preference)
         }
-        NSApp.activate(ignoringOtherApps: true)
+        appManager.activate()
+    }
+
+    func dockMenu() -> NSMenu {
+        dockMenuBuilder.build()
     }
     
     private func setUpRequestYouTubeNotification() {
@@ -135,7 +136,7 @@ class ApplicationServiceImpl: ApplicationService {
     }
     
     private func setUpAppIcon() {
-        NSApp.setActivationPolicy(userSetting.visibilityIcon ? .regular : .accessory)
+        appManager.setVisibilityIcon(userSetting.visibilityIcon)
     }
     
     private func setUpRequestVisibilityIconNotification() {
@@ -147,11 +148,7 @@ class ApplicationServiceImpl: ApplicationService {
 
     private func openVideoFormIfNeeded() {
         if userSetting.openThisWindowAtFirst {
-            if (videoFormWindowController.contentViewController as? VideoFormSplitViewController) == nil {
-                let coordinator = VideoFormCoordinator()
-                videoFormWindowController.contentViewController = coordinator.create()
-            }
-            videoFormWindowController.showWindow(nil)
+            videoFormWindowPresenter.show()
         }
     }
 }

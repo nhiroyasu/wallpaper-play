@@ -1,8 +1,20 @@
-//
-//  DockMenuBuilder.swift
-//  Wallpaper Play
-//
-//  Created by NH on 2022/12/30.
-//
+import AppKit
+import Injectable
 
-import Foundation
+protocol DockMenuBuilder {
+    func build() -> NSMenu
+}
+
+final class DockMenuBuilderImpl: DockMenuBuilder {
+    private let dockMenuItemBuilder: DockMenuItemBuilder
+
+    init(injector: Injectable) {
+        dockMenuItemBuilder = injector.build()
+    }
+
+    func build() -> NSMenu {
+        let menu = NSMenu()
+        menu.addItem(dockMenuItemBuilder.preferenceMenu())
+        return menu
+    }
+}

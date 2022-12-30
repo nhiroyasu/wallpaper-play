@@ -22,6 +22,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationSupportsSecureRestorableState(_ app: NSApplication) -> Bool {
         return true
     }
+
+    func applicationDockMenu(_ sender: NSApplication) -> NSMenu? {
+        applicationService.dockMenu()
+    }
     
     private func buildStatusMenu() {
         if let button = statusItem.button {

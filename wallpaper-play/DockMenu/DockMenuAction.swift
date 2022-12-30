@@ -1,8 +1,17 @@
-//
-//  DockMenuAction.swift
-//  Wallpaper Play
-//
-//  Created by NH on 2022/12/30.
-//
+import Injectable
 
-import Foundation
+protocol DockMenuAction {
+    func preferenceAction()
+}
+
+final class DockMenuActionImpl: DockMenuAction {
+    private let useCase: DockMenuUseCase
+
+    init(injector: Injectable) {
+        useCase = injector.build()
+    }
+
+    func preferenceAction() {
+        useCase.showPreference()
+    }
+}
