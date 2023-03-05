@@ -3,6 +3,7 @@ import AppKit
 protocol AppManager {
     func setVisibilityIcon(_ value: Bool)
     func openBrowser(url: URL)
+    func activate()
 }
 
 class AppManagerImpl: AppManager {
@@ -12,5 +13,9 @@ class AppManagerImpl: AppManager {
 
     func openBrowser(url: URL) {
         NSWorkspace.shared.open(url)
+    }
+
+    func activate() {
+        NSApp.activate(ignoringOtherApps: true)
     }
 }
