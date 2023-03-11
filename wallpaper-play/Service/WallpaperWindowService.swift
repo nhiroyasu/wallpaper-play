@@ -20,14 +20,24 @@ class WallpaperWindowServiceImpl: WallpaperWindowService {
     func display(display: WallpaperKind) {
         windowControllerList.forEach { $0.close() }
         windowControllerList = []
+        let oldWallpapers = [Int: URL]()
+        let oldWallpapersBackup = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).first!.appending(path: "wallpapers_backup.json"))
         
         NSScreen.screens.forEach { [weak self] screen in
             let windowController = buildWallpaperWindow(screen: screen)
             self?.windowControllerList.append(windowController)
             windowController.showWindow(nil, display: display)
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                NSWorkspace.shared.setDesktopImageURL(WallMovieThumbnailGenerator.generate(for: display), for: screen)
                 windowController.fitFrame(for: screen)
             }
+        }
+        
+        if let _ = try? JSONEncoder().encode(oldWallpapers).write(to: oldWallpapersBackup) {
+            let newWallpaper = WallMovieThumbnailGenerator.generate(for: display)!
+            NSScreen.screens.forEach { oldWallpapers.updateValue(NSWorkspace.shared.setDesktopImageURL(newWallpaper, for: screen)!, forKey: screen.hashValue) }
+        } else {
+            print("Failed to back up wallpapers! Refusing to set up images that would line up the menubar!")
         }
     }
     
