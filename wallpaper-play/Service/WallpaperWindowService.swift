@@ -20,22 +20,29 @@ class WallpaperWindowServiceImpl: WallpaperWindowService {
     func display(display: WallpaperKind) {
         windowControllerList.forEach { $0.close() }
         windowControllerList = []
-        let oldWallpapers = [Int: URL]()
-        let oldWallpapersBackup = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).first!.appending(path: "wallpapers_backup.json"))
         
         NSScreen.screens.forEach { [weak self] screen in
             let windowController = buildWallpaperWindow(screen: screen)
             self?.windowControllerList.append(windowController)
             windowController.showWindow(nil, display: display)
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                NSWorkspace.shared.setDesktopImageURL(WallMovieThumbnailGenerator.generate(for: display), for: screen)
                 windowController.fitFrame(for: screen)
             }
         }
         
-        if let _ = try? JSONEncoder().encode(oldWallpapers).write(to: oldWallpapersBackup) {
-            let newWallpaper = WallMovieThumbnailGenerator.generate(for: display)!
-            NSScreen.screens.forEach { oldWallpapers.updateValue(NSWorkspace.shared.setDesktopImageURL(newWallpaper, for: screen)!, forKey: screen.hashValue) }
+        // Set the cached thumbnail as the wallpaper
+        // FIXME: Bug in macOS Ventura (13.2.1)  prevents setting the wallpaper on others than the main monitor! See https://cdn.discordapp.com/attachments/1061735833889149049/1084525937468645437/Bildschirmaufnahme_2023-03-12_um_18.17.31.mov
+        // FIXME: The menu bar does not seem to have a color similiar to the background, have a look at this: https://cdn.discordapp.com/attachments/1061735833889149049/1084526654287777882/Bildschirmfoto_2023-03-12_um_18.21.34.png
+        if let _ = try? SystemWallpaperServiceImpl().backupWallpapers() {
+            let newWallpaper =  ApplicationFileManagerImpl().getDirectory(.latestThumb)!.appendingPathComponent("latest.png")
+            if FileManager.default.fileExists(atPath: newWallpaper.path) {
+                NSScreen.screens.forEach { screen in
+                    if let _ = try? NSWorkspace.shared.setDesktopImageURL(newWallpaper, for: screen) {} else {
+                        print("Failed to set wallpaper for \(screen)")
+                    }
+                }
+                NSStatusBar.system.removeStatusItem(NSStatusBar.system.statusItem(withLength: 200))
+            }
         } else {
             print("Failed to back up wallpapers! Refusing to set up images that would line up the menubar!")
         }

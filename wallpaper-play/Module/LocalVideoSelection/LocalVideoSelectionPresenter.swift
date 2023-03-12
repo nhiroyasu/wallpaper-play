@@ -2,6 +2,7 @@ import Foundation
 import AppKit
 import AVFoundation
 import Injectable
+import ImageIO
 
 protocol LocalVideoSelectionPresenter {
     func initViews()
@@ -24,6 +25,7 @@ class LocalVideoSelectionPresenterImpl: LocalVideoSelectionPresenter {
     
     func initViews() {
         output.videoView = .init(frame: output.videoWrappingView.frame)
+        output.videoView.translatesAutoresizingMaskIntoConstraints = false
         output.videoWrappingView.fitAllAnchor(output.videoView)
     }
     
@@ -31,6 +33,12 @@ class LocalVideoSelectionPresenterImpl: LocalVideoSelectionPresenter {
         let generator = AVAssetImageGenerator(asset: AVAsset(url: videoUrl))
         do {
             let image = try generator.copyCGImage(at: CMTime(seconds: 0.0, preferredTimescale: CMTimeScale(NSEC_PER_SEC)), actualTime: nil)
+            
+            // Cache thumbnail
+            let dest = CGImageDestinationCreateWithURL(ApplicationFileManagerImpl().getDirectory(.latestThumb)!.appendingPathComponent("latest.png") as CFURL, kUTTypePNG, 1, nil)
+            CGImageDestinationAddImage(dest!, image, nil)
+            CGImageDestinationFinalize(dest!)
+            
             output.thumbnailImageView.image = image.toNSImage
         } catch {
             #if DEBUG

@@ -88,21 +88,5 @@ class WallMoviePresenterImpl: NSObject, WallMoviePresenter {
     }
 }
 
-class WallMovieThumbnailGenerator {
-    static func generate(for wallpaper: WallpaperKind) -> URL? {
-        let asset = AVAsset(url: wallpaper)
-        let avGen = AVAssetImageGenerator(asset: asset)
-        if let image = avGen.copyCGImage(at: CMTime(seconds: 1, preferredTimescale: 60), actualTime: nil) {
-            let destURL = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).first!.appending(path: "latest/thumb.png")
-            let destIMG = CGImageDestinationCreateWithURL(destURL as CFURL, kUTTypePNG, 1, nil)
-            CGImageDestinationAddImage(destIMG, image, nil)
-            CGImageDestinationFinalize(destIMG)
-            return destURL
-        } else {
-            return nil
-        }
-    }
-}
-
 extension WallMoviePresenterImpl: WKUIDelegate, WKNavigationDelegate {
 }
