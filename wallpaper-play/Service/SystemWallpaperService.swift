@@ -29,6 +29,11 @@ class SystemWallpaperServiceImpl: SystemWallpaperService {
     
     func restoreWallpaper() throws {
         let wallpapers = try JSONSerialization.jsonObject(with: Data(contentsOf: ApplicationFileManagerImpl().getDirectory(.latestThumb)!.appendingPathComponent("wallpaper_backup.json")), options: []) as! [String]
+        guard wallpapers.count > 0 else { return }
+        for (idx, screen) in NSScreen.screens.enumerated() {
+            let idx = idx < wallpapers.count-1 ? idx : wallpapers.count-1
+            try NSWorkspace.shared.setDesktopImageURL(URL(fileURLWithPath: wallpapers[idx]), for: screen)
+        }
         for (idx, wallpaperPath) in wallpapers.enumerated() {
             if idx < NSScreen.screens.count-1 {
                 try NSWorkspace.shared.setDesktopImageURL(URL(fileURLWithPath: wallpaperPath), for: NSScreen.screens[idx])
