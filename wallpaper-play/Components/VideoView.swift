@@ -6,7 +6,6 @@ class VideoView: NSView {
     override init(frame: NSRect) {
         super.init(frame: frame)
         self.wantsLayer = true
-        self.translatesAutoresizingMaskIntoConstraints = false
     }
     
     required init?(coder: NSCoder) {
