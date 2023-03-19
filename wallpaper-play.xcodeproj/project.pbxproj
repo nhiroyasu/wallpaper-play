@@ -54,7 +54,6 @@
 		4F8A58F6284CA01B00557FDD /* WallMovieUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8A58F5284CA01B00557FDD /* WallMovieUITests.swift */; };
 		4F8A58F8284CA01B00557FDD /* WallMovieUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8A58F7284CA01B00557FDD /* WallMovieUITestsLaunchTests.swift */; };
 		4F8A5907284CA04F00557FDD /* WallMovieWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8A5906284CA04F00557FDD /* WallMovieWindowController.swift */; };
-		4F8A590B284CA0FA00557FDD /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F8A590A284CA0FA00557FDD /* WebKit.framework */; };
 		4F8A590D284CA1B200557FDD /* YouTubeWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8A590C284CA1B200557FDD /* YouTubeWebView.swift */; };
 		4F8A591B284CA1FB00557FDD /* AppContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8A5915284CA1FB00557FDD /* AppContainer.swift */; };
 		4F8A5922284CA28100557FDD /* FileSelectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8A5921284CA28100557FDD /* FileSelectionManager.swift */; };
@@ -182,7 +181,6 @@
 		4F8A58F5284CA01B00557FDD /* WallMovieUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallMovieUITests.swift; sourceTree = "<group>"; };
 		4F8A58F7284CA01B00557FDD /* WallMovieUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallMovieUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		4F8A5906284CA04F00557FDD /* WallMovieWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallMovieWindowController.swift; sourceTree = "<group>"; };
-		4F8A590A284CA0FA00557FDD /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		4F8A590C284CA1B200557FDD /* YouTubeWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubeWebView.swift; sourceTree = "<group>"; };
 		4F8A5915284CA1FB00557FDD /* AppContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppContainer.swift; sourceTree = "<group>"; };
 		4F8A5921284CA28100557FDD /* FileSelectionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileSelectionManager.swift; sourceTree = "<group>"; };
@@ -245,7 +243,6 @@
 			files = (
 				4F6A4D052896444100F7B40D /* LaunchAtLogin in Frameworks */,
 				4FDF1DF2285EC9B700ABBE8D /* Injectable in Frameworks */,
-				4F8A590B284CA0FA00557FDD /* WebKit.framework in Frameworks */,
 				4F03CEDF285A09FA009FDC6F /* Realm in Frameworks */,
 				4F03CEE1285A09FA009FDC6F /* RealmSwift in Frameworks */,
 				4FDF1DF5285ECA1900ABBE8D /* Swinject in Frameworks */,
@@ -321,7 +318,6 @@
 				4F8A58EA284CA01B00557FDD /* wallpaper-playTests */,
 				4F8A58F4284CA01B00557FDD /* wallpaper-playUITests */,
 				4F8A58D7284CA01A00557FDD /* Products */,
-				4F8A5909284CA0FA00557FDD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -409,14 +405,6 @@
 				4F2161FA2850D1FB000673EF /* AntialiasedImageView.swift */,
 			);
 			path = Components;
-			sourceTree = "<group>";
-		};
-		4F8A5909284CA0FA00557FDD /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				4F8A590A284CA0FA00557FDD /* WebKit.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		4F8A590E284CA1CE00557FDD /* Module */ = {
