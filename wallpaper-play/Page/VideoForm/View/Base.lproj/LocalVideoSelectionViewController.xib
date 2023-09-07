@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="20037" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="21701" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="20037"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="21701"/>
         <capability name="NSView safe area layout guides" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,6 +11,7 @@
         <customObject id="-2" userLabel="File's Owner" customClass="LocalVideoSelectionViewController" customModule="Wallpaper_Play" customModuleProvider="target">
             <connections>
                 <outlet property="filePathLabel" destination="0D2-4F-sbd" id="yze-Pj-Mhd"/>
+                <outlet property="muteToggleButton" destination="rey-xp-nBK" id="LV6-sH-6SH"/>
                 <outlet property="thumbnailImageView" destination="ck0-NJ-s7N" id="ZWT-Jn-7Od"/>
                 <outlet property="videoSizePopUpButton" destination="1H9-al-22h" id="dQJ-gr-iVl"/>
                 <outlet property="videoWrappingView" destination="S06-ky-Owr" id="ysL-sy-VKo"/>
@@ -104,7 +105,7 @@
                     <rect key="frame" x="0.0" y="64" width="770" height="418"/>
                     <subviews>
                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Gxh-F4-BdF">
-                            <rect key="frame" x="30" y="383" width="61" height="19"/>
+                            <rect key="frame" x="31" y="383" width="61" height="19"/>
                             <textFieldCell key="cell" lineBreakMode="clipping" title="Preview" id="It5-Xk-3j5">
                                 <font key="font" metaFont="system" size="16"/>
                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -114,7 +115,7 @@
                         <box title="Preview" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="eT8-Az-uyr">
                             <rect key="frame" x="29" y="-4" width="712" height="381"/>
                             <view key="contentView" id="S06-ky-Owr">
-                                <rect key="frame" x="3" y="3" width="706" height="375"/>
+                                <rect key="frame" x="4" y="5" width="704" height="373"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </view>
                         </box>
@@ -132,7 +133,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="770" height="64"/>
                     <subviews>
                         <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="16" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" fixedFrame="YES" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dAo-6I-PDK">
-                            <rect key="frame" x="32" y="18" width="238" height="28"/>
+                            <rect key="frame" x="32" y="18" width="309" height="28"/>
                             <subviews>
                                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="2H9-oN-wvY">
                                     <rect key="frame" x="-6" y="-6" width="139" height="40"/>
@@ -158,12 +159,21 @@
                                         </menu>
                                     </popUpButtonCell>
                                 </popUpButton>
+                                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="rey-xp-nBK">
+                                    <rect key="frame" x="252" y="5" width="57" height="18"/>
+                                    <buttonCell key="cell" type="check" title="Mute" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="N1i-OQ-nmw">
+                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                        <font key="font" metaFont="system"/>
+                                    </buttonCell>
+                                </button>
                             </subviews>
                             <visibilityPriorities>
                                 <integer value="1000"/>
                                 <integer value="1000"/>
+                                <integer value="1000"/>
                             </visibilityPriorities>
                             <customSpacing>
+                                <real value="3.4028234663852886e+38"/>
                                 <real value="3.4028234663852886e+38"/>
                                 <real value="3.4028234663852886e+38"/>
                             </customSpacing>

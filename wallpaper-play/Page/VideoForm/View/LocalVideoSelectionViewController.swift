@@ -20,6 +20,7 @@ class LocalVideoSelectionViewController: NSViewController {
             ]
         }
     }
+    @IBOutlet weak var muteToggleButton: NSButton!
     var videoView: VideoView!
     var action: LocalVideoSelectionAction!
     
@@ -59,7 +60,7 @@ class LocalVideoSelectionViewController: NSViewController {
     @IBAction func didTapSetWallpaperButton(_ sender: Any) {
         guard let videoSize = VideoSize(rawValue: videoSizePopUpButton.indexOfSelectedItem),
               let videoLink = state.get(\.videoFile) else { return }
-        action?.didTapWallpaperButton(videoLink: videoLink.absoluteString, mute: true, videoSize: videoSize)
+        action?.didTapWallpaperButton(videoLink: videoLink.absoluteString, mute: isMute(), videoSize: videoSize)
     }
     
     private func setUpVideoSizePopUpButton() {
@@ -67,5 +68,9 @@ class LocalVideoSelectionViewController: NSViewController {
             .init(title: $0.text, action: nil, keyEquivalent: "")
         }
         videoSizePopUpButton.selectItem(at: 0)
+    }
+
+    private func isMute() -> Bool {
+        muteToggleButton.state == .on
     }
 }

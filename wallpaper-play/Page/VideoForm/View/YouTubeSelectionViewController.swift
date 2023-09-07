@@ -12,7 +12,8 @@ class YouTubeSelectionViewController: NSViewController {
     @IBOutlet weak var youtubeWrappingView: NSView!
     public var youtubeWebView: YoutubeWebView!
     @IBOutlet weak var wallpaperButton: NSButton!
-    
+    @IBOutlet weak var muteToggleButton: NSButton!
+
     var action: YouTubeSelectionAction
     
     init(action: YouTubeSelectionAction) {
@@ -37,7 +38,11 @@ class YouTubeSelectionViewController: NSViewController {
     }
     
     @IBAction func didTapWallpaperButton(_ sender: Any) {
-        action.didTapWallpaperButton(youtubeLink: youtubeLinkTextField.stringValue, mute: true)
+        action.didTapWallpaperButton(youtubeLink: youtubeLinkTextField.stringValue, mute: isMute())
+    }
+
+    private func isMute() -> Bool {
+        muteToggleButton.state == .on
     }
 }
 
