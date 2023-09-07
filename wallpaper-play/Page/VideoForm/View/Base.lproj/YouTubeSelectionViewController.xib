@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="20037" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="21701" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="20037"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="21701"/>
         <capability name="NSView safe area layout guides" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -10,6 +10,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="YouTubeSelectionViewController" customModule="Wallpaper_Play" customModuleProvider="target">
             <connections>
+                <outlet property="muteToggleButton" destination="ePb-UZ-lgx" id="krw-Vg-dFn"/>
                 <outlet property="thumbnailImageView" destination="QDl-gH-3ZP" id="uh3-Ne-Hpx"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
                 <outlet property="wallpaperButton" destination="epg-9M-XK3" id="CFX-h8-MDF"/>
@@ -142,7 +143,7 @@
                     <rect key="frame" x="0.0" y="64" width="718" height="444"/>
                     <subviews>
                         <stackView distribution="fill" orientation="horizontal" alignment="baseline" spacing="16" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6JD-RC-vZg">
-                            <rect key="frame" x="32" y="409" width="57" height="19"/>
+                            <rect key="frame" x="33" y="409" width="57" height="19"/>
                             <subviews>
                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fe6-NZ-4KY">
                                     <rect key="frame" x="-2" y="0.0" width="61" height="19"/>
@@ -163,7 +164,7 @@
                         <box title="Preview" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="LyC-eu-Ypg">
                             <rect key="frame" x="29" y="-4" width="660" height="407"/>
                             <view key="contentView" id="c1l-bi-7A8" customClass="NonInteractionView" customModule="Wallpaper_Play" customModuleProvider="target">
-                                <rect key="frame" x="3" y="3" width="654" height="401"/>
+                                <rect key="frame" x="4" y="5" width="652" height="399"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </view>
                         </box>
@@ -181,7 +182,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="718" height="64"/>
                     <subviews>
                         <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="16" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DL5-jX-KNB">
-                            <rect key="frame" x="32" y="18" width="198" height="28"/>
+                            <rect key="frame" x="32" y="18" width="269" height="28"/>
                             <subviews>
                                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="epg-9M-XK3">
                                     <rect key="frame" x="-6" y="-6" width="139" height="40"/>
@@ -194,8 +195,15 @@
                                         <action selector="didTapWallpaperButton:" target="-2" id="Eij-Ig-9yC"/>
                                     </connections>
                                 </button>
+                                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ePb-UZ-lgx">
+                                    <rect key="frame" x="141" y="5" width="57" height="18"/>
+                                    <buttonCell key="cell" type="check" title="Mute" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="Chy-C4-5eh">
+                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                        <font key="font" metaFont="system"/>
+                                    </buttonCell>
+                                </button>
                                 <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="16" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rE4-19-fNh">
-                                    <rect key="frame" x="143" y="6" width="55" height="16"/>
+                                    <rect key="frame" x="214" y="6" width="55" height="16"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="16" id="4eH-hJ-sm3"/>
                                         <constraint firstAttribute="width" constant="55" id="TNR-a2-2Mb"/>
@@ -205,8 +213,10 @@
                             <visibilityPriorities>
                                 <integer value="1000"/>
                                 <integer value="1000"/>
+                                <integer value="1000"/>
                             </visibilityPriorities>
                             <customSpacing>
+                                <real value="3.4028234663852886e+38"/>
                                 <real value="3.4028234663852886e+38"/>
                                 <real value="3.4028234663852886e+38"/>
                             </customSpacing>
