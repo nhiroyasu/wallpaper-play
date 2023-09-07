@@ -21,3 +21,4 @@ class VideoView: NSView {
         self.layer?.addSublayer(playerLayer)
     }
 }
+ 

@@ -13,12 +13,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
         applicationService = Injector.shared.build()
         applicationService.applicationDidFinishLaunching()
+        
+        try? SystemWallpaperServiceImpl().backupWallpapers()
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
+        try? SystemWallpaperServiceImpl().restoreWallpaper()
     }
-
+    
     func applicationSupportsSecureRestorableState(_ app: NSApplication) -> Bool {
         return true
     }
