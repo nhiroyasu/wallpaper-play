@@ -3,6 +3,7 @@ import Injectable
 
 protocol WebPageSelectionUseCase {
     func setUpPreview(for urlString: String)
+    func clearPreview()
     func setUpWallpaper(for url: URL)
     func showError(message: String)
 }
@@ -24,6 +25,10 @@ class WebPageSelectionInteractor: WebPageSelectionUseCase {
             presenter.clearPreview()
             presenter.showAlert(message: LocalizedString(key: .error_invalid_url))
         }
+    }
+
+    func clearPreview() {
+        presenter.clearPreview()
     }
     
     func setUpWallpaper(for url: URL) {

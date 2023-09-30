@@ -3,10 +3,10 @@
     {
       "identity" : "injectable",
       "kind" : "remoteSourceControl",
-      "location" : "git@github.com:nhiroyasu/Injectable.git",
+      "location" : "https://github.com/nhiroyasu/Injectable",
       "state" : {
-        "revision" : "580e4fb209fb65383810c277aeab0db4238babb9",
-        "version" : "1.0.0"
+        "revision" : "c161cbae5ae4d331cb94b4e88aeb09f59cce7e9f",
+        "version" : "1.0.3"
       }
     },
     {
@@ -14,8 +14,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/sindresorhus/LaunchAtLogin",
       "state" : {
-        "branch" : "main",
-        "revision" : "e8171b3e38a2816f579f58f3dac1522aa39efe41"
+        "revision" : "7ad6331f9c38953eb1ce8737758e18f7607e984a",
+        "version" : "5.0.0"
       }
     },
     {

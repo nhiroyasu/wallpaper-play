@@ -24,7 +24,7 @@ protocol WallMoviePresenter {
 class WallMoviePresenterImpl: NSObject, WallMoviePresenter {
     private let avManager: AVPlayerManager
     private let youtubeContentService: YouTubeContentsService
-    var output: WallMovieViewController!
+    weak var output: WallMovieViewController!
 
     init(injector: Injectable) {
         self.avManager = injector.build(AVPlayerManager.self)
