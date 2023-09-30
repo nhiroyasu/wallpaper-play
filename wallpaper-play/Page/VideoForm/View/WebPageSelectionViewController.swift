@@ -38,6 +38,11 @@ class WebPageSelectionViewController: NSViewController {
         observeState()
         observeParams()
     }
+
+    override func viewDidDisappear() {
+        super.viewDidDisappear()
+        action.viewDidDisapper()
+    }
     
     private func observeState() {
         inputObservation = state.observe(\.input, options: [.new], changeHandler: { state, changeValue in

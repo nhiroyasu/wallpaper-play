@@ -3,6 +3,7 @@ import Injectable
 
 protocol WebPageSelectionAction {
     func viewDidLoad()
+    func viewDidDisapper()
     func didTapConfirmButton()
     func didTapSetWallpaperButton()
     func enteredSearchField()
@@ -19,6 +20,10 @@ class WebPageSelectionActionImpl: WebPageSelectionAction {
     }
     
     func viewDidLoad() {}
+
+    func viewDidDisapper() {
+        useCase.clearPreview()
+    }
     
     func didTapConfirmButton() {
         useCase.setUpPreview(for: state.input)
