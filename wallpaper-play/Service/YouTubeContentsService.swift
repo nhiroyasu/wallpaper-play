@@ -16,6 +16,7 @@ enum YouTubeThumbnailQuality: String {
 protocol YouTubeContentsService {
     func buildFullIframeUrl(id: String, mute: Bool) -> URL?
     func buildThumbnailUrl(id: String, quality: YouTubeThumbnailQuality) -> URL?
+    func replaceMutedIframeUrl(url: URL) -> URL?
 }
 
 class YouTubeContentsServiceImpl: YouTubeContentsService {
@@ -28,5 +29,10 @@ class YouTubeContentsServiceImpl: YouTubeContentsService {
     func buildThumbnailUrl(id: String, quality: YouTubeThumbnailQuality) -> URL? {
         let path = "https://img.youtube.com/vi/\(id)/\(quality.rawValue).jpg"
         return URL(string: path)
+    }
+
+    func replaceMutedIframeUrl(url: URL) -> URL? {
+        let mutedUrlStr = url.absoluteString.replacingOccurrences(of: "mute=0", with: "mute=1")
+        return URL(string: mutedUrlStr)
     }
 }
