@@ -16,13 +16,18 @@ class YouTubeSelectionPresenterImpl: YouTubeSelectionPresenter {
     init(injector: Injectable) {
         self.alertService = injector.build()
     }
-
+    
     func updatePreview(youtubeLink: URL) {
         output.youtubeWebView.load(URLRequest(url: youtubeLink))
     }
     
     func updateThumbnail(url: URL) {
         output.thumbnailImageView.setImage(url: url)
+        
+        if let target = ApplicationFileManagerImpl().getDirectory(.latestThumb)?.appendingPathComponent("latest.png"), let _ = try? Data(contentsOf: url).write(to: target) {} else {
+            // For now, only log. Will switch to guard if it has any serious consequences
+            NSLog("Could not save thumbnail! Proceeding without wallpaper...")
+        }
     }
     
     func setEnableWallpaperButton(_ value: Bool) {

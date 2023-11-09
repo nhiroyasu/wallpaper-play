@@ -4,6 +4,7 @@ enum SupportDirectory: String {
     case realm = "realm"
     case debugRealm = "debug-realm"
     case latestVideo = "latest-video"
+    case latestThumb = "latest-thumb"
 }
 
 protocol ApplicationFileManager {
@@ -33,7 +34,7 @@ class ApplicationFileManagerImpl: ApplicationFileManager {
     }
     
     private func getApplicationSupportPath() throws -> URL {
-        try fileManager.url(for: .applicationSupportDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+        try! fileManager.url(for: .applicationSupportDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
     }
     
     func getDirectory(_ dirName: String) -> URL? {

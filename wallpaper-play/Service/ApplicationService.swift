@@ -105,6 +105,7 @@ class ApplicationServiceImpl: ApplicationService {
     private func displayLocalVideo(value: VideoPlayValue, shouldSavedHistory: Bool) {
         wallpaperWindowManager.display(display: .video(value: value))
         
+        
         if shouldSavedHistory {
             guard let latestVideoStore = applicationFileManager.getDirectory(.latestVideo) else { return }
             let latestVideoUrls = value.urls.map { url -> URL in
