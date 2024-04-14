@@ -1,9 +1,10 @@
 {
+  "originHash" : "0358ffea17e9d594fbbd3cfec67c6ff7a972b80dde162eccab111b92f3c3383f",
   "pins" : [
     {
       "identity" : "injectable",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/nhiroyasu/Injectable",
+      "location" : "git@github.com:nhiroyasu/Injectable.git",
       "state" : {
         "revision" : "c161cbae5ae4d331cb94b4e88aeb09f59cce7e9f",
         "version" : "1.0.3"
@@ -14,17 +15,17 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/sindresorhus/LaunchAtLogin",
       "state" : {
-        "revision" : "7ad6331f9c38953eb1ce8737758e18f7607e984a",
-        "version" : "5.0.0"
+        "revision" : "22923d335429bfd38c52435505b06a10bcc520fd",
+        "version" : "5.0.1"
       }
     },
     {
       "identity" : "realm-core",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/realm/realm-core",
+      "location" : "https://github.com/realm/realm-core.git",
       "state" : {
-        "revision" : "fd48276f88f3d55dbdcdc9e8cbf32541811d5865",
-        "version" : "12.1.0"
+        "revision" : "374dd672af357732dccc135fecc905406fec3223",
+        "version" : "14.4.1"
       }
     },
     {
@@ -32,8 +33,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/realm/realm-swift.git",
       "state" : {
-        "revision" : "d3aaab84885e0de9a7a49955874cee160adee164",
-        "version" : "10.28.1"
+        "revision" : "e0c2fbb442979fbf1e4be80e01d142f310a9c762",
+        "version" : "10.49.1"
       }
     },
     {
@@ -41,10 +42,10 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/Swinject/Swinject.git",
       "state" : {
-        "revision" : "f10b6e9ebff440f985c43008f7c2d097639fcb81",
-        "version" : "2.8.1"
+        "revision" : "b45ac37ca19905b2e12c429807e1955a7d43d1fd",
+        "version" : "2.8.6"
       }
     }
   ],
-  "version" : 2
+  "version" : 3
 }

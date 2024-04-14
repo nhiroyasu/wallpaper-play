@@ -1,8 +1,8 @@
 import SwiftUI
 
 struct AboutView: View {
-    let imageSize: CGFloat = 128
-    
+    let imageSize: CGFloat = 84
+
     var body: some View {
         VStack(alignment: .center, spacing: 8) {
             Image("AppIcon_Vec")
@@ -10,7 +10,7 @@ struct AboutView: View {
                 .aspectRatio(contentMode: .fit)
                 .frame(width: imageSize, height: imageSize, alignment: .center)
             Text("Wallpaper Play")
-                .font(.system(size: 18, weight: .medium, design: .default))
+                .font(.system(size: 14, weight: .medium, design: .default))
             Link("© Hiroyasu Niitsuma", destination: URL(string: "https://nhiroyasu.com/")!)
             Link(
                 LocalizedString(key: .term_of_use),
