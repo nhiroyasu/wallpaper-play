@@ -170,6 +170,7 @@
 		4F6A4D27289D6AD800F7B40D /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/WebPageSelectionViewController.strings; sourceTree = "<group>"; };
 		4F6A4D28289D6AE200F7B40D /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LocalVideoSelectionViewController.strings; sourceTree = "<group>"; };
 		4F6A4D29289D6F1300F7B40D /* NonInteractionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NonInteractionView.swift; sourceTree = "<group>"; };
+		4F8343E62BCBA0DA00DAAF4D /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		4F8A58D6284CA01A00557FDD /* Wallpaper Play.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Wallpaper Play.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F8A58D9284CA01A00557FDD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4F8A58DB284CA01A00557FDD /* WallMovieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallMovieViewController.swift; sourceTree = "<group>"; };
@@ -317,6 +318,7 @@
 		4F8A58CD284CA01A00557FDD = {
 			isa = PBXGroup;
 			children = (
+				4F8343E62BCBA0DA00DAAF4D /* PrivacyInfo.xcprivacy */,
 				4F8A58D8284CA01A00557FDD /* wallpaper-play */,
 				4F8A58EA284CA01B00557FDD /* wallpaper-playTests */,
 				4F8A58F4284CA01B00557FDD /* wallpaper-playUITests */,
@@ -1053,7 +1055,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = 2CMV7D36JC;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1065,7 +1067,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.1.0;
+				MARKETING_VERSION = 1.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.debug.nhiro1109.wallpaper-play";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1082,7 +1084,7 @@
 				CODE_SIGN_ENTITLEMENTS = "wallpaper-play/wallpaper-play.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = 2CMV7D36JC;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1094,7 +1096,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.1.0;
+				MARKETING_VERSION = 1.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.nhiro1109.wallpaper-play";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
