@@ -4,7 +4,7 @@ import AVFoundation
 import Injectable
 
 struct VideoPlayValue {
-    let urls: [URL]
+    let url: URL
     let mute: Bool
     let videoSize: VideoSize
 }
@@ -46,7 +46,7 @@ class WallMoviePresenterImpl: NSObject, WallMoviePresenter {
             resetVideos()
             output.videoView.setFrameSize(output.view.window!.frame.size)
             output.videoView.isHidden = false
-            let player = avManager.set(value.urls)
+            let player = avManager.set([value.url])
             let layer = AVPlayerLayer(player: player)
             layer.videoGravity = value.videoSize.videoGravity
             output.videoView.setPlayerLayer(layer)

@@ -119,7 +119,7 @@ class WallpaperHistoryServiceImpl: WallpaperHistoryService {
         
         if let video = latestVideo as? LocalVideoWallpaper {
             let videoPlayValue = VideoPlayValue(
-                urls: Array(video.urls),
+                url: video.url,
                 mute: video.config?.isMute ?? true,
                 videoSize: VideoSize(rawValue: video.config?.size ?? 0) ?? .aspectFill
             )

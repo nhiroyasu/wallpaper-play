@@ -2,7 +2,7 @@ import Foundation
 import RealmSwift
 import Injectable
 
-fileprivate let SCHEMA_VERSION: UInt64 = 2
+fileprivate let SCHEMA_VERSION: UInt64 = 3
 
 public enum RealmConfigType {
     case release
@@ -60,7 +60,21 @@ public class RealmManagerImpl: RealmService {
     public func buildConfig(type: RealmConfigType) -> Realm.Configuration {
         var config = Realm.Configuration.defaultConfiguration
         config.schemaVersion = SCHEMA_VERSION
-        
+        config.migrationBlock = { migration, oldSchemaVersion in
+            if oldSchemaVersion < SCHEMA_VERSION {
+                migration.enumerateObjects(ofType: LocalVideoWallpaper.className()) { oldObject, newObject in
+                    let urls = oldObject?["urls"] as? List<String>
+                    if let urlStr = urls?.first{
+                        newObject?["url"] = urlStr
+                    } else {
+                        if let oldObject = oldObject {
+                            migration.delete(oldObject)
+                        }
+                    }
+                }
+            }
+        }
+
         switch type {
         case .release:
             if let url = applicationFileManager.getDirectory(.realm) {

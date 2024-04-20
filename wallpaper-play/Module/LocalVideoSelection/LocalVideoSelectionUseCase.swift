@@ -42,7 +42,7 @@ class LocalVideoSelectionInteractor: LocalVideoSelectionUseCase {
     }
     
     func requestSettingWallpaper(_ input: VideoConfigInput) {
-        notificationManager.push(name: .requestVideo, param: VideoPlayValue(urls: [input.link], mute: input.mute, videoSize: input.videoSize))
+        notificationManager.push(name: .requestVideo, param: VideoPlayValue(url: input.link, mute: input.mute, videoSize: input.videoSize))
     }
     
     func videoLoadingError() {

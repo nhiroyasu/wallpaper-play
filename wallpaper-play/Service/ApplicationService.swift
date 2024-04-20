@@ -114,25 +114,21 @@ class ApplicationServiceImpl: ApplicationService {
         
         if shouldSavedHistory {
             guard let latestVideoStore = applicationFileManager.getDirectory(.latestVideo) else { return }
-            let latestVideoUrls = value.urls.map { url -> URL in
-                let storedFileUrl = latestVideoStore.appendingPathComponent("latest.\(url.pathExtension)")
-                do {
-                    if fileManager.fileExists(atPath: storedFileUrl.path) {
-                        try fileManager.removeItem(at: storedFileUrl)
-                    }
-                    try fileManager.copyItem(at: url, to: storedFileUrl)
-                    return storedFileUrl
-                } catch {
-                    fatalError(error.localizedDescription)
+            let storedFileUrl = latestVideoStore.appendingPathComponent("latest.\(value.url.pathExtension)")
+            do {
+                if fileManager.fileExists(atPath: storedFileUrl.path) {
+                    try fileManager.removeItem(at: storedFileUrl)
                 }
+                try fileManager.copyItem(at: value.url, to: storedFileUrl)
+                let localVideoWallpaper = LocalVideoWallpaper(
+                    date: Date(),
+                    url: storedFileUrl,
+                    config: .init(size: value.videoSize.rawValue, isMute: value.mute)
+                )
+                wallpaperHistoryService.store(localVideoWallpaper)
+            } catch {
+                fatalError(error.localizedDescription)
             }
-            
-            let localVideoWallpaper = LocalVideoWallpaper(
-                date: Date(),
-                urls: latestVideoUrls,
-                config: .init(size: value.videoSize.rawValue, isMute: value.mute)
-            )
-            wallpaperHistoryService.store(localVideoWallpaper)
         }
     }
     
