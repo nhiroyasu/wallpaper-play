@@ -7,6 +7,7 @@ protocol ApplicationService {
     func applicationDidFinishLaunching()
     func didTapWallPaperItem()
     func didTapPreferenceItem()
+    func didTapOpenRealm()
     func dockMenu() -> NSMenu
 }
 
@@ -57,6 +58,12 @@ class ApplicationServiceImpl: ApplicationService {
             self.notificationManager.push(name: .selectedSideMenu, param: SideMenuItem.preference)
         }
         appManager.activate()
+    }
+
+    func didTapOpenRealm() {
+        if let url = realmService.getRealmURL() {
+            NSWorkspace.shared.open(url)
+        }
     }
 
     func dockMenu() -> NSMenu {

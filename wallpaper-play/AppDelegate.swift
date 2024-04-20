@@ -36,6 +36,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         menu.addItem(NSMenuItem(title: "Wallpaper", action: #selector(didTapWallPaperItem), keyEquivalent: ""))
         menu.addItem(NSMenuItem(title: "Preference", action: #selector(didTapPreferenceItem), keyEquivalent: ","))
         menu.addItem(.separator())
+        #if DEBUG
+        menu.addItem(NSMenuItem(title: "Open .realm", action: #selector(didTapOpenRealm), keyEquivalent: ""))
+        #endif
         menu.addItem(NSMenuItem(title: "Quit", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q"))
         statusItem.menu = menu
     }
@@ -46,6 +49,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     @objc func didTapPreferenceItem() {
         applicationService.didTapPreferenceItem()
+    }
+
+    @objc func didTapOpenRealm() {
+        applicationService.didTapOpenRealm()
     }
 }
 

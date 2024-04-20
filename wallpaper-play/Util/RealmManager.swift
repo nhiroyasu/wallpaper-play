@@ -15,6 +15,7 @@ public protocol RealmService {
     func buildConfig(type: RealmConfigType) throws -> Realm.Configuration
     // MARK: - for debug
     func compactRealm()
+    func getRealmURL() -> URL?
 }
 
 public class RealmManagerImpl: RealmService {
@@ -73,5 +74,10 @@ public class RealmManagerImpl: RealmService {
             config = Realm.Configuration(inMemoryIdentifier: String(describing: Self.self))
         }
         return config
+    }
+
+    public func getRealmURL() -> URL? {
+        let config = buildConfig(type: .debug1)
+        return config.fileURL
     }
 }
