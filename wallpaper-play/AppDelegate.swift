@@ -15,6 +15,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         applicationService.applicationDidFinishLaunching()
     }
 
+    func applicationDidBecomeActive(_ notification: Notification) {
+        applicationService.didBecomeActive()
+    }
+
+    func application(_ application: NSApplication, open urls: [URL]) {
+        applicationService.applicationOpen(urls: urls)
+    }
+
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
     }

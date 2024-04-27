@@ -721,7 +721,7 @@
                 </splitViewController>
                 <customObject id="KfU-HQ-AE9" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1417" y="106"/>
+            <point key="canvasLocation" x="1417" y="105.5"/>
         </scene>
         <!--Side Menu View Controller-->
         <scene sceneID="AeM-hR-f5m">

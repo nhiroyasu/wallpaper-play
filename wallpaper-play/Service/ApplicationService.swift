@@ -5,6 +5,8 @@ import AppKit
 
 protocol ApplicationService {
     func applicationDidFinishLaunching()
+    func didBecomeActive()
+    func applicationOpen(urls: [URL])
     func didTapWallPaperItem()
     func didTapPreferenceItem()
     func didTapOpenRealm()
@@ -21,6 +23,8 @@ class ApplicationServiceImpl: ApplicationService {
     private let applicationFileManager: ApplicationFileManager
     private let fileManager: FileManager
     private let userSetting: UserSettingService
+    private let youtubeContentService: YouTubeContentsService
+    private let urlResolverService: URLResolverService
     private let appManager: AppManager
     private let dockMenuBuilder: DockMenuBuilder
 
@@ -32,6 +36,8 @@ class ApplicationServiceImpl: ApplicationService {
         wallpaperHistoryService = injector.build()
         applicationFileManager = injector.build()
         userSetting = injector.build()
+        youtubeContentService = injector.build()
+        urlResolverService = injector.build()
         appManager = injector.build()
         fileManager = .default
         dockMenuBuilder = injector.build()
@@ -45,6 +51,26 @@ class ApplicationServiceImpl: ApplicationService {
         setUpAppIcon()
         initWallpaper()
         openVideoFormIfNeeded()
+    }
+
+    func didBecomeActive() {
+        videoFormWindowPresenter.show()
+    }
+
+    func applicationOpen(urls: [URL]) {
+        guard let url = urls.first else { return }
+        let components = NSURLComponents(url: url, resolvingAgainstBaseURL: false)
+        guard let urlItem = components?.queryItems?.first(where: { item in item.name == "youtube-url" }) else { return }
+        guard let isMuteItem = components?.queryItems?.first(where: { item in item.name == "is-mute" }) else { return }
+        guard let youtubeLink = urlItem.value else { return }
+        let isMute = isMuteItem.value == "true"
+
+        let urlContent = urlResolverService.resolve(youtubeLink)
+        if let youtubeId = urlContent?.queryItems.first(where: { $0.name == "v" })?.value,
+           let iframeUrl = youtubeContentService.buildFullIframeUrl(id: youtubeId, mute: isMute) {
+            displayYouTube(url: iframeUrl, shouldSavedHistory: true)
+            videoFormWindowPresenter.close()
+        }
     }
 
     func didTapWallPaperItem() {

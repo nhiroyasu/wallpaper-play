@@ -46,6 +46,7 @@
 		4F6A4D22289653F100F7B40D /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6A4D21289653F100F7B40D /* Localization.swift */; };
 		4F6A4D25289D646600F7B40D /* youtube_description.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F6A4D24289D646600F7B40D /* youtube_description.png */; };
 		4F6A4D2A289D6F1300F7B40D /* NonInteractionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6A4D29289D6F1300F7B40D /* NonInteractionView.swift */; };
+		4F7B55FE2BDCEC0D00D427C6 /* icon_128x128.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F7B55FD2BDCEC0D00D427C6 /* icon_128x128.png */; };
 		4F8A58DA284CA01A00557FDD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8A58D9284CA01A00557FDD /* AppDelegate.swift */; };
 		4F8A58DC284CA01A00557FDD /* WallMovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8A58DB284CA01A00557FDD /* WallMovieViewController.swift */; };
 		4F8A58DE284CA01A00557FDD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F8A58DD284CA01A00557FDD /* Assets.xcassets */; };
@@ -170,6 +171,8 @@
 		4F6A4D27289D6AD800F7B40D /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/WebPageSelectionViewController.strings; sourceTree = "<group>"; };
 		4F6A4D28289D6AE200F7B40D /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LocalVideoSelectionViewController.strings; sourceTree = "<group>"; };
 		4F6A4D29289D6F1300F7B40D /* NonInteractionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NonInteractionView.swift; sourceTree = "<group>"; };
+		4F7B55FB2BDCEB1700D427C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = Info.plist; path = "Wallpaper-Play/Info.plist"; sourceTree = "<group>"; };
+		4F7B55FD2BDCEC0D00D427C6 /* icon_128x128.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_128x128.png; sourceTree = "<group>"; };
 		4F8343E62BCBA0DA00DAAF4D /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		4F8A58D6284CA01A00557FDD /* Wallpaper Play.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Wallpaper Play.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F8A58D9284CA01A00557FDD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -311,6 +314,7 @@
 			isa = PBXGroup;
 			children = (
 				4F6A4D24289D646600F7B40D /* youtube_description.png */,
+				4F7B55FD2BDCEC0D00D427C6 /* icon_128x128.png */,
 			);
 			path = BundleAssets;
 			sourceTree = "<group>";
@@ -318,6 +322,7 @@
 		4F8A58CD284CA01A00557FDD = {
 			isa = PBXGroup;
 			children = (
+				4F7B55FB2BDCEB1700D427C6 /* Info.plist */,
 				4F8343E62BCBA0DA00DAAF4D /* PrivacyInfo.xcprivacy */,
 				4F8A58D8284CA01A00557FDD /* wallpaper-play */,
 				4F8A58EA284CA01B00557FDD /* wallpaper-playTests */,
@@ -700,6 +705,7 @@
 			files = (
 				4FB0F3E82854A0F2004E6D51 /* WallMovieWindowController.xib in Resources */,
 				4F6A4D0928964EAB00F7B40D /* Localizable.strings in Resources */,
+				4F7B55FE2BDCEC0D00D427C6 /* icon_128x128.png in Resources */,
 				4FB0F3EC2854A112004E6D51 /* WallMovieViewController.xib in Resources */,
 				4F2161FF2850FA37000673EF /* PreferenceViewController.xib in Resources */,
 				4F8A58DE284CA01A00557FDD /* Assets.xcassets in Resources */,
@@ -1059,6 +1065,7 @@
 				DEVELOPMENT_TEAM = 2CMV7D36JC;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Wallpaper-Play/Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
@@ -1088,6 +1095,7 @@
 				DEVELOPMENT_TEAM = 2CMV7D36JC;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Wallpaper-Play/Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
