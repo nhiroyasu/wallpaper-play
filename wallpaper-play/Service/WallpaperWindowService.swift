@@ -4,6 +4,7 @@ import Injectable
 protocol WallpaperWindowService {
     func display(display: WallpaperKind)
     func hide()
+    func isVisibleWallpaperWindow() -> Bool
 }
 
 class WallpaperWindowServiceImpl: WallpaperWindowService {
@@ -51,7 +52,11 @@ class WallpaperWindowServiceImpl: WallpaperWindowService {
         windowControllerList.forEach { $0.close() }
         windowControllerList = []
     }
-    
+
+    func isVisibleWallpaperWindow() -> Bool {
+        windowControllerList.contains { $0.window?.isVisible == true }
+    }
+
     private func buildWallpaperWindow(screen: NSScreen) -> WallMovieWindowController {
         let coordinator = WallMovieCoordinator(injector: Injector(container: WallMovieContainerBuilder.build(parent: Injector.shared.container)), screenFrame: screen.frame)
         let windowController = WallMovieWindowController(windowNibName: .windowController.wallMovie)

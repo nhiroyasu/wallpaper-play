@@ -23,6 +23,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         applicationService.applicationOpen(urls: urls)
     }
 
+    func applicationShouldHandleReopen(_ sender: NSApplication, hasVisibleWindows flag: Bool) -> Bool {
+        applicationService.applicationShouldHandleReopen(hasVisibleWindows: flag)
+    }
+
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
     }

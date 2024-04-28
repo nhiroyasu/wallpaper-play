@@ -7,6 +7,7 @@ protocol ApplicationService {
     func applicationDidFinishLaunching()
     func didBecomeActive()
     func applicationOpen(urls: [URL])
+    func applicationShouldHandleReopen(hasVisibleWindows flag: Bool) -> Bool
     func didTapWallPaperItem()
     func didTapPreferenceItem()
     func didTapOpenRealm()
@@ -53,8 +54,11 @@ class ApplicationServiceImpl: ApplicationService {
         openVideoFormIfNeeded()
     }
 
-    func didBecomeActive() {
+    func didBecomeActive() {}
+
+    func applicationShouldHandleReopen(hasVisibleWindows flag: Bool) -> Bool {
         videoFormWindowPresenter.show()
+        return false
     }
 
     func applicationOpen(urls: [URL]) {

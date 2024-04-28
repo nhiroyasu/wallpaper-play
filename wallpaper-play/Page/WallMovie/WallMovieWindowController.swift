@@ -7,7 +7,7 @@ class WallMovieWindowController: NSWindowController {
         super.windowDidLoad()
         
         window?.title = "Wallpaper Window"
-        window?.styleMask = [.borderless, .nonactivatingPanel, .utilityWindow]
+        window?.styleMask = [.borderless]
         window?.collectionBehavior = [.canJoinAllSpaces, .fullScreenAuxiliary, .stationary, .ignoresCycle]
         window?.canBecomeVisibleWithoutLogin = true
         window?.hasShadow = false
