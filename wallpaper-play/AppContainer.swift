@@ -28,6 +28,7 @@ class AppContainer {
 
         // MARK: - some dependencies
 
+        container.register(RealmMigrationService.self) { injector in RealmMigrationServiceImpl(injector: injector) }
         container.register(VideoFormWindowPresenter.self) { injector in VideoFormWindowPresenterImpl(injector: injector) }
         container.register(RealmService.self) { injector in RealmManagerImpl(injector: injector) }
         container.register(UserSettingService.self) { _ in UserSettingServiceImpl(userDefaults: UserDefaults.standard) }.inObjectScope(.container)

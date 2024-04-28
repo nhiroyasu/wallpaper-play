@@ -19,6 +19,7 @@ final class VideoFormWindowPresenterImpl: VideoFormWindowPresenter {
             let coordinator = VideoFormCoordinator()
             videoFormWindowController.contentViewController = coordinator.create()
         }
+        videoFormWindowController.window?.center()
         videoFormWindowController.window?.makeKeyAndOrderFront(nil)
     }
 

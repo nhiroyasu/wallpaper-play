@@ -65,10 +65,8 @@ class ApplicationServiceImpl: ApplicationService {
         guard let youtubeLink = urlItem.value else { return }
         let isMute = isMuteItem.value == "true"
 
-        let urlContent = urlResolverService.resolve(youtubeLink)
-        if let youtubeId = urlContent?.queryItems.first(where: { $0.name == "v" })?.value,
-           let iframeUrl = youtubeContentService.buildFullIframeUrl(id: youtubeId, mute: isMute) {
-            displayYouTube(url: iframeUrl, shouldSavedHistory: true)
+        if let videoId = youtubeContentService.getVideoId(youtubeLink: youtubeLink) {
+            displayYouTube(videoId: videoId, isMute: isMute, shouldSavedHistory: true)
             videoFormWindowPresenter.close()
         }
     }
@@ -98,8 +96,8 @@ class ApplicationServiceImpl: ApplicationService {
     
     private func setUpRequestYouTubeNotification() {
         notificationManager.observe(name: .requestYouTube) { [weak self] param in
-            guard let self = self, let url = param as? URL else { fatalError() }
-            self.displayYouTube(url: url, shouldSavedHistory: true)
+            guard let self = self, let data = param as? NotificationRequestVideoTDO else { fatalError() }
+            self.displayYouTube(videoId: data.videoId, isMute: data.isMute, shouldSavedHistory: true)
         }
     }
     
@@ -110,11 +108,11 @@ class ApplicationServiceImpl: ApplicationService {
         }
     }
     
-    private func displayYouTube(url: URL, shouldSavedHistory: Bool) {
-        wallpaperWindowManager.display(display: .youtube(url: url))
-        
+    private func displayYouTube(videoId: String, isMute: Bool, shouldSavedHistory: Bool) {
+        wallpaperWindowManager.display(display: .youtube(videoId: videoId, isMute: isMute))
+
         if shouldSavedHistory {
-            let youtubeWallpaper = YouTubeWallpaper(date: Date(), url: url)
+            let youtubeWallpaper = YouTubeWallpaper(date: Date(), videoId: videoId, isMute: isMute)
             wallpaperHistoryService.store(youtubeWallpaper)
         }
     }

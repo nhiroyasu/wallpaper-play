@@ -1,5 +1,6 @@
 import Cocoa
 import WebKit
+import Combine
 
 class YouTubeSelectionViewController: NSViewController {
     
@@ -32,11 +33,7 @@ class YouTubeSelectionViewController: NSViewController {
         youtubeWrappingView.fitAllAnchor(youtubeWebView)
         action.viewDidLoad()
     }
-    
-    @IBAction func didTapConfirmButton(_ sender: Any) {
-        action.didTapConfirmButton(youtubeLink: youtubeLinkTextField.stringValue)
-    }
-    
+
     @IBAction func didTapWallpaperButton(_ sender: Any) {
         action.didTapWallpaperButton(youtubeLink: youtubeLinkTextField.stringValue, mute: isMute())
     }
@@ -52,9 +49,15 @@ extension YouTubeSelectionViewController: NSSearchFieldDelegate {
             let urlString = youtubeLinkTextField.stringValue
             action.enteredYouTubeLink(urlString)
             return false
-        } else if (commandSelector == #selector(NSResponder.cancelOperation(_:))) {
+        }
+        if (commandSelector == #selector(NSResponder.cancelOperation(_:))) {
             return false
         }
         return false
+    }
+
+    func controlTextDidChange(_ obj: Notification) {
+        guard let textField = obj.userInfo?["NSFieldEditor"] as? NSTextView else { return }
+        action.onChangeSearchField(textField.string)
     }
 }

@@ -3,6 +3,7 @@ import Injectable
 
 protocol YouTubeSelectionAction {
     func viewDidLoad()
+    func onChangeSearchField(_ value: String)
     func enteredYouTubeLink(_ value: String)
     func didTapConfirmButton(youtubeLink: String)
     func didTapWallpaperButton(youtubeLink: String, mute: Bool)
@@ -19,7 +20,11 @@ class YouTubeSelectionActionImpl: YouTubeSelectionAction {
     func viewDidLoad() {
         useCase.initialSetUp()
     }
-    
+
+    func onChangeSearchField(_ value: String) {
+        useCase.confirmIfValidYouTubeLink(value)
+    }
+
     func enteredYouTubeLink(_ value: String) {
         useCase.confirm(value)
     }

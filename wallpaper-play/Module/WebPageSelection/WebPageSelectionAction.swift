@@ -4,19 +4,17 @@ import Injectable
 protocol WebPageSelectionAction {
     func viewDidLoad()
     func viewDidDisapper()
-    func didTapConfirmButton()
-    func didTapSetWallpaperButton()
-    func enteredSearchField()
+    func onChangeSearchField(_ value: String)
+    func didTapSetWallpaperButton(value: String)
+    func enteredSearchField(value: String)
 }
 
 class WebPageSelectionActionImpl: WebPageSelectionAction {
     
     private let useCase: WebPageSelectionUseCase
-    private let state: WebPageSelectionState
-    
-    public init(injector: Injectable, state: WebPageSelectionState) {
+
+    public init(injector: Injectable) {
         self.useCase = injector.build(WebPageSelectionUseCase.self)
-        self.state = state
     }
     
     func viewDidLoad() {}
@@ -24,21 +22,17 @@ class WebPageSelectionActionImpl: WebPageSelectionAction {
     func viewDidDisapper() {
         useCase.clearPreview()
     }
-    
-    func didTapConfirmButton() {
-        useCase.setUpPreview(for: state.input)
+
+    func onChangeSearchField(_ value: String) {
+        useCase.setUpPreviewIfValidUrl(for: value)
+    }
+
+    func didTapSetWallpaperButton(value: String) {
+        useCase.setUpWallpaper(for: value)
     }
     
-    func didTapSetWallpaperButton() {
-        if let url = state.previewUrl {
-            useCase.setUpWallpaper(for: url)
-        } else {
-            useCase.showError(message: LocalizedString(key: .error_invalid_preview))
-        }
-    }
-    
-    func enteredSearchField() {
-        useCase.setUpPreview(for: state.input)
+    func enteredSearchField(value: String) {
+        useCase.setUpPreview(for: value)
     }
 }
 

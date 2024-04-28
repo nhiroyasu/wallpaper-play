@@ -34,8 +34,8 @@ class WallpaperWindowServiceImpl: WallpaperWindowService {
                 switch display {
                 case .video(let value):
                     mutedWallpaperKind = .video(value: .init(url: value.url, mute: true, videoSize: value.videoSize))
-                case .youtube(let url):
-                    mutedWallpaperKind = .youtube(url: youTubeContentsService.replaceMutedIframeUrl(url: url) ?? url)
+                case .youtube(let videoId, let isMute):
+                    mutedWallpaperKind = .youtube(videoId: videoId, isMute: !isMute)
                 case .web:
                     mutedWallpaperKind = display
                 case .none:

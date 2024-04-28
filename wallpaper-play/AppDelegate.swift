@@ -45,7 +45,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         menu.addItem(NSMenuItem(title: "Preference", action: #selector(didTapPreferenceItem), keyEquivalent: ","))
         menu.addItem(.separator())
         #if DEBUG
+        menu.addItem(NSMenuItem(title: "Debug", action: nil, keyEquivalent: ""))
         menu.addItem(NSMenuItem(title: "Open .realm", action: #selector(didTapOpenRealm), keyEquivalent: ""))
+        menu.addItem(.separator())
         #endif
         menu.addItem(NSMenuItem(title: "Quit", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q"))
         statusItem.menu = menu

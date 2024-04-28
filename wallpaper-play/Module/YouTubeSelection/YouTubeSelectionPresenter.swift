@@ -12,7 +12,7 @@ protocol YouTubeSelectionPresenter {
 class YouTubeSelectionPresenterImpl: YouTubeSelectionPresenter {
     private let alertService: AlertManager
     var output: YouTubeSelectionViewController!
-    
+
     init(injector: Injectable) {
         self.alertService = injector.build()
     }
@@ -28,7 +28,7 @@ class YouTubeSelectionPresenterImpl: YouTubeSelectionPresenter {
     func setEnableWallpaperButton(_ value: Bool) {
         output.wallpaperButton.isEnabled = value
     }
-    
+
     func showValidateAlert() {
         alertService.warning(msg: LocalizedString(key: .error_invalid_youtube_url), completionHandler: {})
     }

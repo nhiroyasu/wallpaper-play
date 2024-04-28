@@ -3,18 +3,19 @@ import Injectable
 
 protocol WebPageSelectionUseCase {
     func setUpPreview(for urlString: String)
+    func setUpPreviewIfValidUrl(for urlString: String)
     func clearPreview()
-    func setUpWallpaper(for url: URL)
-    func showError(message: String)
+    func setUpWallpaper(for urlString: String)
 }
 
 class WebPageSelectionInteractor: WebPageSelectionUseCase {
-    
     private let presenter: WebPageSelectionPresenter
+    private let notificationManager: NotificationManager
     private let urlValidationService: UrlValidationService
     
     internal init(injector: Injectable = Injector.shared) {
         self.presenter = injector.build(WebPageSelectionPresenter.self)
+        self.notificationManager = injector.build()
         self.urlValidationService = injector.build()
     }
     
@@ -27,15 +28,21 @@ class WebPageSelectionInteractor: WebPageSelectionUseCase {
         }
     }
 
+    func setUpPreviewIfValidUrl(for urlString: String) {
+        if let url = urlValidationService.validate(string: urlString) {
+            presenter.setPreview(url: url)
+        }
+    }
+
     func clearPreview() {
         presenter.clearPreview()
     }
     
-    func setUpWallpaper(for url: URL) {
-        presenter.setUpWallpaper(for: url)
-    }
-    
-    func showError(message: String) {
-        presenter.showAlert(message: message)
+    func setUpWallpaper(for urlString: String) {
+        if let url = urlValidationService.validate(string: urlString) {
+            notificationManager.push(name: .requestWebPage, param: url)
+        } else {
+            presenter.showAlert(message: LocalizedString(key: .error_invalid_preview))
+        }
     }
 }
