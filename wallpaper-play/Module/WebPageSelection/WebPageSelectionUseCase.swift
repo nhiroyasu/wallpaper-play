@@ -2,6 +2,8 @@ import Foundation
 import Injectable
 
 protocol WebPageSelectionUseCase {
+    func initialSetUp()
+    func setUpDescriptionPreview()
     func setUpPreview(for urlString: String)
     func setUpPreviewIfValidUrl(for urlString: String)
     func clearPreview()
@@ -18,7 +20,19 @@ class WebPageSelectionInteractor: WebPageSelectionUseCase {
         self.notificationManager = injector.build()
         self.urlValidationService = injector.build()
     }
-    
+
+    func initialSetUp() {
+        if let path = Bundle.main.path(forResource: "copy_description_for_web", ofType: "html") {
+            presenter.setPreview(url: URL(fileURLWithPath: path))
+        }
+    }
+
+    func setUpDescriptionPreview() {
+        if let path = Bundle.main.path(forResource: "copy_description_for_web", ofType: "html") {
+            presenter.setPreview(url: URL(fileURLWithPath: path))
+        }
+    }
+
     func setUpPreview(for urlString: String) {
         if let url = urlValidationService.validate(string: urlString) {
             presenter.setPreview(url: url)

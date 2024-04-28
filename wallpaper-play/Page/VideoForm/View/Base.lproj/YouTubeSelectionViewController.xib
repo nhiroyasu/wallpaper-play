@@ -34,7 +34,7 @@
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="QDl-gH-3ZP" secondAttribute="height" multiplier="16:10" id="3dq-bD-wfF"/>
                                     </constraints>
-                                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" animates="YES" imageScaling="proportionallyUpOrDown" imageFrameStyle="grayBezel" image="photo" catalog="system" id="yyy-2U-GYu"/>
+                                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" animates="YES" imageScaling="proportionallyDown" imageFrameStyle="grayBezel" id="yyy-2U-GYu"/>
                                     <color key="contentTintColor" name="tertiaryLabelColor" catalog="System" colorSpace="catalog"/>
                                 </imageView>
                                 <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vgn-2N-hSv">
@@ -240,7 +240,6 @@
     </objects>
     <resources>
         <image name="desktopcomputer" catalog="system" width="20" height="15"/>
-        <image name="photo" catalog="system" width="19" height="14"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

@@ -3,6 +3,7 @@ import Injectable
 
 protocol WebPageSelectionAction {
     func viewDidLoad()
+    func viewWillAppear()
     func viewDidDisapper()
     func onChangeSearchField(_ value: String)
     func didTapSetWallpaperButton(value: String)
@@ -17,7 +18,13 @@ class WebPageSelectionActionImpl: WebPageSelectionAction {
         self.useCase = injector.build(WebPageSelectionUseCase.self)
     }
     
-    func viewDidLoad() {}
+    func viewDidLoad() {
+        useCase.initialSetUp()
+    }
+
+    func viewWillAppear() {
+        useCase.setUpDescriptionPreview()
+    }
 
     func viewDidDisapper() {
         useCase.clearPreview()

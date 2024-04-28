@@ -34,6 +34,12 @@ class WebPageSelectionViewController: NSViewController {
         super.viewDidLoad()
         previewWebView = .init(frame: .zero, configuration: .init())
         wrapView.fitAllAnchor(previewWebView)
+        action.viewDidLoad()
+    }
+
+    override func viewWillAppear() {
+        super.viewWillAppear()
+        action.viewWillAppear()
     }
 
     override func viewDidDisappear() {

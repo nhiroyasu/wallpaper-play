@@ -22,7 +22,7 @@ class YouTubeSelectionInteractor: YouTubeSelectionUseCase {
     }
 
     func initialSetUp() {
-        if let path = Bundle.main.path(forResource: "youtube_description", ofType: "png") {
+        if let path = Bundle.main.path(forResource: "copy_description_for_youtube", ofType: "html") {
             presenter.updatePreview(youtubeLink: URL(fileURLWithPath: path))
         }
     }
