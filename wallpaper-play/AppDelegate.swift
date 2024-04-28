@@ -4,28 +4,19 @@ import Injectable
 @main
 class AppDelegate: NSObject, NSApplicationDelegate {
     private let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
-    private var applicationService: ApplicationService?
+    private var applicationService: ApplicationService = Injector.shared.build()
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        buildStatusMenu()
-
-        applicationService = Injector.shared.build()
-        applicationService?.applicationDidFinishLaunching()
-    }
-
-    func applicationDidBecomeActive(_ notification: Notification) {
-        applicationService?.didBecomeActive()
+        initStatusMenu()
+        applicationService.applicationDidFinishLaunching()
     }
 
     func application(_ application: NSApplication, open urls: [URL]) {
-        applicationService?.applicationOpen(urls: urls)
+        applicationService.applicationOpen(urls: urls)
     }
 
     func applicationShouldHandleReopen(_ sender: NSApplication, hasVisibleWindows flag: Bool) -> Bool {
-        if applicationService == nil {
-            applicationService = Injector.shared.build()
-        }
-        return applicationService!.applicationShouldHandleReopen(hasVisibleWindows: flag)
+        applicationService.applicationShouldHandleReopen(hasVisibleWindows: flag)
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
@@ -37,10 +28,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     func applicationDockMenu(_ sender: NSApplication) -> NSMenu? {
-        applicationService?.dockMenu()
+        applicationService.dockMenu()
     }
-    
-    private func buildStatusMenu() {
+
+    func applicationDidBecomeActive(_ notification: Notification) {
+        applicationService.didBecomeActive()
+    }
+
+    private func initStatusMenu() {
         if let button = statusItem.button {
             button.image = NSImage(named:NSImage.Name("MenuIcon"))
         }
@@ -59,15 +54,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     @objc func didTapWallPaperItem() {
-        applicationService?.didTapWallPaperItem()
+        applicationService.didTapWallPaperItem()
     }
     
     @objc func didTapPreferenceItem() {
-        applicationService?.didTapPreferenceItem()
+        applicationService.didTapPreferenceItem()
     }
 
     @objc func didTapOpenRealm() {
-        applicationService?.didTapOpenRealm()
+        applicationService.didTapOpenRealm()
     }
 }
 

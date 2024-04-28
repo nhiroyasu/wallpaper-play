@@ -5,9 +5,9 @@ import AppKit
 
 protocol ApplicationService {
     func applicationDidFinishLaunching()
-    func didBecomeActive()
     func applicationOpen(urls: [URL])
     func applicationShouldHandleReopen(hasVisibleWindows flag: Bool) -> Bool
+    func didBecomeActive()
     func didTapWallPaperItem()
     func didTapPreferenceItem()
     func didTapOpenRealm()
@@ -26,6 +26,7 @@ class ApplicationServiceImpl: ApplicationService {
     private let userSetting: UserSettingService
     private let youtubeContentService: YouTubeContentsService
     private let urlResolverService: URLResolverService
+    private let urlValidationService: UrlValidationService
     private let appManager: AppManager
     private let dockMenuBuilder: DockMenuBuilder
 
@@ -39,43 +40,47 @@ class ApplicationServiceImpl: ApplicationService {
         userSetting = injector.build()
         youtubeContentService = injector.build()
         urlResolverService = injector.build()
+        urlValidationService = injector.build()
         appManager = injector.build()
         fileManager = .default
         dockMenuBuilder = injector.build()
     }
     
-    func applicationDidFinishLaunching() {
+    private var setUpFlag = false
+    private func setUp() {
+        guard setUpFlag == false else { return }
         setUpRequestYouTubeNotification()
         setUpRequestVideoNotification()
         setUpRequestVisibilityIconNotification()
         setUpRequestWebPageNotification()
         setUpAppIcon()
-        initWallpaper()
-        openVideoFormIfNeeded()
+        setUpFlag = true
     }
 
-    func didBecomeActive() {}
+    func applicationDidFinishLaunching() {
+        setUp()
+        if wallpaperWindowManager.isVisibleWallpaperWindow() == false {
+            displayLatestWallpaper()
+            openVideoFormIfNeeded()
+        }
+    }
+
+    func applicationOpen(urls: [URL]) {
+        setUp()
+        guard let url = urls.first else { return }
+        guard let (videoId, isMute) = getWallpaperData(from: url) else { return }
+        displayYouTube(videoId: videoId, isMute: isMute, shouldSavedHistory: true)
+        videoFormWindowPresenter.close()
+    }
 
     func applicationShouldHandleReopen(hasVisibleWindows flag: Bool) -> Bool {
         videoFormWindowPresenter.show()
         return false
     }
 
-    func applicationOpen(urls: [URL]) {
-        guard let url = urls.first else { return }
-        let components = NSURLComponents(url: url, resolvingAgainstBaseURL: false)
-        guard let urlItem = components?.queryItems?.first(where: { item in item.name == "youtube-url" }) else { return }
-        guard let isMuteItem = components?.queryItems?.first(where: { item in item.name == "is-mute" }) else { return }
-        guard let youtubeLink = urlItem.value else { return }
-        let isMute = isMuteItem.value == "true"
+    func didBecomeActive() {}
 
-        if let videoId = youtubeContentService.getVideoId(youtubeLink: youtubeLink) {
-            displayYouTube(videoId: videoId, isMute: isMute, shouldSavedHistory: true)
-            videoFormWindowPresenter.close()
-        }
-    }
-
-    func didTapWallPaperItem() {
+        func didTapWallPaperItem() {
         videoFormWindowPresenter.show()
         appManager.activate()
     }
@@ -97,7 +102,7 @@ class ApplicationServiceImpl: ApplicationService {
     func dockMenu() -> NSMenu {
         dockMenuBuilder.build()
     }
-    
+
     private func setUpRequestYouTubeNotification() {
         notificationManager.observe(name: .requestYouTube) { [weak self] param in
             guard let self = self, let data = param as? NotificationRequestVideoTDO else { fatalError() }
@@ -159,8 +164,8 @@ class ApplicationServiceImpl: ApplicationService {
             }
         }
     }
-    
-    private func initWallpaper() {
+
+    private func displayLatestWallpaper() {
         if let latestWallpaper = wallpaperHistoryService.fetchLatestWallpaper() {
             wallpaperWindowManager.display(display: latestWallpaper)
         }
@@ -180,6 +185,20 @@ class ApplicationServiceImpl: ApplicationService {
     private func openVideoFormIfNeeded() {
         if userSetting.openThisWindowAtFirst {
             videoFormWindowPresenter.show()
+        }
+    }
+
+    private func getWallpaperData(from urlSchema: URL) -> (videoId: String, isMute: Bool)? {
+        guard urlValidationService.validateAsUrlSchema(url: urlSchema) else { return nil }
+        let components = NSURLComponents(url: urlSchema, resolvingAgainstBaseURL: false)
+        guard let urlItem = components?.queryItems?.first(where: { item in item.name == "youtube-url" }) else { return nil }
+        guard let isMuteItem = components?.queryItems?.first(where: { item in item.name == "is-mute" }) else { return nil }
+        guard let youtubeLink = urlItem.value else { return nil }
+        let isMute = isMuteItem.value == "true"
+        if let videoId = youtubeContentService.getVideoId(youtubeLink: youtubeLink) {
+            return (videoId, isMute)
+        } else {
+            return nil
         }
     }
 }
