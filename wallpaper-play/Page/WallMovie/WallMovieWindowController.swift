@@ -24,8 +24,8 @@ class WallMovieWindowController: NSWindowController {
         (contentViewController as? WallMovieViewController)?.action.show(display)
     }
     
-    func fitFrame(for screen: NSScreen) {
-        window?.setFrame(screen.frame, display: true)
+    func fitFrame(_ frame: NSRect) {
+        window?.setFrame(frame, display: true)
     }
 }
 

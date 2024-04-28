@@ -70,10 +70,10 @@
                     <rect key="frame" x="0.0" y="475" width="849" height="120"/>
                     <subviews>
                         <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="32" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8w9-Bs-EGx">
-                            <rect key="frame" x="32" y="0.0" width="785" height="120"/>
+                            <rect key="frame" x="32" y="25" width="785" height="70"/>
                             <subviews>
                                 <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o7f-7r-i5I">
-                                    <rect key="frame" x="0.0" y="25" width="785" height="70"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="785" height="70"/>
                                     <subviews>
                                         <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" horizontalHuggingPriority="249" horizontalCompressionResistancePriority="749" placeholderIntrinsicWidth="785" placeholderIntrinsicHeight="30" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TTh-Xc-Duo">
                                             <rect key="frame" x="0.0" y="40" width="785" height="30"/>
@@ -144,10 +144,11 @@
                     </subviews>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="8w9-Bs-EGx" secondAttribute="trailing" constant="32" id="Css-mX-xuF"/>
+                        <constraint firstItem="8w9-Bs-EGx" firstAttribute="centerY" secondItem="Nlx-l8-j4R" secondAttribute="centerY" id="Pmp-nS-ERS"/>
                         <constraint firstItem="8w9-Bs-EGx" firstAttribute="leading" secondItem="Nlx-l8-j4R" secondAttribute="leading" constant="32" id="SYE-7B-jVF"/>
-                        <constraint firstItem="8w9-Bs-EGx" firstAttribute="top" secondItem="Nlx-l8-j4R" secondAttribute="top" id="Wkm-T6-Pqd"/>
+                        <constraint firstItem="8w9-Bs-EGx" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Nlx-l8-j4R" secondAttribute="top" constant="24" id="Wkm-T6-Pqd"/>
                         <constraint firstAttribute="height" constant="120" id="jdZ-d8-1Yo"/>
-                        <constraint firstAttribute="bottom" secondItem="8w9-Bs-EGx" secondAttribute="bottom" id="ofP-Yy-j4F"/>
+                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="8w9-Bs-EGx" secondAttribute="bottom" constant="24" id="ofP-Yy-j4F"/>
                     </constraints>
                 </customView>
                 <customView translatesAutoresizingMaskIntoConstraints="NO" id="WR6-IS-SXf">

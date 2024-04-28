@@ -43,9 +43,7 @@ class WallpaperWindowServiceImpl: WallpaperWindowService {
                 }
                 windowController.showWindow(nil, display: mutedWallpaperKind)
             }
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                windowController.fitFrame(for: screen)
-            }
+            windowController.fitFrame(computeFittingWallpaperSize(screen: screen))
         }
     }
     
@@ -66,5 +64,15 @@ class WallpaperWindowServiceImpl: WallpaperWindowService {
             guard let latestWallpaper = self?.wallpaperHistoryService.fetchLatestWallpaper() else { return }
             self?.display(display: latestWallpaper)
         }
+    }
+
+    private func computeFittingWallpaperSize(screen: NSScreen) -> NSRect {
+        let topMargin = screen.frame.height - screen.visibleFrame.height - screen.visibleFrame.origin.y
+        return NSRect(
+            x: screen.frame.origin.x,
+            y: screen.frame.origin.y,
+            width: screen.frame.size.width,
+            height: screen.frame.size.height - topMargin
+        )
     }
 }
