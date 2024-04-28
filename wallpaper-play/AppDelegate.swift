@@ -3,28 +3,29 @@ import Injectable
 
 @main
 class AppDelegate: NSObject, NSApplicationDelegate {
-    private var wallMovieWindowController: WallMovieWindowController!
-    private var wallMovieViewController: WallMovieViewController!
     private let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
-    private var applicationService: ApplicationService!
+    private var applicationService: ApplicationService?
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         buildStatusMenu()
 
         applicationService = Injector.shared.build()
-        applicationService.applicationDidFinishLaunching()
+        applicationService?.applicationDidFinishLaunching()
     }
 
     func applicationDidBecomeActive(_ notification: Notification) {
-        applicationService.didBecomeActive()
+        applicationService?.didBecomeActive()
     }
 
     func application(_ application: NSApplication, open urls: [URL]) {
-        applicationService.applicationOpen(urls: urls)
+        applicationService?.applicationOpen(urls: urls)
     }
 
     func applicationShouldHandleReopen(_ sender: NSApplication, hasVisibleWindows flag: Bool) -> Bool {
-        applicationService.applicationShouldHandleReopen(hasVisibleWindows: flag)
+        if applicationService == nil {
+            applicationService = Injector.shared.build()
+        }
+        return applicationService!.applicationShouldHandleReopen(hasVisibleWindows: flag)
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
@@ -36,7 +37,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     func applicationDockMenu(_ sender: NSApplication) -> NSMenu? {
-        applicationService.dockMenu()
+        applicationService?.dockMenu()
     }
     
     private func buildStatusMenu() {
@@ -58,15 +59,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     @objc func didTapWallPaperItem() {
-        applicationService.didTapWallPaperItem()
+        applicationService?.didTapWallPaperItem()
     }
     
     @objc func didTapPreferenceItem() {
-        applicationService.didTapPreferenceItem()
+        applicationService?.didTapPreferenceItem()
     }
 
     @objc func didTapOpenRealm() {
-        applicationService.didTapOpenRealm()
+        applicationService?.didTapOpenRealm()
     }
 }
 
