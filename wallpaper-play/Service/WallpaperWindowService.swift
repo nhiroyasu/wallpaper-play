@@ -72,7 +72,7 @@ class WallpaperWindowServiceImpl: WallpaperWindowService {
     }
 
     private func computeFittingWallpaperSize(screen: NSScreen) -> NSRect {
-        let topMargin = screen.frame.height - screen.visibleFrame.height - screen.visibleFrame.origin.y
+        let topMargin = (screen.frame.height - screen.visibleFrame.height) - (screen.visibleFrame.origin.y - screen.frame.origin.y)
         return NSRect(
             x: screen.frame.origin.x,
             y: screen.frame.origin.y,
