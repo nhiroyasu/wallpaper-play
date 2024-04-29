@@ -17,7 +17,7 @@ enum WallpaperKind {
 }
 
 protocol WallMoviePresenter {
-    func initViews(screenFrame: NSRect)
+    func initViews()
     func display(openType: WallpaperKind)
 }
 
@@ -31,11 +31,7 @@ class WallMoviePresenterImpl: NSObject, WallMoviePresenter {
         self.youtubeContentService = injector.build(YouTubeContentsService.self)
     }
 
-    func initViews(screenFrame: NSRect) {
-        output.videoView = .init(frame: .init(origin: .zero, size: screenFrame.size))
-        output.webView = .init(frame: .zero, configuration: .init())
-        output.view.fitAllAnchor(output.webView)
-        output.view.fitAllAnchor(output.videoView)
+    func initViews() {
         output.webView.uiDelegate = self
         output.webView.navigationDelegate = self
     }
