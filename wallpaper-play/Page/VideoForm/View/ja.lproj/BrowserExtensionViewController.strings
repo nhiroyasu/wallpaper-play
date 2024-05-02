@@ -12,7 +12,7 @@
 "gj3-nc-exz.title" = "ブラウザ拡張機能が登場しました！\nYouTubeの動画をブラウザから直接、壁紙として設定することができます。";
 
 /* Class = "NSTextFieldCell"; title = "An extension is pre-installed.\nPlease enable it from the Safari settings."; ObjectID = "l2e-71-MPH"; */
-"l2e-71-MPH.title" = "拡張機能は事前にインストールされています。\nSafariの設定から有効化してください。";
+"l2e-71-MPH.title" = "拡張機能は事前にインストールされています。\nSafariの設定から有効化してください。\n(Safari15.4以降)";
 
 /* Class = "NSTextFieldCell"; title = "Install from the Chrome Web Store"; ObjectID = "p4X-jV-F9d"; */
 "p4X-jV-F9d.title" = "Chrome Web Storeからインストールしてください。";
