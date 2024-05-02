@@ -24,7 +24,10 @@ class LocalVideoSelectionPresenterImpl: LocalVideoSelectionPresenter {
     
     func initViews() {
         output.videoView = .init(frame: output.videoWrappingView.frame)
+        output.videoView.translatesAutoresizingMaskIntoConstraints = false
         output.videoWrappingView.fitAllAnchor(output.videoView)
+        output.videoView.widthAnchor.constraint(greaterThanOrEqualToConstant: 700).isActive = true
+        output.videoView.heightAnchor.constraint(greaterThanOrEqualToConstant: 350).isActive = true
     }
     
     func setThumbnail(videoUrl: URL) {
