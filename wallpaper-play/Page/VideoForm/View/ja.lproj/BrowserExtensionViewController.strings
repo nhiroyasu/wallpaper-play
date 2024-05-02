@@ -1,0 +1,21 @@
+
+/* Class = "NSButtonCell"; title = "Quit and Open Safari Extensions Preferences…"; ObjectID = "2WL-qT-uPt"; */
+"2WL-qT-uPt.title" = "アプリを終了して、Safari拡張機能を開く";
+
+/* Class = "NSButtonCell"; title = "Open Chrome Web Store"; ObjectID = "AAK-pW-KPu"; */
+"AAK-pW-KPu.title" = "Chrome Web Storeを開く";
+
+/* Class = "NSTextFieldCell"; title = "Chrome"; ObjectID = "TlE-9V-lyd"; */
+"TlE-9V-lyd.title" = "Chrome";
+
+/* Class = "NSTextFieldCell"; title = "A browser extension is now available!\nYou can set YouTube videos directly as your wallpaper."; ObjectID = "gj3-nc-exz"; */
+"gj3-nc-exz.title" = "ブラウザ拡張機能が登場しました！\nYouTubeの動画をブラウザから直接、壁紙として設定することができます。";
+
+/* Class = "NSTextFieldCell"; title = "An extension is pre-installed.\nPlease enable it from the Safari settings."; ObjectID = "l2e-71-MPH"; */
+"l2e-71-MPH.title" = "拡張機能は事前にインストールされています。\nSafariの設定から有効化してください。";
+
+/* Class = "NSTextFieldCell"; title = "Install from the Chrome Web Store"; ObjectID = "p4X-jV-F9d"; */
+"p4X-jV-F9d.title" = "Chrome Web Storeからインストールしてください。";
+
+/* Class = "NSTextFieldCell"; title = "Safari"; ObjectID = "tzs-IZ-WI8"; */
+"tzs-IZ-WI8.title" = "Safari";

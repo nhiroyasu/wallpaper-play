@@ -93,6 +93,9 @@
 		4FAD5E962BE37BFA00DB51DC /* popup.html in Resources */ = {isa = PBXBuildFile; fileRef = 4FAD5E922BE37BFA00DB51DC /* popup.html */; };
 		4FAD5EAA2BE3864C00DB51DC /* popup.css in Resources */ = {isa = PBXBuildFile; fileRef = 4FAD5EA92BE3864C00DB51DC /* popup.css */; };
 		4FAD5EB92BE3866C00DB51DC /* assets in Resources */ = {isa = PBXBuildFile; fileRef = 4FAD5EB82BE3866C00DB51DC /* assets */; };
+		4FAF30362BE391B100B9E381 /* BrowserExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAF30342BE391B100B9E381 /* BrowserExtensionViewController.swift */; };
+		4FAF30392BE399F200B9E381 /* BrowserExtensionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAF30382BE399F200B9E381 /* BrowserExtensionCoordinator.swift */; };
+		4FAF303C2BE39C0300B9E381 /* BrowserExtensionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FAF303B2BE39C0300B9E381 /* BrowserExtensionViewController.xib */; };
 		4FB0F3E82854A0F2004E6D51 /* WallMovieWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FB0F3E62854A0F2004E6D51 /* WallMovieWindowController.xib */; };
 		4FB0F3EC2854A112004E6D51 /* WallMovieViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FB0F3EA2854A112004E6D51 /* WallMovieViewController.xib */; };
 		4FB0F3EF2854A17C004E6D51 /* WallMovieCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB0F3EE2854A17C004E6D51 /* WallMovieCoordinator.swift */; };
@@ -263,6 +266,10 @@
 		4FAD5E932BE37BFA00DB51DC /* popup.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = popup.css; sourceTree = "<group>"; };
 		4FAD5EA92BE3864C00DB51DC /* popup.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = popup.css; sourceTree = "<group>"; };
 		4FAD5EB82BE3866C00DB51DC /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = assets; sourceTree = "<group>"; };
+		4FAF30342BE391B100B9E381 /* BrowserExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserExtensionViewController.swift; sourceTree = "<group>"; };
+		4FAF30382BE399F200B9E381 /* BrowserExtensionCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserExtensionCoordinator.swift; sourceTree = "<group>"; };
+		4FAF303A2BE39C0300B9E381 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/BrowserExtensionViewController.xib; sourceTree = "<group>"; };
+		4FAF303F2BE3A05B00B9E381 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/BrowserExtensionViewController.strings; sourceTree = "<group>"; };
 		4FB0F3E62854A0F2004E6D51 /* WallMovieWindowController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WallMovieWindowController.xib; sourceTree = "<group>"; };
 		4FB0F3EA2854A112004E6D51 /* WallMovieViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WallMovieViewController.xib; sourceTree = "<group>"; };
 		4FB0F3EE2854A17C004E6D51 /* WallMovieCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallMovieCoordinator.swift; sourceTree = "<group>"; };
@@ -581,6 +588,8 @@
 				4F2D558C289567D200363292 /* AboutViewController.swift */,
 				4F2D558D289567D200363292 /* AboutViewController.xib */,
 				4F2D5590289567E900363292 /* AboutView.swift */,
+				4FAF30342BE391B100B9E381 /* BrowserExtensionViewController.swift */,
+				4FAF303B2BE39C0300B9E381 /* BrowserExtensionViewController.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -622,6 +631,7 @@
 				4FDF1DF6285ECAB500ABBE8D /* Coordinator.swift */,
 				4FDF1DF8285ECAC700ABBE8D /* Transition.swift */,
 				4FBD50FE28850A38002DF955 /* WebPageSelectionCoordinator.swift */,
+				4FAF30382BE399F200B9E381 /* BrowserExtensionCoordinator.swift */,
 				4F2D559228956D4F00363292 /* AboutCoordinator.swift */,
 			);
 			path = Coordinator;
@@ -845,6 +855,7 @@
 				4FB0F3EC2854A112004E6D51 /* WallMovieViewController.xib in Resources */,
 				4F2161FF2850FA37000673EF /* PreferenceViewController.xib in Resources */,
 				4F8A58DE284CA01A00557FDD /* Assets.xcassets in Resources */,
+				4FAF303C2BE39C0300B9E381 /* BrowserExtensionViewController.xib in Resources */,
 				4F6A4D112896505500F7B40D /* YouTubeSelectionViewController.xib in Resources */,
 				4FC182EF285E00540042FAF6 /* SwitchCell.xib in Resources */,
 				4FB0F3FB2854D6DA004E6D51 /* VideoFormWindowController.xib in Resources */,
@@ -940,6 +951,7 @@
 				4FB0F3EF2854A17C004E6D51 /* WallMovieCoordinator.swift in Sources */,
 				4F03CEEC285A1654009FDC6F /* DateSortable.swift in Sources */,
 				4F8A5954284D18E400557FDD /* SideMenuViewController.swift in Sources */,
+				4FAF30362BE391B100B9E381 /* BrowserExtensionViewController.swift in Sources */,
 				4F7B56042BDDE6FF00D427C6 /* TestInjector.swift in Sources */,
 				4F01693C284D1D2E00C12ED6 /* SideMenuCell.swift in Sources */,
 				4FB1BD3D295E8C9300F476CD /* DockMenuItemBuilder.swift in Sources */,
@@ -963,6 +975,7 @@
 				4F8A5957284D1A2C00557FDD /* LocalVideoSelectionViewController.swift in Sources */,
 				4F8A58DC284CA01A00557FDD /* WallMovieViewController.swift in Sources */,
 				4F2D558E289567D200363292 /* AboutViewController.swift in Sources */,
+				4FAF30392BE399F200B9E381 /* BrowserExtensionCoordinator.swift in Sources */,
 				4FB0F3F32854D2C5004E6D51 /* LocalVideoSelectionCoordinator.swift in Sources */,
 				4F8A595D284D1B5000557FDD /* YouTubeSelectionViewController.swift in Sources */,
 				4F8A5942284CEEFE00557FDD /* NSCollectionView+.swift in Sources */,
@@ -1100,6 +1113,15 @@
 				4F6A4D0628964E5100F7B40D /* ja */,
 			);
 			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		4FAF303B2BE39C0300B9E381 /* BrowserExtensionViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4FAF303A2BE39C0300B9E381 /* Base */,
+				4FAF303F2BE3A05B00B9E381 /* ja */,
+			);
+			name = BrowserExtensionViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

@@ -5,3 +5,9 @@ class AntialiasedImageView: NSImageView {
         super.draw(dirtyRect)
     }
 }
+
+class AntialiasedButton: NSButton {
+    override func draw(_ dirtyRect: NSRect) {
+        super.draw(dirtyRect)
+    }
+}
