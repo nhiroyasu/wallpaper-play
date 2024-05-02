@@ -14,16 +14,16 @@
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView translatesAutoresizingMaskIntoConstraints="NO" id="Hz6-mo-xeY">
-            <rect key="frame" x="0.0" y="0.0" width="847" height="1060"/>
+            <rect key="frame" x="0.0" y="0.0" width="847" height="525"/>
             <subviews>
                 <customView translatesAutoresizingMaskIntoConstraints="NO" id="8BB-h3-mY4">
-                    <rect key="frame" x="0.0" y="1" width="847" height="1060"/>
+                    <rect key="frame" x="0.0" y="0.0" width="847" height="525"/>
                     <subviews>
                         <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="0.0" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SKK-4R-mPs">
-                            <rect key="frame" x="0.0" y="0.0" width="847" height="1060"/>
+                            <rect key="frame" x="0.0" y="62" width="847" height="463"/>
                             <subviews>
                                 <stackView distribution="fill" orientation="vertical" alignment="centerX" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="swN-e5-ZHx">
-                                    <rect key="frame" x="16" y="709" width="815" height="351"/>
+                                    <rect key="frame" x="16" y="112" width="815" height="351"/>
                                     <subviews>
                                         <customView horizontalHuggingPriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="g3c-at-orp" userLabel="Spacer">
                                             <rect key="frame" x="0.0" y="335" width="815" height="16"/>
@@ -79,10 +79,10 @@ You can set YouTube videos as your wallpaper directly from your browser.</string
                                     </customSpacing>
                                 </stackView>
                                 <box horizontalHuggingPriority="249" verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="0F9-tL-ADL">
-                                    <rect key="frame" x="0.0" y="706" width="847" height="5"/>
+                                    <rect key="frame" x="0.0" y="109" width="847" height="5"/>
                                 </box>
                                 <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kfb-AZ-KSW">
-                                    <rect key="frame" x="16" y="643" width="815" height="65"/>
+                                    <rect key="frame" x="16" y="46" width="815" height="65"/>
                                     <subviews>
                                         <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lPB-py-b3V">
                                             <rect key="frame" x="0.0" y="22" width="16" height="22"/>
@@ -141,10 +141,10 @@ Please enable it from the Safari settings.
                                     </customSpacing>
                                 </stackView>
                                 <box horizontalHuggingPriority="249" verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="Zel-RQ-bFA">
-                                    <rect key="frame" x="0.0" y="640" width="847" height="5"/>
+                                    <rect key="frame" x="0.0" y="43" width="847" height="5"/>
                                 </box>
                                 <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cby-Nc-5lI">
-                                    <rect key="frame" x="16" y="598" width="815" height="44"/>
+                                    <rect key="frame" x="16" y="1" width="815" height="44"/>
                                     <subviews>
                                         <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KXG-vh-2dW" customClass="AntialiasedImageView" customModule="Wallpaper_Play" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="14" width="16" height="16"/>
@@ -199,14 +199,8 @@ Please enable it from the Safari settings.
                                     </customSpacing>
                                 </stackView>
                                 <box horizontalHuggingPriority="249" verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="K1W-NU-0by">
-                                    <rect key="frame" x="0.0" y="595" width="847" height="5"/>
+                                    <rect key="frame" x="0.0" y="-2" width="847" height="5"/>
                                 </box>
-                                <customView horizontalHuggingPriority="249" verticalHuggingPriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="Fba-9h-BXK" userLabel="Spacer">
-                                    <rect key="frame" x="0.0" y="0.0" width="847" height="597"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" id="mPr-Xm-DjX"/>
-                                    </constraints>
-                                </customView>
                             </subviews>
                             <constraints>
                                 <constraint firstItem="Kfb-AZ-KSW" firstAttribute="leading" secondItem="SKK-4R-mPs" secondAttribute="leading" constant="16" id="Q88-H4-dXs"/>
@@ -223,10 +217,8 @@ Please enable it from the Safari settings.
                                 <integer value="1000"/>
                                 <integer value="1000"/>
                                 <integer value="1000"/>
-                                <integer value="1000"/>
                             </visibilityPriorities>
                             <customSpacing>
-                                <real value="3.4028234663852886e+38"/>
                                 <real value="3.4028234663852886e+38"/>
                                 <real value="3.4028234663852886e+38"/>
                                 <real value="3.4028234663852886e+38"/>
@@ -237,7 +229,7 @@ Please enable it from the Safari settings.
                         </stackView>
                     </subviews>
                     <constraints>
-                        <constraint firstAttribute="bottom" secondItem="SKK-4R-mPs" secondAttribute="bottom" id="RDq-M2-peh"/>
+                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="SKK-4R-mPs" secondAttribute="bottom" id="RDq-M2-peh"/>
                         <constraint firstItem="SKK-4R-mPs" firstAttribute="leading" secondItem="8BB-h3-mY4" secondAttribute="leading" id="TD2-5U-YGk"/>
                         <constraint firstItem="SKK-4R-mPs" firstAttribute="top" secondItem="8BB-h3-mY4" secondAttribute="top" id="ZQ4-9e-ju5"/>
                         <constraint firstAttribute="trailing" secondItem="SKK-4R-mPs" secondAttribute="trailing" id="jJe-YM-cYs"/>
@@ -250,7 +242,7 @@ Please enable it from the Safari settings.
                 <constraint firstAttribute="bottom" secondItem="8BB-h3-mY4" secondAttribute="bottom" id="eck-ds-Wbh"/>
                 <constraint firstItem="8BB-h3-mY4" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="hsl-D7-frl"/>
             </constraints>
-            <point key="canvasLocation" x="50.5" y="-68.5"/>
+            <point key="canvasLocation" x="50.5" y="-37.5"/>
         </customView>
     </objects>
     <resources>
