@@ -28,6 +28,7 @@ class AppContainer {
 
         // MARK: - some dependencies
 
+        container.register(WallpaperRequestService.self) { injector in WallpaperRequestServiceImpl(injector: injector) }
         container.register(RealmMigrationService.self) { injector in RealmMigrationServiceImpl(injector: injector) }
         container.register(VideoFormWindowPresenter.self) { injector in VideoFormWindowPresenterImpl(injector: injector) }
         container.register(RealmService.self) { injector in RealmManagerImpl(injector: injector) }

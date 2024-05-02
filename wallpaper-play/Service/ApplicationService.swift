@@ -105,7 +105,7 @@ class ApplicationServiceImpl: ApplicationService {
 
     private func setUpRequestYouTubeNotification() {
         notificationManager.observe(name: .requestYouTube) { [weak self] param in
-            guard let self = self, let data = param as? NotificationRequestVideoTDO else { fatalError() }
+            guard let self = self, let data = param as? YouTubePlayValue else { fatalError() }
             self.displayYouTube(videoId: data.videoId, isMute: data.isMute, shouldSavedHistory: true)
         }
     }

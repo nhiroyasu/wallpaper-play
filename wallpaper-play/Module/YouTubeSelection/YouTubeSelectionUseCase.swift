@@ -12,13 +12,13 @@ class YouTubeSelectionInteractor: YouTubeSelectionUseCase {
     private let presenter: YouTubeSelectionPresenter
     private let urlResolverService: URLResolverService
     private let youtubeContentService: YouTubeContentsService
-    private let notificationManager: NotificationManager
+    private let wallpaperRequestService: WallpaperRequestService
 
     internal init(injector: Injectable = Injector.shared) {
         self.presenter = injector.build(YouTubeSelectionPresenter.self)
         self.urlResolverService = injector.build()
         self.youtubeContentService = injector.build()
-        self.notificationManager = injector.build()
+        self.wallpaperRequestService = injector.build()
     }
 
     func initialSetUp() {
@@ -65,11 +65,8 @@ class YouTubeSelectionInteractor: YouTubeSelectionUseCase {
             presenter.showValidateAlert()
             return
         }
-        
-        notificationManager.push(
-            name: .requestYouTube,
-            param: NotificationRequestVideoTDO(videoId: youtubeId, isMute: mute)
-        )
+
+        wallpaperRequestService.requestYoutubeWallpaper(youtube: YouTubePlayValue(videoId: youtubeId, isMute: mute))
     }
     
     private func validateYouTubeLink(_ link: String) -> Bool {
