@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "WallpaperPlay browser extension",
+  "version": "1.0.0",
+  "description": "You can set YouTube as your wallpaper directly from the browser",
+  "icons": {
+    "16": "assets/plan1@16px.png",
+    "32": "assets/plan1@32px.png",
+    "48": "assets/plan1@48px.png",
+    "96": "assets/plan1@98px.png"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "assets/plan1_toolbar_16.png",
+      "24": "assets/plan1_toolbar_24.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": ["contextMenus", "tabs", "scripting", "storage"],
+  "host_permissions": ["*://*.youtube.com/*"]
+}
