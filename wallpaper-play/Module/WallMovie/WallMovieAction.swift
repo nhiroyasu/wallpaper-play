@@ -2,7 +2,7 @@ import Foundation
 import Injectable
 
 protocol WallMovieAction {
-    func viewDidLoad(screenFrame: NSRect)
+    func viewDidLoad()
     func viewWillDisappear()
     func show(_ type: WallpaperKind)
 }
@@ -15,8 +15,8 @@ class WallMovieActionImpl: WallMovieAction {
         self.useCase = injector.build(WallMovieUseCase.self)
     }
     
-    func viewDidLoad(screenFrame: NSRect) {
-        useCase.setUp(screenFrame: screenFrame)
+    func viewDidLoad() {
+        useCase.setUp()
     }
     
     func viewWillDisappear() {

@@ -26,15 +26,15 @@ class WallMovieCoordinator: Coordinator {
     private lazy var action: WallMovieAction = injector.build()
     private lazy var useCase: WallMovieUseCase = injector.build()
     private lazy var presenter: WallMoviePresenter = injector.build()
-    private let screenFrame: NSRect
-    
-    init(injector: Injectable, screenFrame: NSRect) {
+    private let wallpaperSize: NSSize
+
+    init(injector: Injectable, wallpaperSize: NSSize) {
         self.injector = injector
-        self.screenFrame = screenFrame
+        self.wallpaperSize = wallpaperSize
     }
     
     func create() -> NSViewController {
-        viewController = WallMovieViewController(screenFrame: screenFrame, action: action)
+        viewController = WallMovieViewController(wallpaperSize: wallpaperSize, action: action)
         (presenter as? WallMoviePresenterImpl)?.output = viewController
         return viewController
     }

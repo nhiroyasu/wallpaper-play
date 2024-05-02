@@ -30,3 +30,8 @@ class NotificationManagerImpl: NotificationManager {
         }
     }
 }
+
+struct NotificationRequestVideoTDO {
+    let videoId: String
+    let isMute: Bool
+}

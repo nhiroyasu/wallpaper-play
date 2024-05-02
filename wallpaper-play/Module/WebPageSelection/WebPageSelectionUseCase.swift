@@ -2,22 +2,37 @@ import Foundation
 import Injectable
 
 protocol WebPageSelectionUseCase {
+    func initialSetUp()
+    func setUpDescriptionPreview()
     func setUpPreview(for urlString: String)
+    func setUpPreviewIfValidUrl(for urlString: String)
     func clearPreview()
-    func setUpWallpaper(for url: URL)
-    func showError(message: String)
+    func setUpWallpaper(for urlString: String)
 }
 
 class WebPageSelectionInteractor: WebPageSelectionUseCase {
-    
     private let presenter: WebPageSelectionPresenter
+    private let notificationManager: NotificationManager
     private let urlValidationService: UrlValidationService
     
     internal init(injector: Injectable = Injector.shared) {
         self.presenter = injector.build(WebPageSelectionPresenter.self)
+        self.notificationManager = injector.build()
         self.urlValidationService = injector.build()
     }
-    
+
+    func initialSetUp() {
+        if let path = Bundle.main.path(forResource: "copy_description_for_web", ofType: "html") {
+            presenter.setPreview(url: URL(fileURLWithPath: path))
+        }
+    }
+
+    func setUpDescriptionPreview() {
+        if let path = Bundle.main.path(forResource: "copy_description_for_web", ofType: "html") {
+            presenter.setPreview(url: URL(fileURLWithPath: path))
+        }
+    }
+
     func setUpPreview(for urlString: String) {
         if let url = urlValidationService.validate(string: urlString) {
             presenter.setPreview(url: url)
@@ -27,15 +42,21 @@ class WebPageSelectionInteractor: WebPageSelectionUseCase {
         }
     }
 
+    func setUpPreviewIfValidUrl(for urlString: String) {
+        if let url = urlValidationService.validate(string: urlString) {
+            presenter.setPreview(url: url)
+        }
+    }
+
     func clearPreview() {
         presenter.clearPreview()
     }
     
-    func setUpWallpaper(for url: URL) {
-        presenter.setUpWallpaper(for: url)
-    }
-    
-    func showError(message: String) {
-        presenter.showAlert(message: message)
+    func setUpWallpaper(for urlString: String) {
+        if let url = urlValidationService.validate(string: urlString) {
+            notificationManager.push(name: .requestWebPage, param: url)
+        } else {
+            presenter.showAlert(message: LocalizedString(key: .error_invalid_preview))
+        }
     }
 }

@@ -7,13 +7,13 @@ class WebPageSelectionContainerBuilder {
         let container = Container(parent: parent)
         
         container.register(WebPageSelectionAction.self) { resolver in
-            WebPageSelectionActionImpl(injector: resolver, state: state)
+            WebPageSelectionActionImpl(injector: resolver)
         }.inObjectScope(.container)
         container.register(WebPageSelectionUseCase.self) { resolver in
             WebPageSelectionInteractor(injector: resolver)
         }.inObjectScope(.container)
         container.register(WebPageSelectionPresenter.self) { resolver in
-            WebPageSelectionPresenterImpl(injector: resolver, state: state)
+            WebPageSelectionPresenterImpl(injector: resolver)
         }.inObjectScope(.container)
         
         return container
@@ -35,6 +35,7 @@ class WebPageSelectionCoordinator: Coordinator {
     
     func create() -> NSViewController {
         viewController = WebPageSelectionViewController(action: action, state: state)
+        (presenter as? WebPageSelectionPresenterImpl)?.output = viewController
         return viewController
     }
 }

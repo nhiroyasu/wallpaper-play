@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLIconFile</key>
+			<string>icon_128x128</string>
+			<key>CFBundleURLName</key>
+			<string>com.nhiro1109.wallpaper-play</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>wallpaperplay</string>
+			</array>
+		</dict>
+	</array>
+</dict>
+</plist>

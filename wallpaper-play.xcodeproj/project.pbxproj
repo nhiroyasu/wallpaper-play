@@ -33,6 +33,14 @@
 		4F25C1D2284E644600397737 /* LocalVideoSelectionAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25C1D1284E644600397737 /* LocalVideoSelectionAction.swift */; };
 		4F25C1D4284E673A00397737 /* URLResolverService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25C1D3284E673A00397737 /* URLResolverService.swift */; };
 		4F25C1D6284F718C00397737 /* NSImageView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25C1D5284F718C00397737 /* NSImageView+.swift */; };
+		4F2801812BDDEEB4003F36A6 /* WallMovieUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F28017F2BDDEEB4003F36A6 /* WallMovieUITests.swift */; };
+		4F2801822BDDEEB4003F36A6 /* WallMovieUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2801802BDDEEB4003F36A6 /* WallMovieUITestsLaunchTests.swift */; };
+		4F2801872BDDF1C5003F36A6 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 4F2801862BDDF1C5003F36A6 /* RealmSwift */; };
+		4F2801892BDDF1CD003F36A6 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 4F2801882BDDF1CD003F36A6 /* Realm */; };
+		4F28018B2BDDF4DD003F36A6 /* db_schema_v2.realm in Resources */ = {isa = PBXBuildFile; fileRef = 4F28018A2BDDF4DD003F36A6 /* db_schema_v2.realm */; };
+		4F28018C2BDDF4F7003F36A6 /* RealmMigrationServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2801832BDDEFB1003F36A6 /* RealmMigrationServiceTests.swift */; };
+		4F28018F2BDE364D003F36A6 /* copy_description_for_youtube.html in Resources */ = {isa = PBXBuildFile; fileRef = 4F28018D2BDE3511003F36A6 /* copy_description_for_youtube.html */; };
+		4F2801912BDE3764003F36A6 /* copy_description_for_web.html in Resources */ = {isa = PBXBuildFile; fileRef = 4F2801902BDE3764003F36A6 /* copy_description_for_web.html */; };
 		4F2D558E289567D200363292 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2D558C289567D200363292 /* AboutViewController.swift */; };
 		4F2D558F289567D200363292 /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F2D558D289567D200363292 /* AboutViewController.xib */; };
 		4F2D5591289567E900363292 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2D5590289567E900363292 /* AboutView.swift */; };
@@ -44,15 +52,15 @@
 		4F6A4D17289650D900F7B40D /* LocalVideoSelectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F6A4D19289650D900F7B40D /* LocalVideoSelectionViewController.xib */; };
 		4F6A4D1B2896512400F7B40D /* WebPageSelectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F6A4D1D2896512400F7B40D /* WebPageSelectionViewController.xib */; };
 		4F6A4D22289653F100F7B40D /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6A4D21289653F100F7B40D /* Localization.swift */; };
-		4F6A4D25289D646600F7B40D /* youtube_description.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F6A4D24289D646600F7B40D /* youtube_description.png */; };
 		4F6A4D2A289D6F1300F7B40D /* NonInteractionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6A4D29289D6F1300F7B40D /* NonInteractionView.swift */; };
+		4F7B55FE2BDCEC0D00D427C6 /* icon_128x128.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F7B55FD2BDCEC0D00D427C6 /* icon_128x128.png */; };
+		4F7B56022BDDE58100D427C6 /* RealmMigrationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7B56012BDDE58100D427C6 /* RealmMigrationService.swift */; };
+		4F7B56042BDDE6FF00D427C6 /* TestInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7B56032BDDE6FF00D427C6 /* TestInjector.swift */; };
 		4F8A58DA284CA01A00557FDD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8A58D9284CA01A00557FDD /* AppDelegate.swift */; };
 		4F8A58DC284CA01A00557FDD /* WallMovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8A58DB284CA01A00557FDD /* WallMovieViewController.swift */; };
 		4F8A58DE284CA01A00557FDD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F8A58DD284CA01A00557FDD /* Assets.xcassets */; };
 		4F8A58E1284CA01A00557FDD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F8A58DF284CA01A00557FDD /* Main.storyboard */; };
-		4F8A58EC284CA01B00557FDD /* WallMovieTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8A58EB284CA01B00557FDD /* WallMovieTests.swift */; };
-		4F8A58F6284CA01B00557FDD /* WallMovieUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8A58F5284CA01B00557FDD /* WallMovieUITests.swift */; };
-		4F8A58F8284CA01B00557FDD /* WallMovieUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8A58F7284CA01B00557FDD /* WallMovieUITestsLaunchTests.swift */; };
+		4F8A58EC284CA01B00557FDD /* YouTubeContentsServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8A58EB284CA01B00557FDD /* YouTubeContentsServiceTests.swift */; };
 		4F8A5907284CA04F00557FDD /* WallMovieWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8A5906284CA04F00557FDD /* WallMovieWindowController.swift */; };
 		4F8A590B284CA0FA00557FDD /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F8A590A284CA0FA00557FDD /* WebKit.framework */; };
 		4F8A590D284CA1B200557FDD /* YouTubeWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8A590C284CA1B200557FDD /* YouTubeWebView.swift */; };
@@ -154,6 +162,12 @@
 		4F25C1D1284E644600397737 /* LocalVideoSelectionAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalVideoSelectionAction.swift; sourceTree = "<group>"; };
 		4F25C1D3284E673A00397737 /* URLResolverService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLResolverService.swift; sourceTree = "<group>"; };
 		4F25C1D5284F718C00397737 /* NSImageView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSImageView+.swift"; sourceTree = "<group>"; };
+		4F28017F2BDDEEB4003F36A6 /* WallMovieUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WallMovieUITests.swift; sourceTree = "<group>"; };
+		4F2801802BDDEEB4003F36A6 /* WallMovieUITestsLaunchTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WallMovieUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		4F2801832BDDEFB1003F36A6 /* RealmMigrationServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmMigrationServiceTests.swift; sourceTree = "<group>"; };
+		4F28018A2BDDF4DD003F36A6 /* db_schema_v2.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = db_schema_v2.realm; sourceTree = "<group>"; };
+		4F28018D2BDE3511003F36A6 /* copy_description_for_youtube.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = copy_description_for_youtube.html; sourceTree = "<group>"; };
+		4F2801902BDE3764003F36A6 /* copy_description_for_web.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = copy_description_for_web.html; sourceTree = "<group>"; };
 		4F2D558C289567D200363292 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		4F2D558D289567D200363292 /* AboutViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutViewController.xib; sourceTree = "<group>"; };
 		4F2D5590289567E900363292 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
@@ -165,12 +179,15 @@
 		4F6A4D1A289650DC00F7B40D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LocalVideoSelectionViewController.xib; sourceTree = "<group>"; };
 		4F6A4D1C2896512400F7B40D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/WebPageSelectionViewController.xib; sourceTree = "<group>"; };
 		4F6A4D21289653F100F7B40D /* Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
-		4F6A4D24289D646600F7B40D /* youtube_description.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = youtube_description.png; sourceTree = "<group>"; };
 		4F6A4D26289D6ACC00F7B40D /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/YouTubeSelectionViewController.strings; sourceTree = "<group>"; };
 		4F6A4D27289D6AD800F7B40D /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/WebPageSelectionViewController.strings; sourceTree = "<group>"; };
 		4F6A4D28289D6AE200F7B40D /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LocalVideoSelectionViewController.strings; sourceTree = "<group>"; };
 		4F6A4D29289D6F1300F7B40D /* NonInteractionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NonInteractionView.swift; sourceTree = "<group>"; };
-		4F8343E52BCB9B6C00DAAF4D /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		4F7B55FB2BDCEB1700D427C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = Info.plist; path = "Wallpaper-Play/Info.plist"; sourceTree = "<group>"; };
+		4F7B55FD2BDCEC0D00D427C6 /* icon_128x128.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_128x128.png; sourceTree = "<group>"; };
+		4F7B56012BDDE58100D427C6 /* RealmMigrationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmMigrationService.swift; sourceTree = "<group>"; };
+		4F7B56032BDDE6FF00D427C6 /* TestInjector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestInjector.swift; sourceTree = "<group>"; };
+		4F8343E62BCBA0DA00DAAF4D /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		4F8A58D6284CA01A00557FDD /* Wallpaper Play.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Wallpaper Play.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F8A58D9284CA01A00557FDD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4F8A58DB284CA01A00557FDD /* WallMovieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallMovieViewController.swift; sourceTree = "<group>"; };
@@ -178,10 +195,8 @@
 		4F8A58E0284CA01A00557FDD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4F8A58E2284CA01A00557FDD /* wallpaper-play.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "wallpaper-play.entitlements"; sourceTree = "<group>"; };
 		4F8A58E7284CA01B00557FDD /* Wallpaper Play Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Wallpaper Play Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		4F8A58EB284CA01B00557FDD /* WallMovieTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallMovieTests.swift; sourceTree = "<group>"; };
+		4F8A58EB284CA01B00557FDD /* YouTubeContentsServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubeContentsServiceTests.swift; sourceTree = "<group>"; };
 		4F8A58F1284CA01B00557FDD /* Wallpaper Play UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Wallpaper Play UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		4F8A58F5284CA01B00557FDD /* WallMovieUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallMovieUITests.swift; sourceTree = "<group>"; };
-		4F8A58F7284CA01B00557FDD /* WallMovieUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallMovieUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		4F8A5906284CA04F00557FDD /* WallMovieWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallMovieWindowController.swift; sourceTree = "<group>"; };
 		4F8A590A284CA0FA00557FDD /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		4F8A590C284CA1B200557FDD /* YouTubeWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubeWebView.swift; sourceTree = "<group>"; };
@@ -257,6 +272,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F2801892BDDF1CD003F36A6 /* Realm in Frameworks */,
+				4F2801872BDDF1C5003F36A6 /* RealmSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,10 +324,29 @@
 			path = LocalVideoSelection;
 			sourceTree = "<group>";
 		};
+		4F28017C2BDDEDFC003F36A6 /* wallpaper-playUITests */ = {
+			isa = PBXGroup;
+			children = (
+				4F28017F2BDDEEB4003F36A6 /* WallMovieUITests.swift */,
+				4F2801802BDDEEB4003F36A6 /* WallMovieUITestsLaunchTests.swift */,
+			);
+			path = "wallpaper-playUITests";
+			sourceTree = "<group>";
+		};
+		4F2801852BDDEFDE003F36A6 /* TestRealm */ = {
+			isa = PBXGroup;
+			children = (
+				4F28018A2BDDF4DD003F36A6 /* db_schema_v2.realm */,
+			);
+			path = TestRealm;
+			sourceTree = "<group>";
+		};
 		4F6A4D23289D645000F7B40D /* BundleAssets */ = {
 			isa = PBXGroup;
 			children = (
-				4F6A4D24289D646600F7B40D /* youtube_description.png */,
+				4F7B55FD2BDCEC0D00D427C6 /* icon_128x128.png */,
+				4F28018D2BDE3511003F36A6 /* copy_description_for_youtube.html */,
+				4F2801902BDE3764003F36A6 /* copy_description_for_web.html */,
 			);
 			path = BundleAssets;
 			sourceTree = "<group>";
@@ -318,10 +354,11 @@
 		4F8A58CD284CA01A00557FDD = {
 			isa = PBXGroup;
 			children = (
-				4F8343E52BCB9B6C00DAAF4D /* PrivacyInfo.xcprivacy */,
+				4F7B55FB2BDCEB1700D427C6 /* Info.plist */,
+				4F8343E62BCBA0DA00DAAF4D /* PrivacyInfo.xcprivacy */,
 				4F8A58D8284CA01A00557FDD /* wallpaper-play */,
 				4F8A58EA284CA01B00557FDD /* wallpaper-playTests */,
-				4F8A58F4284CA01B00557FDD /* wallpaper-playUITests */,
+				4F28017C2BDDEDFC003F36A6 /* wallpaper-playUITests */,
 				4F8A58D7284CA01A00557FDD /* Products */,
 				4F8A5909284CA0FA00557FDD /* Frameworks */,
 			);
@@ -363,18 +400,12 @@
 		4F8A58EA284CA01B00557FDD /* wallpaper-playTests */ = {
 			isa = PBXGroup;
 			children = (
-				4F8A58EB284CA01B00557FDD /* WallMovieTests.swift */,
+				4F2801852BDDEFDE003F36A6 /* TestRealm */,
+				4F8A58EB284CA01B00557FDD /* YouTubeContentsServiceTests.swift */,
+				4F7B56032BDDE6FF00D427C6 /* TestInjector.swift */,
+				4F2801832BDDEFB1003F36A6 /* RealmMigrationServiceTests.swift */,
 			);
 			path = "wallpaper-playTests";
-			sourceTree = "<group>";
-		};
-		4F8A58F4284CA01B00557FDD /* wallpaper-playUITests */ = {
-			isa = PBXGroup;
-			children = (
-				4F8A58F5284CA01B00557FDD /* WallMovieUITests.swift */,
-				4F8A58F7284CA01B00557FDD /* WallMovieUITestsLaunchTests.swift */,
-			);
-			path = "wallpaper-playUITests";
 			sourceTree = "<group>";
 		};
 		4F8A5904284CA02F00557FDD /* Page */ = {
@@ -445,6 +476,7 @@
 				4F03CEF1285B64B2009FDC6F /* WallpaperHistoryService.swift */,
 				4F8A5938284CD65900557FDD /* YouTubeContentsService.swift */,
 				4FBD510928855046002DF955 /* UrlValidationService.swift */,
+				4F7B56012BDDE58100D427C6 /* RealmMigrationService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -621,6 +653,10 @@
 				4F8A58E9284CA01B00557FDD /* PBXTargetDependency */,
 			);
 			name = "Wallpaper Play Tests";
+			packageProductDependencies = (
+				4F2801862BDDF1C5003F36A6 /* RealmSwift */,
+				4F2801882BDDF1CD003F36A6 /* Realm */,
+			);
 			productName = WallMovieTests;
 			productReference = 4F8A58E7284CA01B00557FDD /* Wallpaper Play Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -662,6 +698,7 @@
 					};
 					4F8A58F0284CA01B00557FDD = {
 						CreatedOnToolsVersion = 13.4.1;
+						LastSwiftMigration = 1530;
 						TestTargetID = 4F8A58D5284CA01A00557FDD;
 					};
 				};
@@ -699,7 +736,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				4FB0F3E82854A0F2004E6D51 /* WallMovieWindowController.xib in Resources */,
+				4F2801912BDE3764003F36A6 /* copy_description_for_web.html in Resources */,
 				4F6A4D0928964EAB00F7B40D /* Localizable.strings in Resources */,
+				4F7B55FE2BDCEC0D00D427C6 /* icon_128x128.png in Resources */,
 				4FB0F3EC2854A112004E6D51 /* WallMovieViewController.xib in Resources */,
 				4F2161FF2850FA37000673EF /* PreferenceViewController.xib in Resources */,
 				4F8A58DE284CA01A00557FDD /* Assets.xcassets in Resources */,
@@ -707,9 +746,9 @@
 				4FC182EF285E00540042FAF6 /* SwitchCell.xib in Resources */,
 				4FB0F3FB2854D6DA004E6D51 /* VideoFormWindowController.xib in Resources */,
 				4F8A58E1284CA01A00557FDD /* Main.storyboard in Resources */,
-				4F6A4D25289D646600F7B40D /* youtube_description.png in Resources */,
 				4F6A4D17289650D900F7B40D /* LocalVideoSelectionViewController.xib in Resources */,
 				4F6A4D0E28964EE800F7B40D /* Localizable.strings in Resources */,
+				4F28018F2BDE364D003F36A6 /* copy_description_for_youtube.html in Resources */,
 				4F2D558F289567D200363292 /* AboutViewController.xib in Resources */,
 				4F6A4D1B2896512400F7B40D /* WebPageSelectionViewController.xib in Resources */,
 			);
@@ -719,6 +758,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F28018B2BDDF4DD003F36A6 /* db_schema_v2.realm in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -783,6 +823,7 @@
 				4FB0F3EF2854A17C004E6D51 /* WallMovieCoordinator.swift in Sources */,
 				4F03CEEC285A1654009FDC6F /* DateSortable.swift in Sources */,
 				4F8A5954284D18E400557FDD /* SideMenuViewController.swift in Sources */,
+				4F7B56042BDDE6FF00D427C6 /* TestInjector.swift in Sources */,
 				4F01693C284D1D2E00C12ED6 /* SideMenuCell.swift in Sources */,
 				4FB1BD3D295E8C9300F476CD /* DockMenuItemBuilder.swift in Sources */,
 				4F6A4D22289653F100F7B40D /* Localization.swift in Sources */,
@@ -826,6 +867,7 @@
 				4FBD510828850AB7002DF955 /* WebPageSelectionState.swift in Sources */,
 				4F25C1CE284E63F400397737 /* LocalVideoSelectionPresenter.swift in Sources */,
 				4F8A5937284CD3DF00557FDD /* WallMovieAction.swift in Sources */,
+				4F7B56022BDDE58100D427C6 /* RealmMigrationService.swift in Sources */,
 				4F25C1D4284E673A00397737 /* URLResolverService.swift in Sources */,
 				4F03CEF4285B79F4009FDC6F /* ApplicationFileManager.swift in Sources */,
 				4FC182FA285E1B780042FAF6 /* PreferenceCoordinator.swift in Sources */,
@@ -847,7 +889,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4F8A58EC284CA01B00557FDD /* WallMovieTests.swift in Sources */,
+				4F28018C2BDDF4F7003F36A6 /* RealmMigrationServiceTests.swift in Sources */,
+				4F8A58EC284CA01B00557FDD /* YouTubeContentsServiceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -855,8 +898,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4F8A58F6284CA01B00557FDD /* WallMovieUITests.swift in Sources */,
-				4F8A58F8284CA01B00557FDD /* WallMovieUITestsLaunchTests.swift in Sources */,
+				4F2801812BDDEEB4003F36A6 /* WallMovieUITests.swift in Sources */,
+				4F2801822BDDEEB4003F36A6 /* WallMovieUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1055,10 +1098,11 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 13;
 				DEVELOPMENT_TEAM = 2CMV7D36JC;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Wallpaper-Play/Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
@@ -1067,7 +1111,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.1.1;
+				MARKETING_VERSION = 1.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.debug.nhiro1109.wallpaper-play";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1084,10 +1128,11 @@
 				CODE_SIGN_ENTITLEMENTS = "wallpaper-play/wallpaper-play.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 13;
 				DEVELOPMENT_TEAM = 2CMV7D36JC;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Wallpaper-Play/Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
@@ -1096,7 +1141,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.1.1;
+				MARKETING_VERSION = 1.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.nhiro1109.wallpaper-play";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1146,6 +1191,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2CMV7D36JC;
@@ -1154,6 +1200,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.nhiro1109.WallMovieUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TEST_TARGET_NAME = "Wallpapaer Play";
 			};
@@ -1163,6 +1210,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2CMV7D36JC;
@@ -1262,6 +1310,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 4F03CEDD285A09FA009FDC6F /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
+		};
+		4F2801862BDDF1C5003F36A6 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4F03CEDD285A09FA009FDC6F /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+		4F2801882BDDF1CD003F36A6 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4F03CEDD285A09FA009FDC6F /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
 		};
 		4F6A4D042896444100F7B40D /* LaunchAtLogin */ = {
 			isa = XCSwiftPackageProductDependency;

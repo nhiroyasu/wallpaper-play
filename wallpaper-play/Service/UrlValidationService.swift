@@ -2,6 +2,7 @@ import Foundation
 
 protocol UrlValidationService {
     func validate(string: String) -> URL?
+    func validateAsUrlSchema(url: URL) -> Bool 
 }
 
 class UrlValidationServiceImpl: UrlValidationService {
@@ -14,5 +15,9 @@ class UrlValidationServiceImpl: UrlValidationService {
         } else {
             return nil
         }
+    }
+
+    func validateAsUrlSchema(url: URL) -> Bool {
+        return url.scheme == "wallpaperplay"
     }
 }

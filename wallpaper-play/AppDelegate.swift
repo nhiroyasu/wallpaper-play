@@ -3,16 +3,20 @@ import Injectable
 
 @main
 class AppDelegate: NSObject, NSApplicationDelegate {
-    private var wallMovieWindowController: WallMovieWindowController!
-    private var wallMovieViewController: WallMovieViewController!
     private let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
-    private var applicationService: ApplicationService!
+    private var applicationService: ApplicationService = Injector.shared.build()
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        buildStatusMenu()
-
-        applicationService = Injector.shared.build()
+        initStatusMenu()
         applicationService.applicationDidFinishLaunching()
+    }
+
+    func application(_ application: NSApplication, open urls: [URL]) {
+        applicationService.applicationOpen(urls: urls)
+    }
+
+    func applicationShouldHandleReopen(_ sender: NSApplication, hasVisibleWindows flag: Bool) -> Bool {
+        applicationService.applicationShouldHandleReopen(hasVisibleWindows: flag)
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
@@ -26,8 +30,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDockMenu(_ sender: NSApplication) -> NSMenu? {
         applicationService.dockMenu()
     }
-    
-    private func buildStatusMenu() {
+
+    func applicationDidBecomeActive(_ notification: Notification) {
+        applicationService.didBecomeActive()
+    }
+
+    private func initStatusMenu() {
         if let button = statusItem.button {
             button.image = NSImage(named:NSImage.Name("MenuIcon"))
         }
@@ -36,6 +44,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         menu.addItem(NSMenuItem(title: "Wallpaper", action: #selector(didTapWallPaperItem), keyEquivalent: ""))
         menu.addItem(NSMenuItem(title: "Preference", action: #selector(didTapPreferenceItem), keyEquivalent: ","))
         menu.addItem(.separator())
+        #if DEBUG
+        menu.addItem(NSMenuItem(title: "Debug", action: nil, keyEquivalent: ""))
+        menu.addItem(NSMenuItem(title: "Open .realm", action: #selector(didTapOpenRealm), keyEquivalent: ""))
+        menu.addItem(.separator())
+        #endif
         menu.addItem(NSMenuItem(title: "Quit", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q"))
         statusItem.menu = menu
     }
@@ -46,6 +59,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     @objc func didTapPreferenceItem() {
         applicationService.didTapPreferenceItem()
+    }
+
+    @objc func didTapOpenRealm() {
+        applicationService.didTapOpenRealm()
     }
 }
 

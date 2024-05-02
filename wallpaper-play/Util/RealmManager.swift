@@ -2,7 +2,7 @@ import Foundation
 import RealmSwift
 import Injectable
 
-fileprivate let SCHEMA_VERSION: UInt64 = 2
+fileprivate let SCHEMA_VERSION: UInt64 = 4
 
 public enum RealmConfigType {
     case release
@@ -12,18 +12,20 @@ public enum RealmConfigType {
 
 public protocol RealmService {
     func buildRealm() -> Realm
-    func buildConfig(type: RealmConfigType) throws -> Realm.Configuration
     // MARK: - for debug
     func compactRealm()
+    func getRealmURL() -> URL?
 }
 
 public class RealmManagerImpl: RealmService {
     
     private let applicationFileManager: ApplicationFileManager
+    private let migrationService: RealmMigrationService
     private let fileManager: FileManager
     
     public init(injector: Injectable) {
         applicationFileManager = injector.build()
+        migrationService = injector.build()
         fileManager = .default
     }
     
@@ -56,10 +58,15 @@ public class RealmManagerImpl: RealmService {
         #endif
     }
     
-    public func buildConfig(type: RealmConfigType) -> Realm.Configuration {
+    func buildConfig(type: RealmConfigType) -> Realm.Configuration {
         var config = Realm.Configuration.defaultConfiguration
         config.schemaVersion = SCHEMA_VERSION
-        
+        config.migrationBlock = { [weak self] migration, oldSchemaVersion in
+            guard let self else { return }
+            migrationService.migrateForV3(migration: migration, oldSchemaVersion: oldSchemaVersion)
+            migrationService.migrateForV4(migration: migration, oldSchemaVersion: oldSchemaVersion)
+        }
+
         switch type {
         case .release:
             if let url = applicationFileManager.getDirectory(.realm) {
@@ -73,5 +80,10 @@ public class RealmManagerImpl: RealmService {
             config = Realm.Configuration(inMemoryIdentifier: String(describing: Self.self))
         }
         return config
+    }
+
+    public func getRealmURL() -> URL? {
+        let config = buildConfig(type: .debug1)
+        return config.fileURL
     }
 }
