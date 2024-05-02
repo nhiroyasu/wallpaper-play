@@ -3,6 +3,7 @@ import Injectable
 
 protocol VideoFormWindowPresenter {
     func show()
+    func close()
 }
 
 final class VideoFormWindowPresenterImpl: VideoFormWindowPresenter {
@@ -18,6 +19,11 @@ final class VideoFormWindowPresenterImpl: VideoFormWindowPresenter {
             let coordinator = VideoFormCoordinator()
             videoFormWindowController.contentViewController = coordinator.create()
         }
-        videoFormWindowController.showWindow(nil)
+        videoFormWindowController.window?.center()
+        videoFormWindowController.window?.makeKeyAndOrderFront(nil)
+    }
+
+    func close() {
+        videoFormWindowProvider.windowController.close()
     }
 }

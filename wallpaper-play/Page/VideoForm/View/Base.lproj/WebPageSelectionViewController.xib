@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="20037" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="20037"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="22689"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="WebPageSelectionViewController" customModule="Wallpaper_Play" customModuleProvider="target">
             <connections>
-                <outlet property="confirmButton" destination="PCz-jq-p2u" id="eF4-RC-2oF"/>
                 <outlet property="setWallpaperButton" destination="YEP-sx-Osn" id="BrK-a6-Dvy"/>
                 <outlet property="urlSearchField" destination="p8d-qh-fot" id="kTZ-Ju-zy0"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
@@ -25,7 +24,7 @@
                     <rect key="frame" x="0.0" y="64" width="849" height="411"/>
                     <subviews>
                         <stackView distribution="fill" orientation="horizontal" alignment="baseline" spacing="16" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="F3D-yH-Ksr">
-                            <rect key="frame" x="32" y="376" width="57" height="19"/>
+                            <rect key="frame" x="33" y="376" width="57" height="19"/>
                             <subviews>
                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Wcn-XF-SjO">
                                     <rect key="frame" x="-2" y="0.0" width="61" height="19"/>
@@ -46,7 +45,7 @@
                         <box title="Preview" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="dct-fX-OBJ">
                             <rect key="frame" x="29" y="-4" width="791" height="374"/>
                             <view key="contentView" id="ode-eN-Vyh" customClass="NonInteractionView" customModule="Wallpaper_Play" customModuleProvider="target">
-                                <rect key="frame" x="3" y="3" width="785" height="368"/>
+                                <rect key="frame" x="4" y="5" width="783" height="366"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </view>
                         </box>
@@ -71,39 +70,27 @@
                     <rect key="frame" x="0.0" y="475" width="849" height="120"/>
                     <subviews>
                         <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="32" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8w9-Bs-EGx">
-                            <rect key="frame" x="32" y="0.0" width="785" height="120"/>
+                            <rect key="frame" x="32" y="25" width="785" height="70"/>
                             <subviews>
                                 <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o7f-7r-i5I">
-                                    <rect key="frame" x="0.0" y="25" width="785" height="70"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="785" height="70"/>
                                     <subviews>
-                                        <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TTh-Xc-Duo">
+                                        <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" horizontalHuggingPriority="249" horizontalCompressionResistancePriority="749" placeholderIntrinsicWidth="785" placeholderIntrinsicHeight="30" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TTh-Xc-Duo">
                                             <rect key="frame" x="0.0" y="40" width="785" height="30"/>
                                             <subviews>
                                                 <searchField wantsLayer="YES" horizontalHuggingPriority="249" verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p8d-qh-fot">
-                                                    <rect key="frame" x="0.0" y="0.0" width="707" height="30"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="785" height="30"/>
                                                     <searchFieldCell key="cell" controlSize="large" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" placeholderString="URL" usesSingleLineMode="YES" bezelStyle="round" id="BAw-al-eia">
                                                         <font key="font" metaFont="system"/>
                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     </searchFieldCell>
                                                 </searchField>
-                                                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="PCz-jq-p2u">
-                                                    <rect key="frame" x="709" y="-5" width="82" height="40"/>
-                                                    <buttonCell key="cell" type="push" title="Confirm" bezelStyle="rounded" alignment="center" controlSize="large" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="TR0-mp-7Gx">
-                                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                        <font key="font" metaFont="system"/>
-                                                    </buttonCell>
-                                                    <connections>
-                                                        <action selector="didTapConfirmButton:" target="-2" id="Kyh-Ye-ADm"/>
-                                                    </connections>
-                                                </button>
                                             </subviews>
                                             <visibilityPriorities>
                                                 <integer value="1000"/>
-                                                <integer value="1000"/>
                                             </visibilityPriorities>
                                             <customSpacing>
-                                                <real value="3.4028234663852886e+38"/>
                                                 <real value="3.4028234663852886e+38"/>
                                             </customSpacing>
                                         </stackView>
@@ -157,10 +144,11 @@
                     </subviews>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="8w9-Bs-EGx" secondAttribute="trailing" constant="32" id="Css-mX-xuF"/>
+                        <constraint firstItem="8w9-Bs-EGx" firstAttribute="centerY" secondItem="Nlx-l8-j4R" secondAttribute="centerY" id="Pmp-nS-ERS"/>
                         <constraint firstItem="8w9-Bs-EGx" firstAttribute="leading" secondItem="Nlx-l8-j4R" secondAttribute="leading" constant="32" id="SYE-7B-jVF"/>
-                        <constraint firstItem="8w9-Bs-EGx" firstAttribute="top" secondItem="Nlx-l8-j4R" secondAttribute="top" id="Wkm-T6-Pqd"/>
+                        <constraint firstItem="8w9-Bs-EGx" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Nlx-l8-j4R" secondAttribute="top" constant="24" id="Wkm-T6-Pqd"/>
                         <constraint firstAttribute="height" constant="120" id="jdZ-d8-1Yo"/>
-                        <constraint firstAttribute="bottom" secondItem="8w9-Bs-EGx" secondAttribute="bottom" id="ofP-Yy-j4F"/>
+                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="8w9-Bs-EGx" secondAttribute="bottom" constant="24" id="ofP-Yy-j4F"/>
                     </constraints>
                 </customView>
                 <customView translatesAutoresizingMaskIntoConstraints="NO" id="WR6-IS-SXf">

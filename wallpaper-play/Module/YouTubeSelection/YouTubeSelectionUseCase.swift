@@ -3,6 +3,7 @@ import Injectable
 
 protocol YouTubeSelectionUseCase {
     func initialSetUp()
+    func confirmIfValidYouTubeLink(_ youtubeLink: String)
     func confirm(_ youtubeLink: String)
     func requestSettingWallpaper(youtubeLink: String, mute: Bool)
 }
@@ -12,7 +13,7 @@ class YouTubeSelectionInteractor: YouTubeSelectionUseCase {
     private let urlResolverService: URLResolverService
     private let youtubeContentService: YouTubeContentsService
     private let notificationManager: NotificationManager
-    
+
     internal init(injector: Injectable = Injector.shared) {
         self.presenter = injector.build(YouTubeSelectionPresenter.self)
         self.urlResolverService = injector.build()
@@ -21,11 +22,20 @@ class YouTubeSelectionInteractor: YouTubeSelectionUseCase {
     }
 
     func initialSetUp() {
-        if let path = Bundle.main.path(forResource: "youtube_description", ofType: "png") {
+        if let path = Bundle.main.path(forResource: "copy_description_for_youtube", ofType: "html") {
             presenter.updatePreview(youtubeLink: URL(fileURLWithPath: path))
         }
     }
-    
+
+    func confirmIfValidYouTubeLink(_ youtubeLink: String) {
+        guard validateYouTubeLink(youtubeLink),
+              let urlContent = urlResolverService.resolve(youtubeLink),
+              urlContent.queryItems.first(where: { $0.name == "v" })?.value != nil else {
+            return
+        }
+        confirm(youtubeLink)
+    }
+
     func confirm(_ youtubeLink: String) {
         guard validateYouTubeLink(youtubeLink) else {
             presenter.showValidateAlert()
@@ -56,12 +66,10 @@ class YouTubeSelectionInteractor: YouTubeSelectionUseCase {
             return
         }
         
-        if let youtubeUrl = youtubeContentService.buildFullIframeUrl(id: youtubeId, mute: mute),
-           let _ = youtubeContentService.buildThumbnailUrl(id: youtubeId, quality: .maxresdefault) {
-            notificationManager.push(name: .requestYouTube, param: youtubeUrl)
-        } else {
-            presenter.showCommonAlert()
-        }
+        notificationManager.push(
+            name: .requestYouTube,
+            param: NotificationRequestVideoTDO(videoId: youtubeId, isMute: mute)
+        )
     }
     
     private func validateYouTubeLink(_ link: String) -> Bool {

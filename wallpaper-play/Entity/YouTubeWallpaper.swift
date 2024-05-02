@@ -3,14 +3,17 @@ import RealmSwift
 
 class YouTubeWallpaper: Object, DateSortable {
     @Persisted var date: Date
-    @Persisted var url: URL
-    
+    @Persisted var videoId: String
+    @Persisted var isMute: Bool
+
     convenience init(
         date: Date,
-        url: URL
+        videoId: String,
+        isMute: Bool
     ) {
         self.init()
         self.date = date
-        self.url = url
+        self.videoId = videoId
+        self.isMute = isMute
     }
 }

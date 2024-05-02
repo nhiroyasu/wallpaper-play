@@ -7,7 +7,7 @@ class WallMovieWindowController: NSWindowController {
         super.windowDidLoad()
         
         window?.title = "Wallpaper Window"
-        window?.styleMask = [.borderless, .nonactivatingPanel, .utilityWindow]
+        window?.styleMask = [.borderless]
         window?.collectionBehavior = [.canJoinAllSpaces, .fullScreenAuxiliary, .stationary, .ignoresCycle]
         window?.canBecomeVisibleWithoutLogin = true
         window?.hasShadow = false
@@ -24,8 +24,8 @@ class WallMovieWindowController: NSWindowController {
         (contentViewController as? WallMovieViewController)?.action.show(display)
     }
     
-    func fitFrame(for screen: NSScreen) {
-        window?.setFrame(screen.frame, display: true)
+    func fitFrame(_ frame: NSRect) {
+        window?.setFrame(frame, display: true)
     }
 }
 

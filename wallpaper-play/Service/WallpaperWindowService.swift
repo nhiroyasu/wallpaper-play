@@ -4,6 +4,7 @@ import Injectable
 protocol WallpaperWindowService {
     func display(display: WallpaperKind)
     func hide()
+    func isVisibleWallpaperWindow() -> Bool
 }
 
 class WallpaperWindowServiceImpl: WallpaperWindowService {
@@ -33,9 +34,9 @@ class WallpaperWindowServiceImpl: WallpaperWindowService {
                 let mutedWallpaperKind: WallpaperKind
                 switch display {
                 case .video(let value):
-                    mutedWallpaperKind = .video(value: .init(urls: value.urls, mute: true, videoSize: value.videoSize))
-                case .youtube(let url):
-                    mutedWallpaperKind = .youtube(url: youTubeContentsService.replaceMutedIframeUrl(url: url) ?? url)
+                    mutedWallpaperKind = .video(value: .init(url: value.url, mute: true, videoSize: value.videoSize))
+                case .youtube(let videoId, let isMute):
+                    mutedWallpaperKind = .youtube(videoId: videoId, isMute: !isMute)
                 case .web:
                     mutedWallpaperKind = display
                 case .none:
@@ -43,9 +44,7 @@ class WallpaperWindowServiceImpl: WallpaperWindowService {
                 }
                 windowController.showWindow(nil, display: mutedWallpaperKind)
             }
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                windowController.fitFrame(for: screen)
-            }
+            windowController.fitFrame(computeFittingWallpaperSize(screen: screen))
         }
     }
     
@@ -53,7 +52,11 @@ class WallpaperWindowServiceImpl: WallpaperWindowService {
         windowControllerList.forEach { $0.close() }
         windowControllerList = []
     }
-    
+
+    func isVisibleWallpaperWindow() -> Bool {
+        windowControllerList.contains { $0.window?.isVisible == true }
+    }
+
     private func buildWallpaperWindow(screen: NSScreen) -> WallMovieWindowController {
         let coordinator = WallMovieCoordinator(injector: Injector(container: WallMovieContainerBuilder.build(parent: Injector.shared.container)), screenFrame: screen.frame)
         let windowController = WallMovieWindowController(windowNibName: .windowController.wallMovie)
@@ -66,5 +69,15 @@ class WallpaperWindowServiceImpl: WallpaperWindowService {
             guard let latestWallpaper = self?.wallpaperHistoryService.fetchLatestWallpaper() else { return }
             self?.display(display: latestWallpaper)
         }
+    }
+
+    private func computeFittingWallpaperSize(screen: NSScreen) -> NSRect {
+        let topMargin = (screen.frame.height - screen.visibleFrame.height) - (screen.visibleFrame.origin.y - screen.frame.origin.y)
+        return NSRect(
+            x: screen.frame.origin.x,
+            y: screen.frame.origin.y,
+            width: screen.frame.size.width,
+            height: screen.frame.size.height - topMargin
+        )
     }
 }

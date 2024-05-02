@@ -4,14 +4,14 @@ import AVFoundation
 import Injectable
 
 struct VideoPlayValue {
-    let urls: [URL]
+    let url: URL
     let mute: Bool
     let videoSize: VideoSize
 }
 
 enum WallpaperKind {
     case video(value: VideoPlayValue)
-    case youtube(url: URL)
+    case youtube(videoId: String, isMute: Bool)
     case web(url: URL)
     case none
 }
@@ -46,7 +46,7 @@ class WallMoviePresenterImpl: NSObject, WallMoviePresenter {
             resetVideos()
             output.videoView.setFrameSize(output.view.window!.frame.size)
             output.videoView.isHidden = false
-            let player = avManager.set(value.urls)
+            let player = avManager.set([value.url])
             let layer = AVPlayerLayer(player: player)
             layer.videoGravity = value.videoSize.videoGravity
             output.videoView.setPlayerLayer(layer)
@@ -57,10 +57,14 @@ class WallMoviePresenterImpl: NSObject, WallMoviePresenter {
             } catch {
                 fatalError(error.localizedDescription)
             }
-        case .youtube(let url):
+        case .youtube(let videoId, let isMute):
             resetVideos()
             output.webView.isHidden = false
-            output.webView.load(URLRequest(url: url))
+            if let url = youtubeContentService.buildFullIframeUrl(id: videoId, mute: isMute) {
+                output.webView.load(URLRequest(url: url))
+            } else {
+                assertionFailure("Failed to build YouTube URL")
+            }
         case .web(let url):
             resetVideos()
             output.webView.isHidden = false
