@@ -26,7 +26,8 @@ class WallpaperWindowServiceImpl: WallpaperWindowService {
 
         NSScreen.screens.forEach { [weak self] screen in
             guard let self else { return }
-            let windowController = self.buildWallpaperWindow(screen: screen)
+            let wallpaperWindowFrame = computeFittingWallpaperSize(screen: screen)
+            let windowController = self.buildWallpaperWindow(screen: screen, wallpaperSize: wallpaperWindowFrame.size)
             self.windowControllerList.append(windowController)
             if screen == NSScreen.main {
                 windowController.showWindow(nil, display: display)
@@ -35,8 +36,8 @@ class WallpaperWindowServiceImpl: WallpaperWindowService {
                 switch display {
                 case .video(let value):
                     mutedWallpaperKind = .video(value: .init(url: value.url, mute: true, videoSize: value.videoSize))
-                case .youtube(let videoId, let isMute):
-                    mutedWallpaperKind = .youtube(videoId: videoId, isMute: !isMute)
+                case .youtube(let videoId, _):
+                    mutedWallpaperKind = .youtube(videoId: videoId, isMute: true)
                 case .web:
                     mutedWallpaperKind = display
                 case .none:
@@ -44,7 +45,7 @@ class WallpaperWindowServiceImpl: WallpaperWindowService {
                 }
                 windowController.showWindow(nil, display: mutedWallpaperKind)
             }
-            windowController.fitFrame(computeFittingWallpaperSize(screen: screen))
+            windowController.fitFrame(wallpaperWindowFrame)
         }
     }
     
@@ -57,8 +58,11 @@ class WallpaperWindowServiceImpl: WallpaperWindowService {
         windowControllerList.contains { $0.window?.isVisible == true }
     }
 
-    private func buildWallpaperWindow(screen: NSScreen) -> WallMovieWindowController {
-        let coordinator = WallMovieCoordinator(injector: Injector(container: WallMovieContainerBuilder.build(parent: Injector.shared.container)), screenFrame: screen.frame)
+    private func buildWallpaperWindow(screen: NSScreen, wallpaperSize: NSSize) -> WallMovieWindowController {
+        let coordinator = WallMovieCoordinator(
+            injector: Injector(container: WallMovieContainerBuilder.build(parent: Injector.shared.container)),
+            wallpaperSize: wallpaperSize
+        )
         let windowController = WallMovieWindowController(windowNibName: .windowController.wallMovie)
         windowController.contentViewController = coordinator.create()
         return windowController

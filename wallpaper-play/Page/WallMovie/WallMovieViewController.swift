@@ -5,10 +5,10 @@ class WallMovieViewController: NSViewController {
     var webView: YoutubeWebView!
     var videoView: VideoView!
     let action: WallMovieAction
-    private let screenFrame: NSRect
-    
-    init(screenFrame: NSRect, action: WallMovieAction) {
-        self.screenFrame = screenFrame
+    private let wallpaperSize: NSSize
+
+    init(wallpaperSize: NSSize, action: WallMovieAction) {
+        self.wallpaperSize = wallpaperSize
         self.action = action
         super.init(nibName: String(describing: Self.self), bundle: nil)
     }
@@ -19,12 +19,11 @@ class WallMovieViewController: NSViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        action.viewDidLoad(screenFrame: screenFrame)
-    }
-    
-    override func viewDidAppear() {
-        super.viewDidAppear()
-        // TODO: ここで動画再生
+        videoView = .init(frame: .init(origin: .zero, size: wallpaperSize))
+        webView = .init(frame: .zero, configuration: .init())
+        view.fitAllAnchor(webView)
+        view.fitAllAnchor(videoView)
+        action.viewDidLoad()
     }
     
     override func viewWillDisappear() {

@@ -2,7 +2,7 @@ import Foundation
 import Injectable
 
 protocol WallMovieUseCase {
-    func setUp(screenFrame: NSRect)
+    func setUp()
     func requestWallpaper(_ type: WallpaperKind)
 }
 
@@ -18,8 +18,8 @@ class WallMovieInteractor: WallMovieUseCase {
         self.systemWallpaperService = injector.build()
     }
     
-    func setUp(screenFrame: NSRect) {
-        presenter.initViews(screenFrame: screenFrame)
+    func setUp() {
+        presenter.initViews()
     }
     
     func requestWallpaper(_ type: WallpaperKind) {
