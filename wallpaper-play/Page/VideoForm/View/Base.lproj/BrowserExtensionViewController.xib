@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="22689"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="BrowserExtensionViewController" customModule="Wallpaper_Play" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView translatesAutoresizingMaskIntoConstraints="NO" id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="847" height="525"/>
+            <subviews>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="8BB-h3-mY4">
+                    <rect key="frame" x="0.0" y="0.0" width="847" height="525"/>
+                    <subviews>
+                        <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="0.0" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SKK-4R-mPs">
+                            <rect key="frame" x="0.0" y="62" width="847" height="463"/>
+                            <subviews>
+                                <stackView distribution="fill" orientation="vertical" alignment="centerX" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="swN-e5-ZHx">
+                                    <rect key="frame" x="16" y="112" width="815" height="351"/>
+                                    <subviews>
+                                        <customView horizontalHuggingPriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="g3c-at-orp" userLabel="Spacer">
+                                            <rect key="frame" x="0.0" y="335" width="815" height="16"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="16" id="iyz-SM-pkk"/>
+                                            </constraints>
+                                        </customView>
+                                        <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KfF-ZU-xFm">
+                                            <rect key="frame" x="384" y="276" width="48" height="54"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="48" id="3fd-Xz-cu2"/>
+                                                <constraint firstAttribute="width" constant="48" id="Iky-45-6Ur"/>
+                                            </constraints>
+                                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="puzzlepiece.extension.fill" catalog="system" id="0n5-Po-NrR"/>
+                                        </imageView>
+                                        <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Dn4-us-ksD">
+                                            <rect key="frame" x="153" y="232" width="510" height="39"/>
+                                            <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" id="gj3-nc-exz">
+                                                <font key="font" textStyle="title3" name=".SFNS-Regular"/>
+                                                <string key="title">A browser extension is now available!
+You can set YouTube videos as your wallpaper directly from your browser.</string>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <imageView horizontalHuggingPriority="249" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0gW-Af-byb">
+                                            <rect key="frame" x="0.0" y="24" width="815" height="200"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="200" id="JXJ-xa-8xF"/>
+                                            </constraints>
+                                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="Browser Extension Preview" id="yCP-hh-cvW"/>
+                                        </imageView>
+                                        <customView horizontalHuggingPriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="uv8-HS-4v7" userLabel="Spacer">
+                                            <rect key="frame" x="0.0" y="0.0" width="815" height="16"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="16" id="Cdw-Yh-Lfi"/>
+                                            </constraints>
+                                        </customView>
+                                    </subviews>
+                                    <visibilityPriorities>
+                                        <integer value="1000"/>
+                                        <integer value="1000"/>
+                                        <integer value="1000"/>
+                                        <integer value="1000"/>
+                                        <integer value="1000"/>
+                                    </visibilityPriorities>
+                                    <customSpacing>
+                                        <real value="3.4028234663852886e+38"/>
+                                        <real value="3.4028234663852886e+38"/>
+                                        <real value="3.4028234663852886e+38"/>
+                                        <real value="3.4028234663852886e+38"/>
+                                        <real value="3.4028234663852886e+38"/>
+                                    </customSpacing>
+                                </stackView>
+                                <box horizontalHuggingPriority="249" verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="0F9-tL-ADL">
+                                    <rect key="frame" x="0.0" y="109" width="847" height="5"/>
+                                </box>
+                                <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kfb-AZ-KSW">
+                                    <rect key="frame" x="16" y="46" width="815" height="65"/>
+                                    <subviews>
+                                        <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lPB-py-b3V">
+                                            <rect key="frame" x="0.0" y="22" width="16" height="22"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="16" id="2jQ-u6-cxw"/>
+                                                <constraint firstAttribute="height" constant="16" id="CPD-Od-hSE"/>
+                                            </constraints>
+                                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="safari.fill" catalog="system" id="8av-ff-50T"/>
+                                            <color key="contentTintColor" name="systemCyanColor" catalog="System" colorSpace="catalog"/>
+                                        </imageView>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="2JR-zn-jhW">
+                                            <rect key="frame" x="22" y="25" width="43" height="16"/>
+                                            <textFieldCell key="cell" lineBreakMode="clipping" title="Safari" id="tzs-IZ-WI8">
+                                                <font key="font" textStyle="headline" name=".SFNS-Bold"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <textField horizontalHuggingPriority="249" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bdl-Ed-aCG">
+                                            <rect key="frame" x="69" y="8" width="438" height="49"/>
+                                            <textFieldCell key="cell" lineBreakMode="clipping" alignment="left" id="l2e-71-MPH">
+                                                <font key="font" textStyle="body" name=".SFNS-Regular"/>
+                                                <string key="title">An extension is pre-installed.
+Please enable it from the Safari settings.
+（Safari 15.4 or higher is required）</string>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wOb-ge-tW2">
+                                            <rect key="frame" x="506" y="16" width="316" height="32"/>
+                                            <buttonCell key="cell" type="push" title="Quit and Open Safari Extensions Preferences…" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="2WL-qT-uPt">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="didTapSafariPreferenceButton:" target="-2" id="flF-we-6xh"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="bdl-Ed-aCG" secondAttribute="bottom" constant="8" id="75p-6T-ODx"/>
+                                        <constraint firstItem="bdl-Ed-aCG" firstAttribute="top" secondItem="Kfb-AZ-KSW" secondAttribute="top" constant="8" id="Reh-OZ-21O"/>
+                                    </constraints>
+                                    <visibilityPriorities>
+                                        <integer value="1000"/>
+                                        <integer value="1000"/>
+                                        <integer value="1000"/>
+                                        <integer value="1000"/>
+                                    </visibilityPriorities>
+                                    <customSpacing>
+                                        <real value="3.4028234663852886e+38"/>
+                                        <real value="3.4028234663852886e+38"/>
+                                        <real value="3.4028234663852886e+38"/>
+                                        <real value="3.4028234663852886e+38"/>
+                                    </customSpacing>
+                                </stackView>
+                                <box horizontalHuggingPriority="249" verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="Zel-RQ-bFA">
+                                    <rect key="frame" x="0.0" y="43" width="847" height="5"/>
+                                </box>
+                                <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cby-Nc-5lI">
+                                    <rect key="frame" x="16" y="1" width="815" height="44"/>
+                                    <subviews>
+                                        <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KXG-vh-2dW" customClass="AntialiasedImageView" customModule="Wallpaper_Play" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="14" width="16" height="16"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="16" id="08k-e6-RBn"/>
+                                                <constraint firstAttribute="height" constant="16" id="XHE-Dm-lbt"/>
+                                            </constraints>
+                                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="Chrome" id="uhy-k2-E4U"/>
+                                            <color key="contentTintColor" name="systemCyanColor" catalog="System" colorSpace="catalog"/>
+                                        </imageView>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Rjn-ML-nBE">
+                                            <rect key="frame" x="22" y="14" width="55" height="16"/>
+                                            <textFieldCell key="cell" lineBreakMode="clipping" title="Chrome" id="TlE-9V-lyd">
+                                                <font key="font" textStyle="headline" name=".SFNS-Bold"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <textField horizontalHuggingPriority="249" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="LMX-v9-xof">
+                                            <rect key="frame" x="81" y="14" width="537" height="16"/>
+                                            <textFieldCell key="cell" lineBreakMode="clipping" alignment="left" title="Install from the Chrome Web Store." id="p4X-jV-F9d">
+                                                <font key="font" textStyle="body" name=".SFNS-Regular"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wkh-dT-Q9h" customClass="AntialiasedButton" customModule="Wallpaper_Play" customModuleProvider="target">
+                                            <rect key="frame" x="617" y="5" width="205" height="32"/>
+                                            <buttonCell key="cell" type="push" title="Open Chrome Web Store" bezelStyle="rounded" image="Chrome Web Store" imagePosition="leading" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="AAK-pW-KPu">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="didTapChromeWebStoreButton:" target="-2" id="672-M8-cpF"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="44" id="gZR-TV-5JB"/>
+                                    </constraints>
+                                    <visibilityPriorities>
+                                        <integer value="1000"/>
+                                        <integer value="1000"/>
+                                        <integer value="1000"/>
+                                        <integer value="1000"/>
+                                    </visibilityPriorities>
+                                    <customSpacing>
+                                        <real value="3.4028234663852886e+38"/>
+                                        <real value="3.4028234663852886e+38"/>
+                                        <real value="3.4028234663852886e+38"/>
+                                        <real value="3.4028234663852886e+38"/>
+                                    </customSpacing>
+                                </stackView>
+                                <box horizontalHuggingPriority="249" verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="K1W-NU-0by">
+                                    <rect key="frame" x="0.0" y="-2" width="847" height="5"/>
+                                </box>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="Kfb-AZ-KSW" firstAttribute="leading" secondItem="SKK-4R-mPs" secondAttribute="leading" constant="16" id="Q88-H4-dXs"/>
+                                <constraint firstAttribute="trailing" secondItem="Kfb-AZ-KSW" secondAttribute="trailing" constant="16" id="W3a-33-26F"/>
+                                <constraint firstItem="cby-Nc-5lI" firstAttribute="leading" secondItem="SKK-4R-mPs" secondAttribute="leading" constant="16" id="cKn-Cp-sNt"/>
+                                <constraint firstItem="swN-e5-ZHx" firstAttribute="leading" secondItem="SKK-4R-mPs" secondAttribute="leading" constant="16" id="dDf-Ho-ICG"/>
+                                <constraint firstAttribute="trailing" secondItem="cby-Nc-5lI" secondAttribute="trailing" constant="16" id="hG3-M5-1jF"/>
+                                <constraint firstAttribute="trailing" secondItem="swN-e5-ZHx" secondAttribute="trailing" constant="16" id="hOb-gL-qST"/>
+                            </constraints>
+                            <visibilityPriorities>
+                                <integer value="1000"/>
+                                <integer value="1000"/>
+                                <integer value="1000"/>
+                                <integer value="1000"/>
+                                <integer value="1000"/>
+                                <integer value="1000"/>
+                            </visibilityPriorities>
+                            <customSpacing>
+                                <real value="3.4028234663852886e+38"/>
+                                <real value="3.4028234663852886e+38"/>
+                                <real value="3.4028234663852886e+38"/>
+                                <real value="3.4028234663852886e+38"/>
+                                <real value="3.4028234663852886e+38"/>
+                                <real value="3.4028234663852886e+38"/>
+                            </customSpacing>
+                        </stackView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="SKK-4R-mPs" secondAttribute="bottom" id="RDq-M2-peh"/>
+                        <constraint firstItem="SKK-4R-mPs" firstAttribute="leading" secondItem="8BB-h3-mY4" secondAttribute="leading" id="TD2-5U-YGk"/>
+                        <constraint firstItem="SKK-4R-mPs" firstAttribute="top" secondItem="8BB-h3-mY4" secondAttribute="top" id="ZQ4-9e-ju5"/>
+                        <constraint firstAttribute="trailing" secondItem="SKK-4R-mPs" secondAttribute="trailing" id="jJe-YM-cYs"/>
+                    </constraints>
+                </customView>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="8BB-h3-mY4" secondAttribute="trailing" id="2i2-dI-VGL"/>
+                <constraint firstItem="8BB-h3-mY4" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="Wmu-q5-a6s"/>
+                <constraint firstAttribute="bottom" secondItem="8BB-h3-mY4" secondAttribute="bottom" id="eck-ds-Wbh"/>
+                <constraint firstItem="8BB-h3-mY4" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="hsl-D7-frl"/>
+            </constraints>
+            <point key="canvasLocation" x="50.5" y="-37.5"/>
+        </customView>
+    </objects>
+    <resources>
+        <image name="Browser Extension Preview" width="341" height="261"/>
+        <image name="Chrome" width="512" height="512"/>
+        <image name="Chrome Web Store" width="512" height="512"/>
+        <image name="puzzlepiece.extension.fill" catalog="system" width="19" height="15"/>
+        <image name="safari.fill" catalog="system" width="15" height="15"/>
+    </resources>
+</document>

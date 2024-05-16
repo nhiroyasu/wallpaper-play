@@ -12,12 +12,12 @@ protocol WebPageSelectionUseCase {
 
 class WebPageSelectionInteractor: WebPageSelectionUseCase {
     private let presenter: WebPageSelectionPresenter
-    private let notificationManager: NotificationManager
+    private let wallpaperRequestService: WallpaperRequestService
     private let urlValidationService: UrlValidationService
     
     internal init(injector: Injectable = Injector.shared) {
         self.presenter = injector.build(WebPageSelectionPresenter.self)
-        self.notificationManager = injector.build()
+        self.wallpaperRequestService = injector.build()
         self.urlValidationService = injector.build()
     }
 
@@ -54,7 +54,7 @@ class WebPageSelectionInteractor: WebPageSelectionUseCase {
     
     func setUpWallpaper(for urlString: String) {
         if let url = urlValidationService.validate(string: urlString) {
-            notificationManager.push(name: .requestWebPage, param: url)
+            wallpaperRequestService.requestWebWallpaper(url: url)
         } else {
             presenter.showAlert(message: LocalizedString(key: .error_invalid_preview))
         }

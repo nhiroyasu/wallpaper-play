@@ -83,6 +83,19 @@
 		4F8A5954284D18E400557FDD /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8A5953284D18E400557FDD /* SideMenuViewController.swift */; };
 		4F8A5957284D1A2C00557FDD /* LocalVideoSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8A5955284D1A2B00557FDD /* LocalVideoSelectionViewController.swift */; };
 		4F8A595D284D1B5000557FDD /* YouTubeSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8A595B284D1B5000557FDD /* YouTubeSelectionViewController.swift */; };
+		4FAD5E1F2BE3634B00DB51DC /* WallpaperRequestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAD5E1E2BE3634B00DB51DC /* WallpaperRequestService.swift */; };
+		4FAD5E6D2BE37B2F00DB51DC /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAD5E6C2BE37B2F00DB51DC /* SafariWebExtensionHandler.swift */; };
+		4FAD5E702BE37B2F00DB51DC /* _locales in Resources */ = {isa = PBXBuildFile; fileRef = 4FAD5E6F2BE37B2F00DB51DC /* _locales */; };
+		4FAD5E742BE37B2F00DB51DC /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = 4FAD5E732BE37B2F00DB51DC /* manifest.json */; };
+		4FAD5E842BE37B2F00DB51DC /* Wallpaper Paly SafariEextension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 4FAD5E6A2BE37B2F00DB51DC /* Wallpaper Paly SafariEextension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		4FAD5E942BE37BFA00DB51DC /* popup.js in Resources */ = {isa = PBXBuildFile; fileRef = 4FAD5E902BE37BF900DB51DC /* popup.js */; };
+		4FAD5E952BE37BFA00DB51DC /* background.js in Resources */ = {isa = PBXBuildFile; fileRef = 4FAD5E912BE37BFA00DB51DC /* background.js */; };
+		4FAD5E962BE37BFA00DB51DC /* popup.html in Resources */ = {isa = PBXBuildFile; fileRef = 4FAD5E922BE37BFA00DB51DC /* popup.html */; };
+		4FAD5EAA2BE3864C00DB51DC /* popup.css in Resources */ = {isa = PBXBuildFile; fileRef = 4FAD5EA92BE3864C00DB51DC /* popup.css */; };
+		4FAD5EB92BE3866C00DB51DC /* assets in Resources */ = {isa = PBXBuildFile; fileRef = 4FAD5EB82BE3866C00DB51DC /* assets */; };
+		4FAF30362BE391B100B9E381 /* BrowserExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAF30342BE391B100B9E381 /* BrowserExtensionViewController.swift */; };
+		4FAF30392BE399F200B9E381 /* BrowserExtensionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAF30382BE399F200B9E381 /* BrowserExtensionCoordinator.swift */; };
+		4FAF303C2BE39C0300B9E381 /* BrowserExtensionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FAF303B2BE39C0300B9E381 /* BrowserExtensionViewController.xib */; };
 		4FB0F3E82854A0F2004E6D51 /* WallMovieWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FB0F3E62854A0F2004E6D51 /* WallMovieWindowController.xib */; };
 		4FB0F3EC2854A112004E6D51 /* WallMovieViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FB0F3EA2854A112004E6D51 /* WallMovieViewController.xib */; };
 		4FB0F3EF2854A17C004E6D51 /* WallMovieCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB0F3EE2854A17C004E6D51 /* WallMovieCoordinator.swift */; };
@@ -135,7 +148,28 @@
 			remoteGlobalIDString = 4F8A58D5284CA01A00557FDD;
 			remoteInfo = WallMovie;
 		};
+		4FAD5E812BE37B2F00DB51DC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4F8A58CE284CA01A00557FDD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4FAD5E692BE37B2F00DB51DC;
+			remoteInfo = "Wallpaper Paly SafariEextension";
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		4FAD5E832BE37B2F00DB51DC /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				4FAD5E842BE37B2F00DB51DC /* Wallpaper Paly SafariEextension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		4F01693B284D1D2E00C12ED6 /* SideMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuCell.swift; sourceTree = "<group>"; };
@@ -219,6 +253,23 @@
 		4F8A5953284D18E400557FDD /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
 		4F8A5955284D1A2B00557FDD /* LocalVideoSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalVideoSelectionViewController.swift; sourceTree = "<group>"; };
 		4F8A595B284D1B5000557FDD /* YouTubeSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubeSelectionViewController.swift; sourceTree = "<group>"; };
+		4FAD5E1E2BE3634B00DB51DC /* WallpaperRequestService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallpaperRequestService.swift; sourceTree = "<group>"; };
+		4FAD5E6A2BE37B2F00DB51DC /* Wallpaper Paly SafariEextension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Wallpaper Paly SafariEextension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4FAD5E6C2BE37B2F00DB51DC /* SafariWebExtensionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariWebExtensionHandler.swift; sourceTree = "<group>"; };
+		4FAD5E6F2BE37B2F00DB51DC /* _locales */ = {isa = PBXFileReference; lastKnownFileType = folder; path = _locales; sourceTree = "<group>"; };
+		4FAD5E732BE37B2F00DB51DC /* manifest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = manifest.json; sourceTree = "<group>"; };
+		4FAD5E7F2BE37B2F00DB51DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4FAD5E802BE37B2F00DB51DC /* Wallpaper_Paly_SafariEextension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Wallpaper_Paly_SafariEextension.entitlements; sourceTree = "<group>"; };
+		4FAD5E902BE37BF900DB51DC /* popup.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = popup.js; sourceTree = "<group>"; };
+		4FAD5E912BE37BFA00DB51DC /* background.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = background.js; sourceTree = "<group>"; };
+		4FAD5E922BE37BFA00DB51DC /* popup.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = popup.html; sourceTree = "<group>"; };
+		4FAD5E932BE37BFA00DB51DC /* popup.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = popup.css; sourceTree = "<group>"; };
+		4FAD5EA92BE3864C00DB51DC /* popup.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = popup.css; sourceTree = "<group>"; };
+		4FAD5EB82BE3866C00DB51DC /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = assets; sourceTree = "<group>"; };
+		4FAF30342BE391B100B9E381 /* BrowserExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserExtensionViewController.swift; sourceTree = "<group>"; };
+		4FAF30382BE399F200B9E381 /* BrowserExtensionCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserExtensionCoordinator.swift; sourceTree = "<group>"; };
+		4FAF303A2BE39C0300B9E381 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/BrowserExtensionViewController.xib; sourceTree = "<group>"; };
+		4FAF303F2BE3A05B00B9E381 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/BrowserExtensionViewController.strings; sourceTree = "<group>"; };
 		4FB0F3E62854A0F2004E6D51 /* WallMovieWindowController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WallMovieWindowController.xib; sourceTree = "<group>"; };
 		4FB0F3EA2854A112004E6D51 /* WallMovieViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WallMovieViewController.xib; sourceTree = "<group>"; };
 		4FB0F3EE2854A17C004E6D51 /* WallMovieCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallMovieCoordinator.swift; sourceTree = "<group>"; };
@@ -278,6 +329,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		4F8A58EE284CA01B00557FDD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4FAD5E672BE37B2F00DB51DC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -359,6 +417,7 @@
 				4F8A58D8284CA01A00557FDD /* wallpaper-play */,
 				4F8A58EA284CA01B00557FDD /* wallpaper-playTests */,
 				4F28017C2BDDEDFC003F36A6 /* wallpaper-playUITests */,
+				4FAD5E6B2BE37B2F00DB51DC /* Wallpaper Paly SafariEextension */,
 				4F8A58D7284CA01A00557FDD /* Products */,
 				4F8A5909284CA0FA00557FDD /* Frameworks */,
 			);
@@ -370,6 +429,7 @@
 				4F8A58D6284CA01A00557FDD /* Wallpaper Play.app */,
 				4F8A58E7284CA01B00557FDD /* Wallpaper Play Tests.xctest */,
 				4F8A58F1284CA01B00557FDD /* Wallpaper Play UITests.xctest */,
+				4FAD5E6A2BE37B2F00DB51DC /* Wallpaper Paly SafariEextension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -473,6 +533,7 @@
 				4F25C1D3284E673A00397737 /* URLResolverService.swift */,
 				4F2161F5284FBDEF000673EF /* SystemWallpaperService.swift */,
 				4FB0F4062858A272004E6D51 /* WallpaperWindowService.swift */,
+				4FAD5E1E2BE3634B00DB51DC /* WallpaperRequestService.swift */,
 				4F03CEF1285B64B2009FDC6F /* WallpaperHistoryService.swift */,
 				4F8A5938284CD65900557FDD /* YouTubeContentsService.swift */,
 				4FBD510928855046002DF955 /* UrlValidationService.swift */,
@@ -527,8 +588,36 @@
 				4F2D558C289567D200363292 /* AboutViewController.swift */,
 				4F2D558D289567D200363292 /* AboutViewController.xib */,
 				4F2D5590289567E900363292 /* AboutView.swift */,
+				4FAF30342BE391B100B9E381 /* BrowserExtensionViewController.swift */,
+				4FAF303B2BE39C0300B9E381 /* BrowserExtensionViewController.xib */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		4FAD5E6B2BE37B2F00DB51DC /* Wallpaper Paly SafariEextension */ = {
+			isa = PBXGroup;
+			children = (
+				4FAD5E6C2BE37B2F00DB51DC /* SafariWebExtensionHandler.swift */,
+				4FAD5E7F2BE37B2F00DB51DC /* Info.plist */,
+				4FAD5E802BE37B2F00DB51DC /* Wallpaper_Paly_SafariEextension.entitlements */,
+				4FAD5E6E2BE37B2F00DB51DC /* Resources */,
+			);
+			path = "Wallpaper Paly SafariEextension";
+			sourceTree = "<group>";
+		};
+		4FAD5E6E2BE37B2F00DB51DC /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4FAD5EB82BE3866C00DB51DC /* assets */,
+				4FAD5EA92BE3864C00DB51DC /* popup.css */,
+				4FAD5E912BE37BFA00DB51DC /* background.js */,
+				4FAD5E932BE37BFA00DB51DC /* popup.css */,
+				4FAD5E922BE37BFA00DB51DC /* popup.html */,
+				4FAD5E902BE37BF900DB51DC /* popup.js */,
+				4FAD5E6F2BE37B2F00DB51DC /* _locales */,
+				4FAD5E732BE37B2F00DB51DC /* manifest.json */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		4FB0F3F42854D3BD004E6D51 /* Coordinator */ = {
@@ -542,6 +631,7 @@
 				4FDF1DF6285ECAB500ABBE8D /* Coordinator.swift */,
 				4FDF1DF8285ECAC700ABBE8D /* Transition.swift */,
 				4FBD50FE28850A38002DF955 /* WebPageSelectionCoordinator.swift */,
+				4FAF30382BE399F200B9E381 /* BrowserExtensionCoordinator.swift */,
 				4F2D559228956D4F00363292 /* AboutCoordinator.swift */,
 			);
 			path = Coordinator;
@@ -622,10 +712,12 @@
 				4F8A58D3284CA01A00557FDD /* Frameworks */,
 				4F8A58D4284CA01A00557FDD /* Resources */,
 				4FDF1DED285EA6FF00ABBE8D /* Launch at Login Helper */,
+				4FAD5E832BE37B2F00DB51DC /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				4FAD5E822BE37B2F00DB51DC /* PBXTargetDependency */,
 			);
 			name = "Wallpaper Play";
 			packageProductDependencies = (
@@ -679,6 +771,23 @@
 			productReference = 4F8A58F1284CA01B00557FDD /* Wallpaper Play UITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		4FAD5E692BE37B2F00DB51DC /* Wallpaper Paly SafariEextension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4FAD5E872BE37B2F00DB51DC /* Build configuration list for PBXNativeTarget "Wallpaper Paly SafariEextension" */;
+			buildPhases = (
+				4FAD5E662BE37B2F00DB51DC /* Sources */,
+				4FAD5E672BE37B2F00DB51DC /* Frameworks */,
+				4FAD5E682BE37B2F00DB51DC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Wallpaper Paly SafariEextension";
+			productName = "Wallpaper Paly SafariEextension";
+			productReference = 4FAD5E6A2BE37B2F00DB51DC /* Wallpaper Paly SafariEextension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -686,7 +795,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1340;
+				LastSwiftUpdateCheck = 1530;
 				LastUpgradeCheck = 1340;
 				TargetAttributes = {
 					4F8A58D5284CA01A00557FDD = {
@@ -700,6 +809,9 @@
 						CreatedOnToolsVersion = 13.4.1;
 						LastSwiftMigration = 1530;
 						TestTargetID = 4F8A58D5284CA01A00557FDD;
+					};
+					4FAD5E692BE37B2F00DB51DC = {
+						CreatedOnToolsVersion = 15.3;
 					};
 				};
 			};
@@ -726,6 +838,7 @@
 				4F8A58D5284CA01A00557FDD /* Wallpaper Play */,
 				4F8A58E6284CA01B00557FDD /* Wallpaper Play Tests */,
 				4F8A58F0284CA01B00557FDD /* Wallpaper Play UITests */,
+				4FAD5E692BE37B2F00DB51DC /* Wallpaper Paly SafariEextension */,
 			);
 		};
 /* End PBXProject section */
@@ -742,6 +855,7 @@
 				4FB0F3EC2854A112004E6D51 /* WallMovieViewController.xib in Resources */,
 				4F2161FF2850FA37000673EF /* PreferenceViewController.xib in Resources */,
 				4F8A58DE284CA01A00557FDD /* Assets.xcassets in Resources */,
+				4FAF303C2BE39C0300B9E381 /* BrowserExtensionViewController.xib in Resources */,
 				4F6A4D112896505500F7B40D /* YouTubeSelectionViewController.xib in Resources */,
 				4FC182EF285E00540042FAF6 /* SwitchCell.xib in Resources */,
 				4FB0F3FB2854D6DA004E6D51 /* VideoFormWindowController.xib in Resources */,
@@ -766,6 +880,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4FAD5E682BE37B2F00DB51DC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4FAD5E952BE37BFA00DB51DC /* background.js in Resources */,
+				4FAD5EB92BE3866C00DB51DC /* assets in Resources */,
+				4FAD5EAA2BE3864C00DB51DC /* popup.css in Resources */,
+				4FAD5E962BE37BFA00DB51DC /* popup.html in Resources */,
+				4FAD5E742BE37B2F00DB51DC /* manifest.json in Resources */,
+				4FAD5E942BE37BFA00DB51DC /* popup.js in Resources */,
+				4FAD5E702BE37B2F00DB51DC /* _locales in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -823,6 +951,7 @@
 				4FB0F3EF2854A17C004E6D51 /* WallMovieCoordinator.swift in Sources */,
 				4F03CEEC285A1654009FDC6F /* DateSortable.swift in Sources */,
 				4F8A5954284D18E400557FDD /* SideMenuViewController.swift in Sources */,
+				4FAF30362BE391B100B9E381 /* BrowserExtensionViewController.swift in Sources */,
 				4F7B56042BDDE6FF00D427C6 /* TestInjector.swift in Sources */,
 				4F01693C284D1D2E00C12ED6 /* SideMenuCell.swift in Sources */,
 				4FB1BD3D295E8C9300F476CD /* DockMenuItemBuilder.swift in Sources */,
@@ -842,9 +971,11 @@
 				4F8A592D284CB4DE00557FDD /* NSView+.swift in Sources */,
 				4FDF1DF9285ECAC700ABBE8D /* Transition.swift in Sources */,
 				4F8A5939284CD65900557FDD /* YouTubeContentsService.swift in Sources */,
+				4FAD5E1F2BE3634B00DB51DC /* WallpaperRequestService.swift in Sources */,
 				4F8A5957284D1A2C00557FDD /* LocalVideoSelectionViewController.swift in Sources */,
 				4F8A58DC284CA01A00557FDD /* WallMovieViewController.swift in Sources */,
 				4F2D558E289567D200363292 /* AboutViewController.swift in Sources */,
+				4FAF30392BE399F200B9E381 /* BrowserExtensionCoordinator.swift in Sources */,
 				4FB0F3F32854D2C5004E6D51 /* LocalVideoSelectionCoordinator.swift in Sources */,
 				4F8A595D284D1B5000557FDD /* YouTubeSelectionViewController.swift in Sources */,
 				4F8A5942284CEEFE00557FDD /* NSCollectionView+.swift in Sources */,
@@ -903,6 +1034,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4FAD5E662BE37B2F00DB51DC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4FAD5E6D2BE37B2F00DB51DC /* SafariWebExtensionHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -915,6 +1054,11 @@
 			isa = PBXTargetDependency;
 			target = 4F8A58D5284CA01A00557FDD /* Wallpaper Play */;
 			targetProxy = 4F8A58F2284CA01B00557FDD /* PBXContainerItemProxy */;
+		};
+		4FAD5E822BE37B2F00DB51DC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4FAD5E692BE37B2F00DB51DC /* Wallpaper Paly SafariEextension */;
+			targetProxy = 4FAD5E812BE37B2F00DB51DC /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -969,6 +1113,15 @@
 				4F6A4D0628964E5100F7B40D /* ja */,
 			);
 			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		4FAF303B2BE39C0300B9E381 /* BrowserExtensionViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4FAF303A2BE39C0300B9E381 /* Base */,
+				4FAF303F2BE3A05B00B9E381 /* ja */,
+			);
+			name = BrowserExtensionViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -1092,13 +1245,14 @@
 		4F8A58FC284CA01B00557FDD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "wallpaper-play/wallpaper-play.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 13;
+				CURRENT_PROJECT_VERSION = 14;
 				DEVELOPMENT_TEAM = 2CMV7D36JC;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1111,7 +1265,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.2.0;
+				MARKETING_VERSION = 1.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.debug.nhiro1109.wallpaper-play";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1123,12 +1277,13 @@
 		4F8A58FD284CA01B00557FDD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "wallpaper-play/wallpaper-play.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 13;
+				CURRENT_PROJECT_VERSION = 14;
 				DEVELOPMENT_TEAM = 2CMV7D36JC;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1141,7 +1296,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.2.0;
+				MARKETING_VERSION = 1.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.nhiro1109.wallpaper-play";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1224,6 +1379,81 @@
 			};
 			name = Release;
 		};
+		4FAD5E852BE37B2F00DB51DC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_ENTITLEMENTS = "Wallpaper Paly SafariEextension/Wallpaper_Paly_SafariEextension.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 14;
+				DEVELOPMENT_TEAM = 2CMV7D36JC;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Wallpaper Paly SafariEextension/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Wallpaper Paly SafariEextension";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MARKETING_VERSION = 1.3.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.debug.nhiro1109.wallpaper-play.safari-extension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		4FAD5E862BE37B2F00DB51DC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_ENTITLEMENTS = "Wallpaper Paly SafariEextension/Wallpaper_Paly_SafariEextension.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 14;
+				DEVELOPMENT_TEAM = 2CMV7D36JC;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Wallpaper Paly SafariEextension/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Wallpaper Paly SafariEextension";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MARKETING_VERSION = 1.3.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.nhiro1109.wallpaper-play.safari-extension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1259,6 +1489,15 @@
 			buildConfigurations = (
 				4F8A5902284CA01B00557FDD /* Debug */,
 				4F8A5903284CA01B00557FDD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4FAD5E872BE37B2F00DB51DC /* Build configuration list for PBXNativeTarget "Wallpaper Paly SafariEextension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4FAD5E852BE37B2F00DB51DC /* Debug */,
+				4FAD5E862BE37B2F00DB51DC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

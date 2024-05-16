@@ -13,7 +13,14 @@ class LocalVideoSelectionViewController: NSViewController {
     
     @IBOutlet weak var thumbnailImageView: AntialiasedImageView!
     @IBOutlet weak var filePathLabel: NSTextField!
-    @IBOutlet weak var videoWrappingView: NSView!
+    @IBOutlet weak var videoWrappingView: NSView! {
+        didSet {
+            videoWrappingView.wantsLayer = true
+            videoWrappingView.layer?.borderWidth = 1
+            videoWrappingView.layer?.borderColor = NSColor.tertiaryLabelColor.cgColor
+            videoWrappingView.layer?.cornerRadius = 8
+        }
+    }
     @IBOutlet weak var videoSizePopUpButton: NSPopUpButton! {
         didSet {
             videoSizePopUpButton.menu?.items = [

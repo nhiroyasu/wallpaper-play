@@ -16,6 +16,7 @@ class VideoFormCoordinator: Coordinator {
     private let localVideoSelectionCoordinator: LocalVideoSelectionCoordinator
     private let youtubeSelectionCoordinator: YouTubeSelectionCoordinator
     private let webpageSelectionCoordinator: WebPageSelectionCoordinator
+    private let browserExtensionCoordinator: BrowserExtensionCoordinator
     private let preferenceCoordinator: PreferenceCoordinator
     private let aboutCoordinator: AboutCoordinator
     private var viewController: VideoFormSplitViewController!
@@ -45,6 +46,13 @@ class VideoFormCoordinator: Coordinator {
             ),
             state: state
         )
+        self.browserExtensionCoordinator = .init(
+            injector: Injector(
+                container: BrowserExtensionContainerBuilder.build(
+                    parent: Injector.shared.container
+                )
+            )
+        )
         self.preferenceCoordinator = .init(
             injector: Injector(
                 container: PreferenceContainerBuilder.build(
@@ -66,6 +74,7 @@ class VideoFormCoordinator: Coordinator {
         viewController.localVideoSelectionViewController = localVideoSelectionCoordinator.create() as? LocalVideoSelectionViewController
         viewController.youtubeSelectionViewController = youtubeSelectionCoordinator.create() as? YouTubeSelectionViewController
         viewController.webpageSelectionViewController = webpageSelectionCoordinator.create() as? WebPageSelectionViewController
+        viewController.browserExtensionViewController = browserExtensionCoordinator.create() as? BrowserExtensionViewController
         viewController.preferenceViewController = preferenceCoordinator.create() as? PreferenceViewController
         viewController.aboutViewController = aboutCoordinator.create() as? AboutViewController
         return viewController

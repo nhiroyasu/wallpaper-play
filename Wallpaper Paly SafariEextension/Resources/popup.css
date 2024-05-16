@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+:root {
+  --primary-color: #4B68B1;
+  --secondary-color: #293D7A;
+  --content-color: #C8D8EF;
+}
+
+* {
+  font-family: 'Open Sans', sans-serif;
+  color: #333333;
+  margin: 0px;
+  padding: 0px;
+}
+
+.container {
+  --size: 328px;
+  width: var(--size);
+  height: var(--size);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f0f0;
+  padding: 16px;
+}
+
+#open-button {
+  margin: 16px 0 24px 0;
+  padding: 8px 16px;
+  background-color: var(--primary-color);
+  color: white;
+  border-radius: 8px;
+  box-shadow: 0px 4px 3px rgba(0, 0, 0, 0.16);
+  cursor: pointer;
+}
+
+.download-content {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.user-settings {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 0.9rem;
+  margin: 16px 0;
+}
+
+.setting-item {
+  margin: 8px 0;
+}
+
+.comment {
+  font-size: 0.9rem;
+  margin: 8px 0px;
+}
+
+#download-button {
+  cursor: pointer;
+}

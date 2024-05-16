@@ -16,6 +16,7 @@ class VideoFormSplitViewController: NSSplitViewController {
     var localVideoSelectionViewController: LocalVideoSelectionViewController!
     var youtubeSelectionViewController: YouTubeSelectionViewController!
     var webpageSelectionViewController: WebPageSelectionViewController!
+    var browserExtensionViewController: BrowserExtensionViewController!
     var preferenceViewController: PreferenceViewController!
     var aboutViewController: AboutViewController!
     lazy var notificationManager: NotificationManager = Injector.shared.build()
@@ -102,6 +103,8 @@ class VideoFormSplitViewController: NSSplitViewController {
             return youtubeSelectionViewController
         case .webpage:
             return webpageSelectionViewController
+        case .browserExtension:
+            return browserExtensionViewController
         case .preference:
             return preferenceViewController
         case .about:

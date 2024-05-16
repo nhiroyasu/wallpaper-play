@@ -1,0 +1,125 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "2WL-qT-uPt.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Quit and Open Safari Extensions Preferences…\"; ObjectID = \"2WL-qT-uPt\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Quit and Open Safari Extensions Preferences…"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アプリを終了して、Safari拡張機能を開く"
+          }
+        }
+      }
+    },
+    "AAK-pW-KPu.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Open Chrome Web Store\"; ObjectID = \"AAK-pW-KPu\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Open Chrome Web Store"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chrome Web Storeを開く"
+          }
+        }
+      }
+    },
+    "Key" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "An extension is pre-installed.\nPlease enable it from the Safari settings."
+          }
+        }
+      }
+    },
+    "l2e-71-MPH.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"Extensions are pre-installed.\\nPlease enable it from the Safari settings.\"; ObjectID = \"l2e-71-MPH\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Extensions are pre-installed.\nPlease enable it from the Safari settings."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "拡張機能は事前にインストールされています。\nSafariの設定から有効にしてください。"
+          }
+        }
+      }
+    },
+    "p4X-jV-F9d.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"Install from the Chrome Web Store\"; ObjectID = \"p4X-jV-F9d\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Install from the Chrome Web Store"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chrome Web Storeからインストールしてください"
+          }
+        }
+      }
+    },
+    "TlE-9V-lyd.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"Chrome\"; ObjectID = \"TlE-9V-lyd\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Chrome"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chrome"
+          }
+        }
+      }
+    },
+    "tzs-IZ-WI8.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"Safari\"; ObjectID = \"tzs-IZ-WI8\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Safari"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Safari"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}

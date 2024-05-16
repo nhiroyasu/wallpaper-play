@@ -8,12 +8,10 @@ protocol WebPageSelectionPresenter {
 }
 
 class WebPageSelectionPresenterImpl: WebPageSelectionPresenter {
-    private let notificationManager: NotificationManager
     private let alertManager: AlertManager
     var output: WebPageSelectionViewController!
 
     init(injector: Injectable) {
-        self.notificationManager = injector.build()
         self.alertManager = injector.build()
     }
     

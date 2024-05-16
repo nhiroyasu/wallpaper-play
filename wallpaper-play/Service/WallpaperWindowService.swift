@@ -81,7 +81,8 @@ class WallpaperWindowServiceImpl: WallpaperWindowService {
             x: screen.frame.origin.x,
             y: screen.frame.origin.y,
             width: screen.frame.size.width,
-            height: screen.frame.size.height - topMargin
+            // NOTE: There is a 1px gap between the Window and the StatusMenu, so I am adding +1px to close it.
+            height: screen.frame.size.height - topMargin + 1
         )
     }
 }

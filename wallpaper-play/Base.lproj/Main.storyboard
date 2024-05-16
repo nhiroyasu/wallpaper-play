@@ -839,7 +839,7 @@
             <objects>
                 <viewController id="J3X-pi-bPj" sceneMemberID="viewController">
                     <view key="view" id="z9G-AA-fVC">
-                        <rect key="frame" x="0.0" y="0.0" width="640" height="680"/>
+                        <rect key="frame" x="0.0" y="0.0" width="640" height="458"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <viewLayoutGuide key="safeArea" id="7P7-l9-sv8"/>
                         <viewLayoutGuide key="layoutMargins" id="txT-SZ-Nz8"/>
@@ -847,7 +847,7 @@
                 </viewController>
                 <customObject id="6y4-SD-8Nr" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2169" y="504"/>
+            <point key="canvasLocation" x="2169" y="393"/>
         </scene>
         <!--Wall Movie View Controller-->
         <scene sceneID="hIz-AP-VOD">

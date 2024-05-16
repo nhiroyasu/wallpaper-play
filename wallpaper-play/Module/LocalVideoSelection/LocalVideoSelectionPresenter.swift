@@ -23,7 +23,8 @@ class LocalVideoSelectionPresenterImpl: LocalVideoSelectionPresenter {
     }
     
     func initViews() {
-        output.videoView = .init(frame: output.videoWrappingView.frame)
+        output.videoView = .init(frame: .zero)
+        output.videoView.translatesAutoresizingMaskIntoConstraints = false
         output.videoWrappingView.fitAllAnchor(output.videoView)
     }
     

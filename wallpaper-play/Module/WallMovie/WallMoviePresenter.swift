@@ -9,6 +9,11 @@ struct VideoPlayValue {
     let videoSize: VideoSize
 }
 
+struct YouTubePlayValue {
+    let videoId: String
+    let isMute: Bool
+}
+
 enum WallpaperKind {
     case video(value: VideoPlayValue)
     case youtube(videoId: String, isMute: Bool)
