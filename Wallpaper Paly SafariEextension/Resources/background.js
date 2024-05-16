@@ -1,13 +1,12 @@
 const MENU_ID = 'wallpaper-play-for-youtube'
 
-browser.runtime.onInstalled.addListener(function () {
-  browser.contextMenus.create({
-    id: MENU_ID,
-    title: 'Set YouTube video as Wallpaper',
-    contexts: ['all'],
-    documentUrlPatterns: ['*://*.youtube.com/*'], // YouTubeのドメインに限定
-    targetUrlPatterns: ['https://www.youtube.com/.*\bv=[w-]+'],
-  })
+
+browser.contextMenus.create({
+  id: MENU_ID,
+  title: 'Set YouTube video as Wallpaper',
+  contexts: ['all'],
+  documentUrlPatterns: ['*://*.youtube.com/*'], // YouTubeのドメインに限定
+  targetUrlPatterns: ['https://www.youtube.com/.*\bv=[w-]+'],
 })
 
 browser.contextMenus.onClicked.addListener(function (info, tab) {
