@@ -2,16 +2,16 @@
 <document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="22689"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="22690"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="WebPageSelectionViewController" customModule="Wallpaper_Play" customModuleProvider="target">
             <connections>
-                <outlet property="setWallpaperButton" destination="YEP-sx-Osn" id="BrK-a6-Dvy"/>
                 <outlet property="urlSearchField" destination="p8d-qh-fot" id="kTZ-Ju-zy0"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+                <outlet property="wallpaperButton" destination="YEP-sx-Osn" id="kSi-k1-Mg6"/>
                 <outlet property="wrapView" destination="ode-eN-Vyh" id="uWg-xD-yfA"/>
             </connections>
         </customObject>
@@ -26,7 +26,7 @@
                         <stackView distribution="fill" orientation="horizontal" alignment="baseline" spacing="16" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="F3D-yH-Ksr">
                             <rect key="frame" x="33" y="376" width="57" height="19"/>
                             <subviews>
-                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Wcn-XF-SjO">
+                                <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Wcn-XF-SjO">
                                     <rect key="frame" x="-2" y="0.0" width="61" height="19"/>
                                     <textFieldCell key="cell" lineBreakMode="clipping" title="Preview" id="Ecp-v1-iNh">
                                         <font key="font" metaFont="system" size="16"/>
@@ -78,7 +78,7 @@
                                         <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" horizontalHuggingPriority="249" horizontalCompressionResistancePriority="749" placeholderIntrinsicWidth="785" placeholderIntrinsicHeight="30" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TTh-Xc-Duo">
                                             <rect key="frame" x="0.0" y="40" width="785" height="30"/>
                                             <subviews>
-                                                <searchField wantsLayer="YES" horizontalHuggingPriority="249" verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p8d-qh-fot">
+                                                <searchField wantsLayer="YES" focusRingType="none" horizontalHuggingPriority="249" verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p8d-qh-fot">
                                                     <rect key="frame" x="0.0" y="0.0" width="785" height="30"/>
                                                     <searchFieldCell key="cell" controlSize="large" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" placeholderString="URL" usesSingleLineMode="YES" bezelStyle="round" id="BAw-al-eia">
                                                         <font key="font" metaFont="system"/>
@@ -97,7 +97,7 @@
                                         <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="2" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ymc-tq-JRw">
                                             <rect key="frame" x="0.0" y="0.0" width="275" height="32"/>
                                             <subviews>
-                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Xzy-4I-yYZ">
+                                                <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Xzy-4I-yYZ">
                                                     <rect key="frame" x="-2" y="17" width="249" height="15"/>
                                                     <textFieldCell key="cell" controlSize="large" lineBreakMode="clipping" title="・A stable network environment is required" id="ats-WP-gX2">
                                                         <font key="font" metaFont="cellTitle"/>
@@ -105,7 +105,7 @@
                                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     </textFieldCell>
                                                 </textField>
-                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ZiB-SU-yGv">
+                                                <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ZiB-SU-yGv">
                                                     <rect key="frame" x="-2" y="0.0" width="279" height="15"/>
                                                     <textFieldCell key="cell" lineBreakMode="clipping" title="・The page set as wallpaper cannot be operated" id="nut-Qe-x3m">
                                                         <font key="font" metaFont="cellTitle"/>
@@ -155,10 +155,10 @@
                     <rect key="frame" x="0.0" y="0.0" width="849" height="64"/>
                     <subviews>
                         <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="16" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kN5-N1-A56">
-                            <rect key="frame" x="32" y="18" width="198" height="28"/>
+                            <rect key="frame" x="32" y="18" width="196" height="28"/>
                             <subviews>
                                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="YEP-sx-Osn">
-                                    <rect key="frame" x="-6" y="-6" width="139" height="40"/>
+                                    <rect key="frame" x="-6" y="-6" width="137" height="40"/>
                                     <buttonCell key="cell" type="push" title="Set Wallpaper" bezelStyle="rounded" image="desktopcomputer" catalog="system" imagePosition="left" alignment="center" controlSize="large" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="uoc-wy-1QP">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="system"/>
@@ -169,7 +169,7 @@
                                     </connections>
                                 </button>
                                 <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="16" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bEo-dt-Cqd">
-                                    <rect key="frame" x="143" y="6" width="55" height="16"/>
+                                    <rect key="frame" x="141" y="6" width="55" height="16"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="55" id="dRH-ti-fJe"/>
                                         <constraint firstAttribute="height" constant="16" id="ubq-gZ-RB1"/>
@@ -215,7 +215,7 @@
         </customView>
     </objects>
     <resources>
-        <image name="desktopcomputer" catalog="system" width="20" height="15"/>
+        <image name="desktopcomputer" catalog="system" width="19" height="15"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

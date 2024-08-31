@@ -3,6 +3,7 @@ import Cocoa
 protocol WebPageSelectionViewOutput: AnyObject {
     func setPreview(url: URL)
     func clearPreview()
+    func setEnableWallpaperButton(_ value: Bool)
 }
 
 class WebPageSelectionViewController: NSViewController {
@@ -14,7 +15,7 @@ class WebPageSelectionViewController: NSViewController {
         }
     }
     @IBOutlet weak var wrapView: NSView!
-    @IBOutlet weak var setWallpaperButton: NSButton!
+    @IBOutlet weak var wallpaperButton: NSButton!
     public var previewWebView: YoutubeWebView!
     private let presenter: WebPageSelectionPresenter
 
@@ -35,6 +36,7 @@ class WebPageSelectionViewController: NSViewController {
         if let path = Bundle.main.path(forResource: "copy_description_for_web", ofType: "html") {
             setPreview(url: URL(fileURLWithPath: path))
         }
+        presenter.viewDidLoad()
     }
 
     override func viewDidDisappear() {
@@ -76,5 +78,9 @@ extension WebPageSelectionViewController: WebPageSelectionViewOutput {
         } else {
             previewWebView.loadHTMLString("", baseURL: nil)
         }
+    }
+
+    func setEnableWallpaperButton(_ value: Bool) {
+        wallpaperButton.isEnabled = value
     }
 }

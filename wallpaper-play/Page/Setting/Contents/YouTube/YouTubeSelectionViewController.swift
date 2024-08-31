@@ -37,6 +37,7 @@ class YouTubeSelectionViewController: NSViewController {
         if let path = Bundle.main.path(forResource: "copy_description_for_youtube", ofType: "html") {
             updatePreview(url: URL(fileURLWithPath: path))
         }
+        presenter.viewDidLoad()
     }
 
     @IBAction func didTapWallpaperButton(_ sender: Any) {

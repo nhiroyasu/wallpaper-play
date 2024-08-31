@@ -12,7 +12,7 @@ final class SettingWindowServiceImpl: SettingWindowService {
     func show() {
         let windowController = SettingWindowController(windowNibName: String(describing: SettingWindowController.self))
         if (windowController.contentViewController as? SettingSplitViewController) == nil {
-            let coordinator = SettingCoordinator()
+            let coordinator = SettingCoordinator(injector: Injector.shared)
             windowController.contentViewController = coordinator.create()
         }
         windowController.window?.center()

@@ -2,6 +2,7 @@ import Foundation
 import Injectable
 
 protocol YouTubeSelectionPresenter {
+    func viewDidLoad()
     func onChangeSearchField(_ value: String)
     func enteredYouTubeLink(_ value: String)
     func didTapWallpaperButton(youtubeLink: String, mute: Bool)
@@ -20,12 +21,33 @@ class YouTubeSelectionPresenterImpl: YouTubeSelectionPresenter {
         self.alertService = alertService
     }
 
+    func viewDidLoad() {
+        output.setEnableWallpaperButton(false)
+    }
+
     func onChangeSearchField(_ value: String) {
-        updatePreviewIfNeeded(youtubeLink: value)
+        guard let iframeUrl = useCase.retrieveIFrameUrl(from: value) else {
+            output.setEnableWallpaperButton(false)
+            return
+        }
+        output.updatePreview(url: iframeUrl)
+        output.setEnableWallpaperButton(true)
+        if let thumbnailUrl = useCase.retrieveThumbnailUrl(from: value) {
+            output.updateThumbnail(url: thumbnailUrl)
+        }
     }
 
     func enteredYouTubeLink(_ value: String) {
-        updatePreviewIfNeeded(youtubeLink: value)
+        guard let iframeUrl = useCase.retrieveIFrameUrl(from: value) else {
+            alertService.warning(msg: LocalizedString(key: .error_invalid_youtube_url), completionHandler: {})
+            output.setEnableWallpaperButton(false)
+            return
+        }
+        output.updatePreview(url: iframeUrl)
+        output.setEnableWallpaperButton(true)
+        if let thumbnailUrl = useCase.retrieveThumbnailUrl(from: value) {
+            output.updateThumbnail(url: thumbnailUrl)
+        }
     }
 
     func didTapWallpaperButton(youtubeLink: String, mute: Bool) {
@@ -34,19 +56,5 @@ class YouTubeSelectionPresenterImpl: YouTubeSelectionPresenter {
             return
         }
         useCase.requestWallpaper(videoId: videoId, mute: mute)
-    }
-
-    // MARK: - internal
-
-    private func updatePreviewIfNeeded(youtubeLink: String) {
-        guard let iframeUrl = useCase.retrieveIFrameUrl(from: youtubeLink) else {
-            return
-        }
-
-        output.updatePreview(url: iframeUrl)
-        output.setEnableWallpaperButton(true)
-        if let thumbnailUrl = useCase.retrieveThumbnailUrl(from: youtubeLink) {
-            output.updateThumbnail(url: thumbnailUrl)
-        }
     }
 }
