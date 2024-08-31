@@ -4,15 +4,7 @@ import AppKit
 import Swinject
 import Injectable
 
-class VideoFormContainerBuilder {
-    static func build(parent: Container?) -> Container {
-        let container = Container(parent: parent)
-
-        return container
-    }
-}
-
-class VideoFormCoordinator: Coordinator {
+class SettingCoordinator: Coordinator {
     private let localVideoSelectionCoordinator: LocalVideoSelectionCoordinator
     private let youtubeSelectionCoordinator: YouTubeSelectionCoordinator
     private let webpageSelectionCoordinator: WebPageSelectionCoordinator

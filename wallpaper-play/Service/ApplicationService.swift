@@ -19,7 +19,7 @@ class ApplicationServiceImpl: ApplicationService {
     private let realmService: RealmService
     private let notificationManager: NotificationManager
     private let wallpaperWindowService: WallpaperWindowService
-    private let videoFormWindowPresenter: VideoFormWindowPresenter
+    private let settingWindowService: SettingWindowService
     private let wallpaperHistoryService: WallpaperHistoryService
     private let applicationFileManager: ApplicationFileManager
     private let fileManager: FileManager
@@ -34,7 +34,7 @@ class ApplicationServiceImpl: ApplicationService {
         realmService = injector.build()
         notificationManager = injector.build()
         wallpaperWindowService = injector.build()
-        videoFormWindowPresenter = injector.build()
+        settingWindowService = injector.build()
         wallpaperHistoryService = injector.build()
         applicationFileManager = injector.build()
         userSetting = injector.build()
@@ -70,23 +70,23 @@ class ApplicationServiceImpl: ApplicationService {
         guard let url = urls.first else { return }
         guard let (videoId, isMute) = getWallpaperData(from: url) else { return }
         displayYouTube(videoId: videoId, isMute: isMute, shouldSavedHistory: true)
-        videoFormWindowPresenter.close()
+        settingWindowService.close()
     }
 
     func applicationShouldHandleReopen(hasVisibleWindows flag: Bool) -> Bool {
-        videoFormWindowPresenter.show()
+        settingWindowService.show()
         return false
     }
 
     func didBecomeActive() {}
 
         func didTapWallPaperItem() {
-        videoFormWindowPresenter.show()
+        settingWindowService.show()
         appManager.activate()
     }
     
     func didTapPreferenceItem() {
-        videoFormWindowPresenter.show()
+        settingWindowService.show()
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
             self.notificationManager.push(name: .selectedSideMenu, param: SideMenuItem.preference)
         }
@@ -184,7 +184,7 @@ class ApplicationServiceImpl: ApplicationService {
 
     private func openVideoFormIfNeeded() {
         if userSetting.openThisWindowAtFirst {
-            videoFormWindowPresenter.show()
+            settingWindowService.show()
         }
     }
 
