@@ -682,10 +682,10 @@
             </objects>
             <point key="canvasLocation" x="75" y="0.0"/>
         </scene>
-        <!--Video Form Split View Controller-->
+        <!--Setting Split View Controller-->
         <scene sceneID="gkp-cz-W74">
             <objects>
-                <splitViewController storyboardIdentifier="VideoFormSplitViewController" id="cfq-Zz-ncd" customClass="VideoFormSplitViewController" customModule="Wallpaper_Play" customModuleProvider="target" sceneMemberID="viewController">
+                <splitViewController storyboardIdentifier="SettingSplitViewController" id="cfq-Zz-ncd" customClass="SettingSplitViewController" customModule="Wallpaper_Play" customModuleProvider="target" sceneMemberID="viewController">
                     <splitViewItems>
                         <splitViewItem holdingPriority="255" behavior="contentList" id="R8X-AC-cXt"/>
                         <splitViewItem id="Q3Q-ze-4Hz"/>
@@ -753,7 +753,7 @@
                                                                             </constraints>
                                                                             <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="video" catalog="system" id="sEa-mF-O8M"/>
                                                                         </imageView>
-                                                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="aIv-6H-ovj">
+                                                                        <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="aIv-6H-ovj">
                                                                             <rect key="frame" x="30" y="4" width="73" height="17"/>
                                                                             <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Example" id="XSy-SN-3C5">
                                                                                 <font key="font" metaFont="system" size="14"/>

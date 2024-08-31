@@ -1,7 +1,7 @@
 import Cocoa
 import Injectable
 
-class VideoFormSplitViewController: NSSplitViewController {
+class SettingSplitViewController: NSSplitViewController {
 
     @IBOutlet weak var sidebarViewItem: NSSplitViewItem! {
         didSet {

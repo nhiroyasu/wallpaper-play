@@ -6,6 +6,6 @@ extension NSNib.Name {
     static let windowController = WindowController()
     
     struct WindowController {
-        let videForm = String(describing: VideoFormWindowController.self)
+        let videForm = String(describing: SettingWindowController.self)
     }
 }

@@ -1,9 +1,9 @@
 import Foundation
 
 protocol VideoFormWindowProvidable {
-    var windowController: VideoFormWindowController { get }
+    var windowController: SettingWindowController { get }
 }
 
 final class VideoFormWindowProvider: VideoFormWindowProvidable {
-    let windowController: VideoFormWindowController = VideoFormWindowController(windowNibName: .windowController.videForm)
+    let windowController: SettingWindowController = SettingWindowController(windowNibName: .windowController.videForm)
 }

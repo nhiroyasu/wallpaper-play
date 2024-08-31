@@ -14,13 +14,13 @@ final class VideoFormWindowPresenterImpl: VideoFormWindowPresenter {
     }
 
     func show() {
-        let videoFormWindowController = videoFormWindowProvider.windowController
-        if (videoFormWindowController.contentViewController as? VideoFormSplitViewController) == nil {
+        let SettingWindowController = videoFormWindowProvider.windowController
+        if (SettingWindowController.contentViewController as? SettingSplitViewController) == nil {
             let coordinator = VideoFormCoordinator()
-            videoFormWindowController.contentViewController = coordinator.create()
+            SettingWindowController.contentViewController = coordinator.create()
         }
-        videoFormWindowController.window?.center()
-        videoFormWindowController.window?.makeKeyAndOrderFront(nil)
+        SettingWindowController.window?.center()
+        SettingWindowController.window?.makeKeyAndOrderFront(nil)
     }
 
     func close() {

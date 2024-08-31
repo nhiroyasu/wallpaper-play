@@ -19,7 +19,7 @@ class VideoFormCoordinator: Coordinator {
     private let browserExtensionCoordinator: BrowserExtensionCoordinator
     private let preferenceCoordinator: PreferenceCoordinator
     private let aboutCoordinator: AboutCoordinator
-    private var viewController: VideoFormSplitViewController!
+    private var viewController: SettingSplitViewController!
     
     init() {
         self.localVideoSelectionCoordinator = .init(
@@ -70,7 +70,7 @@ class VideoFormCoordinator: Coordinator {
     }
     
     func create() -> NSViewController {
-        viewController = NSStoryboard.main?.instantiateController(withIdentifier: "VideoFormSplitViewController") as? VideoFormSplitViewController
+        viewController = NSStoryboard.main?.instantiateController(withIdentifier: "SettingSplitViewController") as? SettingSplitViewController
         viewController.localVideoSelectionViewController = localVideoSelectionCoordinator.create() as? LocalVideoSelectionViewController
         viewController.youtubeSelectionViewController = youtubeSelectionCoordinator.create() as? YouTubeSelectionViewController
         viewController.webpageSelectionViewController = webpageSelectionCoordinator.create() as? WebPageSelectionViewController

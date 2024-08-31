@@ -75,8 +75,8 @@
 		4F8A5942284CEEFE00557FDD /* NSCollectionView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8A5941284CEEFE00557FDD /* NSCollectionView+.swift */; };
 		4F8A5944284CF3D800557FDD /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8A5943284CF3D800557FDD /* NotificationManager.swift */; };
 		4F8A5946284CF4A200557FDD /* ApplicationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8A5945284CF4A200557FDD /* ApplicationService.swift */; };
-		4F8A594A284CFD4200557FDD /* VideoFormWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8A5949284CFD4200557FDD /* VideoFormWindowController.swift */; };
-		4F8A594C284CFD4F00557FDD /* VideoFormSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8A594B284CFD4F00557FDD /* VideoFormSplitViewController.swift */; };
+		4F8A594A284CFD4200557FDD /* SettingWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8A5949284CFD4200557FDD /* SettingWindowController.swift */; };
+		4F8A594C284CFD4F00557FDD /* SettingSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8A594B284CFD4F00557FDD /* SettingSplitViewController.swift */; };
 		4F8A5950284CFDF200557FDD /* InjectableWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8A594F284CFDF200557FDD /* InjectableWindowController.swift */; };
 		4F8A5954284D18E400557FDD /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8A5953284D18E400557FDD /* SideMenuViewController.swift */; };
 		4F8A5957284D1A2C00557FDD /* LocalVideoSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8A5955284D1A2B00557FDD /* LocalVideoSelectionViewController.swift */; };
@@ -99,7 +99,7 @@
 		4FB0F3F12854D1ED004E6D51 /* YouTubeSelectionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB0F3F02854D1ED004E6D51 /* YouTubeSelectionCoordinator.swift */; };
 		4FB0F3F32854D2C5004E6D51 /* LocalVideoSelectionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB0F3F22854D2C5004E6D51 /* LocalVideoSelectionCoordinator.swift */; };
 		4FB0F3F62854D3E1004E6D51 /* VideoFormCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB0F3F52854D3E1004E6D51 /* VideoFormCoordinator.swift */; };
-		4FB0F3FB2854D6DA004E6D51 /* VideoFormWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FB0F3F92854D6DA004E6D51 /* VideoFormWindowController.xib */; };
+		4FB0F3FB2854D6DA004E6D51 /* SettingWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FB0F3F92854D6DA004E6D51 /* SettingWindowController.xib */; };
 		4FB0F405285789F1004E6D51 /* NSNib+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB0F404285789F1004E6D51 /* NSNib+.swift */; };
 		4FB0F4072858A272004E6D51 /* WallpaperWindowService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB0F4062858A272004E6D51 /* WallpaperWindowService.swift */; };
 		4FB1BD3D295E8C9300F476CD /* DockMenuItemBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB1BD3C295E8C9300F476CD /* DockMenuItemBuilder.swift */; };
@@ -242,8 +242,8 @@
 		4F8A5941284CEEFE00557FDD /* NSCollectionView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSCollectionView+.swift"; sourceTree = "<group>"; };
 		4F8A5943284CF3D800557FDD /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		4F8A5945284CF4A200557FDD /* ApplicationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationService.swift; sourceTree = "<group>"; };
-		4F8A5949284CFD4200557FDD /* VideoFormWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoFormWindowController.swift; sourceTree = "<group>"; };
-		4F8A594B284CFD4F00557FDD /* VideoFormSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoFormSplitViewController.swift; sourceTree = "<group>"; };
+		4F8A5949284CFD4200557FDD /* SettingWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingWindowController.swift; sourceTree = "<group>"; };
+		4F8A594B284CFD4F00557FDD /* SettingSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingSplitViewController.swift; sourceTree = "<group>"; };
 		4F8A594F284CFDF200557FDD /* InjectableWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectableWindowController.swift; sourceTree = "<group>"; };
 		4F8A5953284D18E400557FDD /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
 		4F8A5955284D1A2B00557FDD /* LocalVideoSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalVideoSelectionViewController.swift; sourceTree = "<group>"; };
@@ -270,7 +270,7 @@
 		4FB0F3F02854D1ED004E6D51 /* YouTubeSelectionCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubeSelectionCoordinator.swift; sourceTree = "<group>"; };
 		4FB0F3F22854D2C5004E6D51 /* LocalVideoSelectionCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalVideoSelectionCoordinator.swift; sourceTree = "<group>"; };
 		4FB0F3F52854D3E1004E6D51 /* VideoFormCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoFormCoordinator.swift; sourceTree = "<group>"; };
-		4FB0F3F92854D6DA004E6D51 /* VideoFormWindowController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoFormWindowController.xib; sourceTree = "<group>"; };
+		4FB0F3F92854D6DA004E6D51 /* SettingWindowController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingWindowController.xib; sourceTree = "<group>"; };
 		4FB0F404285789F1004E6D51 /* NSNib+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSNib+.swift"; sourceTree = "<group>"; };
 		4FB0F4062858A272004E6D51 /* WallpaperWindowService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallpaperWindowService.swift; sourceTree = "<group>"; };
 		4FB1BD3C295E8C9300F476CD /* DockMenuItemBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DockMenuItemBuilder.swift; sourceTree = "<group>"; };
@@ -466,7 +466,7 @@
 			isa = PBXGroup;
 			children = (
 				4F8A5905284CA03700557FDD /* Wallpaper */,
-				4F8A5948284CFCAA00557FDD /* VideoForm */,
+				4F8A5948284CFCAA00557FDD /* Setting */,
 				4FB0F404285789F1004E6D51 /* NSNib+.swift */,
 			);
 			path = Page;
@@ -545,36 +545,29 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
-		4F8A5948284CFCAA00557FDD /* VideoForm */ = {
+		4F8A5948284CFCAA00557FDD /* Setting */ = {
 			isa = PBXGroup;
 			children = (
-				4F8A5952284D18C400557FDD /* View */,
-				4F8A5949284CFD4200557FDD /* VideoFormWindowController.swift */,
-				4FB0F3F92854D6DA004E6D51 /* VideoFormWindowController.xib */,
-				4F8A594B284CFD4F00557FDD /* VideoFormSplitViewController.swift */,
+				4FE738412C82F34200EE18D1 /* SideMenu */,
+				4F8A5952284D18C400557FDD /* Contents */,
+				4F8A5949284CFD4200557FDD /* SettingWindowController.swift */,
+				4FB0F3F92854D6DA004E6D51 /* SettingWindowController.xib */,
+				4F8A594B284CFD4F00557FDD /* SettingSplitViewController.swift */,
 			);
-			path = VideoForm;
+			path = Setting;
 			sourceTree = "<group>";
 		};
-		4F8A5952284D18C400557FDD /* View */ = {
+		4F8A5952284D18C400557FDD /* Contents */ = {
 			isa = PBXGroup;
 			children = (
-				4F8A5953284D18E400557FDD /* SideMenuViewController.swift */,
-				4F8A5955284D1A2B00557FDD /* LocalVideoSelectionViewController.swift */,
-				4F6A4D19289650D900F7B40D /* LocalVideoSelectionViewController.xib */,
-				4F8A595B284D1B5000557FDD /* YouTubeSelectionViewController.swift */,
-				4F6A4D132896505500F7B40D /* YouTubeSelectionViewController.xib */,
-				4F2161FC2850FA37000673EF /* PreferenceViewController.swift */,
-				4F2161FD2850FA37000673EF /* PreferenceViewController.xib */,
-				4FBD50FA2885089A002DF955 /* WebPageSelectionViewController.swift */,
-				4F6A4D1D2896512400F7B40D /* WebPageSelectionViewController.xib */,
-				4F2D558C289567D200363292 /* AboutViewController.swift */,
-				4F2D558D289567D200363292 /* AboutViewController.xib */,
-				4F2D5590289567E900363292 /* AboutView.swift */,
-				4FAF30342BE391B100B9E381 /* BrowserExtensionViewController.swift */,
-				4FAF303B2BE39C0300B9E381 /* BrowserExtensionViewController.xib */,
+				4FE738422C82F35200EE18D1 /* LocalVideo */,
+				4FE738432C82F37D00EE18D1 /* YouTube */,
+				4FE738442C82F38400EE18D1 /* Web */,
+				4FE738472C82F39A00EE18D1 /* BrowserExtension */,
+				4FE738452C82F38B00EE18D1 /* Preference */,
+				4FE738462C82F39300EE18D1 /* About */,
 			);
-			path = View;
+			path = Contents;
 			sourceTree = "<group>";
 		};
 		4FAD5E6B2BE37B2F00DB51DC /* Wallpaper Paly SafariEextension */ = {
@@ -682,6 +675,69 @@
 				4FC182F7285E06EA0042FAF6 /* PreferencePresenter.swift */,
 			);
 			path = Preference;
+			sourceTree = "<group>";
+		};
+		4FE738412C82F34200EE18D1 /* SideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				4F8A5953284D18E400557FDD /* SideMenuViewController.swift */,
+			);
+			path = SideMenu;
+			sourceTree = "<group>";
+		};
+		4FE738422C82F35200EE18D1 /* LocalVideo */ = {
+			isa = PBXGroup;
+			children = (
+				4F8A5955284D1A2B00557FDD /* LocalVideoSelectionViewController.swift */,
+				4F6A4D19289650D900F7B40D /* LocalVideoSelectionViewController.xib */,
+			);
+			path = LocalVideo;
+			sourceTree = "<group>";
+		};
+		4FE738432C82F37D00EE18D1 /* YouTube */ = {
+			isa = PBXGroup;
+			children = (
+				4F8A595B284D1B5000557FDD /* YouTubeSelectionViewController.swift */,
+				4F6A4D132896505500F7B40D /* YouTubeSelectionViewController.xib */,
+			);
+			path = YouTube;
+			sourceTree = "<group>";
+		};
+		4FE738442C82F38400EE18D1 /* Web */ = {
+			isa = PBXGroup;
+			children = (
+				4FBD50FA2885089A002DF955 /* WebPageSelectionViewController.swift */,
+				4F6A4D1D2896512400F7B40D /* WebPageSelectionViewController.xib */,
+			);
+			path = Web;
+			sourceTree = "<group>";
+		};
+		4FE738452C82F38B00EE18D1 /* Preference */ = {
+			isa = PBXGroup;
+			children = (
+				4F2161FC2850FA37000673EF /* PreferenceViewController.swift */,
+				4F2161FD2850FA37000673EF /* PreferenceViewController.xib */,
+			);
+			path = Preference;
+			sourceTree = "<group>";
+		};
+		4FE738462C82F39300EE18D1 /* About */ = {
+			isa = PBXGroup;
+			children = (
+				4F2D558C289567D200363292 /* AboutViewController.swift */,
+				4F2D558D289567D200363292 /* AboutViewController.xib */,
+				4F2D5590289567E900363292 /* AboutView.swift */,
+			);
+			path = About;
+			sourceTree = "<group>";
+		};
+		4FE738472C82F39A00EE18D1 /* BrowserExtension */ = {
+			isa = PBXGroup;
+			children = (
+				4FAF30342BE391B100B9E381 /* BrowserExtensionViewController.swift */,
+				4FAF303B2BE39C0300B9E381 /* BrowserExtensionViewController.xib */,
+			);
+			path = BrowserExtension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -840,7 +896,7 @@
 				4FAF303C2BE39C0300B9E381 /* BrowserExtensionViewController.xib in Resources */,
 				4F6A4D112896505500F7B40D /* YouTubeSelectionViewController.xib in Resources */,
 				4FC182EF285E00540042FAF6 /* SwitchCell.xib in Resources */,
-				4FB0F3FB2854D6DA004E6D51 /* VideoFormWindowController.xib in Resources */,
+				4FB0F3FB2854D6DA004E6D51 /* SettingWindowController.xib in Resources */,
 				4F8A58E1284CA01A00557FDD /* Main.storyboard in Resources */,
 				4F6A4D17289650D900F7B40D /* LocalVideoSelectionViewController.xib in Resources */,
 				4F6A4D0E28964EE800F7B40D /* Localizable.strings in Resources */,
@@ -942,10 +998,10 @@
 				4F8A590D284CA1B200557FDD /* YouTubeWebView.swift in Sources */,
 				4FBD510228850A9D002DF955 /* WebPageSelectionAction.swift in Sources */,
 				4F8A5950284CFDF200557FDD /* InjectableWindowController.swift in Sources */,
-				4F8A594C284CFD4F00557FDD /* VideoFormSplitViewController.swift in Sources */,
+				4F8A594C284CFD4F00557FDD /* SettingSplitViewController.swift in Sources */,
 				4FDF1DF7285ECAB600ABBE8D /* Coordinator.swift in Sources */,
 				4F03CEEA285A158F009FDC6F /* URL+.swift in Sources */,
-				4F8A594A284CFD4200557FDD /* VideoFormWindowController.swift in Sources */,
+				4F8A594A284CFD4200557FDD /* SettingWindowController.swift in Sources */,
 				4FDF1DEF285EAF7100ABBE8D /* AppManager.swift in Sources */,
 				4FB1BD4C295F0B4900F476CD /* DockMenuAction.swift in Sources */,
 				4FB0F4072858A272004E6D51 /* WallpaperWindowService.swift in Sources */,

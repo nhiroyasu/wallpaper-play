@@ -1,7 +1,7 @@
 import Cocoa
 import Injectable
 
-class VideoFormWindowController: NSWindowController, NSWindowDelegate {
+class SettingWindowController: NSWindowController, NSWindowDelegate {
     
     override func windowDidLoad() {
         super.windowDidLoad()
