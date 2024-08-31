@@ -30,7 +30,6 @@
 		4F25C1CC284E637C00397737 /* YouTubeSelectionAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25C1CB284E637C00397737 /* YouTubeSelectionAction.swift */; };
 		4F25C1CE284E63F400397737 /* LocalVideoSelectionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25C1CD284E63F400397737 /* LocalVideoSelectionPresenter.swift */; };
 		4F25C1D0284E642E00397737 /* LocalVideoSelectionUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25C1CF284E642E00397737 /* LocalVideoSelectionUseCase.swift */; };
-		4F25C1D2284E644600397737 /* LocalVideoSelectionAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25C1D1284E644600397737 /* LocalVideoSelectionAction.swift */; };
 		4F25C1D4284E673A00397737 /* URLResolverService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25C1D3284E673A00397737 /* URLResolverService.swift */; };
 		4F25C1D6284F718C00397737 /* NSImageView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25C1D5284F718C00397737 /* NSImageView+.swift */; };
 		4F2801812BDDEEB4003F36A6 /* WallMovieUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F28017F2BDDEEB4003F36A6 /* WallMovieUITests.swift */; };
@@ -187,7 +186,6 @@
 		4F25C1CB284E637C00397737 /* YouTubeSelectionAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubeSelectionAction.swift; sourceTree = "<group>"; };
 		4F25C1CD284E63F400397737 /* LocalVideoSelectionPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalVideoSelectionPresenter.swift; sourceTree = "<group>"; };
 		4F25C1CF284E642E00397737 /* LocalVideoSelectionUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalVideoSelectionUseCase.swift; sourceTree = "<group>"; };
-		4F25C1D1284E644600397737 /* LocalVideoSelectionAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalVideoSelectionAction.swift; sourceTree = "<group>"; };
 		4F25C1D3284E673A00397737 /* URLResolverService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLResolverService.swift; sourceTree = "<group>"; };
 		4F25C1D5284F718C00397737 /* NSImageView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSImageView+.swift"; sourceTree = "<group>"; };
 		4F28017F2BDDEEB4003F36A6 /* WallMovieUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WallMovieUITests.swift; sourceTree = "<group>"; };
@@ -360,16 +358,6 @@
 			path = YouTubeSelection;
 			sourceTree = "<group>";
 		};
-		4F25C1C4284E5F0F00397737 /* LocalVideoSelection */ = {
-			isa = PBXGroup;
-			children = (
-				4F25C1D1284E644600397737 /* LocalVideoSelectionAction.swift */,
-				4F25C1CF284E642E00397737 /* LocalVideoSelectionUseCase.swift */,
-				4F25C1CD284E63F400397737 /* LocalVideoSelectionPresenter.swift */,
-			);
-			path = LocalVideoSelection;
-			sourceTree = "<group>";
-		};
 		4F28017C2BDDEDFC003F36A6 /* wallpaper-playUITests */ = {
 			isa = PBXGroup;
 			children = (
@@ -503,7 +491,6 @@
 			isa = PBXGroup;
 			children = (
 				4FBD510028850A8F002DF955 /* WebPageSelection */,
-				4F25C1C4284E5F0F00397737 /* LocalVideoSelection */,
 				4F25C1C1284E54D300397737 /* YouTubeSelection */,
 			);
 			path = Module;
@@ -661,6 +648,8 @@
 		4FE738422C82F35200EE18D1 /* LocalVideo */ = {
 			isa = PBXGroup;
 			children = (
+				4F25C1CF284E642E00397737 /* LocalVideoSelectionUseCase.swift */,
+				4F25C1CD284E63F400397737 /* LocalVideoSelectionPresenter.swift */,
 				4F8A5955284D1A2B00557FDD /* LocalVideoSelectionViewController.swift */,
 				4F6A4D19289650D900F7B40D /* LocalVideoSelectionViewController.xib */,
 			);
@@ -1020,7 +1009,6 @@
 				4F8A5944284CF3D800557FDD /* NotificationManager.swift in Sources */,
 				4F25C1D0284E642E00397737 /* LocalVideoSelectionUseCase.swift in Sources */,
 				4F25C1CC284E637C00397737 /* YouTubeSelectionAction.swift in Sources */,
-				4F25C1D2284E644600397737 /* LocalVideoSelectionAction.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

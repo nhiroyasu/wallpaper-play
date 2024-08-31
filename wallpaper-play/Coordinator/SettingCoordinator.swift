@@ -14,13 +14,7 @@ class SettingCoordinator: Coordinator {
     private var viewController: SettingSplitViewController!
     
     init() {
-        self.localVideoSelectionCoordinator = .init(
-            injector: Injector(
-                container: LocalVideoSelectionContainerBuilder.build(
-                    parent: Injector.shared.container
-                )
-            )
-        )
+        self.localVideoSelectionCoordinator = .init(injector: Injector.shared)
         self.youtubeSelectionCoordinator = .init(
             injector: Injector(
                 container: YouTubeSelectionContainerBuilder.build(

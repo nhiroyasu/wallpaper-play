@@ -1,6 +1,12 @@
 import Cocoa
 import AVFoundation
 
+protocol LocalVideoSelectionViewOutput: AnyObject {
+    func setThumbnail(videoUrl: URL)
+    func setPreview(videoUrl: URL)
+    func setFilePath(videoUrl: URL)
+}
+
 class LocalVideoSelectionViewController: NSViewController {
     
     struct State: Statable {
@@ -23,20 +29,24 @@ class LocalVideoSelectionViewController: NSViewController {
     }
     @IBOutlet weak var videoSizePopUpButton: NSPopUpButton! {
         didSet {
-            videoSizePopUpButton.menu?.items = [
-            ]
+            videoSizePopUpButton.menu?.items = VideoSize.allCases.map {
+                .init(title: $0.text, action: nil, keyEquivalent: "")
+            }
+            videoSizePopUpButton.selectItem(at: 0)
         }
     }
     @IBOutlet weak var muteToggleButton: NSButton!
-    var videoView: VideoView!
-    var action: LocalVideoSelectionAction!
-    
-    lazy var state: StateVariable<State> = .init { [weak self] state in
-        self?.filePathLabel.stringValue = state.videoFile?.lastPathComponent ?? ""
-    }
-    
-    init(action: LocalVideoSelectionAction) {
-        self.action = action
+    private var videoView: VideoView!
+    private let presenter: LocalVideoSelectionPresenter
+    private let avManager: AVPlayerManager
+    private var selectedVideoUrl: URL?
+
+    init(
+        presenter: LocalVideoSelectionPresenter,
+        avManager: AVPlayerManager
+    ) {
+        self.presenter = presenter
+        self.avManager = avManager
         super.init(nibName: "LocalVideoSelectionViewController", bundle: nil)
     }
     
@@ -46,8 +56,10 @@ class LocalVideoSelectionViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpVideoSizePopUpButton()
-        action.viewDidLoad()
+
+        videoView = .init(frame: .zero)
+        videoView.translatesAutoresizingMaskIntoConstraints = false
+        videoWrappingView.fitAllAnchor(videoView)
     }
     
     override func viewDidAppear() {
@@ -57,27 +69,65 @@ class LocalVideoSelectionViewController: NSViewController {
     
     override func viewWillDisappear() {
         super.viewDidAppear()
-        action.viewWillDisappear()
+        avManager.clear()
+        videoView.layer?.sublayers?.forEach { $0.removeFromSuperlayer() }
     }
     
     @IBAction func didTapVideoSelectionButton(_ sender: Any) {
-        action?.didTapVideoSelectionButton()
+        presenter.didTapVideoSelectionButton()
     }
     
     @IBAction func didTapSetWallpaperButton(_ sender: Any) {
         guard let videoSize = VideoSize(rawValue: videoSizePopUpButton.indexOfSelectedItem),
-              let videoLink = state.get(\.videoFile) else { return }
-        action?.didTapWallpaperButton(videoLink: videoLink.absoluteString, mute: isMute(), videoSize: videoSize)
+              let selectedVideoUrl else { return }
+        presenter.didTapWallpaperButton(videoLink: selectedVideoUrl.absoluteString, mute: isMute(), videoSize: videoSize)
     }
     
-    private func setUpVideoSizePopUpButton() {
-        videoSizePopUpButton.menu?.items = VideoSize.allCases.map {
-            .init(title: $0.text, action: nil, keyEquivalent: "")
-        }
-        videoSizePopUpButton.selectItem(at: 0)
-    }
-
     private func isMute() -> Bool {
         muteToggleButton.state == .on
+    }
+}
+
+extension LocalVideoSelectionViewController: LocalVideoSelectionViewOutput {
+    func setThumbnail(videoUrl: URL) {
+        let generator = AVAssetImageGenerator(asset: AVAsset(url: videoUrl))
+        do {
+            let image = try generator.copyCGImage(at: CMTime(seconds: 0.0, preferredTimescale: CMTimeScale(NSEC_PER_SEC)), actualTime: nil)
+            thumbnailImageView.image = image.toNSImage
+        } catch {
+            #if DEBUG
+            fatalError(error.localizedDescription)
+            #else
+            NSLog(error.localizedDescription, [])
+            #endif
+        }
+    }
+
+    func setPreview(videoUrl: URL) {
+        let player = avManager.set([videoUrl])
+        setUpVideoView(player: player)
+        do {
+            try avManager.mute(true)
+            try avManager.loop(type: .oneLoop)
+            try avManager.start()
+        } catch {
+            #if DEBUG
+            fatalError(error.localizedDescription)
+            #else
+            NSLog(error.localizedDescription, [])
+            #endif
+        }
+    }
+
+    private func setUpVideoView(player: AVPlayer) {
+        videoView.layer?.sublayers?.forEach { $0.removeFromSuperlayer() }
+        let layer = AVPlayerLayer(player: player)
+        layer.videoGravity = .resizeAspect
+        videoView.setPlayerLayer(layer)
+    }
+
+    func setFilePath(videoUrl: URL) {
+        selectedVideoUrl = videoUrl
+        filePathLabel.stringValue = videoUrl.lastPathComponent
     }
 }
