@@ -116,7 +116,6 @@
 		4FBD510C288559A8002DF955 /* WebPageWallpaper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBD510B288559A8002DF955 /* WebPageWallpaper.swift */; };
 		4FC182EE285E00540042FAF6 /* SwitchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC182EC285E00540042FAF6 /* SwitchCell.swift */; };
 		4FC182EF285E00540042FAF6 /* SwitchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FC182ED285E00540042FAF6 /* SwitchCell.xib */; };
-		4FC182F4285E06DC0042FAF6 /* PreferenceAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC182F3285E06DC0042FAF6 /* PreferenceAction.swift */; };
 		4FC182F6285E06E40042FAF6 /* PreferenceUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC182F5285E06E40042FAF6 /* PreferenceUseCase.swift */; };
 		4FC182F8285E06EA0042FAF6 /* PreferencePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC182F7285E06EA0042FAF6 /* PreferencePresenter.swift */; };
 		4FC182FA285E1B780042FAF6 /* PreferenceCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC182F9285E1B780042FAF6 /* PreferenceCoordinator.swift */; };
@@ -285,7 +284,6 @@
 		4FBD510B288559A8002DF955 /* WebPageWallpaper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebPageWallpaper.swift; sourceTree = "<group>"; };
 		4FC182EC285E00540042FAF6 /* SwitchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchCell.swift; sourceTree = "<group>"; };
 		4FC182ED285E00540042FAF6 /* SwitchCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SwitchCell.xib; sourceTree = "<group>"; };
-		4FC182F3285E06DC0042FAF6 /* PreferenceAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceAction.swift; sourceTree = "<group>"; };
 		4FC182F5285E06E40042FAF6 /* PreferenceUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceUseCase.swift; sourceTree = "<group>"; };
 		4FC182F7285E06EA0042FAF6 /* PreferencePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencePresenter.swift; sourceTree = "<group>"; };
 		4FC182F9285E1B780042FAF6 /* PreferenceCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceCoordinator.swift; sourceTree = "<group>"; };
@@ -507,7 +505,6 @@
 				4FBD510028850A8F002DF955 /* WebPageSelection */,
 				4F25C1C4284E5F0F00397737 /* LocalVideoSelection */,
 				4F25C1C1284E54D300397737 /* YouTubeSelection */,
-				4FC182F2285E06BA0042FAF6 /* Preference */,
 			);
 			path = Module;
 			sourceTree = "<group>";
@@ -653,16 +650,6 @@
 			path = SwitchCell;
 			sourceTree = "<group>";
 		};
-		4FC182F2285E06BA0042FAF6 /* Preference */ = {
-			isa = PBXGroup;
-			children = (
-				4FC182F3285E06DC0042FAF6 /* PreferenceAction.swift */,
-				4FC182F5285E06E40042FAF6 /* PreferenceUseCase.swift */,
-				4FC182F7285E06EA0042FAF6 /* PreferencePresenter.swift */,
-			);
-			path = Preference;
-			sourceTree = "<group>";
-		};
 		4FE738412C82F34200EE18D1 /* SideMenu */ = {
 			isa = PBXGroup;
 			children = (
@@ -701,6 +688,8 @@
 		4FE738452C82F38B00EE18D1 /* Preference */ = {
 			isa = PBXGroup;
 			children = (
+				4FC182F5285E06E40042FAF6 /* PreferenceUseCase.swift */,
+				4FC182F7285E06EA0042FAF6 /* PreferencePresenter.swift */,
 				4F2161FC2850FA37000673EF /* PreferenceViewController.swift */,
 				4F2161FD2850FA37000673EF /* PreferenceViewController.xib */,
 			);
@@ -1006,7 +995,6 @@
 				4F2161FB2850D1FB000673EF /* AntialiasedImageView.swift in Sources */,
 				4F03CEEE285A170E009FDC6F /* LocalVideoWallpaper.swift in Sources */,
 				4FBD510428850AA5002DF955 /* WebPageSelectionUseCase.swift in Sources */,
-				4FC182F4285E06DC0042FAF6 /* PreferenceAction.swift in Sources */,
 				4FB1BD4B295F0B4900F476CD /* DockMenuUseCase.swift in Sources */,
 				4F2D559328956D4F00363292 /* AboutCoordinator.swift in Sources */,
 				4F8A593B284CE3E200557FDD /* UserSettingService.swift in Sources */,

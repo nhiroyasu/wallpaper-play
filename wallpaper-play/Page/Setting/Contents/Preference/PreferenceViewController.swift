@@ -10,25 +10,34 @@ struct PreferenceViewData {
     let switchPreferences: [PreferenceCell]
 }
 
+struct PreferenceReloadData {
+    let launchAtLogin: Bool
+    let visibilityIcon: Bool
+    let openThisWindowAtFirst: Bool
+}
+
+protocol PreferenceViewOutput: AnyObject {
+    func reload(_ output: PreferenceReloadData)
+}
+
 class PreferenceViewController: NSViewController {
     
-    var viewData: PreferenceViewData = .init(
+    private var viewData: PreferenceViewData = .init(
         switchPreferences: []
     )
     
     @IBOutlet weak var collectionView: NSCollectionView! {
         didSet {
             collectionView.dataSource = self
-//            collectionView.delegate = self
             collectionView.collectionViewLayout = createLayout()
             collectionView.register(Type: SwitchCell.self)
         }
     }
     
-    var action: PreferenceAction
-    
-    init(action: PreferenceAction) {
-        self.action = action
+    var presenter: PreferencePresenter
+
+    init(presenter: PreferencePresenter) {
+        self.presenter = presenter
         super.init(nibName: String(describing: type(of: self)), bundle: nil)
     }
     
@@ -38,7 +47,7 @@ class PreferenceViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        action.viewDidLoad()
+        presenter.viewDidLoad()
     }
     
     func createLayout() -> NSCollectionViewLayout {
@@ -67,17 +76,41 @@ extension PreferenceViewController: NSCollectionViewDataSource {
         switch preferenceCell {
         case .launchAtLogin(let viewData):
             viewItem.set(viewData) { [weak self] state in
-                self?.action.didTapLaunchAtLogin(state: state)
+                self?.presenter.didTapLaunchAtLogin(state: state)
             }
         case .visibilityIcon(let viewData):
             viewItem.set(viewData) { [weak self] state in
-                self?.action.didTapVisibilityIcon(state: state)
+                self?.presenter.didTapVisibilityIcon(state: state)
             }
         case .openThisWindowAtFirst(let viewData):
             viewItem.set(viewData) { [weak self] state in
-                self?.action.didTapOpenThisWindowAtFirst(state: state)
+                self?.presenter.didTapOpenThisWindowAtFirst(state: state)
             }
         }
         return viewItem
+    }
+}
+
+extension PreferenceViewController: PreferenceViewOutput {
+    func reload(_ output: PreferenceReloadData) {
+        let preferenceCellList: [PreferenceCell] = [
+            .launchAtLogin(viewData: SwitchCellViewData(
+                switchState: output.launchAtLogin,
+                title: LocalizedString(key: .preference_launch_at_login_title),
+                description: LocalizedString(key: .preference_launch_at_login_description)
+            )),
+            .visibilityIcon(viewData: SwitchCellViewData(
+                switchState: output.visibilityIcon,
+                title: LocalizedString(key: .preference_display_icon_title),
+                description: LocalizedString(key: .preference_display_icon_description)
+            )),
+            .openThisWindowAtFirst(viewData: SwitchCellViewData(
+                switchState: output.openThisWindowAtFirst,
+                title: LocalizedString(key: .preference_open_window_title),
+                description: LocalizedString(key: .preference_open_window_description)
+            ))
+        ]
+        viewData = .init(switchPreferences: preferenceCellList)
+        collectionView.reloadData()
     }
 }

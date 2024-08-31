@@ -45,13 +45,7 @@ class SettingCoordinator: Coordinator {
                 )
             )
         )
-        self.preferenceCoordinator = .init(
-            injector: Injector(
-                container: PreferenceContainerBuilder.build(
-                    parent: Injector.shared.container
-                )
-            )
-        )
+        self.preferenceCoordinator = .init(injector: Injector.shared)
         self.aboutCoordinator = .init(
             injector: Injector(
                 container: AboutContainerBuilder.build(

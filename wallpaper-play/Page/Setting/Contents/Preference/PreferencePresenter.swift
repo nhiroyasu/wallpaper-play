@@ -1,29 +1,34 @@
 import Foundation
 import Injectable
+import AppKit
 
-protocol PreferenceAction {
+protocol PreferencePresenter {
     func viewDidLoad()
     func didTapLaunchAtLogin(state: Bool)
     func didTapVisibilityIcon(state: Bool)
     func didTapOpenThisWindowAtFirst(state: Bool)
 }
 
-class PreferenceActionImpl: PreferenceAction {
-    
+class PreferencePresenterImpl: PreferencePresenter {
     private let useCase: PreferenceUseCase
-    
-    public init(injector: Injectable = Injector.shared) {
-        self.useCase = injector.build(PreferenceUseCase.self)
+    weak var output: PreferenceViewOutput!
+
+    init(useCase: PreferenceUseCase) {
+        self.useCase = useCase
     }
-    
+
     func viewDidLoad() {
-        useCase.setUp()
+        output.reload(.init(
+            launchAtLogin: useCase.getLaunchAtLoginSetting(),
+            visibilityIcon: useCase.getVisibilityIconSetting(),
+            openThisWindowAtFirst: useCase.getOpenThisWindowAtFirst()
+        ))
     }
-    
+
     func didTapLaunchAtLogin(state: Bool) {
         useCase.updateLaunchAtLoginSetting(state)
     }
-    
+
     func didTapVisibilityIcon(state: Bool) {
         useCase.updateVisibilityIconSetting(state)
     }
@@ -32,7 +37,3 @@ class PreferenceActionImpl: PreferenceAction {
         useCase.updateOpenThisWindowAtFirst(state)
     }
 }
-
-
-
-
