@@ -93,7 +93,7 @@
 		4FAF30392BE399F200B9E381 /* BrowserExtensionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAF30382BE399F200B9E381 /* BrowserExtensionCoordinator.swift */; };
 		4FAF303C2BE39C0300B9E381 /* BrowserExtensionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FAF303B2BE39C0300B9E381 /* BrowserExtensionViewController.xib */; };
 		4FB0F3EC2854A112004E6D51 /* WallpaperViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FB0F3EA2854A112004E6D51 /* WallpaperViewController.xib */; };
-		4FB0F3EF2854A17C004E6D51 /* WallMovieCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB0F3EE2854A17C004E6D51 /* WallMovieCoordinator.swift */; };
+		4FB0F3EF2854A17C004E6D51 /* WallpaperCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB0F3EE2854A17C004E6D51 /* WallpaperCoordinator.swift */; };
 		4FB0F3F12854D1ED004E6D51 /* YouTubeSelectionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB0F3F02854D1ED004E6D51 /* YouTubeSelectionCoordinator.swift */; };
 		4FB0F3F32854D2C5004E6D51 /* LocalVideoSelectionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB0F3F22854D2C5004E6D51 /* LocalVideoSelectionCoordinator.swift */; };
 		4FB0F3F62854D3E1004E6D51 /* SettingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB0F3F52854D3E1004E6D51 /* SettingCoordinator.swift */; };
@@ -257,7 +257,7 @@
 		4FAF303A2BE39C0300B9E381 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/BrowserExtensionViewController.xib; sourceTree = "<group>"; };
 		4FAF303F2BE3A05B00B9E381 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/BrowserExtensionViewController.strings; sourceTree = "<group>"; };
 		4FB0F3EA2854A112004E6D51 /* WallpaperViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WallpaperViewController.xib; sourceTree = "<group>"; };
-		4FB0F3EE2854A17C004E6D51 /* WallMovieCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallMovieCoordinator.swift; sourceTree = "<group>"; };
+		4FB0F3EE2854A17C004E6D51 /* WallpaperCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallpaperCoordinator.swift; sourceTree = "<group>"; };
 		4FB0F3F02854D1ED004E6D51 /* YouTubeSelectionCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubeSelectionCoordinator.swift; sourceTree = "<group>"; };
 		4FB0F3F22854D2C5004E6D51 /* LocalVideoSelectionCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalVideoSelectionCoordinator.swift; sourceTree = "<group>"; };
 		4FB0F3F52854D3E1004E6D51 /* SettingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCoordinator.swift; sourceTree = "<group>"; };
@@ -328,6 +328,8 @@
 		4F03CEE4285A1076009FDC6F /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				4FDF1DF6285ECAB500ABBE8D /* Coordinator.swift */,
+				4FDF1DF8285ECAC700ABBE8D /* Transition.swift */,
 				4F03CEE5285A107F009FDC6F /* LocalVideoConfig.swift */,
 				4F03CEED285A170E009FDC6F /* LocalVideoWallpaper.swift */,
 				4F03CEEF285A1801009FDC6F /* YouTubeWallpaper.swift */,
@@ -401,7 +403,6 @@
 				4F03CEE4285A1076009FDC6F /* Entity */,
 				4FC182E9285DF94D0042FAF6 /* Util */,
 				4F8A590F284CA1D300557FDD /* Service */,
-				4FB0F3F42854D3BD004E6D51 /* Coordinator */,
 				4FB1BD3B295E8B7900F476CD /* DockMenu */,
 				4F8A5904284CA02F00557FDD /* Page */,
 				4F8A5908284CA09E00557FDD /* Components */,
@@ -439,6 +440,7 @@
 		4F8A5905284CA03700557FDD /* Wallpaper */ = {
 			isa = PBXGroup;
 			children = (
+				4FB0F3EE2854A17C004E6D51 /* WallpaperCoordinator.swift */,
 				4F8A5932284CD3C900557FDD /* WallpaperPresenter.swift */,
 				4F8A5906284CA04F00557FDD /* WallpaperWindow.swift */,
 				4F8A58DB284CA01A00557FDD /* WallpaperViewController.swift */,
@@ -503,6 +505,7 @@
 			children = (
 				4FE738412C82F34200EE18D1 /* SideMenu */,
 				4F8A5952284D18C400557FDD /* Contents */,
+				4FB0F3F52854D3E1004E6D51 /* SettingCoordinator.swift */,
 				4F8A5949284CFD4200557FDD /* SettingWindowController.swift */,
 				4FB0F3F92854D6DA004E6D51 /* SettingWindowController.xib */,
 				4F8A594B284CFD4F00557FDD /* SettingSplitViewController.swift */,
@@ -547,23 +550,6 @@
 				4FAD5E732BE37B2F00DB51DC /* manifest.json */,
 			);
 			path = Resources;
-			sourceTree = "<group>";
-		};
-		4FB0F3F42854D3BD004E6D51 /* Coordinator */ = {
-			isa = PBXGroup;
-			children = (
-				4FB0F3F22854D2C5004E6D51 /* LocalVideoSelectionCoordinator.swift */,
-				4FB0F3F02854D1ED004E6D51 /* YouTubeSelectionCoordinator.swift */,
-				4FB0F3EE2854A17C004E6D51 /* WallMovieCoordinator.swift */,
-				4FB0F3F52854D3E1004E6D51 /* SettingCoordinator.swift */,
-				4FC182F9285E1B780042FAF6 /* PreferenceCoordinator.swift */,
-				4FDF1DF6285ECAB500ABBE8D /* Coordinator.swift */,
-				4FDF1DF8285ECAC700ABBE8D /* Transition.swift */,
-				4FBD50FE28850A38002DF955 /* WebPageSelectionCoordinator.swift */,
-				4FAF30382BE399F200B9E381 /* BrowserExtensionCoordinator.swift */,
-				4F2D559228956D4F00363292 /* AboutCoordinator.swift */,
-			);
-			path = Coordinator;
 			sourceTree = "<group>";
 		};
 		4FB1BD3B295E8B7900F476CD /* DockMenu */ = {
@@ -611,6 +597,7 @@
 		4FE738422C82F35200EE18D1 /* LocalVideo */ = {
 			isa = PBXGroup;
 			children = (
+				4FB0F3F22854D2C5004E6D51 /* LocalVideoSelectionCoordinator.swift */,
 				4F25C1CF284E642E00397737 /* LocalVideoSelectionUseCase.swift */,
 				4F25C1CD284E63F400397737 /* LocalVideoSelectionPresenter.swift */,
 				4F8A5955284D1A2B00557FDD /* LocalVideoSelectionViewController.swift */,
@@ -622,6 +609,7 @@
 		4FE738432C82F37D00EE18D1 /* YouTube */ = {
 			isa = PBXGroup;
 			children = (
+				4FB0F3F02854D1ED004E6D51 /* YouTubeSelectionCoordinator.swift */,
 				4F25C1C9284E636A00397737 /* YouTubeSelectionUseCase.swift */,
 				4F25C1C7284E635300397737 /* YouTubeSelectionPresenter.swift */,
 				4F8A595B284D1B5000557FDD /* YouTubeSelectionViewController.swift */,
@@ -633,6 +621,7 @@
 		4FE738442C82F38400EE18D1 /* Web */ = {
 			isa = PBXGroup;
 			children = (
+				4FBD50FE28850A38002DF955 /* WebPageSelectionCoordinator.swift */,
 				4FBD510328850AA5002DF955 /* WebPageSelectionUseCase.swift */,
 				4FBD510528850AAF002DF955 /* WebPageSelectionPresenter.swift */,
 				4FBD50FA2885089A002DF955 /* WebPageSelectionViewController.swift */,
@@ -644,6 +633,7 @@
 		4FE738452C82F38B00EE18D1 /* Preference */ = {
 			isa = PBXGroup;
 			children = (
+				4FC182F9285E1B780042FAF6 /* PreferenceCoordinator.swift */,
 				4FC182F5285E06E40042FAF6 /* PreferenceUseCase.swift */,
 				4FC182F7285E06EA0042FAF6 /* PreferencePresenter.swift */,
 				4F2161FC2850FA37000673EF /* PreferenceViewController.swift */,
@@ -655,6 +645,7 @@
 		4FE738462C82F39300EE18D1 /* About */ = {
 			isa = PBXGroup;
 			children = (
+				4F2D559228956D4F00363292 /* AboutCoordinator.swift */,
 				4F2D558C289567D200363292 /* AboutViewController.swift */,
 				4F2D558D289567D200363292 /* AboutViewController.xib */,
 				4F2D5590289567E900363292 /* AboutView.swift */,
@@ -665,6 +656,7 @@
 		4FE738472C82F39A00EE18D1 /* BrowserExtension */ = {
 			isa = PBXGroup;
 			children = (
+				4FAF30382BE399F200B9E381 /* BrowserExtensionCoordinator.swift */,
 				4FAF30342BE391B100B9E381 /* BrowserExtensionViewController.swift */,
 				4FAF303B2BE39C0300B9E381 /* BrowserExtensionViewController.xib */,
 			);
@@ -916,7 +908,7 @@
 				4FBD510C288559A8002DF955 /* WebPageWallpaper.swift in Sources */,
 				4F8A5907284CA04F00557FDD /* WallpaperWindow.swift in Sources */,
 				4FB1BD41295E8ECE00F476CD /* DockMenuBuilder.swift in Sources */,
-				4FB0F3EF2854A17C004E6D51 /* WallMovieCoordinator.swift in Sources */,
+				4FB0F3EF2854A17C004E6D51 /* WallpaperCoordinator.swift in Sources */,
 				4F03CEEC285A1654009FDC6F /* DateSortable.swift in Sources */,
 				4F8A5954284D18E400557FDD /* SideMenuViewController.swift in Sources */,
 				4FAF30362BE391B100B9E381 /* BrowserExtensionViewController.swift in Sources */,

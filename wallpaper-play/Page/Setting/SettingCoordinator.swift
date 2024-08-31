@@ -12,26 +12,14 @@ class SettingCoordinator: Coordinator {
     private let preferenceCoordinator: PreferenceCoordinator
     private let aboutCoordinator: AboutCoordinator
     private var viewController: SettingSplitViewController!
-    
-    init() {
-        self.localVideoSelectionCoordinator = .init(injector: Injector.shared)
-        self.youtubeSelectionCoordinator = .init(injector: Injector.shared)
-        self.webpageSelectionCoordinator = .init(injector: Injector.shared)
-        self.browserExtensionCoordinator = .init(
-            injector: Injector(
-                container: BrowserExtensionContainerBuilder.build(
-                    parent: Injector.shared.container
-                )
-            )
-        )
-        self.preferenceCoordinator = .init(injector: Injector.shared)
-        self.aboutCoordinator = .init(
-            injector: Injector(
-                container: AboutContainerBuilder.build(
-                    parent: Injector.shared.container
-                )
-            )
-        )
+
+    init(injector: Injectable) {
+        self.localVideoSelectionCoordinator = .init(injector: injector)
+        self.youtubeSelectionCoordinator = .init(injector: injector)
+        self.webpageSelectionCoordinator = .init(injector: injector)
+        self.browserExtensionCoordinator = .init(injector: injector)
+        self.preferenceCoordinator = .init(injector: injector)
+        self.aboutCoordinator = .init(injector: injector)
     }
     
     func create() -> NSViewController {
