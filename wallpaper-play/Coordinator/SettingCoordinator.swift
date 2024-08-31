@@ -16,16 +16,7 @@ class SettingCoordinator: Coordinator {
     init() {
         self.localVideoSelectionCoordinator = .init(injector: Injector.shared)
         self.youtubeSelectionCoordinator = .init(injector: Injector.shared)
-        let state = WebPageSelectionState()
-        self.webpageSelectionCoordinator = .init(
-            injector: Injector(
-                container: WebPageSelectionContainerBuilder.build(
-                    parent: Injector.shared.container,
-                    state: state
-                )
-            ),
-            state: state
-        )
+        self.webpageSelectionCoordinator = .init(injector: Injector.shared)
         self.browserExtensionCoordinator = .init(
             injector: Injector(
                 container: BrowserExtensionContainerBuilder.build(

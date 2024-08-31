@@ -106,10 +106,8 @@
 		4FB1BD4C295F0B4900F476CD /* DockMenuAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB1BD4A295F0B4900F476CD /* DockMenuAction.swift */; };
 		4FBD50FC2885089A002DF955 /* WebPageSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBD50FA2885089A002DF955 /* WebPageSelectionViewController.swift */; };
 		4FBD50FF28850A38002DF955 /* WebPageSelectionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBD50FE28850A38002DF955 /* WebPageSelectionCoordinator.swift */; };
-		4FBD510228850A9D002DF955 /* WebPageSelectionAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBD510128850A9D002DF955 /* WebPageSelectionAction.swift */; };
 		4FBD510428850AA5002DF955 /* WebPageSelectionUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBD510328850AA5002DF955 /* WebPageSelectionUseCase.swift */; };
 		4FBD510628850AAF002DF955 /* WebPageSelectionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBD510528850AAF002DF955 /* WebPageSelectionPresenter.swift */; };
-		4FBD510828850AB7002DF955 /* WebPageSelectionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBD510728850AB7002DF955 /* WebPageSelectionState.swift */; };
 		4FBD510A28855046002DF955 /* UrlValidationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBD510928855046002DF955 /* UrlValidationService.swift */; };
 		4FBD510C288559A8002DF955 /* WebPageWallpaper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBD510B288559A8002DF955 /* WebPageWallpaper.swift */; };
 		4FC182EE285E00540042FAF6 /* SwitchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC182EC285E00540042FAF6 /* SwitchCell.swift */; };
@@ -272,10 +270,8 @@
 		4FB1BD4A295F0B4900F476CD /* DockMenuAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DockMenuAction.swift; sourceTree = "<group>"; };
 		4FBD50FA2885089A002DF955 /* WebPageSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebPageSelectionViewController.swift; sourceTree = "<group>"; };
 		4FBD50FE28850A38002DF955 /* WebPageSelectionCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebPageSelectionCoordinator.swift; sourceTree = "<group>"; };
-		4FBD510128850A9D002DF955 /* WebPageSelectionAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebPageSelectionAction.swift; sourceTree = "<group>"; };
 		4FBD510328850AA5002DF955 /* WebPageSelectionUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebPageSelectionUseCase.swift; sourceTree = "<group>"; };
 		4FBD510528850AAF002DF955 /* WebPageSelectionPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebPageSelectionPresenter.swift; sourceTree = "<group>"; };
-		4FBD510728850AB7002DF955 /* WebPageSelectionState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebPageSelectionState.swift; sourceTree = "<group>"; };
 		4FBD510928855046002DF955 /* UrlValidationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlValidationService.swift; sourceTree = "<group>"; };
 		4FBD510B288559A8002DF955 /* WebPageWallpaper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebPageWallpaper.swift; sourceTree = "<group>"; };
 		4FC182EC285E00540042FAF6 /* SwitchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchCell.swift; sourceTree = "<group>"; };
@@ -406,7 +402,6 @@
 				4FC182E9285DF94D0042FAF6 /* Util */,
 				4F8A590F284CA1D300557FDD /* Service */,
 				4FB0F3F42854D3BD004E6D51 /* Coordinator */,
-				4F8A590E284CA1CE00557FDD /* Module */,
 				4FB1BD3B295E8B7900F476CD /* DockMenu */,
 				4F8A5904284CA02F00557FDD /* Page */,
 				4F8A5908284CA09E00557FDD /* Components */,
@@ -473,14 +468,6 @@
 				4F8A590A284CA0FA00557FDD /* WebKit.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		4F8A590E284CA1CE00557FDD /* Module */ = {
-			isa = PBXGroup;
-			children = (
-				4FBD510028850A8F002DF955 /* WebPageSelection */,
-			);
-			path = Module;
 			sourceTree = "<group>";
 		};
 		4F8A590F284CA1D300557FDD /* Service */ = {
@@ -590,17 +577,6 @@
 			path = DockMenu;
 			sourceTree = "<group>";
 		};
-		4FBD510028850A8F002DF955 /* WebPageSelection */ = {
-			isa = PBXGroup;
-			children = (
-				4FBD510128850A9D002DF955 /* WebPageSelectionAction.swift */,
-				4FBD510328850AA5002DF955 /* WebPageSelectionUseCase.swift */,
-				4FBD510528850AAF002DF955 /* WebPageSelectionPresenter.swift */,
-				4FBD510728850AB7002DF955 /* WebPageSelectionState.swift */,
-			);
-			path = WebPageSelection;
-			sourceTree = "<group>";
-		};
 		4FC182E9285DF94D0042FAF6 /* Util */ = {
 			isa = PBXGroup;
 			children = (
@@ -657,6 +633,8 @@
 		4FE738442C82F38400EE18D1 /* Web */ = {
 			isa = PBXGroup;
 			children = (
+				4FBD510328850AA5002DF955 /* WebPageSelectionUseCase.swift */,
+				4FBD510528850AAF002DF955 /* WebPageSelectionPresenter.swift */,
 				4FBD50FA2885089A002DF955 /* WebPageSelectionViewController.swift */,
 				4F6A4D1D2896512400F7B40D /* WebPageSelectionViewController.xib */,
 			);
@@ -948,7 +926,6 @@
 				4F6A4D22289653F100F7B40D /* Localization.swift in Sources */,
 				4FBD50FF28850A38002DF955 /* WebPageSelectionCoordinator.swift in Sources */,
 				4F8A590D284CA1B200557FDD /* YouTubeWebView.swift in Sources */,
-				4FBD510228850A9D002DF955 /* WebPageSelectionAction.swift in Sources */,
 				4F8A5950284CFDF200557FDD /* InjectableWindowController.swift in Sources */,
 				4F8A594C284CFD4F00557FDD /* SettingSplitViewController.swift in Sources */,
 				4FDF1DF7285ECAB600ABBE8D /* Coordinator.swift in Sources */,
@@ -983,7 +960,6 @@
 				4F25C1D6284F718C00397737 /* NSImageView+.swift in Sources */,
 				4FDE8AD1286DE1750028E062 /* Statable.swift in Sources */,
 				4F2161F6284FBDEF000673EF /* SystemWallpaperService.swift in Sources */,
-				4FBD510828850AB7002DF955 /* WebPageSelectionState.swift in Sources */,
 				4F25C1CE284E63F400397737 /* LocalVideoSelectionPresenter.swift in Sources */,
 				4F7B56022BDDE58100D427C6 /* RealmMigrationService.swift in Sources */,
 				4F25C1D4284E673A00397737 /* URLResolverService.swift in Sources */,

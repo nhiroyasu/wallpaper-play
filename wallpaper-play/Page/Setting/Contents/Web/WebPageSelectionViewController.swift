@@ -1,5 +1,10 @@
 import Cocoa
 
+protocol WebPageSelectionViewOutput: AnyObject {
+    func setPreview(url: URL)
+    func clearPreview()
+}
+
 class WebPageSelectionViewController: NSViewController {
 
     // MARK: - Views
@@ -11,18 +16,11 @@ class WebPageSelectionViewController: NSViewController {
     @IBOutlet weak var wrapView: NSView!
     @IBOutlet weak var setWallpaperButton: NSButton!
     public var previewWebView: YoutubeWebView!
-    
-    // MARK: - Variables
-    var action: WebPageSelectionAction
-    var state: WebPageSelectionState
-    private var inputObservation: NSKeyValueObservation?
-    private var previewUrlObservation: NSKeyValueObservation?
-    private var isEnableSetWallpaperButtonObservation: NSKeyValueObservation?
-    
+    private let presenter: WebPageSelectionPresenter
+
     // MARK: - Methods
-    init(action: WebPageSelectionAction, state: WebPageSelectionState) {
-        self.action = action
-        self.state = state
+    init(presenter: WebPageSelectionPresenter) {
+        self.presenter = presenter
         super.init(nibName: String(describing: type(of: self)), bundle: nil)
     }
     
@@ -34,28 +32,25 @@ class WebPageSelectionViewController: NSViewController {
         super.viewDidLoad()
         previewWebView = .init(frame: .zero, configuration: .init())
         wrapView.fitAllAnchor(previewWebView)
-        action.viewDidLoad()
-    }
-
-    override func viewWillAppear() {
-        super.viewWillAppear()
-        action.viewWillAppear()
+        if let path = Bundle.main.path(forResource: "copy_description_for_web", ofType: "html") {
+            setPreview(url: URL(fileURLWithPath: path))
+        }
     }
 
     override func viewDidDisappear() {
         super.viewDidDisappear()
-        action.viewDidDisapper()
+        clearPreview()
     }
     
     @IBAction func didTapSetWallpaperButton(_ sender: Any) {
-        action.didTapSetWallpaperButton(value: urlSearchField.stringValue)
+        presenter.didTapSetWallpaperButton(value: urlSearchField.stringValue)
     }
 }
 
 extension WebPageSelectionViewController: NSSearchFieldDelegate {
     func control(_ control: NSControl, textView: NSTextView, doCommandBy commandSelector: Selector) -> Bool {
         if (commandSelector == #selector(NSResponder.insertNewline(_:))) {
-            action.enteredSearchField(value: urlSearchField.stringValue)
+            presenter.enteredSearchField(value: urlSearchField.stringValue)
             return false
         }
         if (commandSelector == #selector(NSResponder.cancelOperation(_:))) {
@@ -66,6 +61,20 @@ extension WebPageSelectionViewController: NSSearchFieldDelegate {
 
     func controlTextDidChange(_ obj: Notification) {
         guard let textField = obj.userInfo?["NSFieldEditor"] as? NSTextView else { return }
-        action.onChangeSearchField(textField.string)
+        presenter.onChangeSearchField(textField.string)
+    }
+}
+
+extension WebPageSelectionViewController: WebPageSelectionViewOutput {
+    func setPreview(url: URL) {
+        previewWebView.load(URLRequest(url: url))
+    }
+
+    func clearPreview() {
+        if let path = Bundle.main.path(forResource: "copy_description_for_web", ofType: "html") {
+            setPreview(url: URL(fileURLWithPath: path))
+        } else {
+            previewWebView.loadHTMLString("", baseURL: nil)
+        }
     }
 }
