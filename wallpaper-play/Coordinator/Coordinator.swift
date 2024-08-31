@@ -1,5 +1,9 @@
 import AppKit
 
+public protocol WindowCoordinator {
+    func createWindow() -> NSWindow
+}
+
 public protocol Coordinator {
     func create() -> NSViewController
 }

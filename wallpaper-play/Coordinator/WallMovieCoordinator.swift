@@ -2,40 +2,27 @@ import AppKit
 import Swinject
 import Injectable
 
-class WallMovieContainerBuilder {
-    static func build(parent: Container?) -> Container {
-        let container = Container(parent: parent)
-        
-        container.register(WallMovieAction.self) { resolver in
-            WallMovieActionImpl(injector: resolver)
-        }.inObjectScope(.container)
-        container.register(WallMovieUseCase.self) { resolver in
-            WallMovieInteractor(injector: resolver)
-        }.inObjectScope(.container)
-        container.register(WallMoviePresenter.self) { resolver in
-            WallMoviePresenterImpl(injector: resolver)
-        }.inObjectScope(.container)
-        
-        return container
-    }
-}
-
-class WallMovieCoordinator: Coordinator {
+class WallMovieCoordinator: WindowCoordinator {
     private var viewController: WallMovieViewController!
+    private var window: WallMovieWindow!
     private let injector: Injectable
-    private lazy var action: WallMovieAction = injector.build()
-    private lazy var useCase: WallMovieUseCase = injector.build()
-    private lazy var presenter: WallMoviePresenter = injector.build()
     private let wallpaperSize: NSSize
+    private let wallpaperKind: WallpaperKind
 
-    init(injector: Injectable, wallpaperSize: NSSize) {
+    init(injector: Injectable, wallpaperSize: NSSize, wallpaperKind: WallpaperKind) {
         self.injector = injector
         self.wallpaperSize = wallpaperSize
+        self.wallpaperKind = wallpaperKind
     }
     
-    func create() -> NSViewController {
-        viewController = WallMovieViewController(wallpaperSize: wallpaperSize, action: action)
-        (presenter as? WallMoviePresenterImpl)?.output = viewController
-        return viewController
+    func createWindow() -> NSWindow {
+        let presenter = WallMoviePresenterImpl(
+            wallpaperKind: wallpaperKind,
+            youtubeContentService: injector.build()
+        )
+        viewController = WallMovieViewController(wallpaperSize: wallpaperSize, presenter: presenter, avManager: injector.build())
+        presenter.output = viewController
+        window = WallMovieWindow(contentViewController: viewController)
+        return window
     }
 }
