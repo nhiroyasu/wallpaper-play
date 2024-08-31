@@ -1,7 +1,7 @@
 import Cocoa
 import Injectable
 
-class WallMovieWindow: NSWindow {
+class WallpaperWindow: NSWindow {
     init(contentViewController: NSViewController) {
         super.init(contentRect: .zero, styleMask: [.borderless], backing: .buffered, defer: false)
         self.contentViewController = contentViewController

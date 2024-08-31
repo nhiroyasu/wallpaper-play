@@ -19,14 +19,14 @@ enum WallpaperKind {
     case none
 }
 
-protocol WallMoviePresenter {
+protocol WallpaperPresenter {
     func viewDidLoad()
 }
 
-class WallMoviePresenterImpl: NSObject, WallMoviePresenter {
+class WallpaperPresenterImpl: NSObject, WallpaperPresenter {
     private let youtubeContentService: YouTubeContentsService
     private let wallpaperKind: WallpaperKind
-    weak var output: WallMovieViewController!
+    weak var output: WallpaperViewController!
 
     init(wallpaperKind: WallpaperKind, youtubeContentService: YouTubeContentsService) {
         self.wallpaperKind = wallpaperKind
@@ -34,7 +34,7 @@ class WallMoviePresenterImpl: NSObject, WallMoviePresenter {
     }
 
     func viewDidLoad() {
-        let displayType: WallMovieDisplayType = switch wallpaperKind {
+        let displayType: WallpaperDisplayType = switch wallpaperKind {
         case .video(let value):
             .video(value.url, videoSize: value.videoSize, mute: value.mute)
         case .youtube(let videoId, let isMute):

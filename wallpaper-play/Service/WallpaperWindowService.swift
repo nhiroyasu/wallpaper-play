@@ -60,7 +60,7 @@ class WallpaperWindowServiceImpl: WallpaperWindowService {
     }
 
     private func buildWallpaperWindow(screen: NSScreen, wallpaperSize: NSSize, wallpaperKind: WallpaperKind) -> NSWindow {
-        let coordinator = WallMovieCoordinator(
+        let coordinator = WallpaperCoordinator(
             injector: Injector.shared,
             wallpaperSize: wallpaperSize,
             wallpaperKind: wallpaperKind

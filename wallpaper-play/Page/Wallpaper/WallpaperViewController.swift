@@ -2,21 +2,21 @@ import Cocoa
 import AVFoundation
 import WebKit
 
-protocol WallMovieViewOutput {
-    func display(_ displayType: WallMovieDisplayType)
+protocol WallpaperViewOutput {
+    func display(_ displayType: WallpaperDisplayType)
 }
 
-class WallMovieViewController: NSViewController {
+class WallpaperViewController: NSViewController {
     
     var webView: YoutubeWebView!
     var videoView: VideoView!
     private let wallpaperSize: NSSize
     private let avManager: AVPlayerManager
-    private let presenter: WallMoviePresenter
+    private let presenter: WallpaperPresenter
 
     init(
         wallpaperSize: NSSize,
-        presenter: WallMoviePresenter,
+        presenter: WallpaperPresenter,
         avManager: AVPlayerManager
     ) {
         self.wallpaperSize = wallpaperSize
@@ -40,8 +40,8 @@ class WallMovieViewController: NSViewController {
     }
 }
 
-extension WallMovieViewController: WallMovieViewOutput {
-    func display(_ displayType: WallMovieDisplayType) {
+extension WallpaperViewController: WallpaperViewOutput {
+    func display(_ displayType: WallpaperDisplayType) {
         switch displayType {
         case .video(let url, let videoSize, let mute):
             allClear()
@@ -73,7 +73,7 @@ extension WallMovieViewController: WallMovieViewOutput {
 
 // MARK: - internal
 
-extension WallMovieViewController {
+extension WallpaperViewController {
     private func allClear() {
         removeVideo()
         removeYouTubeView()
@@ -91,7 +91,7 @@ extension WallMovieViewController {
     }
 }
 
-enum WallMovieDisplayType {
+enum WallpaperDisplayType {
     case video(URL, videoSize: VideoSize, mute: Bool)
     case youtube(URL)
     case web(URL)

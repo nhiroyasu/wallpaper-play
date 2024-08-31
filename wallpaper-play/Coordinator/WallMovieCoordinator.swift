@@ -2,9 +2,9 @@ import AppKit
 import Swinject
 import Injectable
 
-class WallMovieCoordinator: WindowCoordinator {
-    private var viewController: WallMovieViewController!
-    private var window: WallMovieWindow!
+class WallpaperCoordinator: WindowCoordinator {
+    private var viewController: WallpaperViewController!
+    private var window: WallpaperWindow!
     private let injector: Injectable
     private let wallpaperSize: NSSize
     private let wallpaperKind: WallpaperKind
@@ -16,13 +16,13 @@ class WallMovieCoordinator: WindowCoordinator {
     }
     
     func createWindow() -> NSWindow {
-        let presenter = WallMoviePresenterImpl(
+        let presenter = WallpaperPresenterImpl(
             wallpaperKind: wallpaperKind,
             youtubeContentService: injector.build()
         )
-        viewController = WallMovieViewController(wallpaperSize: wallpaperSize, presenter: presenter, avManager: injector.build())
+        viewController = WallpaperViewController(wallpaperSize: wallpaperSize, presenter: presenter, avManager: injector.build())
         presenter.output = viewController
-        window = WallMovieWindow(contentViewController: viewController)
+        window = WallpaperWindow(contentViewController: viewController)
         return window
     }
 }
