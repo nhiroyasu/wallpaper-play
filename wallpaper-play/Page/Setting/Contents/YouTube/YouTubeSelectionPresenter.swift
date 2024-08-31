@@ -41,6 +41,8 @@ class YouTubeSelectionPresenterImpl: YouTubeSelectionPresenter {
         guard let iframeUrl = useCase.retrieveIFrameUrl(from: value) else {
             alertService.warning(msg: LocalizedString(key: .error_invalid_youtube_url), completionHandler: {})
             output.setEnableWallpaperButton(false)
+            output.clearPreview()
+            output.clearThumbnail()
             return
         }
         output.updatePreview(url: iframeUrl)

@@ -5,6 +5,8 @@ import Combine
 protocol YouTubeSelectionViewOutput: AnyObject {
     func updatePreview(url: URL)
     func updateThumbnail(url: URL)
+    func clearPreview()
+    func clearThumbnail()
     func setEnableWallpaperButton(_ value: Bool)
 }
 
@@ -38,6 +40,13 @@ class YouTubeSelectionViewController: NSViewController {
             updatePreview(url: URL(fileURLWithPath: path))
         }
         presenter.viewDidLoad()
+    }
+
+    override func viewWillDisappear() {
+        super.viewWillDisappear()
+        if let path = Bundle.main.path(forResource: "copy_description_for_youtube", ofType: "html") {
+            updatePreview(url: URL(fileURLWithPath: path))
+        }
     }
 
     @IBAction func didTapWallpaperButton(_ sender: Any) {
@@ -74,6 +83,18 @@ extension YouTubeSelectionViewController: YouTubeSelectionViewOutput {
 
     func updateThumbnail(url: URL) {
         thumbnailImageView.setImage(url: url)
+    }
+
+    func clearPreview() {
+        if let path = Bundle.main.path(forResource: "copy_description_for_youtube", ofType: "html") {
+            updatePreview(url: URL(fileURLWithPath: path))
+        } else {
+            youtubeWebView.loadHTMLString("", baseURL: nil)
+        }
+    }
+
+    func clearThumbnail() {
+        thumbnailImageView.image = nil
     }
 
     func setEnableWallpaperButton(_ value: Bool) {

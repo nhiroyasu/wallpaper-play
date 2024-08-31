@@ -44,9 +44,9 @@ class WebPageSelectionPresenterImpl: WebPageSelectionPresenter {
             output.setPreview(url: url)
             output.setEnableWallpaperButton(true)
         } else {
-            output.clearPreview()
-            output.setEnableWallpaperButton(false)
             alertManager.warning(msg: LocalizedString(key: .error_invalid_url), completionHandler: {})
+            output.setEnableWallpaperButton(false)
+            output.clearPreview()
         }
     }
 }
