@@ -11,7 +11,8 @@ struct AboutView: View {
                 .frame(width: imageSize, height: imageSize, alignment: .center)
             Text("Wallpaper Play")
                 .font(.system(size: 14, weight: .medium, design: .default))
-            Link("© Hiroyasu Niitsuma", destination: URL(string: "https://nhiroyasu.com/")!)
+            Text("© Hiroyasu Niitsuma")
+            Link("GitHub", destination: URL(string: "https://github.com/nhiroyasu/wallpaper-play")!)
             Link(
                 LocalizedString(key: .term_of_use),
                 destination: URL(string: LocalizedString(key: .term_of_use_link))!)
