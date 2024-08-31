@@ -2,8 +2,13 @@ import Cocoa
 import WebKit
 import Combine
 
+protocol YouTubeSelectionViewOutput: AnyObject {
+    func updatePreview(url: URL)
+    func updateThumbnail(url: URL)
+    func setEnableWallpaperButton(_ value: Bool)
+}
+
 class YouTubeSelectionViewController: NSViewController {
-    
     @IBOutlet weak var thumbnailImageView: AntialiasedImageView!
     @IBOutlet weak var youtubeLinkTextField: NSSearchField! {
         didSet {
@@ -11,14 +16,13 @@ class YouTubeSelectionViewController: NSViewController {
         }
     }
     @IBOutlet weak var youtubeWrappingView: NSView!
-    public var youtubeWebView: YoutubeWebView!
     @IBOutlet weak var wallpaperButton: NSButton!
     @IBOutlet weak var muteToggleButton: NSButton!
+    public var youtubeWebView: YoutubeWebView!
+    private let presenter: YouTubeSelectionPresenter
 
-    var action: YouTubeSelectionAction
-    
-    init(action: YouTubeSelectionAction) {
-        self.action = action
+    init(presenter: YouTubeSelectionPresenter) {
+        self.presenter = presenter
         super.init(nibName: String(describing: type(of: self)), bundle: nil)
     }
     
@@ -28,18 +32,18 @@ class YouTubeSelectionViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do view setup here.
         youtubeWebView = .init(frame: .zero, configuration: .init())
         youtubeWrappingView.fitAllAnchor(youtubeWebView)
-        action.viewDidLoad()
+        if let path = Bundle.main.path(forResource: "copy_description_for_youtube", ofType: "html") {
+            updatePreview(url: URL(fileURLWithPath: path))
+        }
     }
 
     @IBAction func didTapWallpaperButton(_ sender: Any) {
-        action.didTapWallpaperButton(youtubeLink: youtubeLinkTextField.stringValue, mute: isMute())
-    }
-
-    private func isMute() -> Bool {
-        muteToggleButton.state == .on
+        presenter.didTapWallpaperButton(
+            youtubeLink: youtubeLinkTextField.stringValue,
+            mute: muteToggleButton.state == .on
+        )
     }
 }
 
@@ -47,7 +51,7 @@ extension YouTubeSelectionViewController: NSSearchFieldDelegate {
     func control(_ control: NSControl, textView: NSTextView, doCommandBy commandSelector: Selector) -> Bool {
         if (commandSelector == #selector(NSResponder.insertNewline(_:))) {
             let urlString = youtubeLinkTextField.stringValue
-            action.enteredYouTubeLink(urlString)
+            presenter.enteredYouTubeLink(urlString)
             return false
         }
         if (commandSelector == #selector(NSResponder.cancelOperation(_:))) {
@@ -58,6 +62,20 @@ extension YouTubeSelectionViewController: NSSearchFieldDelegate {
 
     func controlTextDidChange(_ obj: Notification) {
         guard let textField = obj.userInfo?["NSFieldEditor"] as? NSTextView else { return }
-        action.onChangeSearchField(textField.string)
+        presenter.onChangeSearchField(textField.string)
+    }
+}
+
+extension YouTubeSelectionViewController: YouTubeSelectionViewOutput {
+    func updatePreview(url: URL) {
+        youtubeWebView.load(URLRequest(url: url))
+    }
+
+    func updateThumbnail(url: URL) {
+        thumbnailImageView.setImage(url: url)
+    }
+
+    func setEnableWallpaperButton(_ value: Bool) {
+        wallpaperButton.isEnabled = value
     }
 }
