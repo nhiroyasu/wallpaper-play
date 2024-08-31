@@ -18,8 +18,8 @@ class ApplicationServiceImpl: ApplicationService {
     
     private let realmService: RealmService
     private let notificationManager: NotificationManager
-    private let wallpaperWindowManager: WallpaperWindowService
-    private let videoFormWindowPresenter: VideoFormWindowPresenter
+    private let wallpaperWindowService: WallpaperWindowService
+    private let settingWindowService: SettingWindowService
     private let wallpaperHistoryService: WallpaperHistoryService
     private let applicationFileManager: ApplicationFileManager
     private let fileManager: FileManager
@@ -33,8 +33,8 @@ class ApplicationServiceImpl: ApplicationService {
     init(injector: Injectable) {
         realmService = injector.build()
         notificationManager = injector.build()
-        wallpaperWindowManager = injector.build()
-        videoFormWindowPresenter = injector.build()
+        wallpaperWindowService = injector.build()
+        settingWindowService = injector.build()
         wallpaperHistoryService = injector.build()
         applicationFileManager = injector.build()
         userSetting = injector.build()
@@ -59,7 +59,7 @@ class ApplicationServiceImpl: ApplicationService {
 
     func applicationDidFinishLaunching() {
         setUp()
-        if wallpaperWindowManager.isVisibleWallpaperWindow() == false {
+        if wallpaperWindowService.isVisibleWallpaperWindow() == false {
             displayLatestWallpaper()
             openVideoFormIfNeeded()
         }
@@ -70,23 +70,23 @@ class ApplicationServiceImpl: ApplicationService {
         guard let url = urls.first else { return }
         guard let (videoId, isMute) = getWallpaperData(from: url) else { return }
         displayYouTube(videoId: videoId, isMute: isMute, shouldSavedHistory: true)
-        videoFormWindowPresenter.close()
+        settingWindowService.close()
     }
 
     func applicationShouldHandleReopen(hasVisibleWindows flag: Bool) -> Bool {
-        videoFormWindowPresenter.show()
+        settingWindowService.show()
         return false
     }
 
     func didBecomeActive() {}
 
         func didTapWallPaperItem() {
-        videoFormWindowPresenter.show()
+        settingWindowService.show()
         appManager.activate()
     }
     
     func didTapPreferenceItem() {
-        videoFormWindowPresenter.show()
+        settingWindowService.show()
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
             self.notificationManager.push(name: .selectedSideMenu, param: SideMenuItem.preference)
         }
@@ -118,7 +118,7 @@ class ApplicationServiceImpl: ApplicationService {
     }
     
     private func displayYouTube(videoId: String, isMute: Bool, shouldSavedHistory: Bool) {
-        wallpaperWindowManager.display(display: .youtube(videoId: videoId, isMute: isMute))
+        wallpaperWindowService.display(wallpaperKind: .youtube(videoId: videoId, isMute: isMute))
 
         if shouldSavedHistory {
             let youtubeWallpaper = YouTubeWallpaper(date: Date(), videoId: videoId, isMute: isMute)
@@ -127,8 +127,8 @@ class ApplicationServiceImpl: ApplicationService {
     }
     
     private func displayWebPage(url: URL, shouldSavedHistory: Bool) {
-        wallpaperWindowManager.display(display: .web(url: url))
-        
+        wallpaperWindowService.display(wallpaperKind: .web(url: url))
+
         if shouldSavedHistory {
             let webpageWallpaper = WebPageWallpaper(date: Date(), url: url)
             wallpaperHistoryService.store(webpageWallpaper)
@@ -143,8 +143,8 @@ class ApplicationServiceImpl: ApplicationService {
     }
     
     private func displayLocalVideo(value: VideoPlayValue, shouldSavedHistory: Bool) {
-        wallpaperWindowManager.display(display: .video(value: value))
-        
+        wallpaperWindowService.display(wallpaperKind: .video(value: value))
+
         if shouldSavedHistory {
             guard let latestVideoStore = applicationFileManager.getDirectory(.latestVideo) else { return }
             let storedFileUrl = latestVideoStore.appendingPathComponent("latest.\(value.url.pathExtension)")
@@ -167,7 +167,7 @@ class ApplicationServiceImpl: ApplicationService {
 
     private func displayLatestWallpaper() {
         if let latestWallpaper = wallpaperHistoryService.fetchLatestWallpaper() {
-            wallpaperWindowManager.display(display: latestWallpaper)
+            wallpaperWindowService.display(wallpaperKind: latestWallpaper)
         }
     }
     
@@ -184,7 +184,7 @@ class ApplicationServiceImpl: ApplicationService {
 
     private func openVideoFormIfNeeded() {
         if userSetting.openThisWindowAtFirst {
-            videoFormWindowPresenter.show()
+            settingWindowService.show()
         }
     }
 

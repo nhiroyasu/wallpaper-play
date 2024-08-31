@@ -1,13 +1,6 @@
-//
-//  WallMovieUITestsLaunchTests.swift
-//  WallMovieUITests
-//
-//  Created by NH on 2022/06/05.
-//
-
 import XCTest
 
-class WallMovieUITestsLaunchTests: XCTestCase {
+class WallpaperUITestsLaunchTests: XCTestCase {
 
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true

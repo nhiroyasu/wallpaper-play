@@ -7,7 +7,7 @@ protocol DockMenuUseCase {
 
 final class DockMenuInteractor: DockMenuUseCase {
     private let notificationManager: NotificationManager
-    private let videoFormWindowPresenter: VideoFormWindowPresenter
+    private let videoFormWindowPresenter: SettingWindowService
     private let appManager: AppManager
 
     init(injector: Injectable) {

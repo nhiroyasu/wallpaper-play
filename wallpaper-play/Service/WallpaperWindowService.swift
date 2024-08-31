@@ -2,13 +2,13 @@ import AppKit
 import Injectable
 
 protocol WallpaperWindowService {
-    func display(display: WallpaperKind)
+    func display(wallpaperKind: WallpaperKind)
     func hide()
     func isVisibleWallpaperWindow() -> Bool
 }
 
 class WallpaperWindowServiceImpl: WallpaperWindowService {
-    private var windowControllerList: [NSWindowController] = []
+    private var windowList: [NSWindow] = []
     private let wallpaperHistoryService: WallpaperHistoryService
     private let notificationManager: NotificationManager
     private let youTubeContentsService: YouTubeContentsService
@@ -20,58 +20,58 @@ class WallpaperWindowServiceImpl: WallpaperWindowService {
         observeScreenParam()
     }
     
-    func display(display: WallpaperKind) {
-        windowControllerList.forEach { $0.close() }
-        windowControllerList = []
+    func display(wallpaperKind: WallpaperKind) {
+        windowList.forEach { $0.close() }
+        windowList = []
 
         NSScreen.screens.forEach { [weak self] screen in
             guard let self else { return }
             let wallpaperWindowFrame = computeFittingWallpaperSize(screen: screen)
-            let windowController = self.buildWallpaperWindow(screen: screen, wallpaperSize: wallpaperWindowFrame.size)
-            self.windowControllerList.append(windowController)
-            if screen == NSScreen.main {
-                windowController.showWindow(nil, display: display)
+            let muteWallpaperKindIfNeeded: WallpaperKind = if screen == NSScreen.main {
+                wallpaperKind
             } else {
-                let mutedWallpaperKind: WallpaperKind
-                switch display {
+                switch wallpaperKind {
                 case .video(let value):
-                    mutedWallpaperKind = .video(value: .init(url: value.url, mute: true, videoSize: value.videoSize))
+                    .video(value: .init(url: value.url, mute: true, videoSize: value.videoSize))
                 case .youtube(let videoId, _):
-                    mutedWallpaperKind = .youtube(videoId: videoId, isMute: true)
-                case .web:
-                    mutedWallpaperKind = display
-                case .none:
-                    mutedWallpaperKind = display
+                    .youtube(videoId: videoId, isMute: true)
+                case .web, .none:
+                    wallpaperKind
                 }
-                windowController.showWindow(nil, display: mutedWallpaperKind)
             }
-            windowController.fitFrame(wallpaperWindowFrame)
+            let window = buildWallpaperWindow(
+                screen: screen,
+                wallpaperSize: wallpaperWindowFrame.size,
+                wallpaperKind: muteWallpaperKindIfNeeded
+            )
+            window.orderFront(nil)
+            windowList.append(window)
+            window.setFrame(wallpaperWindowFrame, display: true)
         }
     }
     
     func hide() {
-        windowControllerList.forEach { $0.close() }
-        windowControllerList = []
+        windowList.forEach { $0.close() }
+        windowList = []
     }
 
     func isVisibleWallpaperWindow() -> Bool {
-        windowControllerList.contains { $0.window?.isVisible == true }
+        windowList.contains { $0.isVisible == true }
     }
 
-    private func buildWallpaperWindow(screen: NSScreen, wallpaperSize: NSSize) -> WallMovieWindowController {
-        let coordinator = WallMovieCoordinator(
-            injector: Injector(container: WallMovieContainerBuilder.build(parent: Injector.shared.container)),
-            wallpaperSize: wallpaperSize
+    private func buildWallpaperWindow(screen: NSScreen, wallpaperSize: NSSize, wallpaperKind: WallpaperKind) -> NSWindow {
+        let coordinator = WallpaperCoordinator(
+            injector: Injector.shared,
+            wallpaperSize: wallpaperSize,
+            wallpaperKind: wallpaperKind
         )
-        let windowController = WallMovieWindowController(windowNibName: .windowController.wallMovie)
-        windowController.contentViewController = coordinator.create()
-        return windowController
+        return coordinator.createWindow()
     }
     
     private func observeScreenParam() {
         notificationManager.observe(name: NSApplication.didChangeScreenParametersNotification) { [weak self] _ in
             guard let latestWallpaper = self?.wallpaperHistoryService.fetchLatestWallpaper() else { return }
-            self?.display(display: latestWallpaper)
+            self?.display(wallpaperKind: latestWallpaper)
         }
     }
 

@@ -27,10 +27,8 @@
 		4F2161FF2850FA37000673EF /* PreferenceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F2161FD2850FA37000673EF /* PreferenceViewController.xib */; };
 		4F25C1C8284E635300397737 /* YouTubeSelectionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25C1C7284E635300397737 /* YouTubeSelectionPresenter.swift */; };
 		4F25C1CA284E636A00397737 /* YouTubeSelectionUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25C1C9284E636A00397737 /* YouTubeSelectionUseCase.swift */; };
-		4F25C1CC284E637C00397737 /* YouTubeSelectionAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25C1CB284E637C00397737 /* YouTubeSelectionAction.swift */; };
 		4F25C1CE284E63F400397737 /* LocalVideoSelectionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25C1CD284E63F400397737 /* LocalVideoSelectionPresenter.swift */; };
 		4F25C1D0284E642E00397737 /* LocalVideoSelectionUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25C1CF284E642E00397737 /* LocalVideoSelectionUseCase.swift */; };
-		4F25C1D2284E644600397737 /* LocalVideoSelectionAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25C1D1284E644600397737 /* LocalVideoSelectionAction.swift */; };
 		4F25C1D4284E673A00397737 /* URLResolverService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25C1D3284E673A00397737 /* URLResolverService.swift */; };
 		4F25C1D6284F718C00397737 /* NSImageView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25C1D5284F718C00397737 /* NSImageView+.swift */; };
 		4F2801812BDDEEB4003F36A6 /* WallMovieUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F28017F2BDDEEB4003F36A6 /* WallMovieUITests.swift */; };
@@ -57,11 +55,11 @@
 		4F7B56022BDDE58100D427C6 /* RealmMigrationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7B56012BDDE58100D427C6 /* RealmMigrationService.swift */; };
 		4F7B56042BDDE6FF00D427C6 /* TestInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7B56032BDDE6FF00D427C6 /* TestInjector.swift */; };
 		4F8A58DA284CA01A00557FDD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8A58D9284CA01A00557FDD /* AppDelegate.swift */; };
-		4F8A58DC284CA01A00557FDD /* WallMovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8A58DB284CA01A00557FDD /* WallMovieViewController.swift */; };
+		4F8A58DC284CA01A00557FDD /* WallpaperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8A58DB284CA01A00557FDD /* WallpaperViewController.swift */; };
 		4F8A58DE284CA01A00557FDD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F8A58DD284CA01A00557FDD /* Assets.xcassets */; };
 		4F8A58E1284CA01A00557FDD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F8A58DF284CA01A00557FDD /* Main.storyboard */; };
 		4F8A58EC284CA01B00557FDD /* YouTubeContentsServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8A58EB284CA01B00557FDD /* YouTubeContentsServiceTests.swift */; };
-		4F8A5907284CA04F00557FDD /* WallMovieWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8A5906284CA04F00557FDD /* WallMovieWindowController.swift */; };
+		4F8A5907284CA04F00557FDD /* WallpaperWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8A5906284CA04F00557FDD /* WallpaperWindow.swift */; };
 		4F8A590B284CA0FA00557FDD /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F8A590A284CA0FA00557FDD /* WebKit.framework */; };
 		4F8A590D284CA1B200557FDD /* YouTubeWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8A590C284CA1B200557FDD /* YouTubeWebView.swift */; };
 		4F8A591B284CA1FB00557FDD /* AppContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8A5915284CA1FB00557FDD /* AppContainer.swift */; };
@@ -69,16 +67,14 @@
 		4F8A5924284CA41400557FDD /* AVPlayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8A5923284CA41400557FDD /* AVPlayerManager.swift */; };
 		4F8A5928284CAB3F00557FDD /* VideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8A5927284CAB3F00557FDD /* VideoView.swift */; };
 		4F8A592D284CB4DE00557FDD /* NSView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8A592C284CB4DE00557FDD /* NSView+.swift */; };
-		4F8A5933284CD3C900557FDD /* WallMoviePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8A5932284CD3C900557FDD /* WallMoviePresenter.swift */; };
-		4F8A5935284CD3D400557FDD /* WallMovieUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8A5934284CD3D400557FDD /* WallMovieUseCase.swift */; };
-		4F8A5937284CD3DF00557FDD /* WallMovieAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8A5936284CD3DF00557FDD /* WallMovieAction.swift */; };
+		4F8A5933284CD3C900557FDD /* WallpaperPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8A5932284CD3C900557FDD /* WallpaperPresenter.swift */; };
 		4F8A5939284CD65900557FDD /* YouTubeContentsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8A5938284CD65900557FDD /* YouTubeContentsService.swift */; };
 		4F8A593B284CE3E200557FDD /* UserSettingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8A593A284CE3E200557FDD /* UserSettingService.swift */; };
 		4F8A5942284CEEFE00557FDD /* NSCollectionView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8A5941284CEEFE00557FDD /* NSCollectionView+.swift */; };
 		4F8A5944284CF3D800557FDD /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8A5943284CF3D800557FDD /* NotificationManager.swift */; };
 		4F8A5946284CF4A200557FDD /* ApplicationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8A5945284CF4A200557FDD /* ApplicationService.swift */; };
-		4F8A594A284CFD4200557FDD /* VideoFormWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8A5949284CFD4200557FDD /* VideoFormWindowController.swift */; };
-		4F8A594C284CFD4F00557FDD /* VideoFormSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8A594B284CFD4F00557FDD /* VideoFormSplitViewController.swift */; };
+		4F8A594A284CFD4200557FDD /* SettingWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8A5949284CFD4200557FDD /* SettingWindowController.swift */; };
+		4F8A594C284CFD4F00557FDD /* SettingSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8A594B284CFD4F00557FDD /* SettingSplitViewController.swift */; };
 		4F8A5950284CFDF200557FDD /* InjectableWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8A594F284CFDF200557FDD /* InjectableWindowController.swift */; };
 		4F8A5954284D18E400557FDD /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8A5953284D18E400557FDD /* SideMenuViewController.swift */; };
 		4F8A5957284D1A2C00557FDD /* LocalVideoSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8A5955284D1A2B00557FDD /* LocalVideoSelectionViewController.swift */; };
@@ -96,32 +92,26 @@
 		4FAF30362BE391B100B9E381 /* BrowserExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAF30342BE391B100B9E381 /* BrowserExtensionViewController.swift */; };
 		4FAF30392BE399F200B9E381 /* BrowserExtensionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAF30382BE399F200B9E381 /* BrowserExtensionCoordinator.swift */; };
 		4FAF303C2BE39C0300B9E381 /* BrowserExtensionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FAF303B2BE39C0300B9E381 /* BrowserExtensionViewController.xib */; };
-		4FB0F3E82854A0F2004E6D51 /* WallMovieWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FB0F3E62854A0F2004E6D51 /* WallMovieWindowController.xib */; };
-		4FB0F3EC2854A112004E6D51 /* WallMovieViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FB0F3EA2854A112004E6D51 /* WallMovieViewController.xib */; };
-		4FB0F3EF2854A17C004E6D51 /* WallMovieCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB0F3EE2854A17C004E6D51 /* WallMovieCoordinator.swift */; };
+		4FB0F3EC2854A112004E6D51 /* WallpaperViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FB0F3EA2854A112004E6D51 /* WallpaperViewController.xib */; };
+		4FB0F3EF2854A17C004E6D51 /* WallpaperCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB0F3EE2854A17C004E6D51 /* WallpaperCoordinator.swift */; };
 		4FB0F3F12854D1ED004E6D51 /* YouTubeSelectionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB0F3F02854D1ED004E6D51 /* YouTubeSelectionCoordinator.swift */; };
 		4FB0F3F32854D2C5004E6D51 /* LocalVideoSelectionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB0F3F22854D2C5004E6D51 /* LocalVideoSelectionCoordinator.swift */; };
-		4FB0F3F62854D3E1004E6D51 /* VideoFormCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB0F3F52854D3E1004E6D51 /* VideoFormCoordinator.swift */; };
-		4FB0F3FB2854D6DA004E6D51 /* VideoFormWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FB0F3F92854D6DA004E6D51 /* VideoFormWindowController.xib */; };
-		4FB0F405285789F1004E6D51 /* NSNib+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB0F404285789F1004E6D51 /* NSNib+.swift */; };
+		4FB0F3F62854D3E1004E6D51 /* SettingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB0F3F52854D3E1004E6D51 /* SettingCoordinator.swift */; };
+		4FB0F3FB2854D6DA004E6D51 /* SettingWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FB0F3F92854D6DA004E6D51 /* SettingWindowController.xib */; };
 		4FB0F4072858A272004E6D51 /* WallpaperWindowService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB0F4062858A272004E6D51 /* WallpaperWindowService.swift */; };
 		4FB1BD3D295E8C9300F476CD /* DockMenuItemBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB1BD3C295E8C9300F476CD /* DockMenuItemBuilder.swift */; };
 		4FB1BD41295E8ECE00F476CD /* DockMenuBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB1BD40295E8ECE00F476CD /* DockMenuBuilder.swift */; };
-		4FB1BD43295E900100F476CD /* VideoFormWindowPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB1BD42295E900100F476CD /* VideoFormWindowPresenter.swift */; };
-		4FB1BD48295E9F9800F476CD /* VideoFormWindowProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB1BD47295E9F9800F476CD /* VideoFormWindowProvider.swift */; };
+		4FB1BD43295E900100F476CD /* SettingWindowService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB1BD42295E900100F476CD /* SettingWindowService.swift */; };
 		4FB1BD4B295F0B4900F476CD /* DockMenuUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB1BD49295F0B4900F476CD /* DockMenuUseCase.swift */; };
 		4FB1BD4C295F0B4900F476CD /* DockMenuAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB1BD4A295F0B4900F476CD /* DockMenuAction.swift */; };
 		4FBD50FC2885089A002DF955 /* WebPageSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBD50FA2885089A002DF955 /* WebPageSelectionViewController.swift */; };
 		4FBD50FF28850A38002DF955 /* WebPageSelectionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBD50FE28850A38002DF955 /* WebPageSelectionCoordinator.swift */; };
-		4FBD510228850A9D002DF955 /* WebPageSelectionAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBD510128850A9D002DF955 /* WebPageSelectionAction.swift */; };
 		4FBD510428850AA5002DF955 /* WebPageSelectionUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBD510328850AA5002DF955 /* WebPageSelectionUseCase.swift */; };
 		4FBD510628850AAF002DF955 /* WebPageSelectionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBD510528850AAF002DF955 /* WebPageSelectionPresenter.swift */; };
-		4FBD510828850AB7002DF955 /* WebPageSelectionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBD510728850AB7002DF955 /* WebPageSelectionState.swift */; };
 		4FBD510A28855046002DF955 /* UrlValidationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBD510928855046002DF955 /* UrlValidationService.swift */; };
 		4FBD510C288559A8002DF955 /* WebPageWallpaper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBD510B288559A8002DF955 /* WebPageWallpaper.swift */; };
 		4FC182EE285E00540042FAF6 /* SwitchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC182EC285E00540042FAF6 /* SwitchCell.swift */; };
 		4FC182EF285E00540042FAF6 /* SwitchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FC182ED285E00540042FAF6 /* SwitchCell.xib */; };
-		4FC182F4285E06DC0042FAF6 /* PreferenceAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC182F3285E06DC0042FAF6 /* PreferenceAction.swift */; };
 		4FC182F6285E06E40042FAF6 /* PreferenceUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC182F5285E06E40042FAF6 /* PreferenceUseCase.swift */; };
 		4FC182F8285E06EA0042FAF6 /* PreferencePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC182F7285E06EA0042FAF6 /* PreferencePresenter.swift */; };
 		4FC182FA285E1B780042FAF6 /* PreferenceCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC182F9285E1B780042FAF6 /* PreferenceCoordinator.swift */; };
@@ -190,10 +180,8 @@
 		4F2161FD2850FA37000673EF /* PreferenceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreferenceViewController.xib; sourceTree = "<group>"; };
 		4F25C1C7284E635300397737 /* YouTubeSelectionPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubeSelectionPresenter.swift; sourceTree = "<group>"; };
 		4F25C1C9284E636A00397737 /* YouTubeSelectionUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubeSelectionUseCase.swift; sourceTree = "<group>"; };
-		4F25C1CB284E637C00397737 /* YouTubeSelectionAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubeSelectionAction.swift; sourceTree = "<group>"; };
 		4F25C1CD284E63F400397737 /* LocalVideoSelectionPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalVideoSelectionPresenter.swift; sourceTree = "<group>"; };
 		4F25C1CF284E642E00397737 /* LocalVideoSelectionUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalVideoSelectionUseCase.swift; sourceTree = "<group>"; };
-		4F25C1D1284E644600397737 /* LocalVideoSelectionAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalVideoSelectionAction.swift; sourceTree = "<group>"; };
 		4F25C1D3284E673A00397737 /* URLResolverService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLResolverService.swift; sourceTree = "<group>"; };
 		4F25C1D5284F718C00397737 /* NSImageView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSImageView+.swift"; sourceTree = "<group>"; };
 		4F28017F2BDDEEB4003F36A6 /* WallMovieUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WallMovieUITests.swift; sourceTree = "<group>"; };
@@ -224,14 +212,14 @@
 		4F8343E62BCBA0DA00DAAF4D /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		4F8A58D6284CA01A00557FDD /* Wallpaper Play.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Wallpaper Play.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F8A58D9284CA01A00557FDD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4F8A58DB284CA01A00557FDD /* WallMovieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallMovieViewController.swift; sourceTree = "<group>"; };
+		4F8A58DB284CA01A00557FDD /* WallpaperViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallpaperViewController.swift; sourceTree = "<group>"; };
 		4F8A58DD284CA01A00557FDD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4F8A58E0284CA01A00557FDD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4F8A58E2284CA01A00557FDD /* wallpaper-play.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "wallpaper-play.entitlements"; sourceTree = "<group>"; };
 		4F8A58E7284CA01B00557FDD /* Wallpaper Play Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Wallpaper Play Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F8A58EB284CA01B00557FDD /* YouTubeContentsServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubeContentsServiceTests.swift; sourceTree = "<group>"; };
 		4F8A58F1284CA01B00557FDD /* Wallpaper Play UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Wallpaper Play UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		4F8A5906284CA04F00557FDD /* WallMovieWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallMovieWindowController.swift; sourceTree = "<group>"; };
+		4F8A5906284CA04F00557FDD /* WallpaperWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallpaperWindow.swift; sourceTree = "<group>"; };
 		4F8A590A284CA0FA00557FDD /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		4F8A590C284CA1B200557FDD /* YouTubeWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubeWebView.swift; sourceTree = "<group>"; };
 		4F8A5915284CA1FB00557FDD /* AppContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppContainer.swift; sourceTree = "<group>"; };
@@ -239,16 +227,14 @@
 		4F8A5923284CA41400557FDD /* AVPlayerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVPlayerManager.swift; sourceTree = "<group>"; };
 		4F8A5927284CAB3F00557FDD /* VideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoView.swift; sourceTree = "<group>"; };
 		4F8A592C284CB4DE00557FDD /* NSView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSView+.swift"; sourceTree = "<group>"; };
-		4F8A5932284CD3C900557FDD /* WallMoviePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallMoviePresenter.swift; sourceTree = "<group>"; };
-		4F8A5934284CD3D400557FDD /* WallMovieUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallMovieUseCase.swift; sourceTree = "<group>"; };
-		4F8A5936284CD3DF00557FDD /* WallMovieAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallMovieAction.swift; sourceTree = "<group>"; };
+		4F8A5932284CD3C900557FDD /* WallpaperPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallpaperPresenter.swift; sourceTree = "<group>"; };
 		4F8A5938284CD65900557FDD /* YouTubeContentsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubeContentsService.swift; sourceTree = "<group>"; };
 		4F8A593A284CE3E200557FDD /* UserSettingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingService.swift; sourceTree = "<group>"; };
 		4F8A5941284CEEFE00557FDD /* NSCollectionView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSCollectionView+.swift"; sourceTree = "<group>"; };
 		4F8A5943284CF3D800557FDD /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		4F8A5945284CF4A200557FDD /* ApplicationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationService.swift; sourceTree = "<group>"; };
-		4F8A5949284CFD4200557FDD /* VideoFormWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoFormWindowController.swift; sourceTree = "<group>"; };
-		4F8A594B284CFD4F00557FDD /* VideoFormSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoFormSplitViewController.swift; sourceTree = "<group>"; };
+		4F8A5949284CFD4200557FDD /* SettingWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingWindowController.swift; sourceTree = "<group>"; };
+		4F8A594B284CFD4F00557FDD /* SettingSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingSplitViewController.swift; sourceTree = "<group>"; };
 		4F8A594F284CFDF200557FDD /* InjectableWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectableWindowController.swift; sourceTree = "<group>"; };
 		4F8A5953284D18E400557FDD /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
 		4F8A5955284D1A2B00557FDD /* LocalVideoSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalVideoSelectionViewController.swift; sourceTree = "<group>"; };
@@ -270,32 +256,26 @@
 		4FAF30382BE399F200B9E381 /* BrowserExtensionCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserExtensionCoordinator.swift; sourceTree = "<group>"; };
 		4FAF303A2BE39C0300B9E381 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/BrowserExtensionViewController.xib; sourceTree = "<group>"; };
 		4FAF303F2BE3A05B00B9E381 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/BrowserExtensionViewController.strings; sourceTree = "<group>"; };
-		4FB0F3E62854A0F2004E6D51 /* WallMovieWindowController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WallMovieWindowController.xib; sourceTree = "<group>"; };
-		4FB0F3EA2854A112004E6D51 /* WallMovieViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WallMovieViewController.xib; sourceTree = "<group>"; };
-		4FB0F3EE2854A17C004E6D51 /* WallMovieCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallMovieCoordinator.swift; sourceTree = "<group>"; };
+		4FB0F3EA2854A112004E6D51 /* WallpaperViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WallpaperViewController.xib; sourceTree = "<group>"; };
+		4FB0F3EE2854A17C004E6D51 /* WallpaperCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallpaperCoordinator.swift; sourceTree = "<group>"; };
 		4FB0F3F02854D1ED004E6D51 /* YouTubeSelectionCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubeSelectionCoordinator.swift; sourceTree = "<group>"; };
 		4FB0F3F22854D2C5004E6D51 /* LocalVideoSelectionCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalVideoSelectionCoordinator.swift; sourceTree = "<group>"; };
-		4FB0F3F52854D3E1004E6D51 /* VideoFormCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoFormCoordinator.swift; sourceTree = "<group>"; };
-		4FB0F3F92854D6DA004E6D51 /* VideoFormWindowController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoFormWindowController.xib; sourceTree = "<group>"; };
-		4FB0F404285789F1004E6D51 /* NSNib+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSNib+.swift"; sourceTree = "<group>"; };
+		4FB0F3F52854D3E1004E6D51 /* SettingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCoordinator.swift; sourceTree = "<group>"; };
+		4FB0F3F92854D6DA004E6D51 /* SettingWindowController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingWindowController.xib; sourceTree = "<group>"; };
 		4FB0F4062858A272004E6D51 /* WallpaperWindowService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallpaperWindowService.swift; sourceTree = "<group>"; };
 		4FB1BD3C295E8C9300F476CD /* DockMenuItemBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DockMenuItemBuilder.swift; sourceTree = "<group>"; };
 		4FB1BD40295E8ECE00F476CD /* DockMenuBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DockMenuBuilder.swift; sourceTree = "<group>"; };
-		4FB1BD42295E900100F476CD /* VideoFormWindowPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoFormWindowPresenter.swift; sourceTree = "<group>"; };
-		4FB1BD47295E9F9800F476CD /* VideoFormWindowProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoFormWindowProvider.swift; sourceTree = "<group>"; };
+		4FB1BD42295E900100F476CD /* SettingWindowService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingWindowService.swift; sourceTree = "<group>"; };
 		4FB1BD49295F0B4900F476CD /* DockMenuUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DockMenuUseCase.swift; sourceTree = "<group>"; };
 		4FB1BD4A295F0B4900F476CD /* DockMenuAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DockMenuAction.swift; sourceTree = "<group>"; };
 		4FBD50FA2885089A002DF955 /* WebPageSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebPageSelectionViewController.swift; sourceTree = "<group>"; };
 		4FBD50FE28850A38002DF955 /* WebPageSelectionCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebPageSelectionCoordinator.swift; sourceTree = "<group>"; };
-		4FBD510128850A9D002DF955 /* WebPageSelectionAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebPageSelectionAction.swift; sourceTree = "<group>"; };
 		4FBD510328850AA5002DF955 /* WebPageSelectionUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebPageSelectionUseCase.swift; sourceTree = "<group>"; };
 		4FBD510528850AAF002DF955 /* WebPageSelectionPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebPageSelectionPresenter.swift; sourceTree = "<group>"; };
-		4FBD510728850AB7002DF955 /* WebPageSelectionState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebPageSelectionState.swift; sourceTree = "<group>"; };
 		4FBD510928855046002DF955 /* UrlValidationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlValidationService.swift; sourceTree = "<group>"; };
 		4FBD510B288559A8002DF955 /* WebPageWallpaper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebPageWallpaper.swift; sourceTree = "<group>"; };
 		4FC182EC285E00540042FAF6 /* SwitchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchCell.swift; sourceTree = "<group>"; };
 		4FC182ED285E00540042FAF6 /* SwitchCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SwitchCell.xib; sourceTree = "<group>"; };
-		4FC182F3285E06DC0042FAF6 /* PreferenceAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceAction.swift; sourceTree = "<group>"; };
 		4FC182F5285E06E40042FAF6 /* PreferenceUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceUseCase.swift; sourceTree = "<group>"; };
 		4FC182F7285E06EA0042FAF6 /* PreferencePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencePresenter.swift; sourceTree = "<group>"; };
 		4FC182F9285E1B780042FAF6 /* PreferenceCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceCoordinator.swift; sourceTree = "<group>"; };
@@ -348,6 +328,8 @@
 		4F03CEE4285A1076009FDC6F /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				4FDF1DF6285ECAB500ABBE8D /* Coordinator.swift */,
+				4FDF1DF8285ECAC700ABBE8D /* Transition.swift */,
 				4F03CEE5285A107F009FDC6F /* LocalVideoConfig.swift */,
 				4F03CEED285A170E009FDC6F /* LocalVideoWallpaper.swift */,
 				4F03CEEF285A1801009FDC6F /* YouTubeWallpaper.swift */,
@@ -360,26 +342,6 @@
 				4F6A4D21289653F100F7B40D /* Localization.swift */,
 			);
 			path = Entity;
-			sourceTree = "<group>";
-		};
-		4F25C1C1284E54D300397737 /* YouTubeSelection */ = {
-			isa = PBXGroup;
-			children = (
-				4F25C1CB284E637C00397737 /* YouTubeSelectionAction.swift */,
-				4F25C1C9284E636A00397737 /* YouTubeSelectionUseCase.swift */,
-				4F25C1C7284E635300397737 /* YouTubeSelectionPresenter.swift */,
-			);
-			path = YouTubeSelection;
-			sourceTree = "<group>";
-		};
-		4F25C1C4284E5F0F00397737 /* LocalVideoSelection */ = {
-			isa = PBXGroup;
-			children = (
-				4F25C1D1284E644600397737 /* LocalVideoSelectionAction.swift */,
-				4F25C1CF284E642E00397737 /* LocalVideoSelectionUseCase.swift */,
-				4F25C1CD284E63F400397737 /* LocalVideoSelectionPresenter.swift */,
-			);
-			path = LocalVideoSelection;
 			sourceTree = "<group>";
 		};
 		4F28017C2BDDEDFC003F36A6 /* wallpaper-playUITests */ = {
@@ -441,8 +403,6 @@
 				4F03CEE4285A1076009FDC6F /* Entity */,
 				4FC182E9285DF94D0042FAF6 /* Util */,
 				4F8A590F284CA1D300557FDD /* Service */,
-				4FB0F3F42854D3BD004E6D51 /* Coordinator */,
-				4F8A590E284CA1CE00557FDD /* Module */,
 				4FB1BD3B295E8B7900F476CD /* DockMenu */,
 				4F8A5904284CA02F00557FDD /* Page */,
 				4F8A5908284CA09E00557FDD /* Components */,
@@ -471,22 +431,22 @@
 		4F8A5904284CA02F00557FDD /* Page */ = {
 			isa = PBXGroup;
 			children = (
-				4F8A5905284CA03700557FDD /* WallMovie */,
-				4F8A5948284CFCAA00557FDD /* VideoForm */,
-				4FB0F404285789F1004E6D51 /* NSNib+.swift */,
+				4F8A5905284CA03700557FDD /* Wallpaper */,
+				4F8A5948284CFCAA00557FDD /* Setting */,
 			);
 			path = Page;
 			sourceTree = "<group>";
 		};
-		4F8A5905284CA03700557FDD /* WallMovie */ = {
+		4F8A5905284CA03700557FDD /* Wallpaper */ = {
 			isa = PBXGroup;
 			children = (
-				4F8A5906284CA04F00557FDD /* WallMovieWindowController.swift */,
-				4FB0F3E62854A0F2004E6D51 /* WallMovieWindowController.xib */,
-				4F8A58DB284CA01A00557FDD /* WallMovieViewController.swift */,
-				4FB0F3EA2854A112004E6D51 /* WallMovieViewController.xib */,
+				4FB0F3EE2854A17C004E6D51 /* WallpaperCoordinator.swift */,
+				4F8A5932284CD3C900557FDD /* WallpaperPresenter.swift */,
+				4F8A5906284CA04F00557FDD /* WallpaperWindow.swift */,
+				4F8A58DB284CA01A00557FDD /* WallpaperViewController.swift */,
+				4FB0F3EA2854A112004E6D51 /* WallpaperViewController.xib */,
 			);
-			path = WallMovie;
+			path = Wallpaper;
 			sourceTree = "<group>";
 		};
 		4F8A5908284CA09E00557FDD /* Components */ = {
@@ -512,19 +472,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		4F8A590E284CA1CE00557FDD /* Module */ = {
-			isa = PBXGroup;
-			children = (
-				4FB1BD46295E9F6300F476CD /* VideoForm */,
-				4FBD510028850A8F002DF955 /* WebPageSelection */,
-				4F25C1C4284E5F0F00397737 /* LocalVideoSelection */,
-				4F25C1C1284E54D300397737 /* YouTubeSelection */,
-				4F8A5920284CA24200557FDD /* WallMovie */,
-				4FC182F2285E06BA0042FAF6 /* Preference */,
-			);
-			path = Module;
-			sourceTree = "<group>";
-		};
 		4F8A590F284CA1D300557FDD /* Service */ = {
 			isa = PBXGroup;
 			children = (
@@ -535,21 +482,12 @@
 				4FB0F4062858A272004E6D51 /* WallpaperWindowService.swift */,
 				4FAD5E1E2BE3634B00DB51DC /* WallpaperRequestService.swift */,
 				4F03CEF1285B64B2009FDC6F /* WallpaperHistoryService.swift */,
+				4FB1BD42295E900100F476CD /* SettingWindowService.swift */,
 				4F8A5938284CD65900557FDD /* YouTubeContentsService.swift */,
 				4FBD510928855046002DF955 /* UrlValidationService.swift */,
 				4F7B56012BDDE58100D427C6 /* RealmMigrationService.swift */,
 			);
 			path = Service;
-			sourceTree = "<group>";
-		};
-		4F8A5920284CA24200557FDD /* WallMovie */ = {
-			isa = PBXGroup;
-			children = (
-				4F8A5936284CD3DF00557FDD /* WallMovieAction.swift */,
-				4F8A5934284CD3D400557FDD /* WallMovieUseCase.swift */,
-				4F8A5932284CD3C900557FDD /* WallMoviePresenter.swift */,
-			);
-			path = WallMovie;
 			sourceTree = "<group>";
 		};
 		4F8A592B284CB4D100557FDD /* Extension */ = {
@@ -562,36 +500,30 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
-		4F8A5948284CFCAA00557FDD /* VideoForm */ = {
+		4F8A5948284CFCAA00557FDD /* Setting */ = {
 			isa = PBXGroup;
 			children = (
-				4F8A5952284D18C400557FDD /* View */,
-				4F8A5949284CFD4200557FDD /* VideoFormWindowController.swift */,
-				4FB0F3F92854D6DA004E6D51 /* VideoFormWindowController.xib */,
-				4F8A594B284CFD4F00557FDD /* VideoFormSplitViewController.swift */,
+				4FE738412C82F34200EE18D1 /* SideMenu */,
+				4F8A5952284D18C400557FDD /* Contents */,
+				4FB0F3F52854D3E1004E6D51 /* SettingCoordinator.swift */,
+				4F8A5949284CFD4200557FDD /* SettingWindowController.swift */,
+				4FB0F3F92854D6DA004E6D51 /* SettingWindowController.xib */,
+				4F8A594B284CFD4F00557FDD /* SettingSplitViewController.swift */,
 			);
-			path = VideoForm;
+			path = Setting;
 			sourceTree = "<group>";
 		};
-		4F8A5952284D18C400557FDD /* View */ = {
+		4F8A5952284D18C400557FDD /* Contents */ = {
 			isa = PBXGroup;
 			children = (
-				4F8A5953284D18E400557FDD /* SideMenuViewController.swift */,
-				4F8A5955284D1A2B00557FDD /* LocalVideoSelectionViewController.swift */,
-				4F6A4D19289650D900F7B40D /* LocalVideoSelectionViewController.xib */,
-				4F8A595B284D1B5000557FDD /* YouTubeSelectionViewController.swift */,
-				4F6A4D132896505500F7B40D /* YouTubeSelectionViewController.xib */,
-				4F2161FC2850FA37000673EF /* PreferenceViewController.swift */,
-				4F2161FD2850FA37000673EF /* PreferenceViewController.xib */,
-				4FBD50FA2885089A002DF955 /* WebPageSelectionViewController.swift */,
-				4F6A4D1D2896512400F7B40D /* WebPageSelectionViewController.xib */,
-				4F2D558C289567D200363292 /* AboutViewController.swift */,
-				4F2D558D289567D200363292 /* AboutViewController.xib */,
-				4F2D5590289567E900363292 /* AboutView.swift */,
-				4FAF30342BE391B100B9E381 /* BrowserExtensionViewController.swift */,
-				4FAF303B2BE39C0300B9E381 /* BrowserExtensionViewController.xib */,
+				4FE738422C82F35200EE18D1 /* LocalVideo */,
+				4FE738432C82F37D00EE18D1 /* YouTube */,
+				4FE738442C82F38400EE18D1 /* Web */,
+				4FE738472C82F39A00EE18D1 /* BrowserExtension */,
+				4FE738452C82F38B00EE18D1 /* Preference */,
+				4FE738462C82F39300EE18D1 /* About */,
 			);
-			path = View;
+			path = Contents;
 			sourceTree = "<group>";
 		};
 		4FAD5E6B2BE37B2F00DB51DC /* Wallpaper Paly SafariEextension */ = {
@@ -620,23 +552,6 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		4FB0F3F42854D3BD004E6D51 /* Coordinator */ = {
-			isa = PBXGroup;
-			children = (
-				4FB0F3F22854D2C5004E6D51 /* LocalVideoSelectionCoordinator.swift */,
-				4FB0F3F02854D1ED004E6D51 /* YouTubeSelectionCoordinator.swift */,
-				4FB0F3EE2854A17C004E6D51 /* WallMovieCoordinator.swift */,
-				4FB0F3F52854D3E1004E6D51 /* VideoFormCoordinator.swift */,
-				4FC182F9285E1B780042FAF6 /* PreferenceCoordinator.swift */,
-				4FDF1DF6285ECAB500ABBE8D /* Coordinator.swift */,
-				4FDF1DF8285ECAC700ABBE8D /* Transition.swift */,
-				4FBD50FE28850A38002DF955 /* WebPageSelectionCoordinator.swift */,
-				4FAF30382BE399F200B9E381 /* BrowserExtensionCoordinator.swift */,
-				4F2D559228956D4F00363292 /* AboutCoordinator.swift */,
-			);
-			path = Coordinator;
-			sourceTree = "<group>";
-		};
 		4FB1BD3B295E8B7900F476CD /* DockMenu */ = {
 			isa = PBXGroup;
 			children = (
@@ -646,26 +561,6 @@
 				4FB1BD49295F0B4900F476CD /* DockMenuUseCase.swift */,
 			);
 			path = DockMenu;
-			sourceTree = "<group>";
-		};
-		4FB1BD46295E9F6300F476CD /* VideoForm */ = {
-			isa = PBXGroup;
-			children = (
-				4FB1BD42295E900100F476CD /* VideoFormWindowPresenter.swift */,
-				4FB1BD47295E9F9800F476CD /* VideoFormWindowProvider.swift */,
-			);
-			path = VideoForm;
-			sourceTree = "<group>";
-		};
-		4FBD510028850A8F002DF955 /* WebPageSelection */ = {
-			isa = PBXGroup;
-			children = (
-				4FBD510128850A9D002DF955 /* WebPageSelectionAction.swift */,
-				4FBD510328850AA5002DF955 /* WebPageSelectionUseCase.swift */,
-				4FBD510528850AAF002DF955 /* WebPageSelectionPresenter.swift */,
-				4FBD510728850AB7002DF955 /* WebPageSelectionState.swift */,
-			);
-			path = WebPageSelection;
 			sourceTree = "<group>";
 		};
 		4FC182E9285DF94D0042FAF6 /* Util */ = {
@@ -691,14 +586,81 @@
 			path = SwitchCell;
 			sourceTree = "<group>";
 		};
-		4FC182F2285E06BA0042FAF6 /* Preference */ = {
+		4FE738412C82F34200EE18D1 /* SideMenu */ = {
 			isa = PBXGroup;
 			children = (
-				4FC182F3285E06DC0042FAF6 /* PreferenceAction.swift */,
+				4F8A5953284D18E400557FDD /* SideMenuViewController.swift */,
+			);
+			path = SideMenu;
+			sourceTree = "<group>";
+		};
+		4FE738422C82F35200EE18D1 /* LocalVideo */ = {
+			isa = PBXGroup;
+			children = (
+				4FB0F3F22854D2C5004E6D51 /* LocalVideoSelectionCoordinator.swift */,
+				4F25C1CF284E642E00397737 /* LocalVideoSelectionUseCase.swift */,
+				4F25C1CD284E63F400397737 /* LocalVideoSelectionPresenter.swift */,
+				4F8A5955284D1A2B00557FDD /* LocalVideoSelectionViewController.swift */,
+				4F6A4D19289650D900F7B40D /* LocalVideoSelectionViewController.xib */,
+			);
+			path = LocalVideo;
+			sourceTree = "<group>";
+		};
+		4FE738432C82F37D00EE18D1 /* YouTube */ = {
+			isa = PBXGroup;
+			children = (
+				4FB0F3F02854D1ED004E6D51 /* YouTubeSelectionCoordinator.swift */,
+				4F25C1C9284E636A00397737 /* YouTubeSelectionUseCase.swift */,
+				4F25C1C7284E635300397737 /* YouTubeSelectionPresenter.swift */,
+				4F8A595B284D1B5000557FDD /* YouTubeSelectionViewController.swift */,
+				4F6A4D132896505500F7B40D /* YouTubeSelectionViewController.xib */,
+			);
+			path = YouTube;
+			sourceTree = "<group>";
+		};
+		4FE738442C82F38400EE18D1 /* Web */ = {
+			isa = PBXGroup;
+			children = (
+				4FBD50FE28850A38002DF955 /* WebPageSelectionCoordinator.swift */,
+				4FBD510328850AA5002DF955 /* WebPageSelectionUseCase.swift */,
+				4FBD510528850AAF002DF955 /* WebPageSelectionPresenter.swift */,
+				4FBD50FA2885089A002DF955 /* WebPageSelectionViewController.swift */,
+				4F6A4D1D2896512400F7B40D /* WebPageSelectionViewController.xib */,
+			);
+			path = Web;
+			sourceTree = "<group>";
+		};
+		4FE738452C82F38B00EE18D1 /* Preference */ = {
+			isa = PBXGroup;
+			children = (
+				4FC182F9285E1B780042FAF6 /* PreferenceCoordinator.swift */,
 				4FC182F5285E06E40042FAF6 /* PreferenceUseCase.swift */,
 				4FC182F7285E06EA0042FAF6 /* PreferencePresenter.swift */,
+				4F2161FC2850FA37000673EF /* PreferenceViewController.swift */,
+				4F2161FD2850FA37000673EF /* PreferenceViewController.xib */,
 			);
 			path = Preference;
+			sourceTree = "<group>";
+		};
+		4FE738462C82F39300EE18D1 /* About */ = {
+			isa = PBXGroup;
+			children = (
+				4F2D559228956D4F00363292 /* AboutCoordinator.swift */,
+				4F2D558C289567D200363292 /* AboutViewController.swift */,
+				4F2D558D289567D200363292 /* AboutViewController.xib */,
+				4F2D5590289567E900363292 /* AboutView.swift */,
+			);
+			path = About;
+			sourceTree = "<group>";
+		};
+		4FE738472C82F39A00EE18D1 /* BrowserExtension */ = {
+			isa = PBXGroup;
+			children = (
+				4FAF30382BE399F200B9E381 /* BrowserExtensionCoordinator.swift */,
+				4FAF30342BE391B100B9E381 /* BrowserExtensionViewController.swift */,
+				4FAF303B2BE39C0300B9E381 /* BrowserExtensionViewController.xib */,
+			);
+			path = BrowserExtension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -848,17 +810,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4FB0F3E82854A0F2004E6D51 /* WallMovieWindowController.xib in Resources */,
 				4F2801912BDE3764003F36A6 /* copy_description_for_web.html in Resources */,
 				4F6A4D0928964EAB00F7B40D /* Localizable.strings in Resources */,
 				4F7B55FE2BDCEC0D00D427C6 /* icon_128x128.png in Resources */,
-				4FB0F3EC2854A112004E6D51 /* WallMovieViewController.xib in Resources */,
+				4FB0F3EC2854A112004E6D51 /* WallpaperViewController.xib in Resources */,
 				4F2161FF2850FA37000673EF /* PreferenceViewController.xib in Resources */,
 				4F8A58DE284CA01A00557FDD /* Assets.xcassets in Resources */,
 				4FAF303C2BE39C0300B9E381 /* BrowserExtensionViewController.xib in Resources */,
 				4F6A4D112896505500F7B40D /* YouTubeSelectionViewController.xib in Resources */,
 				4FC182EF285E00540042FAF6 /* SwitchCell.xib in Resources */,
-				4FB0F3FB2854D6DA004E6D51 /* VideoFormWindowController.xib in Resources */,
+				4FB0F3FB2854D6DA004E6D51 /* SettingWindowController.xib in Resources */,
 				4F8A58E1284CA01A00557FDD /* Main.storyboard in Resources */,
 				4F6A4D17289650D900F7B40D /* LocalVideoSelectionViewController.xib in Resources */,
 				4F6A4D0E28964EE800F7B40D /* Localizable.strings in Resources */,
@@ -931,13 +892,12 @@
 				4F2161FE2850FA37000673EF /* PreferenceViewController.swift in Sources */,
 				4FBD510628850AAF002DF955 /* WebPageSelectionPresenter.swift in Sources */,
 				4FB0F3F12854D1ED004E6D51 /* YouTubeSelectionCoordinator.swift in Sources */,
-				4FB0F405285789F1004E6D51 /* NSNib+.swift in Sources */,
-				4FB0F3F62854D3E1004E6D51 /* VideoFormCoordinator.swift in Sources */,
+				4FB0F3F62854D3E1004E6D51 /* SettingCoordinator.swift in Sources */,
 				4F03CEE3285A0A5A009FDC6F /* RealmManager.swift in Sources */,
 				4F25C1CA284E636A00397737 /* YouTubeSelectionUseCase.swift in Sources */,
 				4F8A5946284CF4A200557FDD /* ApplicationService.swift in Sources */,
 				4F8A5924284CA41400557FDD /* AVPlayerManager.swift in Sources */,
-				4FB1BD43295E900100F476CD /* VideoFormWindowPresenter.swift in Sources */,
+				4FB1BD43295E900100F476CD /* SettingWindowService.swift in Sources */,
 				4F2161F92850BB4F000673EF /* CGImage+.swift in Sources */,
 				4F03CEE8285A14D9009FDC6F /* VideoSize.swift in Sources */,
 				4FC182F6285E06E40042FAF6 /* PreferenceUseCase.swift in Sources */,
@@ -946,9 +906,9 @@
 				4FC182EE285E00540042FAF6 /* SwitchCell.swift in Sources */,
 				4F8A591B284CA1FB00557FDD /* AppContainer.swift in Sources */,
 				4FBD510C288559A8002DF955 /* WebPageWallpaper.swift in Sources */,
-				4F8A5907284CA04F00557FDD /* WallMovieWindowController.swift in Sources */,
+				4F8A5907284CA04F00557FDD /* WallpaperWindow.swift in Sources */,
 				4FB1BD41295E8ECE00F476CD /* DockMenuBuilder.swift in Sources */,
-				4FB0F3EF2854A17C004E6D51 /* WallMovieCoordinator.swift in Sources */,
+				4FB0F3EF2854A17C004E6D51 /* WallpaperCoordinator.swift in Sources */,
 				4F03CEEC285A1654009FDC6F /* DateSortable.swift in Sources */,
 				4F8A5954284D18E400557FDD /* SideMenuViewController.swift in Sources */,
 				4FAF30362BE391B100B9E381 /* BrowserExtensionViewController.swift in Sources */,
@@ -958,22 +918,20 @@
 				4F6A4D22289653F100F7B40D /* Localization.swift in Sources */,
 				4FBD50FF28850A38002DF955 /* WebPageSelectionCoordinator.swift in Sources */,
 				4F8A590D284CA1B200557FDD /* YouTubeWebView.swift in Sources */,
-				4FBD510228850A9D002DF955 /* WebPageSelectionAction.swift in Sources */,
 				4F8A5950284CFDF200557FDD /* InjectableWindowController.swift in Sources */,
-				4F8A594C284CFD4F00557FDD /* VideoFormSplitViewController.swift in Sources */,
+				4F8A594C284CFD4F00557FDD /* SettingSplitViewController.swift in Sources */,
 				4FDF1DF7285ECAB600ABBE8D /* Coordinator.swift in Sources */,
 				4F03CEEA285A158F009FDC6F /* URL+.swift in Sources */,
-				4F8A594A284CFD4200557FDD /* VideoFormWindowController.swift in Sources */,
+				4F8A594A284CFD4200557FDD /* SettingWindowController.swift in Sources */,
 				4FDF1DEF285EAF7100ABBE8D /* AppManager.swift in Sources */,
 				4FB1BD4C295F0B4900F476CD /* DockMenuAction.swift in Sources */,
 				4FB0F4072858A272004E6D51 /* WallpaperWindowService.swift in Sources */,
-				4F8A5935284CD3D400557FDD /* WallMovieUseCase.swift in Sources */,
 				4F8A592D284CB4DE00557FDD /* NSView+.swift in Sources */,
 				4FDF1DF9285ECAC700ABBE8D /* Transition.swift in Sources */,
 				4F8A5939284CD65900557FDD /* YouTubeContentsService.swift in Sources */,
 				4FAD5E1F2BE3634B00DB51DC /* WallpaperRequestService.swift in Sources */,
 				4F8A5957284D1A2C00557FDD /* LocalVideoSelectionViewController.swift in Sources */,
-				4F8A58DC284CA01A00557FDD /* WallMovieViewController.swift in Sources */,
+				4F8A58DC284CA01A00557FDD /* WallpaperViewController.swift in Sources */,
 				4F2D558E289567D200363292 /* AboutViewController.swift in Sources */,
 				4FAF30392BE399F200B9E381 /* BrowserExtensionCoordinator.swift in Sources */,
 				4FB0F3F32854D2C5004E6D51 /* LocalVideoSelectionCoordinator.swift in Sources */,
@@ -984,20 +942,17 @@
 				4F2161FB2850D1FB000673EF /* AntialiasedImageView.swift in Sources */,
 				4F03CEEE285A170E009FDC6F /* LocalVideoWallpaper.swift in Sources */,
 				4FBD510428850AA5002DF955 /* WebPageSelectionUseCase.swift in Sources */,
-				4FC182F4285E06DC0042FAF6 /* PreferenceAction.swift in Sources */,
 				4FB1BD4B295F0B4900F476CD /* DockMenuUseCase.swift in Sources */,
 				4F2D559328956D4F00363292 /* AboutCoordinator.swift in Sources */,
 				4F8A593B284CE3E200557FDD /* UserSettingService.swift in Sources */,
 				4F03CEF2285B64B2009FDC6F /* WallpaperHistoryService.swift in Sources */,
 				4F8A5922284CA28100557FDD /* FileSelectionManager.swift in Sources */,
 				4F03CEF0285A1801009FDC6F /* YouTubeWallpaper.swift in Sources */,
-				4F8A5933284CD3C900557FDD /* WallMoviePresenter.swift in Sources */,
+				4F8A5933284CD3C900557FDD /* WallpaperPresenter.swift in Sources */,
 				4F25C1D6284F718C00397737 /* NSImageView+.swift in Sources */,
 				4FDE8AD1286DE1750028E062 /* Statable.swift in Sources */,
 				4F2161F6284FBDEF000673EF /* SystemWallpaperService.swift in Sources */,
-				4FBD510828850AB7002DF955 /* WebPageSelectionState.swift in Sources */,
 				4F25C1CE284E63F400397737 /* LocalVideoSelectionPresenter.swift in Sources */,
-				4F8A5937284CD3DF00557FDD /* WallMovieAction.swift in Sources */,
 				4F7B56022BDDE58100D427C6 /* RealmMigrationService.swift in Sources */,
 				4F25C1D4284E673A00397737 /* URLResolverService.swift in Sources */,
 				4F03CEF4285B79F4009FDC6F /* ApplicationFileManager.swift in Sources */,
@@ -1010,9 +965,6 @@
 				4F2D5591289567E900363292 /* AboutView.swift in Sources */,
 				4F8A5944284CF3D800557FDD /* NotificationManager.swift in Sources */,
 				4F25C1D0284E642E00397737 /* LocalVideoSelectionUseCase.swift in Sources */,
-				4F25C1CC284E637C00397737 /* YouTubeSelectionAction.swift in Sources */,
-				4F25C1D2284E644600397737 /* LocalVideoSelectionAction.swift in Sources */,
-				4FB1BD48295E9F9800F476CD /* VideoFormWindowProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
