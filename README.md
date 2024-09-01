@@ -6,7 +6,7 @@ The wallpaper engine for macOS.
 
 # App Store
 <a href="https://apps.apple.com/us/app/wallpaper-play/id1638457121" alt="app store">
-<img src="./assets/mac_app_store_badge.svg" width=180 />
+<img src="./previews/mac_app_store_badge.svg" width=180 />
 </a>
 
 # Feature
