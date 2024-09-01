@@ -16,9 +16,9 @@ protocol WallpaperHistoryService {
 
 class WallpaperHistoryServiceImpl: WallpaperHistoryService {
     
-    private let realmService: RealmService
+    private let realmService: any RealmService
     
-    init(injector: Injectable) {
+    init(injector: any Injectable) {
         realmService = injector.build()
     }
     
@@ -114,7 +114,7 @@ class WallpaperHistoryServiceImpl: WallpaperHistoryService {
         let youtubeFirst = fetchLatestYouTube()
         let webpageFirst = fetchLatestWebPage()
         
-        let videoList: [DateSortable?] = [videoFirst, youtubeFirst, webpageFirst]
+        let videoList: [(any DateSortable)?] = [videoFirst, youtubeFirst, webpageFirst]
         let latestVideo = videoList.compactMap { $0 }.max { v1, v2 in v1.date < v2.date }
         
         if let video = latestVideo as? LocalVideoWallpaper {

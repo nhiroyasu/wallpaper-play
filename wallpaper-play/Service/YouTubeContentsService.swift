@@ -25,9 +25,9 @@ protocol YouTubeContentsService {
 }
 
 class YouTubeContentsServiceImpl: YouTubeContentsService {
-    private let urlResolverService: URLResolverService
+    private let urlResolverService: any URLResolverService
 
-    init(injector: Injectable = Injector.shared) {
+    init(injector: any Injectable = Injector.shared) {
         self.urlResolverService = injector.build()
     }
 

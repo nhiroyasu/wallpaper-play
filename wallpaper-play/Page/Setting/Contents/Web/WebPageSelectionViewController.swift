@@ -17,10 +17,10 @@ class WebPageSelectionViewController: NSViewController {
     @IBOutlet weak var wrapView: NSView!
     @IBOutlet weak var wallpaperButton: NSButton!
     public var previewWebView: YoutubeWebView!
-    private let presenter: WebPageSelectionPresenter
+    private let presenter: any WebPageSelectionPresenter
 
     // MARK: - Methods
-    init(presenter: WebPageSelectionPresenter) {
+    init(presenter: any WebPageSelectionPresenter) {
         self.presenter = presenter
         super.init(nibName: String(describing: type(of: self)), bundle: nil)
     }

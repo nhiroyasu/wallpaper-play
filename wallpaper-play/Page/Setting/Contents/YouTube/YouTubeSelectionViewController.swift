@@ -21,9 +21,9 @@ class YouTubeSelectionViewController: NSViewController {
     @IBOutlet weak var wallpaperButton: NSButton!
     @IBOutlet weak var muteToggleButton: NSButton!
     public var youtubeWebView: YoutubeWebView!
-    private let presenter: YouTubeSelectionPresenter
+    private let presenter: any YouTubeSelectionPresenter
 
-    init(presenter: YouTubeSelectionPresenter) {
+    init(presenter: any YouTubeSelectionPresenter) {
         self.presenter = presenter
         super.init(nibName: String(describing: type(of: self)), bundle: nil)
     }

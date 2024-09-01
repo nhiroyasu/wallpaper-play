@@ -8,9 +8,9 @@ protocol WallpaperRequestService {
 }
 
 class WallpaperRequestServiceImpl: WallpaperRequestService {
-    private let notificationManager: NotificationManager
+    private let notificationManager: any NotificationManager
 
-    init(injector: Injectable) {
+    init(injector: any Injectable) {
         self.notificationManager = injector.build()
     }
 

@@ -5,11 +5,11 @@ import Injectable
 class WallpaperCoordinator: WindowCoordinator {
     private var viewController: WallpaperViewController!
     private var window: WallpaperWindow!
-    private let injector: Injectable
+    private let injector: any Injectable
     private let wallpaperSize: NSSize
     private let wallpaperKind: WallpaperKind
 
-    init(injector: Injectable, wallpaperSize: NSSize, wallpaperKind: WallpaperKind) {
+    init(injector: any Injectable, wallpaperSize: NSSize, wallpaperKind: WallpaperKind) {
         self.injector = injector
         self.wallpaperSize = wallpaperSize
         self.wallpaperKind = wallpaperKind

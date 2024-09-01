@@ -28,7 +28,7 @@ enum SideMenuItem: String, CaseIterable {
 }
 
 class SideMenuViewController: NSViewController {
-    lazy var notificationManager: NotificationManager = Injector.shared.build()
+    lazy var notificationManager: any NotificationManager = Injector.shared.build()
 
     @IBOutlet weak var outlineView: NSOutlineView! {
         didSet {
@@ -104,6 +104,6 @@ extension SideMenuViewController: NSOutlineViewDelegate {
     
     func outlineViewSelectionIsChanging(_ notification: Notification) {
         let item = SideMenuItem.allCases[outlineView.selectedRow]
-        Injector.shared.build(NotificationManager.self).push(name: .selectedSideMenu, param: item)
+        Injector.shared.build((any NotificationManager).self).push(name: .selectedSideMenu, param: item)
     }
 }

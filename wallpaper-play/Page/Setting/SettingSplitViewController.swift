@@ -19,7 +19,7 @@ class SettingSplitViewController: NSSplitViewController {
     var browserExtensionViewController: BrowserExtensionViewController!
     var preferenceViewController: PreferenceViewController!
     var aboutViewController: AboutViewController!
-    lazy var notificationManager: NotificationManager = Injector.shared.build()
+    lazy var notificationManager: any NotificationManager = Injector.shared.build()
 
     override func viewDidLoad() {
         super.viewDidLoad()

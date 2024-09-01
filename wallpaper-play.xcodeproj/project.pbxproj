@@ -120,7 +120,6 @@
 		4FDF1DF2285EC9B700ABBE8D /* Injectable in Frameworks */ = {isa = PBXBuildFile; productRef = 4FDF1DF1285EC9B700ABBE8D /* Injectable */; };
 		4FDF1DF5285ECA1900ABBE8D /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 4FDF1DF4285ECA1900ABBE8D /* Swinject */; };
 		4FDF1DF7285ECAB600ABBE8D /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDF1DF6285ECAB500ABBE8D /* Coordinator.swift */; };
-		4FDF1DF9285ECAC700ABBE8D /* Transition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDF1DF8285ECAC700ABBE8D /* Transition.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -282,7 +281,6 @@
 		4FDE8AD0286DE1750028E062 /* Statable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Statable.swift; sourceTree = "<group>"; };
 		4FDF1DEE285EAF7100ABBE8D /* AppManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
 		4FDF1DF6285ECAB500ABBE8D /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
-		4FDF1DF8285ECAC700ABBE8D /* Transition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transition.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -329,7 +327,6 @@
 			isa = PBXGroup;
 			children = (
 				4FDF1DF6285ECAB500ABBE8D /* Coordinator.swift */,
-				4FDF1DF8285ECAC700ABBE8D /* Transition.swift */,
 				4F03CEE5285A107F009FDC6F /* LocalVideoConfig.swift */,
 				4F03CEED285A170E009FDC6F /* LocalVideoWallpaper.swift */,
 				4F03CEEF285A1801009FDC6F /* YouTubeWallpaper.swift */,
@@ -927,7 +924,6 @@
 				4FB1BD4C295F0B4900F476CD /* DockMenuAction.swift in Sources */,
 				4FB0F4072858A272004E6D51 /* WallpaperWindowService.swift in Sources */,
 				4F8A592D284CB4DE00557FDD /* NSView+.swift in Sources */,
-				4FDF1DF9285ECAC700ABBE8D /* Transition.swift in Sources */,
 				4F8A5939284CD65900557FDD /* YouTubeContentsService.swift in Sources */,
 				4FAD5E1F2BE3634B00DB51DC /* WallpaperRequestService.swift in Sources */,
 				4F8A5957284D1A2C00557FDD /* LocalVideoSelectionViewController.swift in Sources */,
@@ -1218,6 +1214,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MARKETING_VERSION = 1.4.0;
+				OTHER_SWIFT_FLAGS = "-enable-upcoming-feature ExistentialAny";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.debug.nhiro1109.wallpaper-play";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1249,6 +1246,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MARKETING_VERSION = 1.4.0;
+				OTHER_SWIFT_FLAGS = "-enable-upcoming-feature ExistentialAny";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.nhiro1109.wallpaper-play";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1267,6 +1265,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 12.3;
 				MARKETING_VERSION = 1.0;
+				OTHER_SWIFT_FLAGS = "-enable-upcoming-feature ExistentialAny";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nhiro1109.WallMovieTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
@@ -1286,6 +1285,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 12.3;
 				MARKETING_VERSION = 1.0;
+				OTHER_SWIFT_FLAGS = "-enable-upcoming-feature ExistentialAny";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nhiro1109.WallMovieTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
@@ -1304,6 +1304,7 @@
 				DEVELOPMENT_TEAM = 2CMV7D36JC;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
+				OTHER_SWIFT_FLAGS = "-enable-upcoming-feature ExistentialAny";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nhiro1109.WallMovieUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
@@ -1323,6 +1324,7 @@
 				DEVELOPMENT_TEAM = 2CMV7D36JC;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
+				OTHER_SWIFT_FLAGS = "-enable-upcoming-feature ExistentialAny";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nhiro1109.WallMovieUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;

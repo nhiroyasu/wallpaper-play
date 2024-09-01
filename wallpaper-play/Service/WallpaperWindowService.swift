@@ -9,11 +9,11 @@ protocol WallpaperWindowService {
 
 class WallpaperWindowServiceImpl: WallpaperWindowService {
     private var windowList: [NSWindow] = []
-    private let wallpaperHistoryService: WallpaperHistoryService
-    private let notificationManager: NotificationManager
-    private let youTubeContentsService: YouTubeContentsService
+    private let wallpaperHistoryService: any WallpaperHistoryService
+    private let notificationManager: any NotificationManager
+    private let youTubeContentsService: any YouTubeContentsService
     
-    init(injector: Injectable) {
+    init(injector: any Injectable) {
         self.notificationManager = injector.build()
         self.wallpaperHistoryService = injector.build()
         self.youTubeContentsService = injector.build()

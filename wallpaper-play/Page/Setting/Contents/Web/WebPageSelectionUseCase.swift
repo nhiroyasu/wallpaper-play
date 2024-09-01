@@ -7,12 +7,12 @@ protocol WebPageSelectionUseCase {
 }
 
 class WebPageSelectionInteractor: WebPageSelectionUseCase {
-    private let wallpaperRequestService: WallpaperRequestService
-    private let urlValidationService: UrlValidationService
+    private let wallpaperRequestService: any WallpaperRequestService
+    private let urlValidationService: any UrlValidationService
 
     init(
-        wallpaperRequestService: WallpaperRequestService,
-        urlValidationService: UrlValidationService
+        wallpaperRequestService: any WallpaperRequestService,
+        urlValidationService: any UrlValidationService
     ) {
         self.wallpaperRequestService = wallpaperRequestService
         self.urlValidationService = urlValidationService

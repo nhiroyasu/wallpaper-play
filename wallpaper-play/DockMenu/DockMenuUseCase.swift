@@ -6,11 +6,11 @@ protocol DockMenuUseCase {
 }
 
 final class DockMenuInteractor: DockMenuUseCase {
-    private let notificationManager: NotificationManager
-    private let videoFormWindowPresenter: SettingWindowService
-    private let appManager: AppManager
+    private let notificationManager: any NotificationManager
+    private let videoFormWindowPresenter: any SettingWindowService
+    private let appManager: any AppManager
 
-    init(injector: Injectable) {
+    init(injector: any Injectable) {
         notificationManager = injector.build()
         videoFormWindowPresenter = injector.build()
         appManager = injector.build()

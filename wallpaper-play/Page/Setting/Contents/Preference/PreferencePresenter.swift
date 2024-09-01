@@ -10,10 +10,10 @@ protocol PreferencePresenter {
 }
 
 class PreferencePresenterImpl: PreferencePresenter {
-    private let useCase: PreferenceUseCase
-    weak var output: PreferenceViewOutput!
+    private let useCase: any PreferenceUseCase
+    weak var output: (any PreferenceViewOutput)!
 
-    init(useCase: PreferenceUseCase) {
+    init(useCase: any PreferenceUseCase) {
         self.useCase = useCase
     }
 

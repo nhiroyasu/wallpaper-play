@@ -4,9 +4,9 @@ import Injectable
 
 class PreferenceCoordinator: Coordinator {
     private var viewController: PreferenceViewController!
-    private let injector: Injectable
+    private let injector: any Injectable
 
-    init(injector: Injectable) {
+    init(injector: any Injectable) {
         self.injector = injector
     }
     

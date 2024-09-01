@@ -9,11 +9,11 @@ protocol WebPageSelectionPresenter {
 }
 
 class WebPageSelectionPresenterImpl: WebPageSelectionPresenter {
-    private let useCase: WebPageSelectionUseCase
-    private let alertManager: AlertManager
-    weak var output: WebPageSelectionViewOutput!
+    private let useCase: any WebPageSelectionUseCase
+    private let alertManager: any AlertManager
+    weak var output: (any WebPageSelectionViewOutput)!
 
-    init(useCase: WebPageSelectionUseCase, alertManager: AlertManager) {
+    init(useCase: any WebPageSelectionUseCase, alertManager: any AlertManager) {
         self.useCase = useCase
         self.alertManager = alertManager
     }

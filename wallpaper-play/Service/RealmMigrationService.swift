@@ -7,9 +7,9 @@ protocol RealmMigrationService {
 }
 
 class RealmMigrationServiceImpl: RealmMigrationService {
-    private let youtubeContentService: YouTubeContentsService
+    private let youtubeContentService: any YouTubeContentsService
 
-    init(injector: Injectable) {
+    init(injector: any Injectable) {
         youtubeContentService = injector.build()
     }
 

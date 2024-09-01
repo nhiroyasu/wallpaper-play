@@ -4,13 +4,13 @@ import Injectable
 
 class AboutViewController: NSViewController {
     @IBOutlet weak var stackView: NSStackView!
-    private let appManager: AppManager
+    private let appManager: any AppManager
 
     required init?(coder: NSCoder) {
         fatalError()
     }
 
-    init(injector: Injectable) {
+    init(injector: any Injectable) {
         self.appManager = injector.build()
         super.init(nibName: String(describing: type(of: self)), bundle: nil)
     }

@@ -13,6 +13,6 @@ class SettingWindowController: NSWindowController, NSWindowDelegate {
     }
     
     func windowWillClose(_ notification: Notification) {
-        Injector.shared.buildSafe(NotificationManager.self)?.push(name: .requestVisibilityIcon, param: nil)
+        Injector.shared.buildSafe((any NotificationManager).self)?.push(name: .requestVisibilityIcon, param: nil)
     }
 }

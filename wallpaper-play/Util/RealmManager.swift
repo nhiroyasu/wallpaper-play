@@ -19,11 +19,11 @@ public protocol RealmService {
 
 public class RealmManagerImpl: RealmService {
     
-    private let applicationFileManager: ApplicationFileManager
-    private let migrationService: RealmMigrationService
+    private let applicationFileManager: any ApplicationFileManager
+    private let migrationService: any RealmMigrationService
     private let fileManager: FileManager
     
-    public init(injector: Injectable) {
+    public init(injector: any Injectable) {
         applicationFileManager = injector.build()
         migrationService = injector.build()
         fileManager = .default
