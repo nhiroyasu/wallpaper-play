@@ -8,7 +8,6 @@ class AppContainer {
 
         // MARK: - empty dependencies
 
-        container.register(VideoFormWindowProvidable.self) { _ in VideoFormWindowProvider() }
         container.register(UrlValidationService.self) { _ in UrlValidationServiceImpl() }
         container.register(AppManager.self) { _ in AppManagerImpl() }
         container.register(ApplicationFileManager.self) { _ in ApplicationFileManagerImpl() }
@@ -19,6 +18,7 @@ class AppContainer {
         container.register(YouTubeContentsService.self) { _ in YouTubeContentsServiceImpl()}
         container.register(FileSelectionManager.self) { _ in FileSelectionManagerImpl()}
         container.register(AVPlayerManager.self) { _ in AVPlayerManagerImpl()}
+        container.register(SettingWindowService.self) { injector in SettingWindowServiceImpl() }
 
         // MARK: - DockMenu
         container.register(DockMenuUseCase.self) { injector in DockMenuInteractor(injector: injector) }
@@ -30,7 +30,6 @@ class AppContainer {
 
         container.register(WallpaperRequestService.self) { injector in WallpaperRequestServiceImpl(injector: injector) }
         container.register(RealmMigrationService.self) { injector in RealmMigrationServiceImpl(injector: injector) }
-        container.register(VideoFormWindowPresenter.self) { injector in VideoFormWindowPresenterImpl(injector: injector) }
         container.register(RealmService.self) { injector in RealmManagerImpl(injector: injector) }
         container.register(UserSettingService.self) { _ in UserSettingServiceImpl(userDefaults: UserDefaults.standard) }.inObjectScope(.container)
         container.register(WallpaperWindowService.self) { injector in WallpaperWindowServiceImpl(injector: injector) }

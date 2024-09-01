@@ -1,13 +1,6 @@
-//
-//  WallMovieUITests.swift
-//  WallMovieUITests
-//
-//  Created by NH on 2022/06/05.
-//
-
 import XCTest
 
-class WallMovieUITests: XCTestCase {
+class WallpaperUITests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
