@@ -9,14 +9,14 @@ protocol YouTubeSelectionUseCase {
 }
 
 class YouTubeSelectionInteractor: YouTubeSelectionUseCase {
-    private let urlResolverService: URLResolverService
-    private let youtubeContentService: YouTubeContentsService
-    private let wallpaperRequestService: WallpaperRequestService
+    private let urlResolverService: any URLResolverService
+    private let youtubeContentService: any YouTubeContentsService
+    private let wallpaperRequestService: any WallpaperRequestService
 
     init(
-        urlResolverService: URLResolverService,
-        youtubeContentService: YouTubeContentsService,
-        wallpaperRequestService: WallpaperRequestService
+        urlResolverService: any URLResolverService,
+        youtubeContentService: any YouTubeContentsService,
+        wallpaperRequestService: any WallpaperRequestService
     ) {
         self.urlResolverService = urlResolverService
         self.youtubeContentService = youtubeContentService

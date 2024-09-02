@@ -9,13 +9,13 @@ protocol YouTubeSelectionPresenter {
 }
 
 class YouTubeSelectionPresenterImpl: YouTubeSelectionPresenter {
-    private let useCase: YouTubeSelectionUseCase
-    private let alertService: AlertManager
-    weak var output: YouTubeSelectionViewOutput!
+    private let useCase: any YouTubeSelectionUseCase
+    private let alertService: any AlertManager
+    weak var output: (any YouTubeSelectionViewOutput)!
 
     init(
-        useCase: YouTubeSelectionUseCase,
-        alertService: AlertManager
+        useCase: any YouTubeSelectionUseCase,
+        alertService: any AlertManager
     ) {
         self.useCase = useCase
         self.alertService = alertService

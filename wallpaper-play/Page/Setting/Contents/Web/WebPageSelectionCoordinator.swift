@@ -4,9 +4,9 @@ import Injectable
 
 class WebPageSelectionCoordinator: Coordinator {
     private var viewController: WebPageSelectionViewController!
-    private let injector: Injectable
+    private let injector: any Injectable
 
-    init(injector: Injectable) {
+    init(injector: any Injectable) {
         self.injector = injector
     }
     

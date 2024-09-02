@@ -5,9 +5,9 @@ protocol DockMenuAction {
 }
 
 final class DockMenuActionImpl: DockMenuAction {
-    private let useCase: DockMenuUseCase
+    private let useCase: any DockMenuUseCase
 
-    init(injector: Injectable) {
+    init(injector: any Injectable) {
         useCase = injector.build()
     }
 

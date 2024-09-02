@@ -11,13 +11,13 @@ class WallpaperViewController: NSViewController {
     var webView: YoutubeWebView!
     var videoView: VideoView!
     private let wallpaperSize: NSSize
-    private let avManager: AVPlayerManager
-    private let presenter: WallpaperPresenter
+    private let avManager: any AVPlayerManager
+    private let presenter: any WallpaperPresenter
 
     init(
         wallpaperSize: NSSize,
-        presenter: WallpaperPresenter,
-        avManager: AVPlayerManager
+        presenter: any WallpaperPresenter,
+        avManager: any AVPlayerManager
     ) {
         self.wallpaperSize = wallpaperSize
         self.presenter = presenter

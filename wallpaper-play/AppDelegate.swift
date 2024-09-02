@@ -4,7 +4,7 @@ import Injectable
 @main
 class AppDelegate: NSObject, NSApplicationDelegate {
     private let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
-    private var applicationService: ApplicationService = Injector.shared.build()
+    private var applicationService: any ApplicationService = Injector.shared.build()
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         initStatusMenu()

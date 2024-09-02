@@ -13,7 +13,7 @@ class SettingCoordinator: Coordinator {
     private let aboutCoordinator: AboutCoordinator
     private var viewController: SettingSplitViewController!
 
-    init(injector: Injectable) {
+    init(injector: any Injectable) {
         self.localVideoSelectionCoordinator = .init(injector: injector)
         self.youtubeSelectionCoordinator = .init(injector: injector)
         self.webpageSelectionCoordinator = .init(injector: injector)

@@ -15,9 +15,9 @@ protocol LocalVideoSelectionUseCase {
 
 class LocalVideoSelectionInteractor: LocalVideoSelectionUseCase {
     
-    private let wallpaperRequestService: WallpaperRequestService
+    private let wallpaperRequestService: any WallpaperRequestService
 
-    init(wallpaperRequestService: WallpaperRequestService) {
+    init(wallpaperRequestService: any WallpaperRequestService) {
         self.wallpaperRequestService = wallpaperRequestService
     }
 

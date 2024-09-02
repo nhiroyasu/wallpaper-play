@@ -34,9 +34,9 @@ class PreferenceViewController: NSViewController {
         }
     }
     
-    var presenter: PreferencePresenter
+    var presenter: any PreferencePresenter
 
-    init(presenter: PreferencePresenter) {
+    init(presenter: any PreferencePresenter) {
         self.presenter = presenter
         super.init(nibName: String(describing: type(of: self)), bundle: nil)
     }

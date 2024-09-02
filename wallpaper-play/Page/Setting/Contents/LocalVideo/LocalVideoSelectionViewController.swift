@@ -37,13 +37,13 @@ class LocalVideoSelectionViewController: NSViewController {
     }
     @IBOutlet weak var muteToggleButton: NSButton!
     private var videoView: VideoView!
-    private let presenter: LocalVideoSelectionPresenter
-    private let avManager: AVPlayerManager
+    private let presenter: any LocalVideoSelectionPresenter
+    private let avManager: any AVPlayerManager
     private var selectedVideoUrl: URL?
 
     init(
-        presenter: LocalVideoSelectionPresenter,
-        avManager: AVPlayerManager
+        presenter: any LocalVideoSelectionPresenter,
+        avManager: any AVPlayerManager
     ) {
         self.presenter = presenter
         self.avManager = avManager

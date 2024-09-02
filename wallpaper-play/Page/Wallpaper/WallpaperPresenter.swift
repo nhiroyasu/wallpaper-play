@@ -24,11 +24,11 @@ protocol WallpaperPresenter {
 }
 
 class WallpaperPresenterImpl: NSObject, WallpaperPresenter {
-    private let youtubeContentService: YouTubeContentsService
+    private let youtubeContentService: any YouTubeContentsService
     private let wallpaperKind: WallpaperKind
     weak var output: WallpaperViewController!
 
-    init(wallpaperKind: WallpaperKind, youtubeContentService: YouTubeContentsService) {
+    init(wallpaperKind: WallpaperKind, youtubeContentService: any YouTubeContentsService) {
         self.wallpaperKind = wallpaperKind
         self.youtubeContentService = youtubeContentService
     }

@@ -16,21 +16,21 @@ protocol ApplicationService {
 
 class ApplicationServiceImpl: ApplicationService {
     
-    private let realmService: RealmService
-    private let notificationManager: NotificationManager
-    private let wallpaperWindowService: WallpaperWindowService
-    private let settingWindowService: SettingWindowService
-    private let wallpaperHistoryService: WallpaperHistoryService
-    private let applicationFileManager: ApplicationFileManager
+    private let realmService: any RealmService
+    private let notificationManager: any NotificationManager
+    private let wallpaperWindowService: any WallpaperWindowService
+    private let settingWindowService: any SettingWindowService
+    private let wallpaperHistoryService: any WallpaperHistoryService
+    private let applicationFileManager: any ApplicationFileManager
     private let fileManager: FileManager
-    private let userSetting: UserSettingService
-    private let youtubeContentService: YouTubeContentsService
-    private let urlResolverService: URLResolverService
-    private let urlValidationService: UrlValidationService
-    private let appManager: AppManager
-    private let dockMenuBuilder: DockMenuBuilder
+    private let userSetting: any UserSettingService
+    private let youtubeContentService: any YouTubeContentsService
+    private let urlResolverService: any URLResolverService
+    private let urlValidationService: any UrlValidationService
+    private let appManager: any AppManager
+    private let dockMenuBuilder: any DockMenuBuilder
 
-    init(injector: Injectable) {
+    init(injector: any Injectable) {
         realmService = injector.build()
         notificationManager = injector.build()
         wallpaperWindowService = injector.build()

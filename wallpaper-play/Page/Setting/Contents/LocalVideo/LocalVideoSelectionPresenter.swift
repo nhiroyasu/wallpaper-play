@@ -9,15 +9,15 @@ protocol LocalVideoSelectionPresenter {
 }
 
 class LocalVideoSelectionPresenterImpl: LocalVideoSelectionPresenter {
-    private let useCase: LocalVideoSelectionUseCase
-    private let fileSelectionService: FileSelectionManager
-    private let alertManager: AlertManager
-    weak var output: LocalVideoSelectionViewOutput!
+    private let useCase: any LocalVideoSelectionUseCase
+    private let fileSelectionService: any FileSelectionManager
+    private let alertManager: any AlertManager
+    weak var output: (any LocalVideoSelectionViewOutput)!
 
     init(
-        useCase: LocalVideoSelectionUseCase,
-        alertManager: AlertManager,
-        fileSelectionService: FileSelectionManager
+        useCase: any LocalVideoSelectionUseCase,
+        alertManager: any AlertManager,
+        fileSelectionService: any FileSelectionManager
     ) {
         self.useCase = useCase
         self.alertManager = alertManager

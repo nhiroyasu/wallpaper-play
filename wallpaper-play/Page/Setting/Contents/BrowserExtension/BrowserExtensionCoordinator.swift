@@ -4,9 +4,9 @@ import Injectable
 
 class BrowserExtensionCoordinator: Coordinator {
     private var viewController: BrowserExtensionViewController!
-    private let injector: Injectable
+    private let injector: any Injectable
 
-    init(injector: Injectable) {
+    init(injector: any Injectable) {
         self.injector = injector
     }
 

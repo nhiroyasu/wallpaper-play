@@ -1,10 +1,10 @@
 {
-  "originHash" : "0358ffea17e9d594fbbd3cfec67c6ff7a972b80dde162eccab111b92f3c3383f",
+  "originHash" : "0fde5315a4a2c273ee4c0d051508bff85035ece047042b17d7a31c7a364c8680",
   "pins" : [
     {
       "identity" : "injectable",
       "kind" : "remoteSourceControl",
-      "location" : "git@github.com:nhiroyasu/Injectable.git",
+      "location" : "https://github.com/nhiroyasu/Injectable.git",
       "state" : {
         "revision" : "c161cbae5ae4d331cb94b4e88aeb09f59cce7e9f",
         "version" : "1.0.3"

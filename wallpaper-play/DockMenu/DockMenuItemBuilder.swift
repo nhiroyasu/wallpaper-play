@@ -6,9 +6,9 @@ protocol DockMenuItemBuilder {
 }
 
 final class DockMenuItemBuilderImpl: DockMenuItemBuilder {
-    private let action: DockMenuAction
+    private let action: any DockMenuAction
 
-    init(injector: Injectable) {
+    init(injector: any Injectable) {
         self.action = injector.build()
     }
 

@@ -12,9 +12,9 @@ protocol PreferenceUseCase {
 
 class PreferenceInteractor: PreferenceUseCase {
     
-    private var userSetting: UserSettingService
+    private var userSetting: any UserSettingService
 
-    internal init(injector: Injectable) {
+    internal init(injector: any Injectable) {
         self.userSetting = injector.build()
     }
 
