@@ -117,9 +117,9 @@
 		4FC182FA285E1B780042FAF6 /* PreferenceCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC182F9285E1B780042FAF6 /* PreferenceCoordinator.swift */; };
 		4FDE8AD1286DE1750028E062 /* Statable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDE8AD0286DE1750028E062 /* Statable.swift */; };
 		4FDF1DEF285EAF7100ABBE8D /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDF1DEE285EAF7100ABBE8D /* AppManager.swift */; };
-		4FDF1DF2285EC9B700ABBE8D /* Injectable in Frameworks */ = {isa = PBXBuildFile; productRef = 4FDF1DF1285EC9B700ABBE8D /* Injectable */; };
 		4FDF1DF5285ECA1900ABBE8D /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 4FDF1DF4285ECA1900ABBE8D /* Swinject */; };
 		4FDF1DF7285ECAB600ABBE8D /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDF1DF6285ECAB500ABBE8D /* Coordinator.swift */; };
+		4FE7384A2C867D4300EE18D1 /* Injectable in Frameworks */ = {isa = PBXBuildFile; productRef = 4FE738492C867D4300EE18D1 /* Injectable */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -289,7 +289,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4F6A4D052896444100F7B40D /* LaunchAtLogin in Frameworks */,
-				4FDF1DF2285EC9B700ABBE8D /* Injectable in Frameworks */,
+				4FE7384A2C867D4300EE18D1 /* Injectable in Frameworks */,
 				4F8A590B284CA0FA00557FDD /* WebKit.framework in Frameworks */,
 				4F03CEDF285A09FA009FDC6F /* Realm in Frameworks */,
 				4F03CEE1285A09FA009FDC6F /* RealmSwift in Frameworks */,
@@ -682,9 +682,9 @@
 			packageProductDependencies = (
 				4F03CEDE285A09FA009FDC6F /* Realm */,
 				4F03CEE0285A09FA009FDC6F /* RealmSwift */,
-				4FDF1DF1285EC9B700ABBE8D /* Injectable */,
 				4FDF1DF4285ECA1900ABBE8D /* Swinject */,
 				4F6A4D042896444100F7B40D /* LaunchAtLogin */,
+				4FE738492C867D4300EE18D1 /* Injectable */,
 			);
 			productName = WallMovie;
 			productReference = 4F8A58D6284CA01A00557FDD /* Wallpaper Play.app */;
@@ -786,9 +786,9 @@
 			mainGroup = 4F8A58CD284CA01A00557FDD;
 			packageReferences = (
 				4F03CEDD285A09FA009FDC6F /* XCRemoteSwiftPackageReference "realm-swift" */,
-				4FDF1DF0285EC9B700ABBE8D /* XCRemoteSwiftPackageReference "Injectable" */,
 				4FDF1DF3285ECA1900ABBE8D /* XCRemoteSwiftPackageReference "Swinject" */,
 				4F6A4D032896444100F7B40D /* XCRemoteSwiftPackageReference "LaunchAtLogin" */,
+				4FE738482C867B5C00EE18D1 /* XCRemoteSwiftPackageReference "Injectable" */,
 			);
 			productRefGroup = 4F8A58D7284CA01A00557FDD /* Products */;
 			projectDirPath = "";
@@ -1487,20 +1487,20 @@
 				minimumVersion = 5.0.0;
 			};
 		};
-		4FDF1DF0285EC9B700ABBE8D /* XCRemoteSwiftPackageReference "Injectable" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "git@github.com:nhiroyasu/Injectable.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
-		};
 		4FDF1DF3285ECA1900ABBE8D /* XCRemoteSwiftPackageReference "Swinject" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Swinject/Swinject.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.0;
+				minimumVersion = 2.8.1;
+			};
+		};
+		4FE738482C867B5C00EE18D1 /* XCRemoteSwiftPackageReference "Injectable" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/nhiroyasu/Injectable.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.3;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -1531,15 +1531,15 @@
 			package = 4F6A4D032896444100F7B40D /* XCRemoteSwiftPackageReference "LaunchAtLogin" */;
 			productName = LaunchAtLogin;
 		};
-		4FDF1DF1285EC9B700ABBE8D /* Injectable */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 4FDF1DF0285EC9B700ABBE8D /* XCRemoteSwiftPackageReference "Injectable" */;
-			productName = Injectable;
-		};
 		4FDF1DF4285ECA1900ABBE8D /* Swinject */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 4FDF1DF3285ECA1900ABBE8D /* XCRemoteSwiftPackageReference "Swinject" */;
 			productName = Swinject;
+		};
+		4FE738492C867D4300EE18D1 /* Injectable */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4FE738482C867B5C00EE18D1 /* XCRemoteSwiftPackageReference "Injectable" */;
+			productName = Injectable;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
