@@ -36,7 +36,7 @@ class WebPageSelectionViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        previewWebView = .init(frame: .zero, configuration: .init())
+        previewWebView = .init(frame: .zero, configuration: .webWallpaper)
         wrapView.fitAllAnchor(previewWebView)
         if let path = Bundle.main.path(forResource: "copy_description_for_web", ofType: "html") {
             setPreview(url: URL(fileURLWithPath: path))

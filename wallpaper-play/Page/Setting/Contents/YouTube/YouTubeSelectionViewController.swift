@@ -34,7 +34,8 @@ class YouTubeSelectionViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        youtubeWebView = .init(frame: .zero, configuration: .init())
+        let webViewConfiguration = WKWebViewConfiguration()
+        youtubeWebView = .init(frame: .zero, configuration: .youtubeWallpaper)
         youtubeWrappingView.fitAllAnchor(youtubeWebView)
         if let path = Bundle.main.path(forResource: "copy_description_for_youtube", ofType: "html") {
             updatePreview(url: URL(fileURLWithPath: path))

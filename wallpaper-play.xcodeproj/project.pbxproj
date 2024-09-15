@@ -121,6 +121,7 @@
 		4FDEFC212C96E39D009A062A /* ColorHex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDEFC1F2C96E36A009A062A /* ColorHex.swift */; };
 		4FDEFC232C96E40A009A062A /* NSColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDEFC222C96E40A009A062A /* NSColor+.swift */; };
 		4FDEFC252C96F467009A062A /* View+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDEFC242C96F467009A062A /* View+.swift */; };
+		4FDEFC272C96F8EF009A062A /* WebConfiguration+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDEFC262C96F8EF009A062A /* WebConfiguration+.swift */; };
 		4FDF1DEF285EAF7100ABBE8D /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDF1DEE285EAF7100ABBE8D /* AppManager.swift */; };
 		4FDF1DF5285ECA1900ABBE8D /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 4FDF1DF4285ECA1900ABBE8D /* Swinject */; };
 		4FDF1DF7285ECAB600ABBE8D /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDF1DF6285ECAB500ABBE8D /* Coordinator.swift */; };
@@ -289,6 +290,7 @@
 		4FDEFC1F2C96E36A009A062A /* ColorHex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorHex.swift; sourceTree = "<group>"; };
 		4FDEFC222C96E40A009A062A /* NSColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSColor+.swift"; sourceTree = "<group>"; };
 		4FDEFC242C96F467009A062A /* View+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+.swift"; sourceTree = "<group>"; };
+		4FDEFC262C96F8EF009A062A /* WebConfiguration+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WebConfiguration+.swift"; sourceTree = "<group>"; };
 		4FDF1DEE285EAF7100ABBE8D /* AppManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
 		4FDF1DF6285ECAB500ABBE8D /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -350,6 +352,7 @@
 				4FDEFC1C2C96D517009A062A /* NSWindowLevel+.swift */,
 				4FDEFC1F2C96E36A009A062A /* ColorHex.swift */,
 				4FDEFC222C96E40A009A062A /* NSColor+.swift */,
+				4FDEFC262C96F8EF009A062A /* WebConfiguration+.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -905,6 +908,7 @@
 				4F2161FE2850FA37000673EF /* PreferenceViewController.swift in Sources */,
 				4FBD510628850AAF002DF955 /* WebPageSelectionPresenter.swift in Sources */,
 				4FB0F3F12854D1ED004E6D51 /* YouTubeSelectionCoordinator.swift in Sources */,
+				4FDEFC272C96F8EF009A062A /* WebConfiguration+.swift in Sources */,
 				4FB0F3F62854D3E1004E6D51 /* SettingCoordinator.swift in Sources */,
 				4FDEFC232C96E40A009A062A /* NSColor+.swift in Sources */,
 				4F03CEE3285A0A5A009FDC6F /* RealmManager.swift in Sources */,

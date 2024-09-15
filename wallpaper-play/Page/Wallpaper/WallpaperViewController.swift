@@ -9,6 +9,7 @@ protocol WallpaperViewOutput {
 class WallpaperViewController: NSViewController {
 
     var webView: WallpaperWebView!
+    var youtubeView: WallpaperWebView!
     var videoView: VideoView!
     private let wallpaperSize: NSSize
     private let avManager: any AVPlayerManager
@@ -32,7 +33,9 @@ class WallpaperViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         videoView = .init(frame: .init(origin: .zero, size: wallpaperSize))
-        webView = .init(frame: .zero, configuration: .init())
+        youtubeView = .init(frame: .zero, configuration: .youtubeWallpaper)
+        webView = .init(frame: .zero, configuration: .webWallpaper)
+        view.fitAllAnchor(youtubeView)
         view.fitAllAnchor(webView)
         view.fitAllAnchor(videoView)
 
@@ -60,9 +63,8 @@ extension WallpaperViewController: WallpaperViewOutput {
             }
         case .youtube(let url):
             allClear()
-            webView.isHidden = false
-            webView.load(URLRequest(url: url))
-            webView.setArrowOperation(false)
+            youtubeView.isHidden = false
+            youtubeView.load(URLRequest(url: url))
         case .web(let url, let arrowOperation):
             allClear()
             webView.isHidden = false
@@ -79,6 +81,7 @@ extension WallpaperViewController: WallpaperViewOutput {
 extension WallpaperViewController {
     private func allClear() {
         removeVideo()
+        removeYoutubeView()
         removeWebView()
     }
 
@@ -86,6 +89,12 @@ extension WallpaperViewController {
         videoView.isHidden = true
         videoView.layer?.sublayers?.forEach { $0.removeFromSuperlayer() }
         avManager.clear()
+    }
+
+    private func removeYoutubeView() {
+        youtubeView.loadHTMLString("", baseURL: nil)
+        youtubeView.setArrowOperation(false)
+        youtubeView.isHidden = true
     }
 
     private func removeWebView() {
