@@ -120,6 +120,7 @@
 		4FDEFC1E2C96D680009A062A /* NSWindowLevel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDEFC1C2C96D517009A062A /* NSWindowLevel+.swift */; };
 		4FDEFC212C96E39D009A062A /* ColorHex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDEFC1F2C96E36A009A062A /* ColorHex.swift */; };
 		4FDEFC232C96E40A009A062A /* NSColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDEFC222C96E40A009A062A /* NSColor+.swift */; };
+		4FDEFC252C96F467009A062A /* View+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDEFC242C96F467009A062A /* View+.swift */; };
 		4FDF1DEF285EAF7100ABBE8D /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDF1DEE285EAF7100ABBE8D /* AppManager.swift */; };
 		4FDF1DF5285ECA1900ABBE8D /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 4FDF1DF4285ECA1900ABBE8D /* Swinject */; };
 		4FDF1DF7285ECAB600ABBE8D /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDF1DF6285ECAB500ABBE8D /* Coordinator.swift */; };
@@ -287,6 +288,7 @@
 		4FDEFC1C2C96D517009A062A /* NSWindowLevel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSWindowLevel+.swift"; sourceTree = "<group>"; };
 		4FDEFC1F2C96E36A009A062A /* ColorHex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorHex.swift; sourceTree = "<group>"; };
 		4FDEFC222C96E40A009A062A /* NSColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSColor+.swift"; sourceTree = "<group>"; };
+		4FDEFC242C96F467009A062A /* View+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+.swift"; sourceTree = "<group>"; };
 		4FDF1DEE285EAF7100ABBE8D /* AppManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
 		4FDF1DF6285ECAB500ABBE8D /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -505,6 +507,7 @@
 				4F8A592C284CB4DE00557FDD /* NSView+.swift */,
 				4F8A5941284CEEFE00557FDD /* NSCollectionView+.swift */,
 				4F25C1D5284F718C00397737 /* NSImageView+.swift */,
+				4FDEFC242C96F467009A062A /* View+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -944,6 +947,7 @@
 				4F8A5957284D1A2C00557FDD /* LocalVideoSelectionViewController.swift in Sources */,
 				4F8A58DC284CA01A00557FDD /* WallpaperViewController.swift in Sources */,
 				4FDEFC212C96E39D009A062A /* ColorHex.swift in Sources */,
+				4FDEFC252C96F467009A062A /* View+.swift in Sources */,
 				4F2D558E289567D200363292 /* AboutViewController.swift in Sources */,
 				4FAF30392BE399F200B9E381 /* BrowserExtensionCoordinator.swift in Sources */,
 				4FB0F3F32854D2C5004E6D51 /* LocalVideoSelectionCoordinator.swift in Sources */,

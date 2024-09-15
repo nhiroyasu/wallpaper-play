@@ -13,12 +13,15 @@ struct AboutView: View {
                 .font(.system(size: 14, weight: .medium, design: .default))
             Text("© Hiroyasu Niitsuma")
             Link("GitHub", destination: URL(string: "https://github.com/nhiroyasu/wallpaper-play")!)
+                .pointingCursor()
             Link(
                 LocalizedString(key: .term_of_use),
                 destination: URL(string: LocalizedString(key: .term_of_use_link))!)
+            .pointingCursor()
             Link(
                 LocalizedString(key: .privacy_policy),
                 destination: URL(string: LocalizedString(key: .privacy_policy_link))!)
+            .pointingCursor()
         }
     }
 }
