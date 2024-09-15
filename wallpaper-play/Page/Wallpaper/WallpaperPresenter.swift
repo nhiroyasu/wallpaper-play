@@ -12,10 +12,15 @@ struct YouTubePlayValue {
     let isMute: Bool
 }
 
+struct WebPlayValue {
+    let url: URL
+    let arrowOperation: Bool
+}
+
 enum WallpaperKind {
     case video(value: VideoPlayValue)
     case youtube(videoId: String, isMute: Bool)
-    case web(url: URL)
+    case web(url: URL, arrowOperation: Bool)
     case none
 }
 
@@ -43,8 +48,8 @@ class WallpaperPresenterImpl: NSObject, WallpaperPresenter {
             } else {
                 .none
             }
-        case .web(let url):
-            .web(url)
+        case .web(let url, let arrowOperation):
+            .web(url, arrowOperation: arrowOperation)
         case .none:
             .none
         }

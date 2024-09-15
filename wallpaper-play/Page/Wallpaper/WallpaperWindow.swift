@@ -2,7 +2,7 @@ import Cocoa
 import Injectable
 
 class WallpaperWindow: NSWindow {
-    init(contentViewController: NSViewController) {
+    init(contentViewController: NSViewController, windowLevel: NSWindow.Level) {
         super.init(contentRect: .zero, styleMask: [.borderless], backing: .buffered, defer: false)
         self.contentViewController = contentViewController
         title = "Wallpaper Window"
@@ -11,7 +11,7 @@ class WallpaperWindow: NSWindow {
         canBecomeVisibleWithoutLogin = true
         hasShadow = false
         canHide = false
-        level = .init(Int(CGWindowLevelForKey(.desktopWindow)) + 1)
+        level = windowLevel
         isReleasedWhenClosed = false
     }
 

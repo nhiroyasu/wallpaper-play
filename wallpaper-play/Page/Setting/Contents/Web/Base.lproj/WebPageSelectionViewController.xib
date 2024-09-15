@@ -9,6 +9,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="WebPageSelectionViewController" customModule="Wallpaper_Play" customModuleProvider="target">
             <connections>
+                <outlet property="allowOperationCheckbox" destination="ycg-sb-xll" id="Z2g-nq-G01"/>
                 <outlet property="urlSearchField" destination="p8d-qh-fot" id="kTZ-Ju-zy0"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
                 <outlet property="wallpaperButton" destination="YEP-sx-Osn" id="kSi-k1-Mg6"/>
@@ -155,7 +156,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="849" height="64"/>
                     <subviews>
                         <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="16" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kN5-N1-A56">
-                            <rect key="frame" x="32" y="18" width="196" height="28"/>
+                            <rect key="frame" x="32" y="18" width="259" height="28"/>
                             <subviews>
                                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="YEP-sx-Osn">
                                     <rect key="frame" x="-6" y="-6" width="137" height="40"/>
@@ -169,11 +170,25 @@
                                     </connections>
                                 </button>
                                 <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="16" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bEo-dt-Cqd">
-                                    <rect key="frame" x="141" y="6" width="55" height="16"/>
+                                    <rect key="frame" x="141" y="6" width="118" height="16"/>
+                                    <subviews>
+                                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ycg-sb-xll">
+                                            <rect key="frame" x="-2" y="-1" width="120" height="18"/>
+                                            <buttonCell key="cell" type="check" title="Allow operation" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="Phi-tA-SAj">
+                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                        </button>
+                                    </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="55" id="dRH-ti-fJe"/>
                                         <constraint firstAttribute="height" constant="16" id="ubq-gZ-RB1"/>
                                     </constraints>
+                                    <visibilityPriorities>
+                                        <integer value="1000"/>
+                                    </visibilityPriorities>
+                                    <customSpacing>
+                                        <real value="3.4028234663852886e+38"/>
+                                    </customSpacing>
                                 </stackView>
                             </subviews>
                             <visibilityPriorities>

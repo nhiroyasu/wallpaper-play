@@ -127,7 +127,11 @@ class WallpaperHistoryServiceImpl: WallpaperHistoryService {
         } else if let video = latestVideo as? YouTubeWallpaper {
             return .youtube(videoId: video.videoId, isMute: video.isMute)
         } else if let video = latestVideo as? WebPageWallpaper {
-            return .web(url: video.url)
+            let arrowOperation = video.arrowOperation ?? false
+            return .web(
+                url: video.url,
+                arrowOperation: arrowOperation
+            )
         } else {
             return nil
         }

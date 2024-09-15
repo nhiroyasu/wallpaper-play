@@ -7,8 +7,8 @@ protocol WallpaperViewOutput {
 }
 
 class WallpaperViewController: NSViewController {
-    
-    var webView: YoutubeWebView!
+
+    var webView: WallpaperWebView!
     var videoView: VideoView!
     private let wallpaperSize: NSSize
     private let avManager: any AVPlayerManager
@@ -24,7 +24,7 @@ class WallpaperViewController: NSViewController {
         self.avManager = avManager
         super.init(nibName: String(describing: Self.self), bundle: nil)
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("not call")
     }
@@ -61,10 +61,12 @@ extension WallpaperViewController: WallpaperViewOutput {
             allClear()
             webView.isHidden = false
             webView.load(URLRequest(url: url))
-        case .web(let url):
+            webView.setArrowOperation(false)
+        case .web(let url, let arrowOperation):
             allClear()
             webView.isHidden = false
             webView.load(URLRequest(url: url))
+            webView.setArrowOperation(arrowOperation)
         case .none:
             allClear()
         }
@@ -76,7 +78,7 @@ extension WallpaperViewController: WallpaperViewOutput {
 extension WallpaperViewController {
     private func allClear() {
         removeVideo()
-        removeYouTubeView()
+        removeWebView()
     }
 
     private func removeVideo() {
@@ -85,8 +87,9 @@ extension WallpaperViewController {
         avManager.clear()
     }
 
-    private func removeYouTubeView() {
+    private func removeWebView() {
         webView.loadHTMLString("", baseURL: nil)
+        webView.setArrowOperation(false)
         webView.isHidden = true
     }
 }
@@ -94,6 +97,6 @@ extension WallpaperViewController {
 enum WallpaperDisplayType {
     case video(URL, videoSize: VideoSize, mute: Bool)
     case youtube(URL)
-    case web(URL)
+    case web(URL, arrowOperation: Bool)
     case none
 }

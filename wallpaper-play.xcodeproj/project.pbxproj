@@ -61,7 +61,7 @@
 		4F8A58EC284CA01B00557FDD /* YouTubeContentsServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8A58EB284CA01B00557FDD /* YouTubeContentsServiceTests.swift */; };
 		4F8A5907284CA04F00557FDD /* WallpaperWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8A5906284CA04F00557FDD /* WallpaperWindow.swift */; };
 		4F8A590B284CA0FA00557FDD /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F8A590A284CA0FA00557FDD /* WebKit.framework */; };
-		4F8A590D284CA1B200557FDD /* YouTubeWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8A590C284CA1B200557FDD /* YouTubeWebView.swift */; };
+		4F8A590D284CA1B200557FDD /* WallpaperWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8A590C284CA1B200557FDD /* WallpaperWebView.swift */; };
 		4F8A591B284CA1FB00557FDD /* AppContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8A5915284CA1FB00557FDD /* AppContainer.swift */; };
 		4F8A5922284CA28100557FDD /* FileSelectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8A5921284CA28100557FDD /* FileSelectionManager.swift */; };
 		4F8A5924284CA41400557FDD /* AVPlayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8A5923284CA41400557FDD /* AVPlayerManager.swift */; };
@@ -116,6 +116,8 @@
 		4FC182F8285E06EA0042FAF6 /* PreferencePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC182F7285E06EA0042FAF6 /* PreferencePresenter.swift */; };
 		4FC182FA285E1B780042FAF6 /* PreferenceCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC182F9285E1B780042FAF6 /* PreferenceCoordinator.swift */; };
 		4FDE8AD1286DE1750028E062 /* Statable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDE8AD0286DE1750028E062 /* Statable.swift */; };
+		4FDEFC1B2C96CD25009A062A /* db_schema_v4.realm in Resources */ = {isa = PBXBuildFile; fileRef = 4FDEFC1A2C96CD25009A062A /* db_schema_v4.realm */; };
+		4FDEFC1E2C96D680009A062A /* NSWindowLevel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDEFC1C2C96D517009A062A /* NSWindowLevel+.swift */; };
 		4FDF1DEF285EAF7100ABBE8D /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDF1DEE285EAF7100ABBE8D /* AppManager.swift */; };
 		4FDF1DF5285ECA1900ABBE8D /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 4FDF1DF4285ECA1900ABBE8D /* Swinject */; };
 		4FDF1DF7285ECAB600ABBE8D /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDF1DF6285ECAB500ABBE8D /* Coordinator.swift */; };
@@ -220,7 +222,7 @@
 		4F8A58F1284CA01B00557FDD /* Wallpaper Play UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Wallpaper Play UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F8A5906284CA04F00557FDD /* WallpaperWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallpaperWindow.swift; sourceTree = "<group>"; };
 		4F8A590A284CA0FA00557FDD /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
-		4F8A590C284CA1B200557FDD /* YouTubeWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubeWebView.swift; sourceTree = "<group>"; };
+		4F8A590C284CA1B200557FDD /* WallpaperWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallpaperWebView.swift; sourceTree = "<group>"; };
 		4F8A5915284CA1FB00557FDD /* AppContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppContainer.swift; sourceTree = "<group>"; };
 		4F8A5921284CA28100557FDD /* FileSelectionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileSelectionManager.swift; sourceTree = "<group>"; };
 		4F8A5923284CA41400557FDD /* AVPlayerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVPlayerManager.swift; sourceTree = "<group>"; };
@@ -279,6 +281,8 @@
 		4FC182F7285E06EA0042FAF6 /* PreferencePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencePresenter.swift; sourceTree = "<group>"; };
 		4FC182F9285E1B780042FAF6 /* PreferenceCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceCoordinator.swift; sourceTree = "<group>"; };
 		4FDE8AD0286DE1750028E062 /* Statable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Statable.swift; sourceTree = "<group>"; };
+		4FDEFC1A2C96CD25009A062A /* db_schema_v4.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = db_schema_v4.realm; sourceTree = "<group>"; };
+		4FDEFC1C2C96D517009A062A /* NSWindowLevel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSWindowLevel+.swift"; sourceTree = "<group>"; };
 		4FDF1DEE285EAF7100ABBE8D /* AppManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
 		4FDF1DF6285ECAB500ABBE8D /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -337,6 +341,7 @@
 				4F2161F82850BB4F000673EF /* CGImage+.swift */,
 				4FDE8AD0286DE1750028E062 /* Statable.swift */,
 				4F6A4D21289653F100F7B40D /* Localization.swift */,
+				4FDEFC1C2C96D517009A062A /* NSWindowLevel+.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -353,6 +358,7 @@
 		4F2801852BDDEFDE003F36A6 /* TestRealm */ = {
 			isa = PBXGroup;
 			children = (
+				4FDEFC1A2C96CD25009A062A /* db_schema_v4.realm */,
 				4F28018A2BDDF4DD003F36A6 /* db_schema_v2.realm */,
 			);
 			path = TestRealm;
@@ -451,7 +457,7 @@
 			children = (
 				4F8A592B284CB4D100557FDD /* Extension */,
 				4FC182F0285E00590042FAF6 /* SwitchCell */,
-				4F8A590C284CA1B200557FDD /* YouTubeWebView.swift */,
+				4F8A590C284CA1B200557FDD /* WallpaperWebView.swift */,
 				4F6A4D29289D6F1300F7B40D /* NonInteractionView.swift */,
 				4F8A5927284CAB3F00557FDD /* VideoView.swift */,
 				4F8A594F284CFDF200557FDD /* InjectableWindowController.swift */,
@@ -830,6 +836,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FDEFC1B2C96CD25009A062A /* db_schema_v4.realm in Resources */,
 				4F28018B2BDDF4DD003F36A6 /* db_schema_v2.realm in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -909,12 +916,13 @@
 				4F03CEEC285A1654009FDC6F /* DateSortable.swift in Sources */,
 				4F8A5954284D18E400557FDD /* SideMenuViewController.swift in Sources */,
 				4FAF30362BE391B100B9E381 /* BrowserExtensionViewController.swift in Sources */,
+				4FDEFC1E2C96D680009A062A /* NSWindowLevel+.swift in Sources */,
 				4F7B56042BDDE6FF00D427C6 /* TestInjector.swift in Sources */,
 				4F01693C284D1D2E00C12ED6 /* SideMenuCell.swift in Sources */,
 				4FB1BD3D295E8C9300F476CD /* DockMenuItemBuilder.swift in Sources */,
 				4F6A4D22289653F100F7B40D /* Localization.swift in Sources */,
 				4FBD50FF28850A38002DF955 /* WebPageSelectionCoordinator.swift in Sources */,
-				4F8A590D284CA1B200557FDD /* YouTubeWebView.swift in Sources */,
+				4F8A590D284CA1B200557FDD /* WallpaperWebView.swift in Sources */,
 				4F8A5950284CFDF200557FDD /* InjectableWindowController.swift in Sources */,
 				4F8A594C284CFD4F00557FDD /* SettingSplitViewController.swift in Sources */,
 				4FDF1DF7285ECAB600ABBE8D /* Coordinator.swift in Sources */,

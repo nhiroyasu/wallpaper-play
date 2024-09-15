@@ -112,8 +112,8 @@ class ApplicationServiceImpl: ApplicationService {
     
     private func setUpRequestWebPageNotification() {
         notificationManager.observe(name: .requestWebPage) { [weak self] param in
-            guard let self = self, let url = param as? URL else { fatalError() }
-            self.displayWebPage(url: url, shouldSavedHistory: true)
+            guard let self = self, let value = param as? WebPlayValue else { fatalError() }
+            self.displayWebPage(url: value.url, arrowOperation: value.arrowOperation, shouldSavedHistory: true)
         }
     }
     
@@ -126,11 +126,11 @@ class ApplicationServiceImpl: ApplicationService {
         }
     }
     
-    private func displayWebPage(url: URL, shouldSavedHistory: Bool) {
-        wallpaperWindowService.display(wallpaperKind: .web(url: url))
+    private func displayWebPage(url: URL, arrowOperation: Bool, shouldSavedHistory: Bool) {
+        wallpaperWindowService.display(wallpaperKind: .web(url: url, arrowOperation: arrowOperation))
 
         if shouldSavedHistory {
-            let webpageWallpaper = WebPageWallpaper(date: Date(), url: url)
+            let webpageWallpaper = WebPageWallpaper(date: Date(), url: url, arrowOperation: arrowOperation)
             wallpaperHistoryService.store(webpageWallpaper)
         }
     }

@@ -20,7 +20,7 @@ class YouTubeSelectionViewController: NSViewController {
     @IBOutlet weak var youtubeWrappingView: NSView!
     @IBOutlet weak var wallpaperButton: NSButton!
     @IBOutlet weak var muteToggleButton: NSButton!
-    public var youtubeWebView: YoutubeWebView!
+    public var youtubeWebView: WallpaperWebView!
     private let presenter: any YouTubeSelectionPresenter
 
     init(presenter: any YouTubeSelectionPresenter) {
