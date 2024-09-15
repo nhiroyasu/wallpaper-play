@@ -118,6 +118,8 @@
 		4FDE8AD1286DE1750028E062 /* Statable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDE8AD0286DE1750028E062 /* Statable.swift */; };
 		4FDEFC1B2C96CD25009A062A /* db_schema_v4.realm in Resources */ = {isa = PBXBuildFile; fileRef = 4FDEFC1A2C96CD25009A062A /* db_schema_v4.realm */; };
 		4FDEFC1E2C96D680009A062A /* NSWindowLevel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDEFC1C2C96D517009A062A /* NSWindowLevel+.swift */; };
+		4FDEFC212C96E39D009A062A /* ColorHex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDEFC1F2C96E36A009A062A /* ColorHex.swift */; };
+		4FDEFC232C96E40A009A062A /* NSColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDEFC222C96E40A009A062A /* NSColor+.swift */; };
 		4FDF1DEF285EAF7100ABBE8D /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDF1DEE285EAF7100ABBE8D /* AppManager.swift */; };
 		4FDF1DF5285ECA1900ABBE8D /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 4FDF1DF4285ECA1900ABBE8D /* Swinject */; };
 		4FDF1DF7285ECAB600ABBE8D /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDF1DF6285ECAB500ABBE8D /* Coordinator.swift */; };
@@ -283,6 +285,8 @@
 		4FDE8AD0286DE1750028E062 /* Statable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Statable.swift; sourceTree = "<group>"; };
 		4FDEFC1A2C96CD25009A062A /* db_schema_v4.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = db_schema_v4.realm; sourceTree = "<group>"; };
 		4FDEFC1C2C96D517009A062A /* NSWindowLevel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSWindowLevel+.swift"; sourceTree = "<group>"; };
+		4FDEFC1F2C96E36A009A062A /* ColorHex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorHex.swift; sourceTree = "<group>"; };
+		4FDEFC222C96E40A009A062A /* NSColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSColor+.swift"; sourceTree = "<group>"; };
 		4FDF1DEE285EAF7100ABBE8D /* AppManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
 		4FDF1DF6285ECAB500ABBE8D /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -342,6 +346,8 @@
 				4FDE8AD0286DE1750028E062 /* Statable.swift */,
 				4F6A4D21289653F100F7B40D /* Localization.swift */,
 				4FDEFC1C2C96D517009A062A /* NSWindowLevel+.swift */,
+				4FDEFC1F2C96E36A009A062A /* ColorHex.swift */,
+				4FDEFC222C96E40A009A062A /* NSColor+.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -897,6 +903,7 @@
 				4FBD510628850AAF002DF955 /* WebPageSelectionPresenter.swift in Sources */,
 				4FB0F3F12854D1ED004E6D51 /* YouTubeSelectionCoordinator.swift in Sources */,
 				4FB0F3F62854D3E1004E6D51 /* SettingCoordinator.swift in Sources */,
+				4FDEFC232C96E40A009A062A /* NSColor+.swift in Sources */,
 				4F03CEE3285A0A5A009FDC6F /* RealmManager.swift in Sources */,
 				4F25C1CA284E636A00397737 /* YouTubeSelectionUseCase.swift in Sources */,
 				4F8A5946284CF4A200557FDD /* ApplicationService.swift in Sources */,
@@ -936,6 +943,7 @@
 				4FAD5E1F2BE3634B00DB51DC /* WallpaperRequestService.swift in Sources */,
 				4F8A5957284D1A2C00557FDD /* LocalVideoSelectionViewController.swift in Sources */,
 				4F8A58DC284CA01A00557FDD /* WallpaperViewController.swift in Sources */,
+				4FDEFC212C96E39D009A062A /* ColorHex.swift in Sources */,
 				4F2D558E289567D200363292 /* AboutViewController.swift in Sources */,
 				4FAF30392BE399F200B9E381 /* BrowserExtensionCoordinator.swift in Sources */,
 				4FB0F3F32854D2C5004E6D51 /* LocalVideoSelectionCoordinator.swift in Sources */,

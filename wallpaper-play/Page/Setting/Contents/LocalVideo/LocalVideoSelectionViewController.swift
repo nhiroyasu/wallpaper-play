@@ -35,6 +35,14 @@ class LocalVideoSelectionViewController: NSViewController {
             videoSizePopUpButton.selectItem(at: 0)
         }
     }
+    @IBOutlet weak var backgroundColorPicker: NSColorWell! {
+        didSet {
+            backgroundColorPicker.color = .white
+            if #available(macOS 14.0, *) {
+                backgroundColorPicker.supportsAlpha = false
+            }
+        }
+    }
     @IBOutlet weak var muteToggleButton: NSButton!
     private var videoView: VideoView!
     private let presenter: any LocalVideoSelectionPresenter
@@ -60,13 +68,11 @@ class LocalVideoSelectionViewController: NSViewController {
         videoView = .init(frame: .zero)
         videoView.translatesAutoresizingMaskIntoConstraints = false
         videoWrappingView.fitAllAnchor(videoView)
+        if let videoSize = VideoSize(rawValue: videoSizePopUpButton.indexOfSelectedItem) {
+            updateColorPicker(from: videoSize)
+        }
     }
-    
-    override func viewDidAppear() {
-        super.viewDidAppear()
-        // TODO: ここで動画再生
-    }
-    
+
     override func viewWillDisappear() {
         super.viewDidAppear()
         avManager.clear()
@@ -76,15 +82,41 @@ class LocalVideoSelectionViewController: NSViewController {
     @IBAction func didTapVideoSelectionButton(_ sender: Any) {
         presenter.didTapVideoSelectionButton()
     }
-    
+
+    @IBAction func didSelectVideoSize(_ sender: Any) {
+        if let videoSize = VideoSize(rawValue: videoSizePopUpButton.indexOfSelectedItem) {
+            updateColorPicker(from: videoSize)
+        }
+    }
+
     @IBAction func didTapSetWallpaperButton(_ sender: Any) {
         guard let videoSize = VideoSize(rawValue: videoSizePopUpButton.indexOfSelectedItem),
               let selectedVideoUrl else { return }
-        presenter.didTapWallpaperButton(videoLink: selectedVideoUrl.absoluteString, mute: isMute(), videoSize: videoSize)
+        let backgroundColor: NSColor? = switch videoSize {
+        case .aspectFill:
+            nil
+        case .aspectFit:
+            backgroundColorPicker.color
+        }
+        presenter.didTapWallpaperButton(
+            videoLink: selectedVideoUrl.absoluteString,
+            mute: isMute(),
+            videoSize: videoSize,
+            backgroundColor: backgroundColor
+        )
     }
     
     private func isMute() -> Bool {
         muteToggleButton.state == .on
+    }
+
+    private func updateColorPicker(from videoSize: VideoSize) {
+        switch videoSize {
+        case .aspectFill:
+            backgroundColorPicker.isHidden = true
+        case .aspectFit:
+            backgroundColorPicker.isHidden = false
+        }
     }
 }
 

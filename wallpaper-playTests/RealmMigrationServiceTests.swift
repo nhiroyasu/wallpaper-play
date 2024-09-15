@@ -36,7 +36,7 @@ class RealmMigrationServiceTests: XCTestCase {
         let expectedData = LocalVideoWallpaper(
             date: Date(timeIntervalSinceReferenceDate: 735346290.959397),
             url: URL(string: "file:///Users/niitsumahiroyasu/Library/Containers/com.nhiro1109.wallpaper-play/Data/Library/Application%20Support/latest-video/latest.mov")!,
-            config: .init(size: 0, isMute: true)
+            config: .init(size: 0, isMute: true, backgroundColor: nil)
         )
 
         let result = realm.objects(LocalVideoWallpaper.self).first!
@@ -99,5 +99,27 @@ class RealmMigrationServiceTests: XCTestCase {
         XCTAssertEqual(result.date, expectedData.date)
         XCTAssertEqual(result.url, expectedData.url)
         XCTAssertEqual(result.arrowOperation, expectedData.arrowOperation)
+    }
+
+    func testMigration_v4_Latest_LocalVideo() throws {
+        let config = Realm.Configuration(
+            fileURL: realmUrl(for: 4),
+            schemaVersion: REALM_SCHEMA_VERSION
+        )
+        let realm = try! Realm(configuration: config)
+
+        let expectedData = LocalVideoWallpaper(
+            date: Date(timeIntervalSinceReferenceDate: 735289771.339464),
+            url: URL(string: "file:///Users/niitsumahiroyasu/Library/Containers/com.debug.nhiro1109.wallpaper-play/Data/Library/Application%20Support/latest-video/latest.mov")!,
+            config: .init(size: 0, isMute: true, backgroundColor: nil)
+        )
+
+        let result = realm.objects(LocalVideoWallpaper.self).first!
+
+        XCTAssertEqual(result.url, expectedData.url)
+        XCTAssertEqual(result.date, expectedData.date)
+        XCTAssertEqual(result.config!.size, expectedData.config!.size)
+        XCTAssertEqual(result.config!.isMute, expectedData.config!.isMute)
+        XCTAssertEqual(result.config!.backgroundColor, expectedData.config!.backgroundColor)
     }
 }

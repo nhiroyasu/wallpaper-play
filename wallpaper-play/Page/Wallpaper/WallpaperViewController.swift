@@ -43,13 +43,14 @@ class WallpaperViewController: NSViewController {
 extension WallpaperViewController: WallpaperViewOutput {
     func display(_ displayType: WallpaperDisplayType) {
         switch displayType {
-        case .video(let url, let videoSize, let mute):
+        case .video(let url, let videoSize, let mute, let backgroundColor):
             allClear()
             videoView.isHidden = false
             let player = avManager.set([url])
             let layer = AVPlayerLayer(player: player)
             layer.videoGravity = videoSize.videoGravity
             videoView.setPlayerLayer(layer)
+            videoView.setBackgroundColor(backgroundColor)
             do {
                 try avManager.mute(mute)
                 try avManager.loop(type: .listLoop)
@@ -95,7 +96,7 @@ extension WallpaperViewController {
 }
 
 enum WallpaperDisplayType {
-    case video(URL, videoSize: VideoSize, mute: Bool)
+    case video(URL, videoSize: VideoSize, mute: Bool, backgroundColor: NSColor?)
     case youtube(URL)
     case web(URL, arrowOperation: Bool)
     case none

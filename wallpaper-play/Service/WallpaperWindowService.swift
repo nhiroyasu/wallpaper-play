@@ -98,7 +98,14 @@ class WallpaperWindowServiceImpl: WallpaperWindowService {
         }
         switch baseWallpaperKind {
         case .video(let value):
-            return .video(value: .init(url: value.url, mute: true, videoSize: value.videoSize))
+            return .video(
+                value: .init(
+                    url: value.url,
+                    mute: true,
+                    videoSize: value.videoSize,
+                    backgroundColor: value.backgroundColor
+                )
+            )
         case .youtube(let videoId, _):
             return .youtube(videoId: videoId, isMute: true)
         case .web, .none:

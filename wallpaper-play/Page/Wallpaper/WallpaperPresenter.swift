@@ -1,10 +1,11 @@
-import Foundation
+import AppKit
 import Injectable
 
 struct VideoPlayValue {
     let url: URL
     let mute: Bool
     let videoSize: VideoSize
+    let backgroundColor: NSColor?
 }
 
 struct YouTubePlayValue {
@@ -41,7 +42,12 @@ class WallpaperPresenterImpl: NSObject, WallpaperPresenter {
     func viewDidLoad() {
         let displayType: WallpaperDisplayType = switch wallpaperKind {
         case .video(let value):
-            .video(value.url, videoSize: value.videoSize, mute: value.mute)
+                .video(
+                    value.url,
+                    videoSize: value.videoSize,
+                    mute: value.mute,
+                    backgroundColor: value.backgroundColor
+                )
         case .youtube(let videoId, let isMute):
             if let url = youtubeContentService.buildFullIframeUrl(id: videoId, mute: isMute) {
                 .youtube(url)

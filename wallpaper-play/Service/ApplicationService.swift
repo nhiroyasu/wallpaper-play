@@ -156,7 +156,11 @@ class ApplicationServiceImpl: ApplicationService {
                 let localVideoWallpaper = LocalVideoWallpaper(
                     date: Date(),
                     url: storedFileUrl,
-                    config: .init(size: value.videoSize.rawValue, isMute: value.mute)
+                    config: .init(
+                        size: value.videoSize.rawValue,
+                        isMute: value.mute,
+                        backgroundColor: value.backgroundColor?.hex
+                    )
                 )
                 wallpaperHistoryService.store(localVideoWallpaper)
             } catch {

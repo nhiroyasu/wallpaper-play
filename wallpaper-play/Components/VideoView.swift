@@ -20,4 +20,8 @@ class VideoView: NSView {
         playerLayer.frame = frame
         self.layer?.addSublayer(playerLayer)
     }
+
+    func setBackgroundColor(_ color: NSColor?) {
+        self.layer?.backgroundColor = color?.cgColor
+    }
 }

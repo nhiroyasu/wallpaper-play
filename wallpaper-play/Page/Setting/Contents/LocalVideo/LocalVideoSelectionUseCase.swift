@@ -1,10 +1,11 @@
-import Foundation
+import AppKit
 import Injectable
 
 struct VideoConfigInput {
     let link: URL
     let mute: Bool
     let videoSize: VideoSize
+    let backgroundColor: NSColor?
 }
 
 typealias VideoConfigOutput = VideoConfigInput
@@ -22,6 +23,13 @@ class LocalVideoSelectionInteractor: LocalVideoSelectionUseCase {
     }
 
     func requestSettingWallpaper(_ input: VideoConfigInput) {
-        wallpaperRequestService.requestVideoWallpaper(video: VideoPlayValue(url: input.link, mute: input.mute, videoSize: input.videoSize))
+        wallpaperRequestService.requestVideoWallpaper(
+            video: VideoPlayValue(
+                url: input.link,
+                mute: input.mute,
+                videoSize: input.videoSize,
+                backgroundColor: input.backgroundColor
+            )
+        )
     }
 }
