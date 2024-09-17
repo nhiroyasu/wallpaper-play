@@ -7,8 +7,9 @@ protocol WallpaperViewOutput {
 }
 
 class WallpaperViewController: NSViewController {
-    
-    var webView: YoutubeWebView!
+
+    var webView: WallpaperWebView!
+    var youtubeView: WallpaperWebView!
     var videoView: VideoView!
     private let wallpaperSize: NSSize
     private let avManager: any AVPlayerManager
@@ -24,7 +25,7 @@ class WallpaperViewController: NSViewController {
         self.avManager = avManager
         super.init(nibName: String(describing: Self.self), bundle: nil)
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("not call")
     }
@@ -32,7 +33,9 @@ class WallpaperViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         videoView = .init(frame: .init(origin: .zero, size: wallpaperSize))
-        webView = .init(frame: .zero, configuration: .init())
+        youtubeView = .init(frame: .zero, configuration: .youtubeWallpaper)
+        webView = .init(frame: .zero, configuration: .webWallpaper)
+        view.fitAllAnchor(youtubeView)
         view.fitAllAnchor(webView)
         view.fitAllAnchor(videoView)
 
@@ -43,13 +46,14 @@ class WallpaperViewController: NSViewController {
 extension WallpaperViewController: WallpaperViewOutput {
     func display(_ displayType: WallpaperDisplayType) {
         switch displayType {
-        case .video(let url, let videoSize, let mute):
+        case .video(let url, let videoSize, let mute, let backgroundColor):
             allClear()
             videoView.isHidden = false
             let player = avManager.set([url])
             let layer = AVPlayerLayer(player: player)
             layer.videoGravity = videoSize.videoGravity
             videoView.setPlayerLayer(layer)
+            videoView.setBackgroundColor(backgroundColor)
             do {
                 try avManager.mute(mute)
                 try avManager.loop(type: .listLoop)
@@ -59,12 +63,13 @@ extension WallpaperViewController: WallpaperViewOutput {
             }
         case .youtube(let url):
             allClear()
-            webView.isHidden = false
-            webView.load(URLRequest(url: url))
-        case .web(let url):
+            youtubeView.isHidden = false
+            youtubeView.load(URLRequest(url: url))
+        case .web(let url, let arrowOperation):
             allClear()
             webView.isHidden = false
             webView.load(URLRequest(url: url))
+            webView.setArrowOperation(arrowOperation)
         case .none:
             allClear()
         }
@@ -76,7 +81,8 @@ extension WallpaperViewController: WallpaperViewOutput {
 extension WallpaperViewController {
     private func allClear() {
         removeVideo()
-        removeYouTubeView()
+        removeYoutubeView()
+        removeWebView()
     }
 
     private func removeVideo() {
@@ -85,15 +91,22 @@ extension WallpaperViewController {
         avManager.clear()
     }
 
-    private func removeYouTubeView() {
+    private func removeYoutubeView() {
+        youtubeView.loadHTMLString("", baseURL: nil)
+        youtubeView.setArrowOperation(false)
+        youtubeView.isHidden = true
+    }
+
+    private func removeWebView() {
         webView.loadHTMLString("", baseURL: nil)
+        webView.setArrowOperation(false)
         webView.isHidden = true
     }
 }
 
 enum WallpaperDisplayType {
-    case video(URL, videoSize: VideoSize, mute: Bool)
+    case video(URL, videoSize: VideoSize, mute: Bool, backgroundColor: NSColor?)
     case youtube(URL)
-    case web(URL)
+    case web(URL, arrowOperation: Bool)
     case none
 }

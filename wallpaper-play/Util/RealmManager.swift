@@ -2,7 +2,7 @@ import Foundation
 import RealmSwift
 import Injectable
 
-fileprivate let SCHEMA_VERSION: UInt64 = 4
+let REALM_SCHEMA_VERSION: UInt64 = 6
 
 public enum RealmConfigType {
     case release
@@ -60,7 +60,7 @@ public class RealmManagerImpl: RealmService {
     
     func buildConfig(type: RealmConfigType) -> Realm.Configuration {
         var config = Realm.Configuration.defaultConfiguration
-        config.schemaVersion = SCHEMA_VERSION
+        config.schemaVersion = REALM_SCHEMA_VERSION
         config.migrationBlock = { [weak self] migration, oldSchemaVersion in
             guard let self else { return }
             migrationService.migrateForV3(migration: migration, oldSchemaVersion: oldSchemaVersion)

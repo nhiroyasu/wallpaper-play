@@ -4,7 +4,7 @@ import Injectable
 protocol WallpaperRequestService {
     func requestVideoWallpaper(video: VideoPlayValue)
     func requestYoutubeWallpaper(youtube: YouTubePlayValue)
-    func requestWebWallpaper(url: URL)
+    func requestWebWallpaper(web: WebPlayValue)
 }
 
 class WallpaperRequestServiceImpl: WallpaperRequestService {
@@ -22,7 +22,7 @@ class WallpaperRequestServiceImpl: WallpaperRequestService {
         notificationManager.push(name: .requestYouTube, param: youtube)
     }
     
-    func requestWebWallpaper(url: URL) {
-        notificationManager.push(name: .requestWebPage, param: url)
+    func requestWebWallpaper(web: WebPlayValue) {
+        notificationManager.push(name: .requestWebPage, param: web)
     }
 }

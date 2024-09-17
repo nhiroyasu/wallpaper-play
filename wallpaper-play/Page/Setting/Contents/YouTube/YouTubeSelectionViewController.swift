@@ -20,7 +20,7 @@ class YouTubeSelectionViewController: NSViewController {
     @IBOutlet weak var youtubeWrappingView: NSView!
     @IBOutlet weak var wallpaperButton: NSButton!
     @IBOutlet weak var muteToggleButton: NSButton!
-    public var youtubeWebView: YoutubeWebView!
+    public var youtubeWebView: WallpaperWebView!
     private let presenter: any YouTubeSelectionPresenter
 
     init(presenter: any YouTubeSelectionPresenter) {
@@ -34,7 +34,8 @@ class YouTubeSelectionViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        youtubeWebView = .init(frame: .zero, configuration: .init())
+        let webViewConfiguration = WKWebViewConfiguration()
+        youtubeWebView = .init(frame: .zero, configuration: .youtubeWallpaper)
         youtubeWrappingView.fitAllAnchor(youtubeWebView)
         if let path = Bundle.main.path(forResource: "copy_description_for_youtube", ofType: "html") {
             updatePreview(url: URL(fileURLWithPath: path))

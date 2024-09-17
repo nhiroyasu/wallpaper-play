@@ -9,6 +9,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="WebPageSelectionViewController" customModule="Wallpaper_Play" customModuleProvider="target">
             <connections>
+                <outlet property="allowOperationCheckbox" destination="ycg-sb-xll" id="Z2g-nq-G01"/>
                 <outlet property="urlSearchField" destination="p8d-qh-fot" id="kTZ-Ju-zy0"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
                 <outlet property="wallpaperButton" destination="YEP-sx-Osn" id="kSi-k1-Mg6"/>
@@ -70,13 +71,13 @@
                     <rect key="frame" x="0.0" y="475" width="849" height="120"/>
                     <subviews>
                         <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="32" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8w9-Bs-EGx">
-                            <rect key="frame" x="32" y="25" width="785" height="70"/>
+                            <rect key="frame" x="32" y="34" width="785" height="53"/>
                             <subviews>
                                 <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o7f-7r-i5I">
-                                    <rect key="frame" x="0.0" y="0.0" width="785" height="70"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="785" height="53"/>
                                     <subviews>
                                         <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" horizontalHuggingPriority="249" horizontalCompressionResistancePriority="749" placeholderIntrinsicWidth="785" placeholderIntrinsicHeight="30" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TTh-Xc-Duo">
-                                            <rect key="frame" x="0.0" y="40" width="785" height="30"/>
+                                            <rect key="frame" x="0.0" y="23" width="785" height="30"/>
                                             <subviews>
                                                 <searchField wantsLayer="YES" focusRingType="none" horizontalHuggingPriority="249" verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p8d-qh-fot">
                                                     <rect key="frame" x="0.0" y="0.0" width="785" height="30"/>
@@ -95,19 +96,11 @@
                                             </customSpacing>
                                         </stackView>
                                         <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="2" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ymc-tq-JRw">
-                                            <rect key="frame" x="0.0" y="0.0" width="275" height="32"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="785" height="15"/>
                                             <subviews>
-                                                <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Xzy-4I-yYZ">
-                                                    <rect key="frame" x="-2" y="17" width="249" height="15"/>
+                                                <textField focusRingType="none" horizontalHuggingPriority="249" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Xzy-4I-yYZ">
+                                                    <rect key="frame" x="-2" y="0.0" width="789" height="15"/>
                                                     <textFieldCell key="cell" controlSize="large" lineBreakMode="clipping" title="・A stable network environment is required" id="ats-WP-gX2">
-                                                        <font key="font" metaFont="cellTitle"/>
-                                                        <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
-                                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                    </textFieldCell>
-                                                </textField>
-                                                <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ZiB-SU-yGv">
-                                                    <rect key="frame" x="-2" y="0.0" width="279" height="15"/>
-                                                    <textFieldCell key="cell" lineBreakMode="clipping" title="・The page set as wallpaper cannot be operated" id="nut-Qe-x3m">
                                                         <font key="font" metaFont="cellTitle"/>
                                                         <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -116,10 +109,8 @@
                                             </subviews>
                                             <visibilityPriorities>
                                                 <integer value="1000"/>
-                                                <integer value="1000"/>
                                             </visibilityPriorities>
                                             <customSpacing>
-                                                <real value="3.4028234663852886e+38"/>
                                                 <real value="3.4028234663852886e+38"/>
                                             </customSpacing>
                                         </stackView>
@@ -155,7 +146,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="849" height="64"/>
                     <subviews>
                         <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="16" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kN5-N1-A56">
-                            <rect key="frame" x="32" y="18" width="196" height="28"/>
+                            <rect key="frame" x="32" y="18" width="259" height="28"/>
                             <subviews>
                                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="YEP-sx-Osn">
                                     <rect key="frame" x="-6" y="-6" width="137" height="40"/>
@@ -169,11 +160,25 @@
                                     </connections>
                                 </button>
                                 <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="16" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bEo-dt-Cqd">
-                                    <rect key="frame" x="141" y="6" width="55" height="16"/>
+                                    <rect key="frame" x="141" y="6" width="118" height="16"/>
+                                    <subviews>
+                                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ycg-sb-xll">
+                                            <rect key="frame" x="-2" y="-1" width="120" height="18"/>
+                                            <buttonCell key="cell" type="check" title="Allow operation" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="Phi-tA-SAj">
+                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                        </button>
+                                    </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="55" id="dRH-ti-fJe"/>
                                         <constraint firstAttribute="height" constant="16" id="ubq-gZ-RB1"/>
                                     </constraints>
+                                    <visibilityPriorities>
+                                        <integer value="1000"/>
+                                    </visibilityPriorities>
+                                    <customSpacing>
+                                        <real value="3.4028234663852886e+38"/>
+                                    </customSpacing>
                                 </stackView>
                             </subviews>
                             <visibilityPriorities>

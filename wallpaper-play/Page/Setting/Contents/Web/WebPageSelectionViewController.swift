@@ -16,7 +16,12 @@ class WebPageSelectionViewController: NSViewController {
     }
     @IBOutlet weak var wrapView: NSView!
     @IBOutlet weak var wallpaperButton: NSButton!
-    public var previewWebView: YoutubeWebView!
+    @IBOutlet weak var allowOperationCheckbox: NSButton! {
+        didSet {
+            allowOperationCheckbox.state = .on
+        }
+    }
+    public var previewWebView: WallpaperWebView!
     private let presenter: any WebPageSelectionPresenter
 
     // MARK: - Methods
@@ -31,7 +36,7 @@ class WebPageSelectionViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        previewWebView = .init(frame: .zero, configuration: .init())
+        previewWebView = .init(frame: .zero, configuration: .webWallpaper)
         wrapView.fitAllAnchor(previewWebView)
         if let path = Bundle.main.path(forResource: "copy_description_for_web", ofType: "html") {
             setPreview(url: URL(fileURLWithPath: path))
@@ -45,7 +50,10 @@ class WebPageSelectionViewController: NSViewController {
     }
     
     @IBAction func didTapSetWallpaperButton(_ sender: Any) {
-        presenter.didTapSetWallpaperButton(value: urlSearchField.stringValue)
+        presenter.didTapSetWallpaperButton(
+            value: urlSearchField.stringValue,
+            arrowOperation: allowOperationCheckbox.state == .on
+        )
     }
 }
 

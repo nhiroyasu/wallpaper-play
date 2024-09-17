@@ -1,4 +1,4 @@
-import Foundation
+import AppKit
 import Injectable
 
 protocol WallpaperHistoryService {
@@ -118,16 +118,27 @@ class WallpaperHistoryServiceImpl: WallpaperHistoryService {
         let latestVideo = videoList.compactMap { $0 }.max { v1, v2 in v1.date < v2.date }
         
         if let video = latestVideo as? LocalVideoWallpaper {
+            let videoSize = VideoSize(rawValue: video.config?.size ?? 0) ?? .aspectFill
+            let backgroundColor: NSColor? = if let backgroundColorHex = video.config?.backgroundColor {
+                NSColor(hex: backgroundColorHex)
+            } else {
+                nil
+            }
             let videoPlayValue = VideoPlayValue(
                 url: video.url,
                 mute: video.config?.isMute ?? true,
-                videoSize: VideoSize(rawValue: video.config?.size ?? 0) ?? .aspectFill
+                videoSize: videoSize,
+                backgroundColor: backgroundColor
             )
             return .video(value: videoPlayValue)
         } else if let video = latestVideo as? YouTubeWallpaper {
             return .youtube(videoId: video.videoId, isMute: video.isMute)
         } else if let video = latestVideo as? WebPageWallpaper {
-            return .web(url: video.url)
+            let arrowOperation = video.arrowOperation ?? false
+            return .web(
+                url: video.url,
+                arrowOperation: arrowOperation
+            )
         } else {
             return nil
         }

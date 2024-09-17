@@ -14,8 +14,7 @@
 /* Class = "NSBox"; title = "Preview"; ObjectID = "dct-fX-OBJ"; */
 "dct-fX-OBJ.title" = "Preview";
 
-/* Class = "NSTextFieldCell"; title = "・壁紙に設定されているページは操作できません"; ObjectID = "nut-Qe-x3m"; */
-"nut-Qe-x3m.title" = "・壁紙に設定されているページは操作できません";
-
 /* Class = "NSButtonCell"; title = "壁紙に設定する"; ObjectID = "uoc-wy-1QP"; */
 "uoc-wy-1QP.title" = "壁紙に設定する";
+
+"Phi-tA-SAj.title" = "操作を可能にする";
