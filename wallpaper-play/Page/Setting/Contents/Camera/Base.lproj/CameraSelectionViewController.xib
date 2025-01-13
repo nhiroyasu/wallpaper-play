@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="23504" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="23504"/>
+        <capability name="NSView safe area layout guides" minToolsVersion="12.0"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="CameraSelectionViewController" customModule="Wallpaper_Play" customModuleProvider="target">
+            <connections>
+                <outlet property="cameraDisplayView" destination="Zes-uC-613" id="MMn-nS-oY8"/>
+                <outlet property="camerasPopUpButton" destination="OMJ-7U-cxa" id="tyF-ZH-eaG"/>
+                <outlet property="previewAnnotationLabel" destination="Fxa-6D-1AM" id="AhX-9G-92p"/>
+                <outlet property="videoSizePopUpButton" destination="fqg-sM-el2" id="mDP-eo-YSq"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView translatesAutoresizingMaskIntoConstraints="NO" id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="788" height="604"/>
+            <subviews>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="GC2-yf-TEI">
+                    <rect key="frame" x="0.0" y="500" width="788" height="52"/>
+                    <subviews>
+                        <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="OMJ-7U-cxa">
+                            <rect key="frame" x="29" y="12" width="731" height="25"/>
+                            <popUpButtonCell key="cell" type="push" title="Item 1" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="gDd-O4-XbY" id="dQ1-xO-tEB">
+                                <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" metaFont="menu"/>
+                                <menu key="menu" id="g18-kN-bal">
+                                    <items>
+                                        <menuItem title="Item 1" state="on" id="gDd-O4-XbY"/>
+                                        <menuItem title="Item 2" id="jzu-7E-3UE"/>
+                                        <menuItem title="Item 3" id="TAH-cV-anl"/>
+                                    </items>
+                                </menu>
+                            </popUpButtonCell>
+                            <connections>
+                                <action selector="didSelectCamera:" target="-2" id="Me8-iu-Ht2"/>
+                            </connections>
+                        </popUpButton>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="OMJ-7U-cxa" secondAttribute="trailing" constant="32" id="Qht-i0-Sgv"/>
+                        <constraint firstItem="OMJ-7U-cxa" firstAttribute="leading" secondItem="GC2-yf-TEI" secondAttribute="leading" constant="32" id="WIP-4m-teT"/>
+                        <constraint firstAttribute="bottom" secondItem="OMJ-7U-cxa" secondAttribute="bottom" constant="16" id="gWm-Ef-dsL"/>
+                        <constraint firstItem="OMJ-7U-cxa" firstAttribute="top" secondItem="GC2-yf-TEI" secondAttribute="top" constant="16" id="haf-Vr-zeh"/>
+                    </constraints>
+                </customView>
+                <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="F7G-mp-2ds">
+                    <rect key="frame" x="0.0" y="497" width="788" height="5"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="w1d-o1-oX9"/>
+                    </constraints>
+                </box>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="mB6-2v-1w9">
+                    <rect key="frame" x="0.0" y="64" width="788" height="435"/>
+                    <subviews>
+                        <stackView distribution="fill" orientation="horizontal" alignment="baseline" spacing="16" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h6t-qj-eKa">
+                            <rect key="frame" x="33" y="400" width="57" height="19"/>
+                            <subviews>
+                                <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="cEd-2g-TUH">
+                                    <rect key="frame" x="-2" y="0.0" width="61" height="19"/>
+                                    <textFieldCell key="cell" lineBreakMode="clipping" title="Preview" id="C4S-PS-jD3">
+                                        <font key="font" metaFont="system" size="16"/>
+                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                </textField>
+                            </subviews>
+                            <visibilityPriorities>
+                                <integer value="1000"/>
+                            </visibilityPriorities>
+                            <customSpacing>
+                                <real value="3.4028234663852886e+38"/>
+                            </customSpacing>
+                        </stackView>
+                        <box title="Preview" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="Ujm-45-DhD">
+                            <rect key="frame" x="29" y="-4" width="730" height="398"/>
+                            <view key="contentView" id="Zes-uC-613" customClass="NonInteractionView" customModule="Wallpaper_Play" customModuleProvider="target">
+                                <rect key="frame" x="4" y="5" width="722" height="390"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Fxa-6D-1AM">
+                                        <rect key="frame" x="232" y="186" width="259" height="19"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" title="Setting the camera feed as wallpaper" id="IhQ-4n-9Xj">
+                                            <font key="font" textStyle="title3" name=".SFNS-Regular"/>
+                                            <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Fxa-6D-1AM" firstAttribute="centerY" secondItem="Zes-uC-613" secondAttribute="centerY" id="H5v-SV-1Yt"/>
+                                    <constraint firstItem="Fxa-6D-1AM" firstAttribute="centerX" secondItem="Zes-uC-613" secondAttribute="centerX" id="IkT-aa-dqp"/>
+                                </constraints>
+                            </view>
+                        </box>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="Ujm-45-DhD" secondAttribute="bottom" id="AGS-8S-z90"/>
+                        <constraint firstItem="h6t-qj-eKa" firstAttribute="leading" secondItem="Zes-uC-613" secondAttribute="leading" id="Mkq-P1-sIZ"/>
+                        <constraint firstAttribute="trailing" secondItem="Ujm-45-DhD" secondAttribute="trailing" constant="32" id="TO0-NF-TBN"/>
+                        <constraint firstItem="h6t-qj-eKa" firstAttribute="top" secondItem="mB6-2v-1w9" secondAttribute="top" constant="16" id="opw-wV-Gp4"/>
+                        <constraint firstItem="Ujm-45-DhD" firstAttribute="leading" secondItem="mB6-2v-1w9" secondAttribute="leading" constant="32" id="qMj-s6-yBe"/>
+                        <constraint firstItem="Ujm-45-DhD" firstAttribute="top" secondItem="h6t-qj-eKa" secondAttribute="bottom" constant="8" id="yrv-cv-14X"/>
+                    </constraints>
+                </customView>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="Hxa-Ot-KSj">
+                    <rect key="frame" x="0.0" y="0.0" width="788" height="64"/>
+                    <subviews>
+                        <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="16" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xqr-av-YIX">
+                            <rect key="frame" x="32" y="18" width="238" height="28"/>
+                            <subviews>
+                                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="I6o-wP-zdD">
+                                    <rect key="frame" x="-6" y="-6" width="139" height="40"/>
+                                    <buttonCell key="cell" type="push" title="Set Wallpaper" bezelStyle="rounded" image="desktopcomputer" catalog="system" imagePosition="left" alignment="center" controlSize="large" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="343-l0-Pm5">
+                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                        <font key="font" metaFont="system"/>
+                                    </buttonCell>
+                                    <color key="bezelColor" name="AccentColor"/>
+                                    <connections>
+                                        <action selector="didTapSetWallpaperButton:" target="-2" id="5Zb-hW-IhV"/>
+                                    </connections>
+                                </button>
+                                <popUpButton toolTip="Video Size" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fqg-sM-el2">
+                                    <rect key="frame" x="140" y="0.0" width="102" height="25"/>
+                                    <popUpButtonCell key="cell" type="push" title="Aspect Fill" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="NNN-kz-Afw" id="Aqa-51-GbC">
+                                        <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                        <font key="font" metaFont="menu"/>
+                                        <menu key="menu" id="bI5-oo-sVO">
+                                            <items>
+                                                <menuItem title="Aspect Fill" state="on" id="NNN-kz-Afw"/>
+                                                <menuItem title="Aspect Fit" id="HZb-jc-e7c"/>
+                                            </items>
+                                        </menu>
+                                    </popUpButtonCell>
+                                </popUpButton>
+                            </subviews>
+                            <visibilityPriorities>
+                                <integer value="1000"/>
+                                <integer value="1000"/>
+                            </visibilityPriorities>
+                            <customSpacing>
+                                <real value="3.4028234663852886e+38"/>
+                                <real value="3.4028234663852886e+38"/>
+                            </customSpacing>
+                        </stackView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="xqr-av-YIX" firstAttribute="leading" secondItem="Hxa-Ot-KSj" secondAttribute="leading" constant="32" id="27W-bd-pvY"/>
+                        <constraint firstAttribute="height" constant="64" id="5wj-cH-Phc"/>
+                        <constraint firstItem="xqr-av-YIX" firstAttribute="centerY" secondItem="Hxa-Ot-KSj" secondAttribute="centerY" id="uXa-ge-qu6"/>
+                    </constraints>
+                </customView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="GC2-yf-TEI" firstAttribute="trailing" secondItem="BYV-0T-xWE" secondAttribute="trailing" id="3Rf-j9-kkc"/>
+                <constraint firstItem="Hxa-Ot-KSj" firstAttribute="top" secondItem="mB6-2v-1w9" secondAttribute="bottom" id="9To-bh-Xux"/>
+                <constraint firstItem="F7G-mp-2ds" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="AXT-HM-FnR"/>
+                <constraint firstItem="GC2-yf-TEI" firstAttribute="leading" secondItem="BYV-0T-xWE" secondAttribute="leading" id="BGG-a6-Ogq"/>
+                <constraint firstItem="Hxa-Ot-KSj" firstAttribute="bottom" secondItem="BYV-0T-xWE" secondAttribute="bottom" id="FXI-c5-ckL"/>
+                <constraint firstItem="mB6-2v-1w9" firstAttribute="trailing" secondItem="BYV-0T-xWE" secondAttribute="trailing" id="PVa-D8-ew8"/>
+                <constraint firstItem="Hxa-Ot-KSj" firstAttribute="trailing" secondItem="BYV-0T-xWE" secondAttribute="trailing" id="PX5-hF-2Gg"/>
+                <constraint firstItem="mB6-2v-1w9" firstAttribute="top" secondItem="F7G-mp-2ds" secondAttribute="bottom" id="SVy-1p-DAJ"/>
+                <constraint firstItem="mB6-2v-1w9" firstAttribute="leading" secondItem="BYV-0T-xWE" secondAttribute="leading" id="Sx7-jl-J5n"/>
+                <constraint firstItem="F7G-mp-2ds" firstAttribute="top" secondItem="GC2-yf-TEI" secondAttribute="bottom" id="hyJ-4c-dKH"/>
+                <constraint firstItem="GC2-yf-TEI" firstAttribute="top" secondItem="BYV-0T-xWE" secondAttribute="top" id="l66-SM-W2x"/>
+                <constraint firstItem="Hxa-Ot-KSj" firstAttribute="leading" secondItem="BYV-0T-xWE" secondAttribute="leading" id="tlp-vD-QJf"/>
+                <constraint firstAttribute="trailing" secondItem="F7G-mp-2ds" secondAttribute="trailing" id="xMM-Bh-dSV"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="BYV-0T-xWE"/>
+            <viewLayoutGuide key="layoutMargins" id="jFi-vu-2rj"/>
+            <point key="canvasLocation" x="116" y="194"/>
+        </customView>
+    </objects>
+    <resources>
+        <image name="desktopcomputer" catalog="system" width="20" height="15"/>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

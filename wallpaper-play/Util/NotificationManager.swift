@@ -1,9 +1,11 @@
 import Foundation
+import Combine
 
 extension Notification.Name {
     static let requestYouTube = Notification.Name("requestYouTube")
     static let requestVideo = Notification.Name("requestVideo")
     static let requestWebPage = Notification.Name("requestWebPage")
+    static let requestCamera = Notification.Name("requestCamera")
     static let selectedSideMenu = Notification.Name("selectedSideBar")
     static let requestVisibilityIcon = Notification.Name("requestVisibilityIcon")
 }
@@ -12,6 +14,7 @@ extension Notification.Name {
 protocol NotificationManager {
     func push(name: Notification.Name, param: Any?)
     func observe(name: Notification.Name, handler: @escaping (Any?) -> Void)
+    func publisher(for name: Notification.Name) -> AnyPublisher<Any?, Never>
 }
 
 class NotificationManagerImpl: NotificationManager {
@@ -28,6 +31,14 @@ class NotificationManagerImpl: NotificationManager {
             let param = notification.userInfo?["param"]
             handler(param)
         }
+    }
+
+    func publisher(for name: Notification.Name) -> AnyPublisher<Any?, Never> {
+        NotificationCenter.default.publisher(for: name)
+            .map { notification in
+                notification.userInfo?["param"]
+            }
+            .eraseToAnyPublisher()
     }
 }
 

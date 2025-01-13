@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 55;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -54,6 +54,10 @@
 		4F7B55FE2BDCEC0D00D427C6 /* icon_128x128.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F7B55FD2BDCEC0D00D427C6 /* icon_128x128.png */; };
 		4F7B56022BDDE58100D427C6 /* RealmMigrationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7B56012BDDE58100D427C6 /* RealmMigrationService.swift */; };
 		4F7B56042BDDE6FF00D427C6 /* TestInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7B56032BDDE6FF00D427C6 /* TestInjector.swift */; };
+		4F7BEAC62D31FE3E008B0A35 /* CamaraSelectionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7BEAC52D31FE37008B0A35 /* CamaraSelectionCoordinator.swift */; };
+		4F7BEAC82D31FE5E008B0A35 /* CameraSelectionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7BEAC72D31FE59008B0A35 /* CameraSelectionPresenter.swift */; };
+		4F7BEACA2D31FE8D008B0A35 /* CameraSelectionUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7BEAC92D31FE8B008B0A35 /* CameraSelectionUseCase.swift */; };
+		4F7BEAD22D31FEFB008B0A35 /* CameraSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7BEACF2D31FEFB008B0A35 /* CameraSelectionViewController.swift */; };
 		4F8A58DA284CA01A00557FDD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8A58D9284CA01A00557FDD /* AppDelegate.swift */; };
 		4F8A58DC284CA01A00557FDD /* WallpaperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8A58DB284CA01A00557FDD /* WallpaperViewController.swift */; };
 		4F8A58DE284CA01A00557FDD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F8A58DD284CA01A00557FDD /* Assets.xcassets */; };
@@ -104,6 +108,11 @@
 		4FB1BD43295E900100F476CD /* SettingWindowService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB1BD42295E900100F476CD /* SettingWindowService.swift */; };
 		4FB1BD4B295F0B4900F476CD /* DockMenuUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB1BD49295F0B4900F476CD /* DockMenuUseCase.swift */; };
 		4FB1BD4C295F0B4900F476CD /* DockMenuAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB1BD4A295F0B4900F476CD /* DockMenuAction.swift */; };
+		4FB85C5C2D34D9880016E171 /* AVLayerVideoGravity+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB85C5B2D34D9860016E171 /* AVLayerVideoGravity+.swift */; };
+		4FB85C5E2D34DD5B0016E171 /* CameraWallpaper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB85C5D2D34DD520016E171 /* CameraWallpaper.swift */; };
+		4FB85C602D34DEDE0016E171 /* CameraDeviceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB85C5F2D34DED90016E171 /* CameraDeviceService.swift */; };
+		4FB85C622D34E1460016E171 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB85C612D34E1410016E171 /* AppState.swift */; };
+		4FB85C652D34F2C90016E171 /* CameraSelectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FB85C642D34F2C90016E171 /* CameraSelectionViewController.xib */; };
 		4FBD50FC2885089A002DF955 /* WebPageSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBD50FA2885089A002DF955 /* WebPageSelectionViewController.swift */; };
 		4FBD50FF28850A38002DF955 /* WebPageSelectionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBD50FE28850A38002DF955 /* WebPageSelectionCoordinator.swift */; };
 		4FBD510428850AA5002DF955 /* WebPageSelectionUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBD510328850AA5002DF955 /* WebPageSelectionUseCase.swift */; };
@@ -214,6 +223,10 @@
 		4F7B55FD2BDCEC0D00D427C6 /* icon_128x128.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_128x128.png; sourceTree = "<group>"; };
 		4F7B56012BDDE58100D427C6 /* RealmMigrationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmMigrationService.swift; sourceTree = "<group>"; };
 		4F7B56032BDDE6FF00D427C6 /* TestInjector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestInjector.swift; sourceTree = "<group>"; };
+		4F7BEAC52D31FE37008B0A35 /* CamaraSelectionCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CamaraSelectionCoordinator.swift; sourceTree = "<group>"; };
+		4F7BEAC72D31FE59008B0A35 /* CameraSelectionPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraSelectionPresenter.swift; sourceTree = "<group>"; };
+		4F7BEAC92D31FE8B008B0A35 /* CameraSelectionUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraSelectionUseCase.swift; sourceTree = "<group>"; };
+		4F7BEACF2D31FEFB008B0A35 /* CameraSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraSelectionViewController.swift; sourceTree = "<group>"; };
 		4F8343E62BCBA0DA00DAAF4D /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		4F8A58D6284CA01A00557FDD /* Wallpaper Play.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Wallpaper Play.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F8A58D9284CA01A00557FDD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -273,6 +286,12 @@
 		4FB1BD42295E900100F476CD /* SettingWindowService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingWindowService.swift; sourceTree = "<group>"; };
 		4FB1BD49295F0B4900F476CD /* DockMenuUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DockMenuUseCase.swift; sourceTree = "<group>"; };
 		4FB1BD4A295F0B4900F476CD /* DockMenuAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DockMenuAction.swift; sourceTree = "<group>"; };
+		4FB85C5B2D34D9860016E171 /* AVLayerVideoGravity+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AVLayerVideoGravity+.swift"; sourceTree = "<group>"; };
+		4FB85C5D2D34DD520016E171 /* CameraWallpaper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraWallpaper.swift; sourceTree = "<group>"; };
+		4FB85C5F2D34DED90016E171 /* CameraDeviceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraDeviceService.swift; sourceTree = "<group>"; };
+		4FB85C612D34E1410016E171 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		4FB85C632D34F2C90016E171 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/CameraSelectionViewController.xib; sourceTree = "<group>"; };
+		4FB85C662D34F2C90016E171 /* mul */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = mul; path = mul.lproj/CameraSelectionViewController.xcstrings; sourceTree = "<group>"; };
 		4FBD50FA2885089A002DF955 /* WebPageSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebPageSelectionViewController.swift; sourceTree = "<group>"; };
 		4FBD50FE28850A38002DF955 /* WebPageSelectionCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebPageSelectionCoordinator.swift; sourceTree = "<group>"; };
 		4FBD510328850AA5002DF955 /* WebPageSelectionUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebPageSelectionUseCase.swift; sourceTree = "<group>"; };
@@ -338,6 +357,7 @@
 		4F03CEE4285A1076009FDC6F /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				4FB85C5D2D34DD520016E171 /* CameraWallpaper.swift */,
 				4FDF1DF6285ECAB500ABBE8D /* Coordinator.swift */,
 				4F03CEE5285A107F009FDC6F /* LocalVideoConfig.swift */,
 				4F03CEED285A170E009FDC6F /* LocalVideoWallpaper.swift */,
@@ -385,6 +405,18 @@
 			path = BundleAssets;
 			sourceTree = "<group>";
 		};
+		4F7BEAC42D31FE1E008B0A35 /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				4F7BEAC92D31FE8B008B0A35 /* CameraSelectionUseCase.swift */,
+				4F7BEAC72D31FE59008B0A35 /* CameraSelectionPresenter.swift */,
+				4F7BEAC52D31FE37008B0A35 /* CamaraSelectionCoordinator.swift */,
+				4F7BEACF2D31FEFB008B0A35 /* CameraSelectionViewController.swift */,
+				4FB85C642D34F2C90016E171 /* CameraSelectionViewController.xib */,
+			);
+			path = Camera;
+			sourceTree = "<group>";
+		};
 		4F8A58CD284CA01A00557FDD = {
 			isa = PBXGroup;
 			children = (
@@ -422,6 +454,7 @@
 				4F8A5908284CA09E00557FDD /* Components */,
 				4F8A58D9284CA01A00557FDD /* AppDelegate.swift */,
 				4F8A5915284CA1FB00557FDD /* AppContainer.swift */,
+				4FB85C612D34E1410016E171 /* AppState.swift */,
 				4F8A58DD284CA01A00557FDD /* Assets.xcassets */,
 				4F8A58DF284CA01A00557FDD /* Main.storyboard */,
 				4F8A58E2284CA01A00557FDD /* wallpaper-play.entitlements */,
@@ -489,6 +522,7 @@
 		4F8A590F284CA1D300557FDD /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				4FB85C5F2D34DED90016E171 /* CameraDeviceService.swift */,
 				4F8A5945284CF4A200557FDD /* ApplicationService.swift */,
 				4F8A593A284CE3E200557FDD /* UserSettingService.swift */,
 				4F25C1D3284E673A00397737 /* URLResolverService.swift */,
@@ -531,6 +565,7 @@
 		4F8A5952284D18C400557FDD /* Contents */ = {
 			isa = PBXGroup;
 			children = (
+				4F7BEAC42D31FE1E008B0A35 /* Camera */,
 				4FE738422C82F35200EE18D1 /* LocalVideo */,
 				4FE738432C82F37D00EE18D1 /* YouTube */,
 				4FE738442C82F38400EE18D1 /* Web */,
@@ -581,6 +616,7 @@
 		4FC182E9285DF94D0042FAF6 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				4FB85C5B2D34D9860016E171 /* AVLayerVideoGravity+.swift */,
 				4FDF1DEE285EAF7100ABBE8D /* AppManager.swift */,
 				4F8A5923284CA41400557FDD /* AVPlayerManager.swift */,
 				4F03CEE2285A0A5A009FDC6F /* RealmManager.swift */,
@@ -827,6 +863,7 @@
 			files = (
 				4F2801912BDE3764003F36A6 /* copy_description_for_web.html in Resources */,
 				4F6A4D0928964EAB00F7B40D /* Localizable.strings in Resources */,
+				4FB85C652D34F2C90016E171 /* CameraSelectionViewController.xib in Resources */,
 				4F7B55FE2BDCEC0D00D427C6 /* icon_128x128.png in Resources */,
 				4FB0F3EC2854A112004E6D51 /* WallpaperViewController.xib in Resources */,
 				4F2161FF2850FA37000673EF /* PreferenceViewController.xib in Resources */,
@@ -920,10 +957,13 @@
 				4F03CEE8285A14D9009FDC6F /* VideoSize.swift in Sources */,
 				4FC182F6285E06E40042FAF6 /* PreferenceUseCase.swift in Sources */,
 				4FC182F8285E06EA0042FAF6 /* PreferencePresenter.swift in Sources */,
+				4FB85C5E2D34DD5B0016E171 /* CameraWallpaper.swift in Sources */,
 				4F2161F4284F9F0C000673EF /* AlertManager.swift in Sources */,
 				4FC182EE285E00540042FAF6 /* SwitchCell.swift in Sources */,
 				4F8A591B284CA1FB00557FDD /* AppContainer.swift in Sources */,
 				4FBD510C288559A8002DF955 /* WebPageWallpaper.swift in Sources */,
+				4F7BEAC62D31FE3E008B0A35 /* CamaraSelectionCoordinator.swift in Sources */,
+				4F7BEACA2D31FE8D008B0A35 /* CameraSelectionUseCase.swift in Sources */,
 				4F8A5907284CA04F00557FDD /* WallpaperWindow.swift in Sources */,
 				4FB1BD41295E8ECE00F476CD /* DockMenuBuilder.swift in Sources */,
 				4FB0F3EF2854A17C004E6D51 /* WallpaperCoordinator.swift in Sources */,
@@ -935,6 +975,7 @@
 				4F01693C284D1D2E00C12ED6 /* SideMenuCell.swift in Sources */,
 				4FB1BD3D295E8C9300F476CD /* DockMenuItemBuilder.swift in Sources */,
 				4F6A4D22289653F100F7B40D /* Localization.swift in Sources */,
+				4FB85C5C2D34D9880016E171 /* AVLayerVideoGravity+.swift in Sources */,
 				4FBD50FF28850A38002DF955 /* WebPageSelectionCoordinator.swift in Sources */,
 				4F8A590D284CA1B200557FDD /* WallpaperWebView.swift in Sources */,
 				4F8A5950284CFDF200557FDD /* InjectableWindowController.swift in Sources */,
@@ -946,6 +987,7 @@
 				4FB1BD4C295F0B4900F476CD /* DockMenuAction.swift in Sources */,
 				4FB0F4072858A272004E6D51 /* WallpaperWindowService.swift in Sources */,
 				4F8A592D284CB4DE00557FDD /* NSView+.swift in Sources */,
+				4F7BEAC82D31FE5E008B0A35 /* CameraSelectionPresenter.swift in Sources */,
 				4F8A5939284CD65900557FDD /* YouTubeContentsService.swift in Sources */,
 				4FAD5E1F2BE3634B00DB51DC /* WallpaperRequestService.swift in Sources */,
 				4F8A5957284D1A2C00557FDD /* LocalVideoSelectionViewController.swift in Sources */,
@@ -954,7 +996,9 @@
 				4FDEFC252C96F467009A062A /* View+.swift in Sources */,
 				4F2D558E289567D200363292 /* AboutViewController.swift in Sources */,
 				4FAF30392BE399F200B9E381 /* BrowserExtensionCoordinator.swift in Sources */,
+				4FB85C602D34DEDE0016E171 /* CameraDeviceService.swift in Sources */,
 				4FB0F3F32854D2C5004E6D51 /* LocalVideoSelectionCoordinator.swift in Sources */,
+				4F7BEAD22D31FEFB008B0A35 /* CameraSelectionViewController.swift in Sources */,
 				4F8A595D284D1B5000557FDD /* YouTubeSelectionViewController.swift in Sources */,
 				4F8A5942284CEEFE00557FDD /* NSCollectionView+.swift in Sources */,
 				4F03CEE6285A107F009FDC6F /* LocalVideoConfig.swift in Sources */,
@@ -964,6 +1008,7 @@
 				4FBD510428850AA5002DF955 /* WebPageSelectionUseCase.swift in Sources */,
 				4FB1BD4B295F0B4900F476CD /* DockMenuUseCase.swift in Sources */,
 				4F2D559328956D4F00363292 /* AboutCoordinator.swift in Sources */,
+				4FB85C622D34E1460016E171 /* AppState.swift in Sources */,
 				4F8A593B284CE3E200557FDD /* UserSettingService.swift in Sources */,
 				4F03CEF2285B64B2009FDC6F /* WallpaperHistoryService.swift in Sources */,
 				4F8A5922284CA28100557FDD /* FileSelectionManager.swift in Sources */,
@@ -1094,6 +1139,15 @@
 				4FAF303F2BE3A05B00B9E381 /* ja */,
 			);
 			name = BrowserExtensionViewController.xib;
+			sourceTree = "<group>";
+		};
+		4FB85C642D34F2C90016E171 /* CameraSelectionViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4FB85C632D34F2C90016E171 /* Base */,
+				4FB85C662D34F2C90016E171 /* mul */,
+			);
+			name = CameraSelectionViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -1228,13 +1282,14 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 17;
+				CURRENT_PROJECT_VERSION = 18;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 2CMV7D36JC;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Wallpaper-Play/Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_NSCameraUsageDescription = "We use it to display the camera feed as wallpaper.";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
@@ -1242,7 +1297,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.5.0;
+				MARKETING_VERSION = 1.6.0;
 				OTHER_SWIFT_FLAGS = "-enable-upcoming-feature ExistentialAny";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.debug.nhiro1109.wallpaper-play";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1261,13 +1316,14 @@
 				CODE_SIGN_ENTITLEMENTS = "wallpaper-play/wallpaper-play.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 17;
+				CURRENT_PROJECT_VERSION = 18;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 2CMV7D36JC;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Wallpaper-Play/Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_NSCameraUsageDescription = "We use it to display the camera feed as wallpaper.";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
@@ -1275,7 +1331,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.5.0;
+				MARKETING_VERSION = 1.6.0;
 				OTHER_SWIFT_FLAGS = "-enable-upcoming-feature ExistentialAny";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.nhiro1109.wallpaper-play";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1376,7 +1432,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 17;
+				CURRENT_PROJECT_VERSION = 18;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 2CMV7D36JC;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -1393,7 +1449,7 @@
 				);
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 1.5.0;
+				MARKETING_VERSION = 1.6.0;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -1414,7 +1470,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CODE_SIGN_ENTITLEMENTS = "Wallpaper Paly SafariEextension/Wallpaper_Paly_SafariEextension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 17;
+				CURRENT_PROJECT_VERSION = 18;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 2CMV7D36JC;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -1431,7 +1487,7 @@
 				);
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 1.5.0;
+				MARKETING_VERSION = 1.6.0;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,

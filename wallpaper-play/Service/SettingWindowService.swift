@@ -10,14 +10,19 @@ final class SettingWindowServiceImpl: SettingWindowService {
     private var windowController: SettingWindowController?
 
     func show() {
-        let windowController = SettingWindowController(windowNibName: String(describing: SettingWindowController.self))
-        if (windowController.contentViewController as? SettingSplitViewController) == nil {
-            let coordinator = SettingCoordinator(injector: Injector.shared)
-            windowController.contentViewController = coordinator.create()
+        if let windowController {
+            windowController.window?.center()
+            windowController.window?.makeKeyAndOrderFront(nil)
+        } else {
+            let windowController = SettingWindowController(windowNibName: String(describing: SettingWindowController.self))
+            if (windowController.contentViewController as? SettingSplitViewController) == nil {
+                let coordinator = SettingCoordinator(injector: Injector.shared)
+                windowController.contentViewController = coordinator.create()
+            }
+            windowController.window?.center()
+            windowController.window?.makeKeyAndOrderFront(nil)
+            self.windowController = windowController
         }
-        windowController.window?.center()
-        windowController.window?.makeKeyAndOrderFront(nil)
-        self.windowController = windowController
     }
 
     func close() {

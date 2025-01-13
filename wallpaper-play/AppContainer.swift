@@ -18,9 +18,12 @@ class AppContainer {
         container.register((any YouTubeContentsService).self) { _ in YouTubeContentsServiceImpl()}
         container.register((any FileSelectionManager).self) { _ in FileSelectionManagerImpl()}
         container.register((any AVPlayerManager).self) { _ in AVPlayerManagerImpl()}
-        container.register((any SettingWindowService).self) { injector in SettingWindowServiceImpl() }
+        container.register((any SettingWindowService).self) { _ in SettingWindowServiceImpl() }
+        container.register((any CameraDeviceService).self) { _ in CameraDeviceServiceImpl() }
+        container.register(AppState.self) { _ in AppState.shared }.inObjectScope(.container)
 
         // MARK: - DockMenu
+
         container.register((any DockMenuUseCase).self) { injector in DockMenuInteractor(injector: injector) }
         container.register((any DockMenuAction).self) { injector in DockMenuActionImpl(injector: injector)}
         container.register((any DockMenuItemBuilder).self) { injector in DockMenuItemBuilderImpl(injector: injector) }
