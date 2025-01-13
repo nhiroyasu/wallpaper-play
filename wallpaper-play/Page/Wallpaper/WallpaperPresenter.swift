@@ -1,4 +1,5 @@
 import AppKit
+import AVFoundation
 import Injectable
 
 struct VideoPlayValue {
@@ -18,11 +19,17 @@ struct WebPlayValue {
     let arrowOperation: Bool
 }
 
+struct CameraPlayValue {
+    let deviceId: String
+    let videoSize: VideoSize
+}
+
 enum WallpaperKind {
     case video(value: VideoPlayValue)
     case youtube(videoId: String, isMute: Bool)
     case web(url: URL, arrowOperation: Bool)
-    case none
+    case camera(deviceId: String, videoSize: VideoSize)
+    case unknown
 }
 
 protocol WallpaperPresenter {
@@ -31,12 +38,14 @@ protocol WallpaperPresenter {
 
 class WallpaperPresenterImpl: NSObject, WallpaperPresenter {
     private let youtubeContentService: any YouTubeContentsService
+    private let cameraDeviceService: any CameraDeviceService
     private let wallpaperKind: WallpaperKind
     weak var output: WallpaperViewController!
 
-    init(wallpaperKind: WallpaperKind, youtubeContentService: any YouTubeContentsService) {
+    init(wallpaperKind: WallpaperKind, youtubeContentService: any YouTubeContentsService, cameraDeviceService: any CameraDeviceService) {
         self.wallpaperKind = wallpaperKind
         self.youtubeContentService = youtubeContentService
+        self.cameraDeviceService = cameraDeviceService
     }
 
     func viewDidLoad() {
@@ -56,7 +65,13 @@ class WallpaperPresenterImpl: NSObject, WallpaperPresenter {
             }
         case .web(let url, let arrowOperation):
             .web(url, arrowOperation: arrowOperation)
-        case .none:
+        case .camera(let deviceId, let videoSize):
+            if let camera = cameraDeviceService.fetchDevice(deviceId: deviceId) {
+                .camera(captureDevice: camera, videoSize: videoSize)
+            } else {
+                .none
+            }
+        case .unknown:
             .none
         }
         output.display(displayType)

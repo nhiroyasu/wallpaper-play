@@ -53,6 +53,7 @@ class ApplicationServiceImpl: ApplicationService {
         setUpRequestVideoNotification()
         setUpRequestVisibilityIconNotification()
         setUpRequestWebPageNotification()
+        setUpRequestCameraNotification()
         setUpAppIcon()
         setUpFlag = true
     }
@@ -103,6 +104,13 @@ class ApplicationServiceImpl: ApplicationService {
         dockMenuBuilder.build()
     }
 
+    private func setUpRequestVideoNotification() {
+        notificationManager.observe(name: .requestVideo) { [weak self] param in
+            guard let self = self, let value = param as? VideoPlayValue else { fatalError() }
+            self.displayLocalVideo(value: value, shouldSavedHistory: true)
+        }
+    }
+
     private func setUpRequestYouTubeNotification() {
         notificationManager.observe(name: .requestYouTube) { [weak self] param in
             guard let self = self, let data = param as? YouTubePlayValue else { fatalError() }
@@ -116,7 +124,15 @@ class ApplicationServiceImpl: ApplicationService {
             self.displayWebPage(url: value.url, arrowOperation: value.arrowOperation, shouldSavedHistory: true)
         }
     }
-    
+
+    private func setUpRequestCameraNotification() {
+        notificationManager.observe(name: .requestCamera) { [weak self] param in
+            guard let self = self, let value = param as? CameraPlayValue else { fatalError() }
+            self.wallpaperWindowService.display(wallpaperKind: WallpaperKind.camera(deviceId: value.deviceId, videoSize: value.videoSize))
+            self.wallpaperHistoryService.store(CameraWallpaper(date: Date(), deviceId: value.deviceId, size: value.videoSize.rawValue))
+        }
+    }
+
     private func displayYouTube(videoId: String, isMute: Bool, shouldSavedHistory: Bool) {
         wallpaperWindowService.display(wallpaperKind: .youtube(videoId: videoId, isMute: isMute))
 
@@ -134,14 +150,7 @@ class ApplicationServiceImpl: ApplicationService {
             wallpaperHistoryService.store(webpageWallpaper)
         }
     }
-    
-    private func setUpRequestVideoNotification() {
-        notificationManager.observe(name: .requestVideo) { [weak self] param in
-            guard let self = self, let value = param as? VideoPlayValue else { fatalError() }
-            self.displayLocalVideo(value: value, shouldSavedHistory: true)
-        }
-    }
-    
+
     private func displayLocalVideo(value: VideoPlayValue, shouldSavedHistory: Bool) {
         wallpaperWindowService.display(wallpaperKind: .video(value: value))
 

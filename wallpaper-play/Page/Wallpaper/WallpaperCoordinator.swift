@@ -25,9 +25,14 @@ class WallpaperCoordinator: WindowCoordinator {
     func createWindow() -> NSWindow {
         let presenter = WallpaperPresenterImpl(
             wallpaperKind: wallpaperKind,
-            youtubeContentService: injector.build()
+            youtubeContentService: injector.build(),
+            cameraDeviceService: injector.build()
         )
-        viewController = WallpaperViewController(wallpaperSize: wallpaperSize, presenter: presenter, avManager: injector.build())
+        viewController = WallpaperViewController(
+            wallpaperSize: wallpaperSize,
+            presenter: presenter,
+            avManager: injector.build()
+        )
         presenter.output = viewController
         window = WallpaperWindow(contentViewController: viewController, windowLevel: windowLevel)
         return window

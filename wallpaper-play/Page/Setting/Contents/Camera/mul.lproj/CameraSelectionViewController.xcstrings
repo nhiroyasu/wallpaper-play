@@ -1,0 +1,144 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "343-l0-Pm5.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Set Wallpaper\"; ObjectID = \"343-l0-Pm5\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Set Wallpaper"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "壁紙に設定する"
+          }
+        }
+      }
+    },
+    "C4S-PS-jD3.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"Preview\"; ObjectID = \"C4S-PS-jD3\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Preview"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "プレビュー"
+          }
+        }
+      }
+    },
+    "fqg-sM-el2.ibShadowedToolTip" : {
+      "comment" : "Class = \"NSPopUpButton\"; ibShadowedToolTip = \"Video Size\"; ObjectID = \"fqg-sM-el2\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Video Size"
+          }
+        }
+      }
+    },
+    "gDd-O4-XbY.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Item 1\"; ObjectID = \"gDd-O4-XbY\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Item 1"
+          }
+        }
+      }
+    },
+    "HZb-jc-e7c.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Aspect Fit\"; ObjectID = \"HZb-jc-e7c\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Aspect Fit"
+          }
+        }
+      }
+    },
+    "IhQ-4n-9Xj.title" : {
+      "comment" : "Class = \"NSTextFieldCell\"; title = \"Setting the camera feed as wallpaper\"; ObjectID = \"IhQ-4n-9Xj\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Setting the camera feed as wallpaper"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "カメラ映像を壁紙に設定中"
+          }
+        }
+      }
+    },
+    "jzu-7E-3UE.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Item 2\"; ObjectID = \"jzu-7E-3UE\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Item 2"
+          }
+        }
+      }
+    },
+    "NNN-kz-Afw.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Aspect Fill\"; ObjectID = \"NNN-kz-Afw\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Aspect Fill"
+          }
+        }
+      }
+    },
+    "TAH-cV-anl.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"Item 3\"; ObjectID = \"TAH-cV-anl\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Item 3"
+          }
+        }
+      }
+    },
+    "Ujm-45-DhD.title" : {
+      "comment" : "Class = \"NSBox\"; title = \"Preview\"; ObjectID = \"Ujm-45-DhD\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Preview"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}
