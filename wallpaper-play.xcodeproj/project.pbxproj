@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 55;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -57,7 +57,6 @@
 		4F7BEAC62D31FE3E008B0A35 /* CamaraSelectionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7BEAC52D31FE37008B0A35 /* CamaraSelectionCoordinator.swift */; };
 		4F7BEAC82D31FE5E008B0A35 /* CameraSelectionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7BEAC72D31FE59008B0A35 /* CameraSelectionPresenter.swift */; };
 		4F7BEACA2D31FE8D008B0A35 /* CameraSelectionUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7BEAC92D31FE8B008B0A35 /* CameraSelectionUseCase.swift */; };
-		4F7BEAD12D31FEFB008B0A35 /* CameraSelectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F7BEAD02D31FEFB008B0A35 /* CameraSelectionViewController.xib */; };
 		4F7BEAD22D31FEFB008B0A35 /* CameraSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7BEACF2D31FEFB008B0A35 /* CameraSelectionViewController.swift */; };
 		4F8A58DA284CA01A00557FDD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8A58D9284CA01A00557FDD /* AppDelegate.swift */; };
 		4F8A58DC284CA01A00557FDD /* WallpaperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8A58DB284CA01A00557FDD /* WallpaperViewController.swift */; };
@@ -113,6 +112,7 @@
 		4FB85C5E2D34DD5B0016E171 /* CameraWallpaper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB85C5D2D34DD520016E171 /* CameraWallpaper.swift */; };
 		4FB85C602D34DEDE0016E171 /* CameraDeviceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB85C5F2D34DED90016E171 /* CameraDeviceService.swift */; };
 		4FB85C622D34E1460016E171 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB85C612D34E1410016E171 /* AppState.swift */; };
+		4FB85C652D34F2C90016E171 /* CameraSelectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FB85C642D34F2C90016E171 /* CameraSelectionViewController.xib */; };
 		4FBD50FC2885089A002DF955 /* WebPageSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBD50FA2885089A002DF955 /* WebPageSelectionViewController.swift */; };
 		4FBD50FF28850A38002DF955 /* WebPageSelectionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBD50FE28850A38002DF955 /* WebPageSelectionCoordinator.swift */; };
 		4FBD510428850AA5002DF955 /* WebPageSelectionUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBD510328850AA5002DF955 /* WebPageSelectionUseCase.swift */; };
@@ -227,7 +227,6 @@
 		4F7BEAC72D31FE59008B0A35 /* CameraSelectionPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraSelectionPresenter.swift; sourceTree = "<group>"; };
 		4F7BEAC92D31FE8B008B0A35 /* CameraSelectionUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraSelectionUseCase.swift; sourceTree = "<group>"; };
 		4F7BEACF2D31FEFB008B0A35 /* CameraSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraSelectionViewController.swift; sourceTree = "<group>"; };
-		4F7BEAD02D31FEFB008B0A35 /* CameraSelectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CameraSelectionViewController.xib; sourceTree = "<group>"; };
 		4F8343E62BCBA0DA00DAAF4D /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		4F8A58D6284CA01A00557FDD /* Wallpaper Play.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Wallpaper Play.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F8A58D9284CA01A00557FDD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -291,6 +290,8 @@
 		4FB85C5D2D34DD520016E171 /* CameraWallpaper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraWallpaper.swift; sourceTree = "<group>"; };
 		4FB85C5F2D34DED90016E171 /* CameraDeviceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraDeviceService.swift; sourceTree = "<group>"; };
 		4FB85C612D34E1410016E171 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		4FB85C632D34F2C90016E171 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/CameraSelectionViewController.xib; sourceTree = "<group>"; };
+		4FB85C662D34F2C90016E171 /* mul */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = mul; path = mul.lproj/CameraSelectionViewController.xcstrings; sourceTree = "<group>"; };
 		4FBD50FA2885089A002DF955 /* WebPageSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebPageSelectionViewController.swift; sourceTree = "<group>"; };
 		4FBD50FE28850A38002DF955 /* WebPageSelectionCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebPageSelectionCoordinator.swift; sourceTree = "<group>"; };
 		4FBD510328850AA5002DF955 /* WebPageSelectionUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebPageSelectionUseCase.swift; sourceTree = "<group>"; };
@@ -411,7 +412,7 @@
 				4F7BEAC72D31FE59008B0A35 /* CameraSelectionPresenter.swift */,
 				4F7BEAC52D31FE37008B0A35 /* CamaraSelectionCoordinator.swift */,
 				4F7BEACF2D31FEFB008B0A35 /* CameraSelectionViewController.swift */,
-				4F7BEAD02D31FEFB008B0A35 /* CameraSelectionViewController.xib */,
+				4FB85C642D34F2C90016E171 /* CameraSelectionViewController.xib */,
 			);
 			path = Camera;
 			sourceTree = "<group>";
@@ -862,7 +863,7 @@
 			files = (
 				4F2801912BDE3764003F36A6 /* copy_description_for_web.html in Resources */,
 				4F6A4D0928964EAB00F7B40D /* Localizable.strings in Resources */,
-				4F7BEAD12D31FEFB008B0A35 /* CameraSelectionViewController.xib in Resources */,
+				4FB85C652D34F2C90016E171 /* CameraSelectionViewController.xib in Resources */,
 				4F7B55FE2BDCEC0D00D427C6 /* icon_128x128.png in Resources */,
 				4FB0F3EC2854A112004E6D51 /* WallpaperViewController.xib in Resources */,
 				4F2161FF2850FA37000673EF /* PreferenceViewController.xib in Resources */,
@@ -1138,6 +1139,15 @@
 				4FAF303F2BE3A05B00B9E381 /* ja */,
 			);
 			name = BrowserExtensionViewController.xib;
+			sourceTree = "<group>";
+		};
+		4FB85C642D34F2C90016E171 /* CameraSelectionViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4FB85C632D34F2C90016E171 /* Base */,
+				4FB85C662D34F2C90016E171 /* mul */,
+			);
+			name = CameraSelectionViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

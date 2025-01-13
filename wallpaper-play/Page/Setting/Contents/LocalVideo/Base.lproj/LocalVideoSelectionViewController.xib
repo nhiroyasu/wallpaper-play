@@ -137,7 +137,7 @@
                             <subviews>
                                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="2H9-oN-wvY">
                                     <rect key="frame" x="-6" y="-6" width="139" height="40"/>
-                                    <buttonCell key="cell" type="push" title="Set WallPaper" bezelStyle="rounded" image="desktopcomputer" catalog="system" imagePosition="left" alignment="center" controlSize="large" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Jdh-1O-XV6">
+                                    <buttonCell key="cell" type="push" title="Set Wallpaper" bezelStyle="rounded" image="desktopcomputer" catalog="system" imagePosition="left" alignment="center" controlSize="large" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Jdh-1O-XV6">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="system"/>
                                     </buttonCell>
