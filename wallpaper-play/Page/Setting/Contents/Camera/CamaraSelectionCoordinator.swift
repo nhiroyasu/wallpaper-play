@@ -3,26 +3,28 @@ import AppKit
 import Swinject
 import Injectable
 
-class LocalVideoSelectionCoordinator: Coordinator {
-    private var viewController: LocalVideoSelectionViewController!
+class CameraSelectionCoordinator: Coordinator {
+    private var viewController: CameraSelectionViewController!
     private let injector: any Injectable
 
     init(injector: any Injectable) {
         self.injector = injector
     }
-    
+
     func create() -> NSViewController {
-        let useCase = LocalVideoSelectionInteractor(
+        let useCase = CameraSelectionInteractor(
             wallpaperRequestService: injector.build()
         )
-        let presenter = LocalVideoSelectionPresenterImpl(
+        let presenter = CameraSelectionPresenterImpl(
             useCase: useCase,
             alertManager: injector.build(),
             fileSelectionService: injector.build()
         )
-        viewController = LocalVideoSelectionViewController(
+        viewController = CameraSelectionViewController(
             presenter: presenter,
-            avManager: injector.build()
+            notificationManager: injector.build(),
+            cameraDeviceService: injector.build(),
+            appState: injector.build()
         )
         presenter.output = viewController
         return viewController

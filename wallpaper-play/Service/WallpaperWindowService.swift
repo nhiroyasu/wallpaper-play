@@ -12,17 +12,20 @@ class WallpaperWindowServiceImpl: WallpaperWindowService {
     private let wallpaperHistoryService: any WallpaperHistoryService
     private let notificationManager: any NotificationManager
     private let youTubeContentsService: any YouTubeContentsService
-    
+    private let appState: AppState
+
     init(injector: any Injectable) {
         self.notificationManager = injector.build()
         self.wallpaperHistoryService = injector.build()
         self.youTubeContentsService = injector.build()
+        self.appState = injector.build()
         observeScreenParam()
     }
     
     func display(wallpaperKind: WallpaperKind) {
         windowList.forEach { $0.close() }
         windowList = []
+        appState.wallpaperKind = wallpaperKind
 
         NSScreen.screens.forEach { [weak self] screen in
             guard let self else { return }
@@ -85,10 +88,12 @@ class WallpaperWindowServiceImpl: WallpaperWindowService {
 
     private func computeWindowLevel(wallpaperKind: WallpaperKind) -> NSWindow.Level {
         switch wallpaperKind {
-        case .video, .youtube, .none:
+        case .video, .youtube, .unknown:
             return .desktopAbove
         case let .web(_, arrowOperation):
             return arrowOperation ? .desktopIconAbove : .desktopAbove
+        case .camera:
+            return .desktopIconAbove
         }
     }
 
@@ -108,7 +113,7 @@ class WallpaperWindowServiceImpl: WallpaperWindowService {
             )
         case .youtube(let videoId, _):
             return .youtube(videoId: videoId, isMute: true)
-        case .web, .none:
+        case .web, .camera, .unknown:
             return baseWallpaperKind
         }
     }

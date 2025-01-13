@@ -5,6 +5,7 @@ protocol WallpaperRequestService {
     func requestVideoWallpaper(video: VideoPlayValue)
     func requestYoutubeWallpaper(youtube: YouTubePlayValue)
     func requestWebWallpaper(web: WebPlayValue)
+    func requestCameraWallpaper(camera: CameraPlayValue)
 }
 
 class WallpaperRequestServiceImpl: WallpaperRequestService {
@@ -24,5 +25,9 @@ class WallpaperRequestServiceImpl: WallpaperRequestService {
     
     func requestWebWallpaper(web: WebPlayValue) {
         notificationManager.push(name: .requestWebPage, param: web)
+    }
+
+    func requestCameraWallpaper(camera: CameraPlayValue) {
+        notificationManager.push(name: .requestCamera, param: camera)
     }
 }

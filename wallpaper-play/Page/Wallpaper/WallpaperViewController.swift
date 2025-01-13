@@ -11,8 +11,10 @@ class WallpaperViewController: NSViewController {
     var webView: WallpaperWebView!
     var youtubeView: WallpaperWebView!
     var videoView: VideoView!
+    var cameraView: NSView!
     private let wallpaperSize: NSSize
     private let avManager: any AVPlayerManager
+    private var captureSession: AVCaptureSession?
     private let presenter: any WallpaperPresenter
 
     init(
@@ -30,14 +32,21 @@ class WallpaperViewController: NSViewController {
         fatalError("not call")
     }
 
+    deinit {
+        captureSession?.stopRunning()
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         videoView = .init(frame: .init(origin: .zero, size: wallpaperSize))
         youtubeView = .init(frame: .zero, configuration: .youtubeWallpaper)
         webView = .init(frame: .zero, configuration: .webWallpaper)
+        cameraView = .init(frame: .zero)
+        cameraView.translatesAutoresizingMaskIntoConstraints = false
         view.fitAllAnchor(youtubeView)
         view.fitAllAnchor(webView)
         view.fitAllAnchor(videoView)
+        view.fitAllAnchor(cameraView)
 
         presenter.viewDidLoad()
     }
@@ -70,6 +79,39 @@ extension WallpaperViewController: WallpaperViewOutput {
             webView.isHidden = false
             webView.load(URLRequest(url: url))
             webView.setArrowOperation(arrowOperation)
+        case .camera(let camera, let videoSize):
+            allClear()
+            cameraView.isHidden = false
+
+            if captureSession == nil {
+                captureSession = AVCaptureSession()
+                captureSession!.sessionPreset = .high
+
+                let cameraLayer = AVCaptureVideoPreviewLayer(session: captureSession!)
+                cameraLayer.videoGravity = .from(videoSize)
+                cameraLayer.frame = cameraView.bounds
+                cameraLayer.autoresizingMask = [.layerWidthSizable, .layerHeightSizable]
+                cameraView.layer = CALayer()
+                cameraView.layer?.addSublayer(cameraLayer)
+            }
+
+            do {
+                captureSession?.inputs.forEach { captureSession?.removeInput($0) }
+
+                let input = try AVCaptureDeviceInput(device: camera)
+                if captureSession?.canAddInput(input) == true {
+                    captureSession?.addInput(input)
+                }
+
+                captureSession?.startRunning()
+            } catch {
+                #if DEBUG
+                fatalError(error.localizedDescription)
+                #else
+                NSLog(error.localizedDescription, [])
+                #endif
+            }
+
         case .none:
             allClear()
         }
@@ -83,6 +125,7 @@ extension WallpaperViewController {
         removeVideo()
         removeYoutubeView()
         removeWebView()
+        removeCameraView()
     }
 
     private func removeVideo() {
@@ -102,11 +145,17 @@ extension WallpaperViewController {
         webView.setArrowOperation(false)
         webView.isHidden = true
     }
+
+    private func removeCameraView() {
+        cameraView.isHidden = true
+        captureSession?.stopRunning()
+    }
 }
 
 enum WallpaperDisplayType {
     case video(URL, videoSize: VideoSize, mute: Bool, backgroundColor: NSColor?)
     case youtube(URL)
     case web(URL, arrowOperation: Bool)
+    case camera(captureDevice: AVCaptureDevice, videoSize: VideoSize)
     case none
 }
