@@ -122,4 +122,32 @@ class RealmMigrationServiceTests: XCTestCase {
         XCTAssertEqual(result.config!.isMute, expectedData.config!.isMute)
         XCTAssertEqual(result.config!.backgroundColor, expectedData.config!.backgroundColor)
     }
+    
+    func testMigration_v8_Latest_YouTubeWallpaper() throws {
+        let config = Realm.Configuration(
+            fileURL: realmUrl(for: 7), // Use v7 data to perform migration
+            schemaVersion: REALM_SCHEMA_VERSION
+        )
+        let realm = try! Realm(configuration: config)
+        
+        // Get all YouTubeWallpaper objects
+        let results = realm.objects(YouTubeWallpaper.self)
+        
+        // Verify all YouTubeWallpaper objects were properly migrated
+        for result in results {
+            // Size should be 1 (.aspectFit) after migration
+            XCTAssertEqual(result.size, 1)
+            
+            // Verify other properties were preserved during migration
+            // Adjust these assertions based on your actual model properties
+            XCTAssertNotNil(result.videoId)
+            XCTAssertNotNil(result.date)
+            
+            // Verify isMute property is preserved (if needed)
+            // XCTAssertEqual(result.isMute, expectedIsMuteValue)
+        }
+        
+        // Ensure YouTubeWallpaper objects still exist after migration
+        XCTAssertGreaterThan(results.count, 0)
+    }
 }

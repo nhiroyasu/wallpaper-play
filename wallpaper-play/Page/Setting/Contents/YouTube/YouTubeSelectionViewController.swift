@@ -18,6 +18,14 @@ class YouTubeSelectionViewController: NSViewController {
         }
     }
     @IBOutlet weak var youtubeWrappingView: NSView!
+    @IBOutlet weak var videoSizePopUpButton: NSPopUpButton! {
+        didSet {
+            videoSizePopUpButton.menu?.items = VideoSize.allCases.map {
+                .init(title: $0.text, action: nil, keyEquivalent: "")
+            }
+            videoSizePopUpButton.selectItem(at: 0)
+        }
+    }
     @IBOutlet weak var wallpaperButton: NSButton!
     @IBOutlet weak var muteToggleButton: NSButton!
     public var youtubeWebView: WallpaperWebView!
@@ -35,7 +43,7 @@ class YouTubeSelectionViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let webViewConfiguration = WKWebViewConfiguration()
-        youtubeWebView = .init(frame: .zero, configuration: .youtubeWallpaper)
+        youtubeWebView = .init(frame: .zero, configuration: .youtubeWallpaper(videoSize: .aspectFit))
         youtubeWrappingView.fitAllAnchor(youtubeWebView)
         if let path = Bundle.main.path(forResource: "copy_description_for_youtube", ofType: "html") {
             updatePreview(url: URL(fileURLWithPath: path))
@@ -51,9 +59,13 @@ class YouTubeSelectionViewController: NSViewController {
     }
 
     @IBAction func didTapWallpaperButton(_ sender: Any) {
+        guard let videoSize = VideoSize(rawValue: videoSizePopUpButton.indexOfSelectedItem) else {
+            return
+        }
         presenter.didTapWallpaperButton(
             youtubeLink: youtubeLinkTextField.stringValue,
-            mute: muteToggleButton.state == .on
+            mute: muteToggleButton.state == .on,
+            videoSize: videoSize
         )
     }
 }

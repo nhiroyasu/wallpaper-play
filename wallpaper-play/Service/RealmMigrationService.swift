@@ -4,6 +4,7 @@ import RealmSwift
 protocol RealmMigrationService {
     func migrateForV3(migration: Migration, oldSchemaVersion: UInt64)
     func migrateForV4(migration: Migration, oldSchemaVersion: UInt64)
+    func migrateForV8(migration: Migration, oldSchemaVersion: UInt64)
 }
 
 class RealmMigrationServiceImpl: RealmMigrationService {
@@ -42,6 +43,15 @@ class RealmMigrationServiceImpl: RealmMigrationService {
                         migration.delete(oldObject)
                     }
                 }
+            }
+        }
+    }
+    
+    func migrateForV8(migration: Migration, oldSchemaVersion: UInt64) {
+        if oldSchemaVersion < 8 {
+            migration.enumerateObjects(ofType: YouTubeWallpaper.className()) { oldObject, newObject in
+                // Default value is .aspectFit
+                newObject?["size"] = 1
             }
         }
     }

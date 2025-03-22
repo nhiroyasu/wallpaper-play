@@ -5,7 +5,7 @@ protocol YouTubeSelectionPresenter {
     func viewDidLoad()
     func onChangeSearchField(_ value: String)
     func enteredYouTubeLink(_ value: String)
-    func didTapWallpaperButton(youtubeLink: String, mute: Bool)
+    func didTapWallpaperButton(youtubeLink: String, mute: Bool, videoSize: VideoSize)
 }
 
 class YouTubeSelectionPresenterImpl: YouTubeSelectionPresenter {
@@ -52,11 +52,11 @@ class YouTubeSelectionPresenterImpl: YouTubeSelectionPresenter {
         }
     }
 
-    func didTapWallpaperButton(youtubeLink: String, mute: Bool) {
+    func didTapWallpaperButton(youtubeLink: String, mute: Bool, videoSize: VideoSize) {
         guard let videoId = useCase.retrieveVideoId(from: youtubeLink) else {
             alertService.warning(msg: LocalizedString(key: .error_invalid_youtube_url), completionHandler: {})
             return
         }
-        useCase.requestWallpaper(videoId: videoId, mute: mute)
+        useCase.requestWallpaper(videoId: videoId, mute: mute, videoSize: videoSize)
     }
 }

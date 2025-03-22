@@ -12,6 +12,7 @@ struct VideoPlayValue {
 struct YouTubePlayValue {
     let videoId: String
     let isMute: Bool
+    let videoSize: VideoSize
 }
 
 struct WebPlayValue {
@@ -26,7 +27,7 @@ struct CameraPlayValue {
 
 enum WallpaperKind {
     case video(value: VideoPlayValue)
-    case youtube(videoId: String, isMute: Bool)
+    case youtube(videoId: String, isMute: Bool, videoSize: VideoSize)
     case web(url: URL, arrowOperation: Bool)
     case camera(deviceId: String, videoSize: VideoSize)
     case unknown
@@ -57,9 +58,9 @@ class WallpaperPresenterImpl: NSObject, WallpaperPresenter {
                     mute: value.mute,
                     backgroundColor: value.backgroundColor
                 )
-        case .youtube(let videoId, let isMute):
+        case .youtube(let videoId, let isMute, let videoSize):
             if let url = youtubeContentService.buildFullIframeUrl(id: videoId, mute: isMute) {
-                .youtube(url)
+                .youtube(url, videoSize: videoSize)
             } else {
                 .none
             }
