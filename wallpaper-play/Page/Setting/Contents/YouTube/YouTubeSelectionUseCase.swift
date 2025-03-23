@@ -5,7 +5,7 @@ protocol YouTubeSelectionUseCase {
     func retrieveIFrameUrl(from youtubeLink: String) -> URL?
     func retrieveThumbnailUrl(from youtubeLink: String) -> URL?
     func retrieveVideoId(from youtubeLink: String) -> String?
-    func requestWallpaper(videoId: String, mute: Bool)
+    func requestWallpaper(videoId: String, mute: Bool, videoSize: VideoSize)
 }
 
 class YouTubeSelectionInteractor: YouTubeSelectionUseCase {
@@ -48,8 +48,8 @@ class YouTubeSelectionInteractor: YouTubeSelectionUseCase {
         return urlContent?.queryItems.first(where: { $0.name == "v" })?.value
     }
 
-    func requestWallpaper(videoId: String, mute: Bool) {
-        wallpaperRequestService.requestYoutubeWallpaper(youtube: YouTubePlayValue(videoId: videoId, isMute: mute))
+    func requestWallpaper(videoId: String, mute: Bool, videoSize: VideoSize) {
+        wallpaperRequestService.requestYoutubeWallpaper(youtube: YouTubePlayValue(videoId: videoId, isMute: mute, videoSize: videoSize))
     }
 
     // MARK: - internal

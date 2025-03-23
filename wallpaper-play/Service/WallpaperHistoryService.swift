@@ -165,7 +165,8 @@ class WallpaperHistoryServiceImpl: WallpaperHistoryService {
             )
             return .video(value: videoPlayValue)
         } else if let video = latestVideo as? YouTubeWallpaper {
-            return .youtube(videoId: video.videoId, isMute: video.isMute)
+            let videoSize = VideoSize(rawValue: video.size) ?? .aspectFill
+            return .youtube(videoId: video.videoId, isMute: video.isMute, videoSize: videoSize)
         } else if let video = latestVideo as? WebPageWallpaper {
             let arrowOperation = video.arrowOperation ?? false
             return .web(
