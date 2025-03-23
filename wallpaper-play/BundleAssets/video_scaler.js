@@ -46,11 +46,9 @@
          const windowAspect = windowWidth / windowHeight;
 
          // Calculate scale value
-         let scale = windowAspect / videoAspect;
-
-         // Formatted numbers (limited to 3 decimal places)
-         const formattedVideoAspect = videoAspect.toFixed(3);
-         const formattedWindowAspect = windowAspect.toFixed(3);
+         const small = Math.min(windowAspect, videoAspect);
+         const large = Math.max(windowAspect, videoAspect);
+         const scale = large / small;
          const formattedScale = scale.toFixed(3);
 
          // Apply the calculated scale to the video
