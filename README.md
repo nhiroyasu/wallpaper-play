@@ -18,6 +18,7 @@ This app allows you to set videos as macOS wallpaper.
 - local video ( .mp4, .mov etc...)
 - youtube
 - website
+- camera
 
 ## Previews
 ### Video
