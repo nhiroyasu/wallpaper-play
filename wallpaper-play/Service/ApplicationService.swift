@@ -70,7 +70,7 @@ class ApplicationServiceImpl: ApplicationService {
         setUp()
         guard let url = urls.first else { return }
         guard let (videoId, isMute) = getWallpaperData(from: url) else { return }
-        displayYouTube(videoId: videoId, isMute: isMute, shouldSavedHistory: true)
+        displayYouTube(videoId: videoId, isMute: isMute, shouldSavedHistory: true, videoSize: .aspectFit)
         settingWindowService.close()
     }
 
@@ -114,7 +114,7 @@ class ApplicationServiceImpl: ApplicationService {
     private func setUpRequestYouTubeNotification() {
         notificationManager.observe(name: .requestYouTube) { [weak self] param in
             guard let self = self, let data = param as? YouTubePlayValue else { fatalError() }
-            self.displayYouTube(videoId: data.videoId, isMute: data.isMute, shouldSavedHistory: true)
+            self.displayYouTube(videoId: data.videoId, isMute: data.isMute, shouldSavedHistory: true, videoSize: data.videoSize)
         }
     }
     
@@ -133,11 +133,11 @@ class ApplicationServiceImpl: ApplicationService {
         }
     }
 
-    private func displayYouTube(videoId: String, isMute: Bool, shouldSavedHistory: Bool) {
-        wallpaperWindowService.display(wallpaperKind: .youtube(videoId: videoId, isMute: isMute))
+    private func displayYouTube(videoId: String, isMute: Bool, shouldSavedHistory: Bool, videoSize: VideoSize) {
+        wallpaperWindowService.display(wallpaperKind: .youtube(videoId: videoId, isMute: isMute, videoSize: videoSize))
 
         if shouldSavedHistory {
-            let youtubeWallpaper = YouTubeWallpaper(date: Date(), videoId: videoId, isMute: isMute)
+            let youtubeWallpaper = YouTubeWallpaper(date: Date(), videoId: videoId, isMute: isMute, size: videoSize.rawValue)
             wallpaperHistoryService.store(youtubeWallpaper)
         }
     }

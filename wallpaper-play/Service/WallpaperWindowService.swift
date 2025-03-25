@@ -111,8 +111,8 @@ class WallpaperWindowServiceImpl: WallpaperWindowService {
                     backgroundColor: value.backgroundColor
                 )
             )
-        case .youtube(let videoId, _):
-            return .youtube(videoId: videoId, isMute: true)
+        case .youtube(let videoId, _, let videoSize):
+            return .youtube(videoId: videoId, isMute: true, videoSize: videoSize)
         case .web, .camera, .unknown:
             return baseWallpaperKind
         }

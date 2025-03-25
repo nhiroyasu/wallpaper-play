@@ -39,7 +39,7 @@ class WallpaperViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         videoView = .init(frame: .init(origin: .zero, size: wallpaperSize))
-        youtubeView = .init(frame: .zero, configuration: .youtubeWallpaper)
+        youtubeView = .init(frame: .zero, configuration: .youtubeWallpaper(videoSize: .aspectFit))
         webView = .init(frame: .zero, configuration: .webWallpaper)
         cameraView = .init(frame: .zero)
         cameraView.translatesAutoresizingMaskIntoConstraints = false
@@ -70,8 +70,9 @@ extension WallpaperViewController: WallpaperViewOutput {
             } catch {
                 fatalError(error.localizedDescription)
             }
-        case .youtube(let url):
+        case .youtube(let url, let videoSize):
             allClear()
+            resetYoutubeView(videoSize: videoSize)
             youtubeView.isHidden = false
             youtubeView.load(URLRequest(url: url))
         case .web(let url, let arrowOperation):
@@ -134,6 +135,12 @@ extension WallpaperViewController {
         avManager.clear()
     }
 
+    private func resetYoutubeView(videoSize: VideoSize) {
+        youtubeView.removeFromSuperview()
+        youtubeView = .init(frame: .zero, configuration: .youtubeWallpaper(videoSize: videoSize))
+        view.fitAllAnchor(youtubeView)
+    }
+    
     private func removeYoutubeView() {
         youtubeView.loadHTMLString("", baseURL: nil)
         youtubeView.setArrowOperation(false)
@@ -154,7 +161,7 @@ extension WallpaperViewController {
 
 enum WallpaperDisplayType {
     case video(URL, videoSize: VideoSize, mute: Bool, backgroundColor: NSColor?)
-    case youtube(URL)
+    case youtube(URL, videoSize: VideoSize)
     case web(URL, arrowOperation: Bool)
     case camera(captureDevice: AVCaptureDevice, videoSize: VideoSize)
     case none

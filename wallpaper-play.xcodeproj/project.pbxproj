@@ -135,6 +135,7 @@
 		4FDF1DF5285ECA1900ABBE8D /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 4FDF1DF4285ECA1900ABBE8D /* Swinject */; };
 		4FDF1DF7285ECAB600ABBE8D /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDF1DF6285ECAB500ABBE8D /* Coordinator.swift */; };
 		4FE7384A2C867D4300EE18D1 /* Injectable in Frameworks */ = {isa = PBXBuildFile; productRef = 4FE738492C867D4300EE18D1 /* Injectable */; };
+		C63438112D8FC901001240F4 /* video_scaler.js in Resources */ = {isa = PBXBuildFile; fileRef = C63438102D8FC901001240F4 /* video_scaler.js */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -312,6 +313,7 @@
 		4FDEFC262C96F8EF009A062A /* WebConfiguration+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WebConfiguration+.swift"; sourceTree = "<group>"; };
 		4FDF1DEE285EAF7100ABBE8D /* AppManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
 		4FDF1DF6285ECAB500ABBE8D /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		C63438102D8FC901001240F4 /* video_scaler.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = video_scaler.js; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -398,6 +400,7 @@
 		4F6A4D23289D645000F7B40D /* BundleAssets */ = {
 			isa = PBXGroup;
 			children = (
+				C63438102D8FC901001240F4 /* video_scaler.js */,
 				4F7B55FD2BDCEC0D00D427C6 /* icon_128x128.png */,
 				4F28018D2BDE3511003F36A6 /* copy_description_for_youtube.html */,
 				4F2801902BDE3764003F36A6 /* copy_description_for_web.html */,
@@ -875,6 +878,7 @@
 				4F8A58E1284CA01A00557FDD /* Main.storyboard in Resources */,
 				4F6A4D17289650D900F7B40D /* LocalVideoSelectionViewController.xib in Resources */,
 				4F6A4D0E28964EE800F7B40D /* Localizable.strings in Resources */,
+				C63438112D8FC901001240F4 /* video_scaler.js in Resources */,
 				4F28018F2BDE364D003F36A6 /* copy_description_for_youtube.html in Resources */,
 				4F2D558F289567D200363292 /* AboutViewController.xib in Resources */,
 				4F6A4D1B2896512400F7B40D /* WebPageSelectionViewController.xib in Resources */,
@@ -1282,7 +1286,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 19;
+				CURRENT_PROJECT_VERSION = 20;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 2CMV7D36JC;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -1297,7 +1301,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.6.1;
+				MARKETING_VERSION = 1.7.0;
 				OTHER_SWIFT_FLAGS = "-enable-upcoming-feature ExistentialAny";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.debug.nhiro1109.wallpaper-play";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1316,7 +1320,7 @@
 				CODE_SIGN_ENTITLEMENTS = "wallpaper-play/wallpaper-play.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 19;
+				CURRENT_PROJECT_VERSION = 20;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 2CMV7D36JC;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -1331,7 +1335,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.6.1;
+				MARKETING_VERSION = 1.7.0;
 				OTHER_SWIFT_FLAGS = "-enable-upcoming-feature ExistentialAny";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.nhiro1109.wallpaper-play";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1432,7 +1436,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 19;
+				CURRENT_PROJECT_VERSION = 20;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 2CMV7D36JC;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -1449,7 +1453,7 @@
 				);
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 1.6.1;
+				MARKETING_VERSION = 1.7.0;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -1470,7 +1474,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CODE_SIGN_ENTITLEMENTS = "Wallpaper Paly SafariEextension/Wallpaper_Paly_SafariEextension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 19;
+				CURRENT_PROJECT_VERSION = 20;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 2CMV7D36JC;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -1487,7 +1491,7 @@
 				);
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 1.6.1;
+				MARKETING_VERSION = 1.7.0;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
