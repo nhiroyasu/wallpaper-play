@@ -35,6 +35,7 @@ class LocalVideoSelectionViewController: NSViewController {
             videoSizePopUpButton.selectItem(at: 0)
         }
     }
+    @IBOutlet weak var displayTargetPopUpButton: NSPopUpButton!
     @IBOutlet weak var backgroundColorPicker: NSColorWell! {
         didSet {
             backgroundColorPicker.color = .white
@@ -48,6 +49,7 @@ class LocalVideoSelectionViewController: NSViewController {
     private let presenter: any LocalVideoSelectionPresenter
     private let avManager: any AVPlayerManager
     private var selectedVideoUrl: URL?
+    private let displayTargetMenu: [DisplayTargetMenu]
 
     init(
         presenter: any LocalVideoSelectionPresenter,
@@ -55,6 +57,7 @@ class LocalVideoSelectionViewController: NSViewController {
     ) {
         self.presenter = presenter
         self.avManager = avManager
+        self.displayTargetMenu = [.allMonitors] + NSScreen.screens.map { .screen($0) }
         super.init(nibName: "LocalVideoSelectionViewController", bundle: nil)
     }
     
@@ -71,6 +74,8 @@ class LocalVideoSelectionViewController: NSViewController {
         if let videoSize = VideoSize(rawValue: videoSizePopUpButton.indexOfSelectedItem) {
             updateColorPicker(from: videoSize)
         }
+
+        setUpDisplayTargetPopUpButton()
     }
 
     override func viewWillDisappear() {
@@ -98,11 +103,15 @@ class LocalVideoSelectionViewController: NSViewController {
         case .aspectFit:
             backgroundColorPicker.color
         }
+
+        let displayTargetMenu = displayTargetMenu[displayTargetPopUpButton.indexOfSelectedItem]
+
         presenter.didTapWallpaperButton(
             videoLink: selectedVideoUrl.absoluteString,
             mute: isMute(),
             videoSize: videoSize,
-            backgroundColor: backgroundColor
+            backgroundColor: backgroundColor,
+            displayTargetMenu: displayTargetMenu
         )
     }
     
@@ -116,6 +125,12 @@ class LocalVideoSelectionViewController: NSViewController {
             backgroundColorPicker.isHidden = true
         case .aspectFit:
             backgroundColorPicker.isHidden = false
+        }
+    }
+
+    private func setUpDisplayTargetPopUpButton() {
+        displayTargetPopUpButton.menu?.items = displayTargetMenu.map { menu in
+            NSMenuItem(title: menu.title, action: nil, keyEquivalent: "")
         }
     }
 }

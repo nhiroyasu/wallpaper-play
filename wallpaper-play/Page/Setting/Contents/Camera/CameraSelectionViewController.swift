@@ -66,7 +66,7 @@ class CameraSelectionViewController: NSViewController {
 
     override func viewDidAppear() {
         super.viewDidAppear()
-        if case .camera = appState.wallpaperKind {
+        if isSettingCameraAsWallpaper() {
             captureSessionQueue.async { [weak self] in
                 self?.captureSession.stopRunning()
             }
@@ -128,7 +128,7 @@ class CameraSelectionViewController: NSViewController {
             cameraDisplayView.layer = CALayer()
             cameraDisplayView.layer?.addSublayer(previewLayer)
 
-            if case .camera = appState.wallpaperKind {
+            if isSettingCameraAsWallpaper() {
                 // do nothing
             } else {
                 captureSessionQueue.async { [weak self] in
@@ -141,7 +141,7 @@ class CameraSelectionViewController: NSViewController {
     }
 
     func setPreviewAnnotationLabel() {
-        if case .camera = appState.wallpaperKind {
+        if isSettingCameraAsWallpaper() {
             previewAnnotationLabel.isHidden = false
         } else {
             previewAnnotationLabel.isHidden = true
@@ -193,6 +193,12 @@ class CameraSelectionViewController: NSViewController {
                 self?.previewAnnotationLabel.isHidden = true
             }
             .store(in: &cancellable)
+    }
+
+    private func isSettingCameraAsWallpaper() -> Bool {
+        appState.wallpapers.contains(where: {
+            if case .camera = $0.kind { true } else { false }
+        })
     }
 }
 

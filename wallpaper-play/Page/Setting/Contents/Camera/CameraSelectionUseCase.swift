@@ -15,7 +15,7 @@ class CameraSelectionInteractor: CameraSelectionUseCase {
 
     func requestSettingWallpaper(_ deviceId: String, videoSize: VideoSize) {
         wallpaperRequestService.requestCameraWallpaper(
-            camera: CameraPlayValue(deviceId: deviceId, videoSize: videoSize)
+            camera: CameraPlayRequest(deviceId: deviceId, videoSize: videoSize)
         )
     }
 }

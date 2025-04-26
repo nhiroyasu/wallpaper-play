@@ -20,7 +20,7 @@ class WebPageSelectionInteractor: WebPageSelectionUseCase {
 
     func requestWallpaper(url: URL, arrowOperation: Bool) {
         wallpaperRequestService.requestWebWallpaper(
-            web: WebPlayValue(
+            web: WebPlayRequest(
                 url: url,
                 arrowOperation: arrowOperation
             )

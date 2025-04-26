@@ -2,7 +2,7 @@ import AppKit
 import Injectable
 
 protocol WallpaperWindowService {
-    func display(wallpaperKind: WallpaperKind)
+    func display(wallpaperKind: WallpaperKind, target: WallpaperDisplayTarget)
     func hide()
     func isVisibleWallpaperWindow() -> Bool
 }
@@ -22,25 +22,60 @@ class WallpaperWindowServiceImpl: WallpaperWindowService {
         observeScreenParam()
     }
     
-    func display(wallpaperKind: WallpaperKind) {
-        windowList.forEach { $0.close() }
-        windowList = []
-        appState.wallpaperKind = wallpaperKind
+    func display(wallpaperKind: WallpaperKind, target: WallpaperDisplayTarget) {
+        switch target {
+        case .sameOnAllMonitors:
+            // reset all wallpaper windows and remove all wallpaper states
+            windowList.forEach { $0.close() }
+            windowList = []
+            appState.wallpapers.removeAll()
 
-        NSScreen.screens.forEach { [weak self] screen in
-            guard let self else { return }
+            NSScreen.screens.forEach { [weak self] screen in
+                guard let self else { return }
+                let wallpaperWindowFrame = computeFittingWallpaperSize(screen: screen)
+                let windowLevel = computeWindowLevel(wallpaperKind: wallpaperKind)
+                let actualWallpaperKind = muteWallpaperKindIfNeeded(baseWallpaperKind: wallpaperKind, on: screen)
+                let window = buildWallpaperWindow(
+                    screen: screen,
+                    windowLevel: windowLevel,
+                    wallpaperSize: wallpaperWindowFrame.size,
+                    wallpaperKind: actualWallpaperKind
+                )
+                window.orderFront(nil)
+                windowList.append(window)
+                window.setFrame(wallpaperWindowFrame, display: true)
+
+                // save wallpaper state
+                appState.wallpapers.append(.init(
+                    screenIdentifier: screen.deviceIdentifier,
+                    kind: actualWallpaperKind
+                ))
+            }
+
+        case .specificMonitor(let screen):
+            // reset wallpaper window and remove wallpaper state on the specific screen
+            let windowInTargetScreens = windowList.filter { $0.screen == screen }
+            windowInTargetScreens.forEach { $0.close() }
+            windowList.removeAll { $0.screen == screen }
+
             let wallpaperWindowFrame = computeFittingWallpaperSize(screen: screen)
             let windowLevel = computeWindowLevel(wallpaperKind: wallpaperKind)
-            let actualWallpaperKind = muteWallpaperKindIfNeeded(baseWallpaperKind: wallpaperKind, on: screen)
             let window = buildWallpaperWindow(
                 screen: screen,
                 windowLevel: windowLevel,
                 wallpaperSize: wallpaperWindowFrame.size,
-                wallpaperKind: actualWallpaperKind
+                wallpaperKind: wallpaperKind
             )
             window.orderFront(nil)
             windowList.append(window)
             window.setFrame(wallpaperWindowFrame, display: true)
+
+            // save wallpaper state
+            appState.wallpapers.removeAll { $0.screenIdentifier == screen.deviceIdentifier }
+            appState.wallpapers.append(.init(
+                screenIdentifier: screen.deviceIdentifier,
+                kind: wallpaperKind
+            ))
         }
     }
     
@@ -70,8 +105,9 @@ class WallpaperWindowServiceImpl: WallpaperWindowService {
     
     private func observeScreenParam() {
         notificationManager.observe(name: NSApplication.didChangeScreenParametersNotification) { [weak self] _ in
-            guard let latestWallpaper = self?.wallpaperHistoryService.fetchLatestWallpaper() else { return }
-            self?.display(wallpaperKind: latestWallpaper)
+            // TODO: will support multiple screens
+//            guard let latestWallpaper = self?.wallpaperHistoryService.fetchLatestWallpaper() else { return }
+//            self?.display(wallpaperKind: latestWallpaper, target: )
         }
     }
 
@@ -102,15 +138,8 @@ class WallpaperWindowServiceImpl: WallpaperWindowService {
             return baseWallpaperKind
         }
         switch baseWallpaperKind {
-        case .video(let value):
-            return .video(
-                value: .init(
-                    url: value.url,
-                    mute: true,
-                    videoSize: value.videoSize,
-                    backgroundColor: value.backgroundColor
-                )
-            )
+        case .video(let url, _, let videoSize, let backgroundColor):
+            return .video(url: url, mute: true, videoSize: videoSize, backgroundColor: backgroundColor)
         case .youtube(let videoId, _, let videoSize):
             return .youtube(videoId: videoId, isMute: true, videoSize: videoSize)
         case .web, .camera, .unknown:
