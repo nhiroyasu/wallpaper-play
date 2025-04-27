@@ -4,7 +4,7 @@ import Injectable
 protocol WebPageSelectionPresenter {
     func viewDidLoad()
     func onChangeSearchField(_ value: String)
-    func didTapSetWallpaperButton(value: String, arrowOperation: Bool)
+    func didTapSetWallpaperButton(value: String, arrowOperation: Bool, displayTargetMenu: DisplayTargetMenu)
     func enteredSearchField(value: String)
 }
 
@@ -31,9 +31,17 @@ class WebPageSelectionPresenterImpl: WebPageSelectionPresenter {
         }
     }
 
-    func didTapSetWallpaperButton(value: String, arrowOperation: Bool) {
+    func didTapSetWallpaperButton(value: String, arrowOperation: Bool, displayTargetMenu: DisplayTargetMenu) {
         if let url = useCase.validateUrl(string: value) {
-            useCase.requestWallpaper(url: url, arrowOperation: arrowOperation)
+            let target: WallpaperDisplayTarget
+            switch displayTargetMenu {
+            case .allMonitors:
+                target = .sameOnAllMonitors
+            case .screen(let nSScreen):
+                target = .specificMonitor(screen: nSScreen)
+            }
+
+            useCase.requestWallpaper(url: url, arrowOperation: arrowOperation, target: target)
         } else {
             alertManager.warning(msg: LocalizedString(key: .error_invalid_preview), completionHandler: {})
         }

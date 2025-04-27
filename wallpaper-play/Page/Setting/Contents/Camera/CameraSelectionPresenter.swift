@@ -4,7 +4,7 @@ import AVFoundation
 import Injectable
 
 protocol CameraSelectionPresenter {
-    func didTapSetWallpaperButton(selectedCamera: AVCaptureDevice, videoSize: VideoSize)
+    func didTapSetWallpaperButton(selectedCamera: AVCaptureDevice, videoSize: VideoSize, displayTargetMenu: DisplayTargetMenu)
 }
 
 class CameraSelectionPresenterImpl: CameraSelectionPresenter {
@@ -23,7 +23,15 @@ class CameraSelectionPresenterImpl: CameraSelectionPresenter {
         self.fileSelectionService = fileSelectionService
     }
 
-    func didTapSetWallpaperButton(selectedCamera: AVCaptureDevice, videoSize: VideoSize) {
-        useCase.requestSettingWallpaper(selectedCamera.uniqueID, videoSize: videoSize)
+    func didTapSetWallpaperButton(selectedCamera: AVCaptureDevice, videoSize: VideoSize, displayTargetMenu: DisplayTargetMenu) {
+        let target: WallpaperDisplayTarget
+        switch displayTargetMenu {
+        case .allMonitors:
+            target = .sameOnAllMonitors
+        case .screen(let nSScreen):
+            target = .specificMonitor(screen: nSScreen)
+        }
+
+        useCase.requestSettingWallpaper(selectedCamera.uniqueID, videoSize: videoSize, target: target)
     }
 }

@@ -121,7 +121,7 @@ class ApplicationServiceImpl: ApplicationService {
     private func setUpRequestWebPageNotification() {
         notificationManager.observe(name: .requestWebPage) { [weak self] param in
             guard let self = self, let request = param as? WebPlayRequest else { fatalError() }
-            self.displayWebPage(url: request.url, arrowOperation: request.arrowOperation, shouldSavedHistory: true)
+            self.displayWebPage(url: request.url, arrowOperation: request.arrowOperation, shouldSavedHistory: true, target: request.target)
         }
     }
 
@@ -130,7 +130,7 @@ class ApplicationServiceImpl: ApplicationService {
             guard let self = self, let request = param as? CameraPlayRequest else { fatalError() }
             self.wallpaperWindowService.display(
                 wallpaperKind: WallpaperKind.camera(deviceId: request.deviceId, videoSize: request.videoSize),
-                target: .sameOnAllMonitors
+                target: request.target
             )
             self.wallpaperHistoryService.store(CameraWallpaper(date: Date(), deviceId: request.deviceId, size: request.videoSize.rawValue))
         }
@@ -148,10 +148,10 @@ class ApplicationServiceImpl: ApplicationService {
         }
     }
     
-    private func displayWebPage(url: URL, arrowOperation: Bool, shouldSavedHistory: Bool) {
+    private func displayWebPage(url: URL, arrowOperation: Bool, shouldSavedHistory: Bool, target: WallpaperDisplayTarget) {
         wallpaperWindowService.display(
             wallpaperKind: .web(url: url, arrowOperation: arrowOperation),
-            target: .sameOnAllMonitors
+            target: target
         )
 
         if shouldSavedHistory {
