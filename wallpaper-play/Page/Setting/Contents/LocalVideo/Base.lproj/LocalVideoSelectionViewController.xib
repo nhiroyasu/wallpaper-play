@@ -10,6 +10,7 @@
         <customObject id="-2" userLabel="File's Owner" customClass="LocalVideoSelectionViewController" customModule="Wallpaper_Play" customModuleProvider="target">
             <connections>
                 <outlet property="backgroundColorPicker" destination="Rnn-Jb-OLz" id="0IX-jF-vF0"/>
+                <outlet property="displayTargetPopUpButton" destination="ZEY-VI-cnn" id="WkG-8l-zq4"/>
                 <outlet property="filePathLabel" destination="0D2-4F-sbd" id="yze-Pj-Mhd"/>
                 <outlet property="muteToggleButton" destination="rey-xp-nBK" id="LV6-sH-6SH"/>
                 <outlet property="thumbnailImageView" destination="ck0-NJ-s7N" id="ZWT-Jn-7Od"/>
@@ -133,7 +134,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="776" height="64"/>
                     <subviews>
                         <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="16" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" fixedFrame="YES" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dAo-6I-PDK">
-                            <rect key="frame" x="32" y="18" width="383" height="28"/>
+                            <rect key="frame" x="32" y="18" width="503" height="28"/>
                             <subviews>
                                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="2H9-oN-wvY">
                                     <rect key="frame" x="-6" y="-6" width="139" height="40"/>
@@ -150,7 +151,7 @@
                                     <rect key="frame" x="140" y="0.0" width="102" height="25"/>
                                     <popUpButtonCell key="cell" type="push" title="Aspect Fill" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="ij7-vA-vGR" id="QSH-Ca-JO0">
                                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                        <font key="font" metaFont="menu"/>
+                                        <font key="font" metaFont="message"/>
                                         <menu key="menu" id="3ta-8o-zMG">
                                             <items>
                                                 <menuItem title="Aspect Fill" state="on" id="ij7-vA-vGR"/>
@@ -162,12 +163,24 @@
                                         <action selector="didSelectVideoSize:" target="-2" id="PJi-0t-eFJ"/>
                                     </connections>
                                 </popUpButton>
+                                <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ZEY-VI-cnn">
+                                    <rect key="frame" x="251" y="0.0" width="111" height="25"/>
+                                    <popUpButtonCell key="cell" type="push" title="All Monitors" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="Wkq-JZ-AM7" id="pWR-0n-lXb">
+                                        <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                        <font key="font" metaFont="menu"/>
+                                        <menu key="menu" id="kfs-yN-tGG">
+                                            <items>
+                                                <menuItem title="All Monitors" state="on" id="Wkq-JZ-AM7"/>
+                                            </items>
+                                        </menu>
+                                    </popUpButtonCell>
+                                </popUpButton>
                                 <colorWell toolTip="Background Color" wellStyle="expanded" translatesAutoresizingMaskIntoConstraints="NO" id="Rnn-Jb-OLz">
-                                    <rect key="frame" x="251" y="0.0" width="64" height="28"/>
+                                    <rect key="frame" x="371" y="0.0" width="64" height="28"/>
                                     <color key="color" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </colorWell>
                                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="rey-xp-nBK">
-                                    <rect key="frame" x="326" y="5" width="57" height="18"/>
+                                    <rect key="frame" x="446" y="5" width="57" height="18"/>
                                     <buttonCell key="cell" type="check" title="Mute" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="N1i-OQ-nmw">
                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                         <font key="font" metaFont="system"/>
@@ -179,8 +192,10 @@
                                 <integer value="1000"/>
                                 <integer value="1000"/>
                                 <integer value="1000"/>
+                                <integer value="1000"/>
                             </visibilityPriorities>
                             <customSpacing>
+                                <real value="3.4028234663852886e+38"/>
                                 <real value="3.4028234663852886e+38"/>
                                 <real value="3.4028234663852886e+38"/>
                                 <real value="3.4028234663852886e+38"/>

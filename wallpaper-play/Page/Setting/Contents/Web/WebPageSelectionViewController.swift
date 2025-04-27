@@ -21,12 +21,15 @@ class WebPageSelectionViewController: NSViewController {
             allowOperationCheckbox.state = .on
         }
     }
+    @IBOutlet weak var displayTargetPopUpButton: NSPopUpButton!
     public var previewWebView: WallpaperWebView!
     private let presenter: any WebPageSelectionPresenter
+    private let displayTargetMenu: [DisplayTargetMenu]
 
     // MARK: - Methods
     init(presenter: any WebPageSelectionPresenter) {
         self.presenter = presenter
+        self.displayTargetMenu = [.allMonitors] + NSScreen.screens.map { .screen($0) }
         super.init(nibName: String(describing: type(of: self)), bundle: nil)
     }
     
@@ -41,6 +44,8 @@ class WebPageSelectionViewController: NSViewController {
         if let path = Bundle.main.path(forResource: "copy_description_for_web", ofType: "html") {
             setPreview(url: URL(fileURLWithPath: path))
         }
+        setUpDisplayTargetPopUpButton()
+
         presenter.viewDidLoad()
     }
 
@@ -50,10 +55,19 @@ class WebPageSelectionViewController: NSViewController {
     }
     
     @IBAction func didTapSetWallpaperButton(_ sender: Any) {
+        let displayTargetMenu = displayTargetMenu[displayTargetPopUpButton.indexOfSelectedItem]
+
         presenter.didTapSetWallpaperButton(
             value: urlSearchField.stringValue,
-            arrowOperation: allowOperationCheckbox.state == .on
+            arrowOperation: allowOperationCheckbox.state == .on,
+            displayTargetMenu: displayTargetMenu
         )
+    }
+
+    private func setUpDisplayTargetPopUpButton() {
+        displayTargetPopUpButton.menu?.items = displayTargetMenu.map { menu in
+            NSMenuItem(title: menu.title, action: nil, keyEquivalent: "")
+        }
     }
 }
 

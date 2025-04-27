@@ -5,7 +5,13 @@ import Injectable
 
 protocol LocalVideoSelectionPresenter {
     func didTapVideoSelectionButton()
-    func didTapWallpaperButton(videoLink: String, mute: Bool, videoSize: VideoSize, backgroundColor: NSColor?)
+    func didTapWallpaperButton(
+        videoLink: String,
+        mute: Bool,
+        videoSize: VideoSize,
+        backgroundColor: NSColor?,
+        displayTargetMenu: DisplayTargetMenu
+    )
 }
 
 class LocalVideoSelectionPresenterImpl: LocalVideoSelectionPresenter {
@@ -32,9 +38,29 @@ class LocalVideoSelectionPresenterImpl: LocalVideoSelectionPresenter {
         }
     }
 
-    func didTapWallpaperButton(videoLink: String, mute: Bool, videoSize: VideoSize, backgroundColor: NSColor?) {
+    func didTapWallpaperButton(
+        videoLink: String,
+        mute: Bool,
+        videoSize: VideoSize,
+        backgroundColor: NSColor?,
+        displayTargetMenu: DisplayTargetMenu
+    ) {
         if let url = URL(string: videoLink) {
-            let input = VideoConfigInput(link: url, mute: mute, videoSize: videoSize, backgroundColor: backgroundColor)
+            let target: WallpaperDisplayTarget
+            switch displayTargetMenu {
+            case .allMonitors:
+                target = .sameOnAllMonitors
+            case .screen(let nSScreen):
+                target = .specificMonitor(screen: nSScreen)
+            }
+
+            let input = VideoConfigInput(
+                link: url,
+                mute: mute,
+                videoSize: videoSize,
+                backgroundColor: backgroundColor,
+                target: target
+            )
             useCase.requestSettingWallpaper(input)
         } else {
             alertManager.warning(msg: LocalizedString(key: .error_invalid_video), completionHandler: {})

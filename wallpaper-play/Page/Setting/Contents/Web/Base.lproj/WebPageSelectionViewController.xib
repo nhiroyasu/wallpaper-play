@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="23504" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="22690"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="23504"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -10,6 +10,7 @@
         <customObject id="-2" userLabel="File's Owner" customClass="WebPageSelectionViewController" customModule="Wallpaper_Play" customModuleProvider="target">
             <connections>
                 <outlet property="allowOperationCheckbox" destination="ycg-sb-xll" id="Z2g-nq-G01"/>
+                <outlet property="displayTargetPopUpButton" destination="bUb-Hd-gif" id="pen-40-KPN"/>
                 <outlet property="urlSearchField" destination="p8d-qh-fot" id="kTZ-Ju-zy0"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
                 <outlet property="wallpaperButton" destination="YEP-sx-Osn" id="kSi-k1-Mg6"/>
@@ -146,10 +147,10 @@
                     <rect key="frame" x="0.0" y="0.0" width="849" height="64"/>
                     <subviews>
                         <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="16" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kN5-N1-A56">
-                            <rect key="frame" x="32" y="18" width="259" height="28"/>
+                            <rect key="frame" x="32" y="18" width="381" height="28"/>
                             <subviews>
                                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="YEP-sx-Osn">
-                                    <rect key="frame" x="-6" y="-6" width="137" height="40"/>
+                                    <rect key="frame" x="-6" y="-6" width="139" height="40"/>
                                     <buttonCell key="cell" type="push" title="Set Wallpaper" bezelStyle="rounded" image="desktopcomputer" catalog="system" imagePosition="left" alignment="center" controlSize="large" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="uoc-wy-1QP">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="system"/>
@@ -159,8 +160,20 @@
                                         <action selector="didTapSetWallpaperButton:" target="-2" id="GJP-ht-k8Y"/>
                                     </connections>
                                 </button>
+                                <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bUb-Hd-gif">
+                                    <rect key="frame" x="140" y="0.0" width="111" height="25"/>
+                                    <popUpButtonCell key="cell" type="push" title="All Monitors" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="1ND-4n-Kaa" id="xDT-y7-XWk">
+                                        <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                        <font key="font" metaFont="menu"/>
+                                        <menu key="menu" id="ohR-Rz-JWo">
+                                            <items>
+                                                <menuItem title="All Monitors" state="on" id="1ND-4n-Kaa"/>
+                                            </items>
+                                        </menu>
+                                    </popUpButtonCell>
+                                </popUpButton>
                                 <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="16" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bEo-dt-Cqd">
-                                    <rect key="frame" x="141" y="6" width="118" height="16"/>
+                                    <rect key="frame" x="263" y="6" width="118" height="16"/>
                                     <subviews>
                                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ycg-sb-xll">
                                             <rect key="frame" x="-2" y="-1" width="120" height="18"/>
@@ -184,8 +197,10 @@
                             <visibilityPriorities>
                                 <integer value="1000"/>
                                 <integer value="1000"/>
+                                <integer value="1000"/>
                             </visibilityPriorities>
                             <customSpacing>
+                                <real value="3.4028234663852886e+38"/>
                                 <real value="3.4028234663852886e+38"/>
                                 <real value="3.4028234663852886e+38"/>
                             </customSpacing>
@@ -220,7 +235,7 @@
         </customView>
     </objects>
     <resources>
-        <image name="desktopcomputer" catalog="system" width="19" height="15"/>
+        <image name="desktopcomputer" catalog="system" width="20" height="15"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

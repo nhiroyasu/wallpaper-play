@@ -26,13 +26,16 @@ class YouTubeSelectionViewController: NSViewController {
             videoSizePopUpButton.selectItem(at: 0)
         }
     }
+    @IBOutlet weak var displayTargetPopUpButton: NSPopUpButton!
     @IBOutlet weak var wallpaperButton: NSButton!
     @IBOutlet weak var muteToggleButton: NSButton!
     public var youtubeWebView: WallpaperWebView!
     private let presenter: any YouTubeSelectionPresenter
+    private let displayTargetMenu: [DisplayTargetMenu]
 
     init(presenter: any YouTubeSelectionPresenter) {
         self.presenter = presenter
+        self.displayTargetMenu = [.allMonitors] + NSScreen.screens.map { .screen($0) }
         super.init(nibName: String(describing: type(of: self)), bundle: nil)
     }
     
@@ -42,12 +45,14 @@ class YouTubeSelectionViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let webViewConfiguration = WKWebViewConfiguration()
         youtubeWebView = .init(frame: .zero, configuration: .youtubeWallpaper(videoSize: .aspectFit))
         youtubeWrappingView.fitAllAnchor(youtubeWebView)
         if let path = Bundle.main.path(forResource: "copy_description_for_youtube", ofType: "html") {
             updatePreview(url: URL(fileURLWithPath: path))
         }
+
+        setUpDisplayTargetPopUpButton()
+
         presenter.viewDidLoad()
     }
 
@@ -62,11 +67,21 @@ class YouTubeSelectionViewController: NSViewController {
         guard let videoSize = VideoSize(rawValue: videoSizePopUpButton.indexOfSelectedItem) else {
             return
         }
+
+        let displayTargetMenu = displayTargetMenu[displayTargetPopUpButton.indexOfSelectedItem]
+
         presenter.didTapWallpaperButton(
             youtubeLink: youtubeLinkTextField.stringValue,
             mute: muteToggleButton.state == .on,
-            videoSize: videoSize
+            videoSize: videoSize,
+            displayTargetMenu: displayTargetMenu
         )
+    }
+
+    private func setUpDisplayTargetPopUpButton() {
+        displayTargetPopUpButton.menu?.items = displayTargetMenu.map { menu in
+            NSMenuItem(title: menu.title, action: nil, keyEquivalent: "")
+        }
     }
 }
 

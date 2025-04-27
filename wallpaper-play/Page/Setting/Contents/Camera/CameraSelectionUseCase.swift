@@ -2,7 +2,7 @@ import Injectable
 import AVFoundation
 
 protocol CameraSelectionUseCase {
-    func requestSettingWallpaper(_ deviceId: String, videoSize: VideoSize)
+    func requestSettingWallpaper(_ deviceId: String, videoSize: VideoSize, target: WallpaperDisplayTarget)
 }
 
 class CameraSelectionInteractor: CameraSelectionUseCase {
@@ -13,9 +13,9 @@ class CameraSelectionInteractor: CameraSelectionUseCase {
         self.wallpaperRequestService = wallpaperRequestService
     }
 
-    func requestSettingWallpaper(_ deviceId: String, videoSize: VideoSize) {
+    func requestSettingWallpaper(_ deviceId: String, videoSize: VideoSize, target: WallpaperDisplayTarget) {
         wallpaperRequestService.requestCameraWallpaper(
-            camera: CameraPlayValue(deviceId: deviceId, videoSize: videoSize)
+            camera: CameraPlayRequest(deviceId: deviceId, videoSize: videoSize, target: target)
         )
     }
 }

@@ -1,5 +1,20 @@
 import AppKit
+import RealmSwift
 import Injectable
+
+enum MonitorFilter {
+    case specificOrNil(specificMonitor: String)
+    case all
+
+    func predicate() -> NSPredicate? {
+        switch self {
+        case .specificOrNil(let specificMonitor):
+            return NSPredicate(format: "targetMonitor == %@ OR targetMonitor == nil", specificMonitor)
+        case .all:
+            return nil
+        }
+    }
+}
 
 protocol WallpaperHistoryService {
     func store(_ youtube: YouTubeWallpaper)
@@ -10,11 +25,11 @@ protocol WallpaperHistoryService {
     func fetchVideo() -> [LocalVideoWallpaper]
     func fetchWebPage() -> [WebPageWallpaper]
     func fetchCamera() -> [CameraWallpaper]
-    func fetchLatestYouTube() -> YouTubeWallpaper?
-    func fetchLatestVideo() -> LocalVideoWallpaper?
-    func fetchLatestWebPage() -> WebPageWallpaper?
-    func fetchLatestCamera() -> CameraWallpaper?
-    func fetchLatestWallpaper() -> WallpaperKind?
+    func fetchLatestYouTube(monitorFilter: MonitorFilter) -> YouTubeWallpaper?
+    func fetchLatestVideo(monitorFilter: MonitorFilter) -> LocalVideoWallpaper?
+    func fetchLatestWebPage(monitorFilter: MonitorFilter) -> WebPageWallpaper?
+    func fetchLatestCamera(monitorFilter: MonitorFilter) -> CameraWallpaper?
+    func fetchLatestWallpaper(monitorFilter: MonitorFilter) -> (kind: WallpaperKind, isAll: Bool)?
 }
 
 class WallpaperHistoryServiceImpl: WallpaperHistoryService {
@@ -109,43 +124,74 @@ class WallpaperHistoryServiceImpl: WallpaperHistoryService {
         return results.map { $0 }
     }
 
-    func fetchLatestYouTube() -> YouTubeWallpaper? {
+    func fetchLatestYouTube(monitorFilter: MonitorFilter) -> YouTubeWallpaper? {
+        let predicate = monitorFilter.predicate()
+
         let realm = realmService.buildRealm()
-        return realm
+        var collection = realm
             .objects(YouTubeWallpaper.self)
+            
+        if let predicate {
+            collection = collection
+                .filter(predicate)
+        }
+        return collection
             .sorted(byKeyPath: "date", ascending: false)
             .first
     }
     
-    func fetchLatestVideo() -> LocalVideoWallpaper? {
+    func fetchLatestVideo(monitorFilter: MonitorFilter) -> LocalVideoWallpaper? {
+        let predicate = monitorFilter.predicate()
+
         let realm = realmService.buildRealm()
-        return realm
+        var collection = realm
             .objects(LocalVideoWallpaper.self)
+
+        if let predicate {
+            collection = collection.filter(predicate)
+        }
+        return collection
             .sorted(byKeyPath: "date", ascending: false)
             .first
     }
     
-    func fetchLatestWebPage() -> WebPageWallpaper? {
+    func fetchLatestWebPage(monitorFilter: MonitorFilter) -> WebPageWallpaper? {
+        let predicate = monitorFilter.predicate()
+
         let realm = realmService.buildRealm()
-        return realm
+        var collection = realm
             .objects(WebPageWallpaper.self)
+
+        if let predicate {
+            collection = collection
+                .filter(predicate)
+        }
+        return collection
             .sorted(byKeyPath: "date", ascending: false)
             .first
     }
 
-    func fetchLatestCamera() -> CameraWallpaper? {
+    func fetchLatestCamera(monitorFilter: MonitorFilter) -> CameraWallpaper? {
+        let predicate = monitorFilter.predicate()
+
         let realm = realmService.buildRealm()
-        return realm
+        var collection = realm
             .objects(CameraWallpaper.self)
+
+        if let predicate {
+            collection = collection
+                .filter(predicate)
+        }
+        return collection
             .sorted(byKeyPath: "date", ascending: false)
             .first
     }
 
-    func fetchLatestWallpaper() -> WallpaperKind? {
-        let videoFirst = fetchLatestVideo()
-        let youtubeFirst = fetchLatestYouTube()
-        let webpageFirst = fetchLatestWebPage()
-        let cameraFirst = fetchLatestCamera()
+    func fetchLatestWallpaper(monitorFilter: MonitorFilter) -> (kind: WallpaperKind, isAll: Bool)? {
+        let videoFirst = fetchLatestVideo(monitorFilter: monitorFilter)
+        let youtubeFirst = fetchLatestYouTube(monitorFilter: monitorFilter)
+        let webpageFirst = fetchLatestWebPage(monitorFilter: monitorFilter)
+        let cameraFirst = fetchLatestCamera(monitorFilter: monitorFilter)
 
         let videoList: [(any DateSortable)?] = [videoFirst, youtubeFirst, webpageFirst, cameraFirst]
         let latestVideo = videoList.compactMap { $0 }.max { v1, v2 in v1.date < v2.date }
@@ -157,27 +203,27 @@ class WallpaperHistoryServiceImpl: WallpaperHistoryService {
             } else {
                 nil
             }
-            let videoPlayValue = VideoPlayValue(
-                url: video.url,
-                mute: video.config?.isMute ?? true,
-                videoSize: videoSize,
-                backgroundColor: backgroundColor
+            return (
+                kind: .video(url: video.url, mute: video.config?.isMute ?? true, videoSize: videoSize, backgroundColor: backgroundColor),
+                isAll: video.targetMonitor == nil
             )
-            return .video(value: videoPlayValue)
         } else if let video = latestVideo as? YouTubeWallpaper {
             let videoSize = VideoSize(rawValue: video.size) ?? .aspectFill
-            return .youtube(videoId: video.videoId, isMute: video.isMute, videoSize: videoSize)
+            return (
+                kind: .youtube(videoId: video.videoId, isMute: video.isMute, videoSize: videoSize),
+                isAll: video.targetMonitor == nil
+            )
         } else if let video = latestVideo as? WebPageWallpaper {
             let arrowOperation = video.arrowOperation ?? false
-            return .web(
-                url: video.url,
-                arrowOperation: arrowOperation
+            return (
+                kind: .web(url: video.url, arrowOperation: arrowOperation),
+                isAll: video.targetMonitor == nil
             )
         } else if let video = latestVideo as? CameraWallpaper {
             let videoSize = VideoSize(rawValue: video.size) ?? .aspectFill
-            return .camera(
-                deviceId: video.deviceId,
-                videoSize: videoSize
+            return (
+                kind: .camera(deviceId: video.deviceId, videoSize: videoSize),
+                isAll: video.targetMonitor == nil
             )
         } else {
             return nil
