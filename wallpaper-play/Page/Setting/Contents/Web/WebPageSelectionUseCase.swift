@@ -3,7 +3,7 @@ import Injectable
 
 protocol WebPageSelectionUseCase {
     func validateUrl(string: String) -> URL?
-    func requestWallpaper(url: URL, arrowOperation: Bool)
+    func requestWallpaper(url: URL, arrowOperation: Bool, target: WallpaperDisplayTarget)
 }
 
 class WebPageSelectionInteractor: WebPageSelectionUseCase {
@@ -18,11 +18,12 @@ class WebPageSelectionInteractor: WebPageSelectionUseCase {
         self.urlValidationService = urlValidationService
     }
 
-    func requestWallpaper(url: URL, arrowOperation: Bool) {
+    func requestWallpaper(url: URL, arrowOperation: Bool, target: WallpaperDisplayTarget) {
         wallpaperRequestService.requestWebWallpaper(
-            web: WebPlayValue(
+            web: WebPlayRequest(
                 url: url,
-                arrowOperation: arrowOperation
+                arrowOperation: arrowOperation,
+                target: target
             )
         )
     }

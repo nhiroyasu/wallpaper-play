@@ -2,31 +2,8 @@ import AppKit
 import AVFoundation
 import Injectable
 
-struct VideoPlayValue {
-    let url: URL
-    let mute: Bool
-    let videoSize: VideoSize
-    let backgroundColor: NSColor?
-}
-
-struct YouTubePlayValue {
-    let videoId: String
-    let isMute: Bool
-    let videoSize: VideoSize
-}
-
-struct WebPlayValue {
-    let url: URL
-    let arrowOperation: Bool
-}
-
-struct CameraPlayValue {
-    let deviceId: String
-    let videoSize: VideoSize
-}
-
 enum WallpaperKind {
-    case video(value: VideoPlayValue)
+    case video(url: URL, mute: Bool, videoSize: VideoSize, backgroundColor: NSColor?)
     case youtube(videoId: String, isMute: Bool, videoSize: VideoSize)
     case web(url: URL, arrowOperation: Bool)
     case camera(deviceId: String, videoSize: VideoSize)
@@ -51,13 +28,8 @@ class WallpaperPresenterImpl: NSObject, WallpaperPresenter {
 
     func viewDidLoad() {
         let displayType: WallpaperDisplayType = switch wallpaperKind {
-        case .video(let value):
-                .video(
-                    value.url,
-                    videoSize: value.videoSize,
-                    mute: value.mute,
-                    backgroundColor: value.backgroundColor
-                )
+        case .video(let url, let mute, let videoSize, let backgroundColor):
+                .video(url, videoSize: videoSize, mute: mute, backgroundColor: backgroundColor)
         case .youtube(let videoId, let isMute, let videoSize):
             if let url = youtubeContentService.buildFullIframeUrl(id: videoId, mute: isMute) {
                 .youtube(url, videoSize: videoSize)

@@ -20,12 +20,14 @@ class CameraSelectionViewController: NSViewController {
             videoSizePopUpButton.selectItem(at: 0)
         }
     }
+    @IBOutlet weak var displayTargetPopUpButton: NSPopUpButton!
     private var previewLayer: AVCaptureVideoPreviewLayer!
 
     let presenter: any CameraSelectionPresenter
     let notificationManager: any NotificationManager
     let cameraDeviceService: any CameraDeviceService
     let appState: AppState
+    private let displayTargetMenu: [DisplayTargetMenu]
     private var captureSession: AVCaptureSession!
     private var cameraDevices: [AVCaptureDevice] = []
     private var cancellable: Set<AnyCancellable> = []
@@ -42,6 +44,7 @@ class CameraSelectionViewController: NSViewController {
         self.notificationManager = notificationManager
         self.cameraDeviceService = cameraDeviceService
         self.appState = appState
+        self.displayTargetMenu = [.allMonitors] + NSScreen.screens.map { .screen($0) }
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -56,6 +59,7 @@ class CameraSelectionViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setUpDisplayTargetPopUpButton()
         cameraDevices = cameraDeviceService.fetchDevices()
 
         setUpPopUpButton()
@@ -66,7 +70,7 @@ class CameraSelectionViewController: NSViewController {
 
     override func viewDidAppear() {
         super.viewDidAppear()
-        if case .camera = appState.wallpaperKind {
+        if isSettingCameraAsWallpaper() {
             captureSessionQueue.async { [weak self] in
                 self?.captureSession.stopRunning()
             }
@@ -96,7 +100,8 @@ class CameraSelectionViewController: NSViewController {
     @IBAction func didTapSetWallpaperButton(_ sender: Any) {
         if let selectedCamera = cameraDevices.first(where: { $0.localizedName == camerasPopUpButton.titleOfSelectedItem }),
            let videoSize = VideoSize(rawValue: videoSizePopUpButton.indexOfSelectedItem) {
-            presenter.didTapSetWallpaperButton(selectedCamera: selectedCamera, videoSize: videoSize)
+            let displayTargetMenu = displayTargetMenu[displayTargetPopUpButton.indexOfSelectedItem]
+            presenter.didTapSetWallpaperButton(selectedCamera: selectedCamera, videoSize: videoSize, displayTargetMenu: displayTargetMenu)
         }
     }
 
@@ -128,7 +133,7 @@ class CameraSelectionViewController: NSViewController {
             cameraDisplayView.layer = CALayer()
             cameraDisplayView.layer?.addSublayer(previewLayer)
 
-            if case .camera = appState.wallpaperKind {
+            if isSettingCameraAsWallpaper() {
                 // do nothing
             } else {
                 captureSessionQueue.async { [weak self] in
@@ -141,10 +146,16 @@ class CameraSelectionViewController: NSViewController {
     }
 
     func setPreviewAnnotationLabel() {
-        if case .camera = appState.wallpaperKind {
+        if isSettingCameraAsWallpaper() {
             previewAnnotationLabel.isHidden = false
         } else {
             previewAnnotationLabel.isHidden = true
+        }
+    }
+
+    private func setUpDisplayTargetPopUpButton() {
+        displayTargetPopUpButton.menu?.items = displayTargetMenu.map { menu in
+            NSMenuItem(title: menu.title, action: nil, keyEquivalent: "")
         }
     }
 
@@ -193,6 +204,12 @@ class CameraSelectionViewController: NSViewController {
                 self?.previewAnnotationLabel.isHidden = true
             }
             .store(in: &cancellable)
+    }
+
+    private func isSettingCameraAsWallpaper() -> Bool {
+        appState.wallpapers.contains(where: {
+            if case .camera = $0.kind { true } else { false }
+        })
     }
 }
 

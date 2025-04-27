@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="23094" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="23504" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="23094"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="23504"/>
         <capability name="NSView safe area layout guides" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -10,6 +10,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="YouTubeSelectionViewController" customModule="Wallpaper_Play" customModuleProvider="target">
             <connections>
+                <outlet property="displayTargetPopUpButton" destination="R9a-eb-PB4" id="sDd-vu-l8T"/>
                 <outlet property="muteToggleButton" destination="ePb-UZ-lgx" id="krw-Vg-dFn"/>
                 <outlet property="thumbnailImageView" destination="QDl-gH-3ZP" id="uh3-Ne-Hpx"/>
                 <outlet property="videoSizePopUpButton" destination="nG4-xR-qwU" id="dEz-7a-HXU"/>
@@ -171,7 +172,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="788" height="64"/>
                     <subviews>
                         <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="16" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DL5-jX-KNB">
-                            <rect key="frame" x="32" y="18" width="380" height="28"/>
+                            <rect key="frame" x="32" y="18" width="500" height="28"/>
                             <subviews>
                                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="epg-9M-XK3">
                                     <rect key="frame" x="-6" y="-6" width="139" height="40"/>
@@ -197,15 +198,27 @@
                                         </menu>
                                     </popUpButtonCell>
                                 </popUpButton>
+                                <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="R9a-eb-PB4">
+                                    <rect key="frame" x="251" y="0.0" width="111" height="25"/>
+                                    <popUpButtonCell key="cell" type="push" title="All Monitors" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="hC4-wn-1Cp" id="XaQ-XG-iI4">
+                                        <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                        <font key="font" metaFont="menu"/>
+                                        <menu key="menu" id="yhj-fo-IYr">
+                                            <items>
+                                                <menuItem title="All Monitors" state="on" id="hC4-wn-1Cp"/>
+                                            </items>
+                                        </menu>
+                                    </popUpButtonCell>
+                                </popUpButton>
                                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ePb-UZ-lgx">
-                                    <rect key="frame" x="252" y="5" width="57" height="18"/>
+                                    <rect key="frame" x="372" y="5" width="57" height="18"/>
                                     <buttonCell key="cell" type="check" title="Mute" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="Chy-C4-5eh">
                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                         <font key="font" metaFont="system"/>
                                     </buttonCell>
                                 </button>
                                 <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="16" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rE4-19-fNh">
-                                    <rect key="frame" x="325" y="6" width="55" height="16"/>
+                                    <rect key="frame" x="445" y="6" width="55" height="16"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="16" id="4eH-hJ-sm3"/>
                                         <constraint firstAttribute="width" constant="55" id="TNR-a2-2Mb"/>
@@ -217,8 +230,10 @@
                                 <integer value="1000"/>
                                 <integer value="1000"/>
                                 <integer value="1000"/>
+                                <integer value="1000"/>
                             </visibilityPriorities>
                             <customSpacing>
+                                <real value="3.4028234663852886e+38"/>
                                 <real value="3.4028234663852886e+38"/>
                                 <real value="3.4028234663852886e+38"/>
                                 <real value="3.4028234663852886e+38"/>

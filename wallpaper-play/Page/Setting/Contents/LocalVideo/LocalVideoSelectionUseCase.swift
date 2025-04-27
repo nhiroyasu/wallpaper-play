@@ -6,6 +6,7 @@ struct VideoConfigInput {
     let mute: Bool
     let videoSize: VideoSize
     let backgroundColor: NSColor?
+    let target: WallpaperDisplayTarget
 }
 
 typealias VideoConfigOutput = VideoConfigInput
@@ -24,11 +25,12 @@ class LocalVideoSelectionInteractor: LocalVideoSelectionUseCase {
 
     func requestSettingWallpaper(_ input: VideoConfigInput) {
         wallpaperRequestService.requestVideoWallpaper(
-            video: VideoPlayValue(
+            video: VideoPlayRequest(
                 url: input.link,
                 mute: input.mute,
                 videoSize: input.videoSize,
-                backgroundColor: input.backgroundColor
+                backgroundColor: input.backgroundColor,
+                target: input.target
             )
         )
     }

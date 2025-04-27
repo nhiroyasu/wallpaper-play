@@ -54,6 +54,7 @@ class ApplicationServiceImpl: ApplicationService {
         setUpRequestVisibilityIconNotification()
         setUpRequestWebPageNotification()
         setUpRequestCameraNotification()
+        setUpScreenParamNotification()
         setUpAppIcon()
         setUpFlag = true
     }
@@ -70,7 +71,7 @@ class ApplicationServiceImpl: ApplicationService {
         setUp()
         guard let url = urls.first else { return }
         guard let (videoId, isMute) = getWallpaperData(from: url) else { return }
-        displayYouTube(videoId: videoId, isMute: isMute, shouldSavedHistory: true, videoSize: .aspectFit)
+        displayYouTube(videoId: videoId, isMute: isMute, shouldSavedHistory: true, videoSize: .aspectFit, target: .sameOnAllMonitors)
         settingWindowService.close()
     }
 
@@ -106,70 +107,116 @@ class ApplicationServiceImpl: ApplicationService {
 
     private func setUpRequestVideoNotification() {
         notificationManager.observe(name: .requestVideo) { [weak self] param in
-            guard let self = self, let value = param as? VideoPlayValue else { fatalError() }
-            self.displayLocalVideo(value: value, shouldSavedHistory: true)
+            guard let self = self, let request = param as? VideoPlayRequest else { fatalError() }
+            self.displayLocalVideo(request: request, shouldSavedHistory: true)
         }
     }
 
     private func setUpRequestYouTubeNotification() {
         notificationManager.observe(name: .requestYouTube) { [weak self] param in
-            guard let self = self, let data = param as? YouTubePlayValue else { fatalError() }
-            self.displayYouTube(videoId: data.videoId, isMute: data.isMute, shouldSavedHistory: true, videoSize: data.videoSize)
+            guard let self = self, let request = param as? YouTubePlayRequest else { fatalError() }
+            self.displayYouTube(videoId: request.videoId, isMute: request.isMute, shouldSavedHistory: true, videoSize: request.videoSize, target: request.target)
         }
     }
     
     private func setUpRequestWebPageNotification() {
         notificationManager.observe(name: .requestWebPage) { [weak self] param in
-            guard let self = self, let value = param as? WebPlayValue else { fatalError() }
-            self.displayWebPage(url: value.url, arrowOperation: value.arrowOperation, shouldSavedHistory: true)
+            guard let self = self, let request = param as? WebPlayRequest else { fatalError() }
+            self.displayWebPage(url: request.url, arrowOperation: request.arrowOperation, shouldSavedHistory: true, target: request.target)
         }
     }
 
     private func setUpRequestCameraNotification() {
         notificationManager.observe(name: .requestCamera) { [weak self] param in
-            guard let self = self, let value = param as? CameraPlayValue else { fatalError() }
-            self.wallpaperWindowService.display(wallpaperKind: WallpaperKind.camera(deviceId: value.deviceId, videoSize: value.videoSize))
-            self.wallpaperHistoryService.store(CameraWallpaper(date: Date(), deviceId: value.deviceId, size: value.videoSize.rawValue))
+            guard let self = self, let request = param as? CameraPlayRequest else { fatalError() }
+            self.wallpaperWindowService.display(
+                wallpaperKind: WallpaperKind.camera(deviceId: request.deviceId, videoSize: request.videoSize),
+                target: request.target
+            )
+            self.wallpaperHistoryService.store(
+                CameraWallpaper(
+                    date: Date(),
+                    deviceId: request.deviceId,
+                    size: request.videoSize.rawValue,
+                    targetMonitor: convertToTargetMonitorForDB(for: request.target)
+                )
+            )
         }
     }
 
-    private func displayYouTube(videoId: String, isMute: Bool, shouldSavedHistory: Bool, videoSize: VideoSize) {
-        wallpaperWindowService.display(wallpaperKind: .youtube(videoId: videoId, isMute: isMute, videoSize: videoSize))
+    private func displayYouTube(videoId: String, isMute: Bool, shouldSavedHistory: Bool, videoSize: VideoSize, target: WallpaperDisplayTarget) {
+        wallpaperWindowService.display(
+            wallpaperKind: .youtube(videoId: videoId, isMute: isMute, videoSize: videoSize),
+            target: target
+        )
 
         if shouldSavedHistory {
-            let youtubeWallpaper = YouTubeWallpaper(date: Date(), videoId: videoId, isMute: isMute, size: videoSize.rawValue)
+            let youtubeWallpaper = YouTubeWallpaper(
+                date: Date(),
+                videoId: videoId,
+                isMute: isMute,
+                size: videoSize.rawValue,
+                targetMonitor: convertToTargetMonitorForDB(for: target)
+            )
             wallpaperHistoryService.store(youtubeWallpaper)
         }
     }
     
-    private func displayWebPage(url: URL, arrowOperation: Bool, shouldSavedHistory: Bool) {
-        wallpaperWindowService.display(wallpaperKind: .web(url: url, arrowOperation: arrowOperation))
+    private func displayWebPage(url: URL, arrowOperation: Bool, shouldSavedHistory: Bool, target: WallpaperDisplayTarget) {
+        wallpaperWindowService.display(
+            wallpaperKind: .web(url: url, arrowOperation: arrowOperation),
+            target: target
+        )
 
         if shouldSavedHistory {
-            let webpageWallpaper = WebPageWallpaper(date: Date(), url: url, arrowOperation: arrowOperation)
+            let webpageWallpaper = WebPageWallpaper(
+                date: Date(),
+                url: url,
+                arrowOperation: arrowOperation,
+                targetMonitor: convertToTargetMonitorForDB(for: target)
+            )
             wallpaperHistoryService.store(webpageWallpaper)
         }
     }
 
-    private func displayLocalVideo(value: VideoPlayValue, shouldSavedHistory: Bool) {
-        wallpaperWindowService.display(wallpaperKind: .video(value: value))
+    private func displayLocalVideo(request: VideoPlayRequest, shouldSavedHistory: Bool) {
+        wallpaperWindowService.display(
+            wallpaperKind: .video(url: request.url, mute: request.mute, videoSize: request.videoSize, backgroundColor: request.backgroundColor),
+            target: request.target
+        )
 
         if shouldSavedHistory {
             guard let latestVideoStore = applicationFileManager.getDirectory(.latestVideo) else { return }
-            let storedFileUrl = latestVideoStore.appendingPathComponent("latest.\(value.url.pathExtension)")
+            let storedFileUrl = latestVideoStore.appendingPathComponent("video_\(UUID().uuidString).\(request.url.pathExtension)")
             do {
+                // Save a user-selected video.
                 if fileManager.fileExists(atPath: storedFileUrl.path) {
                     try fileManager.removeItem(at: storedFileUrl)
                 }
-                try fileManager.copyItem(at: value.url, to: storedFileUrl)
+                try fileManager.copyItem(at: request.url, to: storedFileUrl)
+
+                // If the number of saved videos exceeds 10, remove the oldest one.
+                var contents = try fileManager
+                    .contentsOfDirectory(at: latestVideoStore, includingPropertiesForKeys: [.addedToDirectoryDateKey], options: [])
+                contents.sort { (url1, url2) -> Bool in
+                    let date1 = (try? url1.resourceValues(forKeys: [.addedToDirectoryDateKey]).addedToDirectoryDate) ?? Date.distantPast
+                    let date2 = (try? url2.resourceValues(forKeys: [.addedToDirectoryDateKey]).addedToDirectoryDate) ?? Date.distantPast
+                    return date1 < date2 // ascending order
+                }
+                if contents.count > 10, let oldestVideoUrl = contents.first {
+                    try fileManager.removeItem(at: oldestVideoUrl)
+                }
+
+                // Save the selected video to realm db.
                 let localVideoWallpaper = LocalVideoWallpaper(
                     date: Date(),
                     url: storedFileUrl,
                     config: .init(
-                        size: value.videoSize.rawValue,
-                        isMute: value.mute,
-                        backgroundColor: value.backgroundColor?.hex
-                    )
+                        size: request.videoSize.rawValue,
+                        isMute: request.mute,
+                        backgroundColor: request.backgroundColor?.hex
+                    ),
+                    targetMonitor: convertToTargetMonitorForDB(for: request.target)
                 )
                 wallpaperHistoryService.store(localVideoWallpaper)
             } catch {
@@ -178,16 +225,29 @@ class ApplicationServiceImpl: ApplicationService {
         }
     }
 
+    private func setUpScreenParamNotification() {
+        notificationManager.observe(name: NSApplication.didChangeScreenParametersNotification) { [weak self] _ in
+            self?.displayLatestWallpaper()
+        }
+    }
+
     private func displayLatestWallpaper() {
-        if let latestWallpaper = wallpaperHistoryService.fetchLatestWallpaper() {
-            wallpaperWindowService.display(wallpaperKind: latestWallpaper)
+        if let (latestWallpaper, isAll) = wallpaperHistoryService.fetchLatestWallpaper(monitorFilter: .all), isAll {
+            wallpaperWindowService.display(wallpaperKind: latestWallpaper, target: .sameOnAllMonitors)
+            return
+        }
+
+        for screen in NSScreen.screens {
+            if let (latestWallpaperForScreen, _) = wallpaperHistoryService.fetchLatestWallpaper(monitorFilter: .specificOrNil(specificMonitor: screen.localizedName)) {
+                wallpaperWindowService.display(wallpaperKind: latestWallpaperForScreen, target: .specificMonitor(screen: screen))
+            }
         }
     }
     
     private func setUpAppIcon() {
         appManager.setVisibilityIcon(userSetting.visibilityIcon)
     }
-    
+
     private func setUpRequestVisibilityIconNotification() {
         notificationManager.observe(name: .requestVisibilityIcon) { [weak self] _ in
             guard let self = self else { return }
@@ -212,6 +272,15 @@ class ApplicationServiceImpl: ApplicationService {
             return (videoId, isMute)
         } else {
             return nil
+        }
+    }
+
+    private func convertToTargetMonitorForDB(for target: WallpaperDisplayTarget) -> String? {
+        switch target {
+        case .sameOnAllMonitors:
+            return nil
+        case .specificMonitor(let screen):
+            return screen.localizedName
         }
     }
 }

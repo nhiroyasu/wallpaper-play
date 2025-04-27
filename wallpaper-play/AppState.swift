@@ -3,6 +3,11 @@ class AppState {
 
     private init() {}
 
-    var wallpaperKind: WallpaperKind? = nil
+    struct Wallpaper {
+        let screenIdentifier: UInt32
+        let kind: WallpaperKind
+    }
+
+    var wallpapers: [Wallpaper] = []
 }
 

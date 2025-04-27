@@ -12,6 +12,7 @@
             <connections>
                 <outlet property="cameraDisplayView" destination="Zes-uC-613" id="MMn-nS-oY8"/>
                 <outlet property="camerasPopUpButton" destination="OMJ-7U-cxa" id="tyF-ZH-eaG"/>
+                <outlet property="displayTargetPopUpButton" destination="n6a-Z1-Hkd" id="QIH-uG-Grj"/>
                 <outlet property="previewAnnotationLabel" destination="Fxa-6D-1AM" id="AhX-9G-92p"/>
                 <outlet property="videoSizePopUpButton" destination="fqg-sM-el2" id="mDP-eo-YSq"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
@@ -29,7 +30,7 @@
                             <rect key="frame" x="29" y="12" width="731" height="25"/>
                             <popUpButtonCell key="cell" type="push" title="Item 1" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="gDd-O4-XbY" id="dQ1-xO-tEB">
                                 <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                <font key="font" metaFont="menu"/>
+                                <font key="font" metaFont="message"/>
                                 <menu key="menu" id="g18-kN-bal">
                                     <items>
                                         <menuItem title="Item 1" state="on" id="gDd-O4-XbY"/>
@@ -113,7 +114,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="788" height="64"/>
                     <subviews>
                         <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="16" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xqr-av-YIX">
-                            <rect key="frame" x="32" y="18" width="238" height="28"/>
+                            <rect key="frame" x="32" y="18" width="358" height="28"/>
                             <subviews>
                                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="I6o-wP-zdD">
                                     <rect key="frame" x="-6" y="-6" width="139" height="40"/>
@@ -130,7 +131,7 @@
                                     <rect key="frame" x="140" y="0.0" width="102" height="25"/>
                                     <popUpButtonCell key="cell" type="push" title="Aspect Fill" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="NNN-kz-Afw" id="Aqa-51-GbC">
                                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                        <font key="font" metaFont="menu"/>
+                                        <font key="font" metaFont="message"/>
                                         <menu key="menu" id="bI5-oo-sVO">
                                             <items>
                                                 <menuItem title="Aspect Fill" state="on" id="NNN-kz-Afw"/>
@@ -139,12 +140,26 @@
                                         </menu>
                                     </popUpButtonCell>
                                 </popUpButton>
+                                <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="n6a-Z1-Hkd">
+                                    <rect key="frame" x="251" y="0.0" width="111" height="25"/>
+                                    <popUpButtonCell key="cell" type="push" title="All Monitors" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="1vQ-es-G8o" id="v36-ri-rAn">
+                                        <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                        <font key="font" metaFont="menu"/>
+                                        <menu key="menu" id="ZRh-8e-JaN">
+                                            <items>
+                                                <menuItem title="All Monitors" state="on" id="1vQ-es-G8o"/>
+                                            </items>
+                                        </menu>
+                                    </popUpButtonCell>
+                                </popUpButton>
                             </subviews>
                             <visibilityPriorities>
                                 <integer value="1000"/>
                                 <integer value="1000"/>
+                                <integer value="1000"/>
                             </visibilityPriorities>
                             <customSpacing>
+                                <real value="3.4028234663852886e+38"/>
                                 <real value="3.4028234663852886e+38"/>
                                 <real value="3.4028234663852886e+38"/>
                             </customSpacing>

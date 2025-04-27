@@ -1,6 +1,18 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "1vQ-es-G8o.title" : {
+      "comment" : "Class = \"NSMenuItem\"; title = \"All Monitors\"; ObjectID = \"1vQ-es-G8o\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "All Monitors"
+          }
+        }
+      }
+    },
     "343-l0-Pm5.title" : {
       "comment" : "Class = \"NSButtonCell\"; title = \"Set Wallpaper\"; ObjectID = \"343-l0-Pm5\";",
       "extractionState" : "extracted_with_value",
