@@ -2,7 +2,7 @@ import Foundation
 import RealmSwift
 import Injectable
 
-let REALM_SCHEMA_VERSION: UInt64 = 8
+let REALM_SCHEMA_VERSION: UInt64 = 9
 
 public enum RealmConfigType {
     case release

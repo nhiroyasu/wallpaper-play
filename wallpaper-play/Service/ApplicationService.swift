@@ -54,6 +54,7 @@ class ApplicationServiceImpl: ApplicationService {
         setUpRequestVisibilityIconNotification()
         setUpRequestWebPageNotification()
         setUpRequestCameraNotification()
+        setUpScreenParamNotification()
         setUpAppIcon()
         setUpFlag = true
     }
@@ -132,7 +133,14 @@ class ApplicationServiceImpl: ApplicationService {
                 wallpaperKind: WallpaperKind.camera(deviceId: request.deviceId, videoSize: request.videoSize),
                 target: request.target
             )
-            self.wallpaperHistoryService.store(CameraWallpaper(date: Date(), deviceId: request.deviceId, size: request.videoSize.rawValue))
+            self.wallpaperHistoryService.store(
+                CameraWallpaper(
+                    date: Date(),
+                    deviceId: request.deviceId,
+                    size: request.videoSize.rawValue,
+                    targetMonitor: convertToTargetMonitorForDB(for: request.target)
+                )
+            )
         }
     }
 
@@ -143,7 +151,13 @@ class ApplicationServiceImpl: ApplicationService {
         )
 
         if shouldSavedHistory {
-            let youtubeWallpaper = YouTubeWallpaper(date: Date(), videoId: videoId, isMute: isMute, size: videoSize.rawValue)
+            let youtubeWallpaper = YouTubeWallpaper(
+                date: Date(),
+                videoId: videoId,
+                isMute: isMute,
+                size: videoSize.rawValue,
+                targetMonitor: convertToTargetMonitorForDB(for: target)
+            )
             wallpaperHistoryService.store(youtubeWallpaper)
         }
     }
@@ -155,7 +169,12 @@ class ApplicationServiceImpl: ApplicationService {
         )
 
         if shouldSavedHistory {
-            let webpageWallpaper = WebPageWallpaper(date: Date(), url: url, arrowOperation: arrowOperation)
+            let webpageWallpaper = WebPageWallpaper(
+                date: Date(),
+                url: url,
+                arrowOperation: arrowOperation,
+                targetMonitor: convertToTargetMonitorForDB(for: target)
+            )
             wallpaperHistoryService.store(webpageWallpaper)
         }
     }
@@ -168,12 +187,27 @@ class ApplicationServiceImpl: ApplicationService {
 
         if shouldSavedHistory {
             guard let latestVideoStore = applicationFileManager.getDirectory(.latestVideo) else { return }
-            let storedFileUrl = latestVideoStore.appendingPathComponent("latest.\(request.url.pathExtension)")
+            let storedFileUrl = latestVideoStore.appendingPathComponent("video_\(UUID().uuidString).\(request.url.pathExtension)")
             do {
+                // Save a user-selected video.
                 if fileManager.fileExists(atPath: storedFileUrl.path) {
                     try fileManager.removeItem(at: storedFileUrl)
                 }
                 try fileManager.copyItem(at: request.url, to: storedFileUrl)
+
+                // If the number of saved videos exceeds 10, remove the oldest one.
+                var contents = try fileManager
+                    .contentsOfDirectory(at: latestVideoStore, includingPropertiesForKeys: [.addedToDirectoryDateKey], options: [])
+                contents.sort { (url1, url2) -> Bool in
+                    let date1 = (try? url1.resourceValues(forKeys: [.addedToDirectoryDateKey]).addedToDirectoryDate) ?? Date.distantPast
+                    let date2 = (try? url2.resourceValues(forKeys: [.addedToDirectoryDateKey]).addedToDirectoryDate) ?? Date.distantPast
+                    return date1 < date2 // ascending order
+                }
+                if contents.count > 10, let oldestVideoUrl = contents.first {
+                    try fileManager.removeItem(at: oldestVideoUrl)
+                }
+
+                // Save the selected video to realm db.
                 let localVideoWallpaper = LocalVideoWallpaper(
                     date: Date(),
                     url: storedFileUrl,
@@ -181,7 +215,8 @@ class ApplicationServiceImpl: ApplicationService {
                         size: request.videoSize.rawValue,
                         isMute: request.mute,
                         backgroundColor: request.backgroundColor?.hex
-                    )
+                    ),
+                    targetMonitor: convertToTargetMonitorForDB(for: request.target)
                 )
                 wallpaperHistoryService.store(localVideoWallpaper)
             } catch {
@@ -190,17 +225,26 @@ class ApplicationServiceImpl: ApplicationService {
         }
     }
 
+    private func setUpScreenParamNotification() {
+        notificationManager.observe(name: NSApplication.didChangeScreenParametersNotification) { [weak self] _ in
+            self?.displayLatestWallpaper()
+        }
+    }
+
     private func displayLatestWallpaper() {
-        if let latestWallpaper = wallpaperHistoryService.fetchLatestWallpaper() {
-            // TODO: will support multiple screens
-//            wallpaperWindowService.display(wallpaperKind: latestWallpaper)
+        for screen in NSScreen.screens {
+            let latestWallpaperForScreen = wallpaperHistoryService.fetchLatestWallpaper(monitorFilter: .specificOrNil(specificMonitor: screen.localizedName))
+
+            if let latestWallpaperForScreen {
+                wallpaperWindowService.display(wallpaperKind: latestWallpaperForScreen, target: .specificMonitor(screen: screen))
+            }
         }
     }
     
     private func setUpAppIcon() {
         appManager.setVisibilityIcon(userSetting.visibilityIcon)
     }
-    
+
     private func setUpRequestVisibilityIconNotification() {
         notificationManager.observe(name: .requestVisibilityIcon) { [weak self] _ in
             guard let self = self else { return }
@@ -225,6 +269,15 @@ class ApplicationServiceImpl: ApplicationService {
             return (videoId, isMute)
         } else {
             return nil
+        }
+    }
+
+    private func convertToTargetMonitorForDB(for target: WallpaperDisplayTarget) -> String? {
+        switch target {
+        case .sameOnAllMonitors:
+            return nil
+        case .specificMonitor(let screen):
+            return screen.localizedName
         }
     }
 }

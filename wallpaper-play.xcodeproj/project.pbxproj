@@ -373,15 +373,12 @@
 		4F03CEE4285A1076009FDC6F /* Entity */ = {
 			isa = PBXGroup;
 			children = (
-				4F5EA8052DBD13A10024DB7E /* DisplayTargetMenu.swift */,
+				4F5EA8072DBDC2D80024DB7E /* RealmObject */,
 				4F5EA8022DBD04F00024DB7E /* WallpaperRequest */,
+				4F5EA8052DBD13A10024DB7E /* DisplayTargetMenu.swift */,
 				4F5EA7F82DBD01550024DB7E /* WallpaperDisplayTarget.swift */,
-				4FB85C5D2D34DD520016E171 /* CameraWallpaper.swift */,
 				4FDF1DF6285ECAB500ABBE8D /* Coordinator.swift */,
 				4F03CEE5285A107F009FDC6F /* LocalVideoConfig.swift */,
-				4F03CEED285A170E009FDC6F /* LocalVideoWallpaper.swift */,
-				4F03CEEF285A1801009FDC6F /* YouTubeWallpaper.swift */,
-				4FBD510B288559A8002DF955 /* WebPageWallpaper.swift */,
 				4F03CEE7285A14D9009FDC6F /* VideoSize.swift */,
 				4F03CEEB285A1654009FDC6F /* DateSortable.swift */,
 				4FDE8AD0286DE1750028E062 /* Statable.swift */,
@@ -421,6 +418,17 @@
 				4F5EA7FA2DBD04840024DB7E /* VideoPlayRequest.swift */,
 			);
 			path = WallpaperRequest;
+			sourceTree = "<group>";
+		};
+		4F5EA8072DBDC2D80024DB7E /* RealmObject */ = {
+			isa = PBXGroup;
+			children = (
+				4F03CEED285A170E009FDC6F /* LocalVideoWallpaper.swift */,
+				4F03CEEF285A1801009FDC6F /* YouTubeWallpaper.swift */,
+				4FBD510B288559A8002DF955 /* WebPageWallpaper.swift */,
+				4FB85C5D2D34DD520016E171 /* CameraWallpaper.swift */,
+			);
+			path = RealmObject;
 			sourceTree = "<group>";
 		};
 		4F6A4D23289D645000F7B40D /* BundleAssets */ = {

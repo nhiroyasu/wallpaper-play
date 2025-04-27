@@ -19,7 +19,6 @@ class WallpaperWindowServiceImpl: WallpaperWindowService {
         self.wallpaperHistoryService = injector.build()
         self.youTubeContentsService = injector.build()
         self.appState = injector.build()
-        observeScreenParam()
     }
     
     func display(wallpaperKind: WallpaperKind, target: WallpaperDisplayTarget) {
@@ -101,14 +100,6 @@ class WallpaperWindowServiceImpl: WallpaperWindowService {
             wallpaperKind: wallpaperKind
         )
         return coordinator.createWindow()
-    }
-    
-    private func observeScreenParam() {
-        notificationManager.observe(name: NSApplication.didChangeScreenParametersNotification) { [weak self] _ in
-            // TODO: will support multiple screens
-//            guard let latestWallpaper = self?.wallpaperHistoryService.fetchLatestWallpaper() else { return }
-//            self?.display(wallpaperKind: latestWallpaper, target: )
-        }
     }
 
     private func computeFittingWallpaperSize(screen: NSScreen) -> NSRect {
