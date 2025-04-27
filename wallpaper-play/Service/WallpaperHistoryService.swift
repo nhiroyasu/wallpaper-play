@@ -29,7 +29,7 @@ protocol WallpaperHistoryService {
     func fetchLatestVideo(monitorFilter: MonitorFilter) -> LocalVideoWallpaper?
     func fetchLatestWebPage(monitorFilter: MonitorFilter) -> WebPageWallpaper?
     func fetchLatestCamera(monitorFilter: MonitorFilter) -> CameraWallpaper?
-    func fetchLatestWallpaper(monitorFilter: MonitorFilter) -> WallpaperKind?
+    func fetchLatestWallpaper(monitorFilter: MonitorFilter) -> (kind: WallpaperKind, isAll: Bool)?
 }
 
 class WallpaperHistoryServiceImpl: WallpaperHistoryService {
@@ -187,7 +187,7 @@ class WallpaperHistoryServiceImpl: WallpaperHistoryService {
             .first
     }
 
-    func fetchLatestWallpaper(monitorFilter: MonitorFilter) -> WallpaperKind? {
+    func fetchLatestWallpaper(monitorFilter: MonitorFilter) -> (kind: WallpaperKind, isAll: Bool)? {
         let videoFirst = fetchLatestVideo(monitorFilter: monitorFilter)
         let youtubeFirst = fetchLatestYouTube(monitorFilter: monitorFilter)
         let webpageFirst = fetchLatestWebPage(monitorFilter: monitorFilter)
@@ -203,21 +203,27 @@ class WallpaperHistoryServiceImpl: WallpaperHistoryService {
             } else {
                 nil
             }
-            return .video(url: video.url, mute: video.config?.isMute ?? true, videoSize: videoSize, backgroundColor: backgroundColor)
+            return (
+                kind: .video(url: video.url, mute: video.config?.isMute ?? true, videoSize: videoSize, backgroundColor: backgroundColor),
+                isAll: video.targetMonitor == nil
+            )
         } else if let video = latestVideo as? YouTubeWallpaper {
             let videoSize = VideoSize(rawValue: video.size) ?? .aspectFill
-            return .youtube(videoId: video.videoId, isMute: video.isMute, videoSize: videoSize)
+            return (
+                kind: .youtube(videoId: video.videoId, isMute: video.isMute, videoSize: videoSize),
+                isAll: video.targetMonitor == nil
+            )
         } else if let video = latestVideo as? WebPageWallpaper {
             let arrowOperation = video.arrowOperation ?? false
-            return .web(
-                url: video.url,
-                arrowOperation: arrowOperation
+            return (
+                kind: .web(url: video.url, arrowOperation: arrowOperation),
+                isAll: video.targetMonitor == nil
             )
         } else if let video = latestVideo as? CameraWallpaper {
             let videoSize = VideoSize(rawValue: video.size) ?? .aspectFill
-            return .camera(
-                deviceId: video.deviceId,
-                videoSize: videoSize
+            return (
+                kind: .camera(deviceId: video.deviceId, videoSize: videoSize),
+                isAll: video.targetMonitor == nil
             )
         } else {
             return nil

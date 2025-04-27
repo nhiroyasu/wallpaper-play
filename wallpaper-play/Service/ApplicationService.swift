@@ -232,10 +232,13 @@ class ApplicationServiceImpl: ApplicationService {
     }
 
     private func displayLatestWallpaper() {
-        for screen in NSScreen.screens {
-            let latestWallpaperForScreen = wallpaperHistoryService.fetchLatestWallpaper(monitorFilter: .specificOrNil(specificMonitor: screen.localizedName))
+        if let (latestWallpaper, isAll) = wallpaperHistoryService.fetchLatestWallpaper(monitorFilter: .all), isAll {
+            wallpaperWindowService.display(wallpaperKind: latestWallpaper, target: .sameOnAllMonitors)
+            return
+        }
 
-            if let latestWallpaperForScreen {
+        for screen in NSScreen.screens {
+            if let (latestWallpaperForScreen, _) = wallpaperHistoryService.fetchLatestWallpaper(monitorFilter: .specificOrNil(specificMonitor: screen.localizedName)) {
                 wallpaperWindowService.display(wallpaperKind: latestWallpaperForScreen, target: .specificMonitor(screen: screen))
             }
         }
