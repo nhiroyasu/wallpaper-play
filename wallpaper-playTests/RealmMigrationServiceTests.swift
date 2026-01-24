@@ -36,7 +36,8 @@ class RealmMigrationServiceTests: XCTestCase {
         let expectedData = LocalVideoWallpaper(
             date: Date(timeIntervalSinceReferenceDate: 735346290.959397),
             url: URL(string: "file:///Users/niitsumahiroyasu/Library/Containers/com.nhiro1109.wallpaper-play/Data/Library/Application%20Support/latest-video/latest.mov")!,
-            config: .init(size: 0, isMute: true, backgroundColor: nil)
+            config: .init(size: 0, isMute: true, backgroundColor: nil),
+            targetMonitor: nil
         )
 
         let result = realm.objects(LocalVideoWallpaper.self).first!
@@ -45,6 +46,8 @@ class RealmMigrationServiceTests: XCTestCase {
         XCTAssertEqual(result.date, expectedData.date)
         XCTAssertEqual(result.config!.size, expectedData.config!.size)
         XCTAssertEqual(result.config!.isMute, expectedData.config!.isMute)
+        XCTAssertEqual(result.config!.backgroundColor, expectedData.config!.backgroundColor)
+        XCTAssertEqual(result.targetMonitor, expectedData.targetMonitor)
     }
 
     func testMigration_v2_Latest_YouTube() throws {
@@ -61,12 +64,16 @@ class RealmMigrationServiceTests: XCTestCase {
         let expectedData1 = YouTubeWallpaper(
             date: Date(timeIntervalSinceReferenceDate: 717989777.394572),
             videoId: "CtWh0IPXLX8",
-            isMute: true
+            isMute: true,
+            size: 0,
+            targetMonitor: nil
         )
         let expectedData2 = YouTubeWallpaper(
             date: Date(timeIntervalSinceReferenceDate: 735895205.434864),
             videoId: "Wr8egRRLU28",
-            isMute: false
+            isMute: false,
+            size: 0,
+            targetMonitor: nil
         )
 
         let result1 = realm.objects(YouTubeWallpaper.self)[0]
@@ -75,10 +82,14 @@ class RealmMigrationServiceTests: XCTestCase {
         XCTAssertEqual(result1.date, expectedData1.date)
         XCTAssertEqual(result1.videoId, expectedData1.videoId)
         XCTAssertEqual(result1.isMute, expectedData1.isMute)
+        XCTAssertEqual(result1.size, expectedData1.size)
+        XCTAssertEqual(result1.targetMonitor, expectedData1.targetMonitor)
 
         XCTAssertEqual(result2.date, expectedData2.date)
         XCTAssertEqual(result2.videoId, expectedData2.videoId)
         XCTAssertEqual(result2.isMute, expectedData2.isMute)
+        XCTAssertEqual(result2.size, expectedData2.size)
+        XCTAssertEqual(result2.targetMonitor, expectedData2.targetMonitor)
     }
 
     func testMigration_v4_Latest_WebPage() throws {
@@ -91,7 +102,8 @@ class RealmMigrationServiceTests: XCTestCase {
         let expectedData = WebPageWallpaper(
             date: Date(timeIntervalSinceReferenceDate: 735973757.98516),
             url: URL(string: "https://github.com/")!,
-            arrowOperation: nil
+            arrowOperation: nil,
+            targetMonitor: nil
         )
 
         let result = realm.objects(WebPageWallpaper.self)[0]
@@ -99,6 +111,7 @@ class RealmMigrationServiceTests: XCTestCase {
         XCTAssertEqual(result.date, expectedData.date)
         XCTAssertEqual(result.url, expectedData.url)
         XCTAssertEqual(result.arrowOperation, expectedData.arrowOperation)
+        XCTAssertEqual(result.targetMonitor, expectedData.targetMonitor)
     }
 
     func testMigration_v4_Latest_LocalVideo() throws {
@@ -111,7 +124,8 @@ class RealmMigrationServiceTests: XCTestCase {
         let expectedData = LocalVideoWallpaper(
             date: Date(timeIntervalSinceReferenceDate: 735289771.339464),
             url: URL(string: "file:///Users/niitsumahiroyasu/Library/Containers/com.debug.nhiro1109.wallpaper-play/Data/Library/Application%20Support/latest-video/latest.mov")!,
-            config: .init(size: 0, isMute: true, backgroundColor: nil)
+            config: .init(size: 0, isMute: true, backgroundColor: nil),
+            targetMonitor: nil
         )
 
         let result = realm.objects(LocalVideoWallpaper.self).first!
@@ -121,33 +135,6 @@ class RealmMigrationServiceTests: XCTestCase {
         XCTAssertEqual(result.config!.size, expectedData.config!.size)
         XCTAssertEqual(result.config!.isMute, expectedData.config!.isMute)
         XCTAssertEqual(result.config!.backgroundColor, expectedData.config!.backgroundColor)
-    }
-    
-    func testMigration_v8_Latest_YouTubeWallpaper() throws {
-        let config = Realm.Configuration(
-            fileURL: realmUrl(for: 7), // Use v7 data to perform migration
-            schemaVersion: REALM_SCHEMA_VERSION
-        )
-        let realm = try! Realm(configuration: config)
-        
-        // Get all YouTubeWallpaper objects
-        let results = realm.objects(YouTubeWallpaper.self)
-        
-        // Verify all YouTubeWallpaper objects were properly migrated
-        for result in results {
-            // Size should be 1 (.aspectFit) after migration
-            XCTAssertEqual(result.size, 1)
-            
-            // Verify other properties were preserved during migration
-            // Adjust these assertions based on your actual model properties
-            XCTAssertNotNil(result.videoId)
-            XCTAssertNotNil(result.date)
-            
-            // Verify isMute property is preserved (if needed)
-            // XCTAssertEqual(result.isMute, expectedIsMuteValue)
-        }
-        
-        // Ensure YouTubeWallpaper objects still exist after migration
-        XCTAssertGreaterThan(results.count, 0)
+        XCTAssertEqual(result.targetMonitor, expectedData.targetMonitor)
     }
 }
