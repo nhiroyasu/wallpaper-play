@@ -3,7 +3,7 @@ import WebKit
 import Combine
 
 protocol YouTubeSelectionViewOutput: AnyObject {
-    func updatePreview(url: URL)
+    func updatePreview(urlRequest: URLRequest)
     func updateThumbnail(url: URL)
     func clearPreview()
     func clearThumbnail()
@@ -48,7 +48,7 @@ class YouTubeSelectionViewController: NSViewController {
         youtubeWebView = .init(frame: .zero, configuration: .youtubeWallpaper(videoSize: .aspectFit))
         youtubeWrappingView.fitAllAnchor(youtubeWebView)
         if let path = Bundle.main.path(forResource: "copy_description_for_youtube", ofType: "html") {
-            updatePreview(url: URL(fileURLWithPath: path))
+            updatePreview(urlRequest: URLRequest(url: URL(fileURLWithPath: path)))
         }
 
         setUpDisplayTargetPopUpButton()
@@ -59,7 +59,7 @@ class YouTubeSelectionViewController: NSViewController {
     override func viewWillDisappear() {
         super.viewWillDisappear()
         if let path = Bundle.main.path(forResource: "copy_description_for_youtube", ofType: "html") {
-            updatePreview(url: URL(fileURLWithPath: path))
+            updatePreview(urlRequest: URLRequest(url: URL(fileURLWithPath: path)))
         }
     }
 
@@ -105,8 +105,8 @@ extension YouTubeSelectionViewController: NSSearchFieldDelegate {
 }
 
 extension YouTubeSelectionViewController: YouTubeSelectionViewOutput {
-    func updatePreview(url: URL) {
-        youtubeWebView.load(URLRequest(url: url))
+    func updatePreview(urlRequest: URLRequest) {
+        youtubeWebView.load(urlRequest)
     }
 
     func updateThumbnail(url: URL) {
@@ -115,7 +115,7 @@ extension YouTubeSelectionViewController: YouTubeSelectionViewOutput {
 
     func clearPreview() {
         if let path = Bundle.main.path(forResource: "copy_description_for_youtube", ofType: "html") {
-            updatePreview(url: URL(fileURLWithPath: path))
+            updatePreview(urlRequest: URLRequest(url: URL(fileURLWithPath: path)))
         } else {
             youtubeWebView.loadHTMLString("", baseURL: nil)
         }

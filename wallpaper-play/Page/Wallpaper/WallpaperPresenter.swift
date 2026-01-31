@@ -32,7 +32,7 @@ class WallpaperPresenterImpl: NSObject, WallpaperPresenter {
                 .video(url, videoSize: videoSize, mute: mute, backgroundColor: backgroundColor)
         case .youtube(let videoId, let isMute, let videoSize):
             if let url = youtubeContentService.buildFullIframeUrl(id: videoId, mute: isMute) {
-                .youtube(url, videoSize: videoSize)
+                .youtube(youtubeContentService.buildIFrameURLRequest(url: url), videoSize: videoSize)
             } else {
                 .none
             }

@@ -26,11 +26,11 @@ class YouTubeSelectionPresenterImpl: YouTubeSelectionPresenter {
     }
 
     func onChangeSearchField(_ value: String) {
-        guard let iframeUrl = useCase.retrieveIFrameUrl(from: value) else {
+        guard let iframeUrlRequest = useCase.retrieveIFrameUrlRequest(from: value) else {
             output.setEnableWallpaperButton(false)
             return
         }
-        output.updatePreview(url: iframeUrl)
+        output.updatePreview(urlRequest: iframeUrlRequest)
         output.setEnableWallpaperButton(true)
         if let thumbnailUrl = useCase.retrieveThumbnailUrl(from: value) {
             output.updateThumbnail(url: thumbnailUrl)
@@ -38,14 +38,14 @@ class YouTubeSelectionPresenterImpl: YouTubeSelectionPresenter {
     }
 
     func enteredYouTubeLink(_ value: String) {
-        guard let iframeUrl = useCase.retrieveIFrameUrl(from: value) else {
+        guard let iframeUrlRequest = useCase.retrieveIFrameUrlRequest(from: value) else {
             alertService.warning(msg: LocalizedString(key: .error_invalid_youtube_url), completionHandler: {})
             output.setEnableWallpaperButton(false)
             output.clearPreview()
             output.clearThumbnail()
             return
         }
-        output.updatePreview(url: iframeUrl)
+        output.updatePreview(urlRequest: iframeUrlRequest)
         output.setEnableWallpaperButton(true)
         if let thumbnailUrl = useCase.retrieveThumbnailUrl(from: value) {
             output.updateThumbnail(url: thumbnailUrl)
