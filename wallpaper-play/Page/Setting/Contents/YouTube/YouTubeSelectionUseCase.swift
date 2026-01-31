@@ -2,7 +2,7 @@ import Foundation
 import Injectable
 
 protocol YouTubeSelectionUseCase {
-    func retrieveIFrameUrl(from youtubeLink: String) -> URL?
+    func retrieveIFrameUrlRequest(from youtubeLink: String) -> URLRequest?
     func retrieveThumbnailUrl(from youtubeLink: String) -> URL?
     func retrieveVideoId(from youtubeLink: String) -> String?
     func requestWallpaper(videoId: String, mute: Bool, videoSize: VideoSize, target: WallpaperDisplayTarget)
@@ -23,12 +23,12 @@ class YouTubeSelectionInteractor: YouTubeSelectionUseCase {
         self.wallpaperRequestService = wallpaperRequestService
     }
 
-    func retrieveIFrameUrl(from youtubeLink: String) -> URL? {
+    func retrieveIFrameUrlRequest(from youtubeLink: String) -> URLRequest? {
         guard validateYouTubeLink(youtubeLink) else { return nil }
         let urlContent = urlResolverService.resolve(youtubeLink)
         guard let youtubeId = urlContent?.queryItems.first(where: { $0.name == "v" })?.value,
               let iframeUrl = youtubeContentService.buildFullIframeUrl(id: youtubeId, mute: true) else { return nil }
-        return iframeUrl
+        return youtubeContentService.buildIFrameURLRequest(url: iframeUrl)
     }
 
     func retrieveThumbnailUrl(from youtubeLink: String) -> URL? {

@@ -70,11 +70,11 @@ extension WallpaperViewController: WallpaperViewOutput {
             } catch {
                 fatalError(error.localizedDescription)
             }
-        case .youtube(let url, let videoSize):
+        case .youtube(let urlRequest, let videoSize):
             allClear()
             resetYoutubeView(videoSize: videoSize)
             youtubeView.isHidden = false
-            youtubeView.load(URLRequest(url: url))
+            youtubeView.load(urlRequest)
         case .web(let url, let arrowOperation):
             allClear()
             webView.isHidden = false
@@ -161,7 +161,7 @@ extension WallpaperViewController {
 
 enum WallpaperDisplayType {
     case video(URL, videoSize: VideoSize, mute: Bool, backgroundColor: NSColor?)
-    case youtube(URL, videoSize: VideoSize)
+    case youtube(URLRequest, videoSize: VideoSize)
     case web(URL, arrowOperation: Bool)
     case camera(captureDevice: AVCaptureDevice, videoSize: VideoSize)
     case none
