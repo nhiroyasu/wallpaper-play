@@ -1,0 +1,25 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build Wallpaper Play",
+            "type": "shell",
+            "command": "xcodebuild -project wallpaper-play.xcodeproj -scheme 'Wallpaper Play' -derivedDataPath .build/DerivedData | xcbeautify",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "Test Wallpaper Play",
+            "type": "shell",
+            "command": "xcodebuild test -project wallpaper-play.xcodeproj -scheme 'Wallpaper Play' -derivedDataPath .build/DerivedData | xcbeautify",
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            }
+        }
+    ]
+}

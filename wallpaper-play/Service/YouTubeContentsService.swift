@@ -16,6 +16,7 @@ enum YouTubeThumbnailQuality: String {
 
 protocol YouTubeContentsService {
     func buildFullIframeUrl(id: String, mute: Bool) -> URL?
+    func buildIFrameURLRequest(url: URL) -> URLRequest
     func buildThumbnailUrl(id: String, quality: YouTubeThumbnailQuality) -> URL?
     func buildYouTubeLink(id: String) -> URL?
     func replaceMutedIframeUrl(url: URL) -> URL?
@@ -36,7 +37,14 @@ class YouTubeContentsServiceImpl: YouTubeContentsService {
         let path = "https://www.youtube.com/embed/\(id)?playlist=\(id)&mute=\(muteValue)&loop=1&autoplay=1&controls=0&disablekb&fs=0&modestbranding=1&iv_load_policy=3&rel=0"
         return URL(string: path)
     }
-    
+
+    func buildIFrameURLRequest(url: URL) -> URLRequest {
+        var urlRequest = URLRequest(url: url)
+        urlRequest.setValue(Bundle.main.bundleIdentifier ?? "com.nhiro1109.wallpaper-play", forHTTPHeaderField: "Referer")
+        urlRequest.setValue("strict-origin-when-cross-origin", forHTTPHeaderField: "Referrer-Policy")
+        return urlRequest
+    }
+
     func buildThumbnailUrl(id: String, quality: YouTubeThumbnailQuality) -> URL? {
         let path = "https://img.youtube.com/vi/\(id)/\(quality.rawValue).jpg"
         return URL(string: path)
