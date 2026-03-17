@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="24127" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="22689"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="24127"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -39,7 +39,7 @@
                                             </constraints>
                                             <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="puzzlepiece.extension.fill" catalog="system" id="0n5-Po-NrR"/>
                                         </imageView>
-                                        <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Dn4-us-ksD">
+                                        <textField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Dn4-us-ksD">
                                             <rect key="frame" x="153" y="232" width="510" height="39"/>
                                             <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" id="gj3-nc-exz">
                                                 <font key="font" textStyle="title3" name=".SFNS-Regular"/>
@@ -93,7 +93,7 @@ You can set YouTube videos as your wallpaper directly from your browser.</string
                                             <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="safari.fill" catalog="system" id="8av-ff-50T"/>
                                             <color key="contentTintColor" name="systemCyanColor" catalog="System" colorSpace="catalog"/>
                                         </imageView>
-                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="2JR-zn-jhW">
+                                        <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="2JR-zn-jhW">
                                             <rect key="frame" x="22" y="25" width="43" height="16"/>
                                             <textFieldCell key="cell" lineBreakMode="clipping" title="Safari" id="tzs-IZ-WI8">
                                                 <font key="font" textStyle="headline" name=".SFNS-Bold"/>
@@ -101,7 +101,7 @@ You can set YouTube videos as your wallpaper directly from your browser.</string
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
-                                        <textField horizontalHuggingPriority="249" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bdl-Ed-aCG">
+                                        <textField focusRingType="none" horizontalHuggingPriority="249" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bdl-Ed-aCG">
                                             <rect key="frame" x="69" y="8" width="438" height="49"/>
                                             <textFieldCell key="cell" lineBreakMode="clipping" alignment="left" id="l2e-71-MPH">
                                                 <font key="font" textStyle="body" name=".SFNS-Regular"/>
@@ -155,7 +155,7 @@ Please enable it from the Safari settings.
                                             <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="Chrome" id="uhy-k2-E4U"/>
                                             <color key="contentTintColor" name="systemCyanColor" catalog="System" colorSpace="catalog"/>
                                         </imageView>
-                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Rjn-ML-nBE">
+                                        <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Rjn-ML-nBE">
                                             <rect key="frame" x="22" y="14" width="55" height="16"/>
                                             <textFieldCell key="cell" lineBreakMode="clipping" title="Chrome" id="TlE-9V-lyd">
                                                 <font key="font" textStyle="headline" name=".SFNS-Bold"/>
@@ -163,7 +163,7 @@ Please enable it from the Safari settings.
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
-                                        <textField horizontalHuggingPriority="249" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="LMX-v9-xof">
+                                        <textField focusRingType="none" horizontalHuggingPriority="249" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="LMX-v9-xof">
                                             <rect key="frame" x="81" y="14" width="537" height="16"/>
                                             <textFieldCell key="cell" lineBreakMode="clipping" alignment="left" title="Install from the Chrome Web Store." id="p4X-jV-F9d">
                                                 <font key="font" textStyle="body" name=".SFNS-Regular"/>

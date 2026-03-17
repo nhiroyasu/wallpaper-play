@@ -2,9 +2,9 @@ import Cocoa
 import Injectable
 
 @main
-class AppDelegate: NSObject, NSApplicationDelegate {
+@MainActor class AppDelegate: NSObject, NSApplicationDelegate {
     private let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
-    private var applicationService: any ApplicationService = Injector.shared.build()
+    private var applicationService: any ApplicationService = ApplicationServiceImpl(injector: Injector.shared)
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         initStatusMenu()
@@ -47,6 +47,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         #if DEBUG
         menu.addItem(NSMenuItem(title: "Debug", action: nil, keyEquivalent: ""))
         menu.addItem(NSMenuItem(title: "Open .realm", action: #selector(didTapOpenRealm), keyEquivalent: ""))
+        menu.addItem(NSMenuItem(title: "Open Application Support", action: #selector(didTapOpenApplicationSupport), keyEquivalent: ""))
         menu.addItem(.separator())
         #endif
         menu.addItem(NSMenuItem(title: "Quit", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q"))
@@ -63,6 +64,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     @objc func didTapOpenRealm() {
         applicationService.didTapOpenRealm()
+    }
+
+    @objc func didTapOpenApplicationSupport() {
+        applicationService.didTapOpenApplicationSupport()
     }
 }
 

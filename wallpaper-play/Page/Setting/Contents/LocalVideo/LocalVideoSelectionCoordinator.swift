@@ -3,7 +3,7 @@ import AppKit
 import Swinject
 import Injectable
 
-class LocalVideoSelectionCoordinator: Coordinator {
+class LocalVideoSelectionCoordinator: EntryCoordinator {
     private var viewController: LocalVideoSelectionViewController!
     private let injector: any Injectable
 

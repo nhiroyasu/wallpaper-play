@@ -2,7 +2,7 @@ import AppKit
 import Swinject
 import Injectable
 
-class AboutCoordinator: Coordinator {
+class AboutCoordinator: EntryCoordinator {
     private var viewController: AboutViewController!
     private let injector: any Injectable
     

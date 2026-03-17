@@ -6,8 +6,10 @@ extension Notification.Name {
     static let requestVideo = Notification.Name("requestVideo")
     static let requestWebPage = Notification.Name("requestWebPage")
     static let requestCamera = Notification.Name("requestCamera")
+    static let requestPlaylist = Notification.Name("requestPlaylist")
     static let selectedSideMenu = Notification.Name("selectedSideBar")
     static let requestVisibilityIcon = Notification.Name("requestVisibilityIcon")
+    static let showSettingWindowWithPreferenceMenu = Notification.Name("showSettingWindowWithPreferenceMenu")
 }
 
 /// @mockable

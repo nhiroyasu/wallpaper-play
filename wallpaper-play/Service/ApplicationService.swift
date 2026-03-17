@@ -3,6 +3,7 @@ import Injectable
 import RealmSwift
 import AppKit
 
+@MainActor
 protocol ApplicationService {
     func applicationDidFinishLaunching()
     func applicationOpen(urls: [URL])
@@ -11,15 +12,16 @@ protocol ApplicationService {
     func didTapWallPaperItem()
     func didTapPreferenceItem()
     func didTapOpenRealm()
+    func didTapOpenApplicationSupport()
     func dockMenu() -> NSMenu
 }
 
 class ApplicationServiceImpl: ApplicationService {
     
+    private let settingWindowService: any SettingWindowService
     private let realmService: any RealmService
     private let notificationManager: any NotificationManager
     private let wallpaperWindowService: any WallpaperWindowService
-    private let settingWindowService: any SettingWindowService
     private let wallpaperHistoryService: any WallpaperHistoryService
     private let applicationFileManager: any ApplicationFileManager
     private let fileManager: FileManager
@@ -31,10 +33,10 @@ class ApplicationServiceImpl: ApplicationService {
     private let dockMenuBuilder: any DockMenuBuilder
 
     init(injector: any Injectable) {
+        settingWindowService = SettingWindowServiceImpl()
         realmService = injector.build()
         notificationManager = injector.build()
         wallpaperWindowService = injector.build()
-        settingWindowService = injector.build()
         wallpaperHistoryService = injector.build()
         applicationFileManager = injector.build()
         userSetting = injector.build()
@@ -54,7 +56,9 @@ class ApplicationServiceImpl: ApplicationService {
         setUpRequestVisibilityIconNotification()
         setUpRequestWebPageNotification()
         setUpRequestCameraNotification()
+        setUpRequestPlaylistNotification()
         setUpScreenParamNotification()
+        setShowingSettingWindowNotification()
         setUpAppIcon()
         setUpFlag = true
     }
@@ -101,6 +105,13 @@ class ApplicationServiceImpl: ApplicationService {
         }
     }
 
+    func didTapOpenApplicationSupport() {
+        guard let url = try? fileManager.url(for: .applicationSupportDirectory, in: .userDomainMask, appropriateFor: nil, create: true) else {
+            return
+        }
+        NSWorkspace.shared.open(url)
+    }
+
     func dockMenu() -> NSMenu {
         dockMenuBuilder.build()
     }
@@ -141,6 +152,12 @@ class ApplicationServiceImpl: ApplicationService {
                     targetMonitor: convertToTargetMonitorForDB(for: request.target)
                 )
             )
+        }
+    }
+
+    private func setUpRequestPlaylistNotification() {
+        notificationManager.observe(name: .requestPlaylist) { [weak self] param in
+            // TODO: Implement playlist handling
         }
     }
 
@@ -228,6 +245,16 @@ class ApplicationServiceImpl: ApplicationService {
     private func setUpScreenParamNotification() {
         notificationManager.observe(name: NSApplication.didChangeScreenParametersNotification) { [weak self] _ in
             self?.displayLatestWallpaper()
+        }
+    }
+
+    private func setShowingSettingWindowNotification() {
+        notificationManager.observe(name: .showSettingWindowWithPreferenceMenu) { [weak self] _ in
+            self?.settingWindowService.show()
+
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) { [weak self] in
+                self?.notificationManager.push(name: .selectedSideMenu, param: SideMenuItem.preference)
+            }
         }
     }
 
