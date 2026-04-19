@@ -47,7 +47,7 @@ class WallpaperPresenterImpl: NSObject, WallpaperPresenter {
             }
         case .playlist(let playlist):
                 .playlist(
-                    urls: playlist.videos.map(\.url), // TODO: playbackModeによって配列を変える
+                    urls: playlist.videos.map(\.url),
                     videoSize: playlist.videoSize,
                     isMute: playlist.isMute,
                     backgroundColor: NSColor(hex: playlist.backgroundColor, alpha: 1.0)

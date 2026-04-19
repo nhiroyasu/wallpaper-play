@@ -230,6 +230,57 @@ class WallpaperHistoryServiceTests: XCTestCase {
     }
 }
 
+class PlaylistPlaybackModeTests: XCTestCase {
+    func testResolvedForPlaybackInOrderKeepsVideoOrder() {
+        let playlist = makePlaylist(playbackMode: .inOrder)
+
+        let result = playlist.resolvedForPlayback()
+
+        XCTAssertEqual(result.videos.map(\.url), playlist.videos.map(\.url))
+    }
+
+    func testResolvedForPlaybackShuffleUsesInjectedShuffle() {
+        let playlist = makePlaylist(playbackMode: .shuffle)
+
+        let result = playlist.resolvedForPlayback { videos in
+            Array(videos.reversed())
+        }
+
+        XCTAssertEqual(result.videos.map(\.url), playlist.videos.reversed().map(\.url))
+    }
+
+    func testResolvedForPlaybackPreservesPropertiesExceptVideoOrder() {
+        let playlist = makePlaylist(playbackMode: .shuffle)
+
+        let result = playlist.resolvedForPlayback { videos in
+            Array(videos.reversed())
+        }
+
+        XCTAssertEqual(result.id, playlist.id)
+        XCTAssertEqual(result.name, playlist.name)
+        XCTAssertEqual(result.playbackMode, playlist.playbackMode)
+        XCTAssertEqual(result.videoSize, playlist.videoSize)
+        XCTAssertEqual(result.backgroundColor, playlist.backgroundColor)
+        XCTAssertEqual(result.isMute, playlist.isMute)
+    }
+
+    private func makePlaylist(playbackMode: PlaylistPlaybackMode) -> Playlist {
+        Playlist(
+            id: UUID(),
+            name: "playlist",
+            playbackMode: playbackMode,
+            videoSize: .aspectFill,
+            backgroundColor: 0x000000,
+            isMute: true,
+            videos: [
+                .init(url: URL(fileURLWithPath: "/tmp/1.mov")),
+                .init(url: URL(fileURLWithPath: "/tmp/2.mov")),
+                .init(url: URL(fileURLWithPath: "/tmp/3.mov"))
+            ]
+        )
+    }
+}
+
 private class InMemoryRealmService: RealmService {
     private let config: Realm.Configuration
 

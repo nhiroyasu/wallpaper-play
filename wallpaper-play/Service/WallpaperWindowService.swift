@@ -22,6 +22,7 @@ class WallpaperWindowServiceImpl: WallpaperWindowService {
     }
     
     func display(wallpaperKind: WallpaperKind, target: WallpaperDisplayTarget) {
+        let resolvedWallpaperKind = resolvePlaybackOrderIfNeeded(wallpaperKind)
         switch target {
         case .sameOnAllMonitors:
             // reset all wallpaper windows and remove all wallpaper states
@@ -32,8 +33,8 @@ class WallpaperWindowServiceImpl: WallpaperWindowService {
             NSScreen.screens.forEach { [weak self] screen in
                 guard let self else { return }
                 let wallpaperWindowFrame = computeFittingWallpaperSize(screen: screen)
-                let windowLevel = computeWindowLevel(wallpaperKind: wallpaperKind)
-                let actualWallpaperKind = muteWallpaperKindIfNeeded(baseWallpaperKind: wallpaperKind, on: screen)
+                let windowLevel = computeWindowLevel(wallpaperKind: resolvedWallpaperKind)
+                let actualWallpaperKind = muteWallpaperKindIfNeeded(baseWallpaperKind: resolvedWallpaperKind, on: screen)
                 let window = buildWallpaperWindow(
                     screen: screen,
                     windowLevel: windowLevel,
@@ -58,12 +59,12 @@ class WallpaperWindowServiceImpl: WallpaperWindowService {
             windowList.removeAll { $0.screen == screen }
 
             let wallpaperWindowFrame = computeFittingWallpaperSize(screen: screen)
-            let windowLevel = computeWindowLevel(wallpaperKind: wallpaperKind)
+            let windowLevel = computeWindowLevel(wallpaperKind: resolvedWallpaperKind)
             let window = buildWallpaperWindow(
                 screen: screen,
                 windowLevel: windowLevel,
                 wallpaperSize: wallpaperWindowFrame.size,
-                wallpaperKind: wallpaperKind
+                wallpaperKind: resolvedWallpaperKind
             )
             window.orderFront(nil)
             windowList.append(window)
@@ -73,7 +74,7 @@ class WallpaperWindowServiceImpl: WallpaperWindowService {
             appState.wallpapers.removeAll { $0.screenIdentifier == screen.deviceIdentifier }
             appState.wallpapers.append(.init(
                 screenIdentifier: screen.deviceIdentifier,
-                kind: wallpaperKind
+                kind: resolvedWallpaperKind
             ))
         }
     }
@@ -146,6 +147,15 @@ class WallpaperWindowServiceImpl: WallpaperWindowService {
             return .playlist(playlist: mutedPlaylist)
         case .web, .camera, .unknown:
             return baseWallpaperKind
+        }
+    }
+
+    private func resolvePlaybackOrderIfNeeded(_ wallpaperKind: WallpaperKind) -> WallpaperKind {
+        switch wallpaperKind {
+        case .playlist(let playlist):
+            return .playlist(playlist: playlist.resolvedForPlayback())
+        default:
+            return wallpaperKind
         }
     }
 }
