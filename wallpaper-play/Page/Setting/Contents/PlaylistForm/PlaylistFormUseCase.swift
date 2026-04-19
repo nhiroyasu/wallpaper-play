@@ -8,6 +8,7 @@ protocol PlaylistFormUseCase {
         videoSize: VideoSize,
         backgroundColor: ColorHex,
         isMute: Bool,
+        target: WallpaperDisplayTarget,
         videoUrls: [URL]
     ) async throws
 }
@@ -31,6 +32,7 @@ class PlaylistFormUseCaseImpl: PlaylistFormUseCase {
         videoSize: VideoSize,
         backgroundColor: ColorHex,
         isMute: Bool,
+        target: WallpaperDisplayTarget,
         videoUrls: [URL]
     ) async throws {
         let id = UUID()
@@ -69,6 +71,7 @@ class PlaylistFormUseCaseImpl: PlaylistFormUseCase {
             videoSize: videoSize,
             backgroundColor: backgroundColor,
             isMute: isMute,
+            target: target,
             videos: savedVideoUrls.map { Playlist.Video(url: $0) }
         )
 

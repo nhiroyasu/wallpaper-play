@@ -7,6 +7,7 @@ struct Playlist {
     let videoSize: VideoSize
     let backgroundColor: ColorHex
     let isMute: Bool
+    let target: WallpaperDisplayTarget
     let videos: [Video]
 
     struct Video {
@@ -31,6 +32,7 @@ extension Playlist {
             videoSize: videoSize,
             backgroundColor: backgroundColor,
             isMute: isMute,
+            target: target,
             videos: playbackVideos
         )
     }

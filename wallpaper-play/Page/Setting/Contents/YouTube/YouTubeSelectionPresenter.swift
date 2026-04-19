@@ -63,7 +63,7 @@ class YouTubeSelectionPresenterImpl: YouTubeSelectionPresenter {
         case .allMonitors:
             target = .sameOnAllMonitors
         case .screen(let nSScreen):
-            target = .specificMonitor(screen: nSScreen)
+            target = .specificMonitor(screen: ConnectedMonitorScreen(screen: nSScreen))
         }
 
         useCase.requestWallpaper(videoId: videoId, mute: mute, videoSize: videoSize, target: target)

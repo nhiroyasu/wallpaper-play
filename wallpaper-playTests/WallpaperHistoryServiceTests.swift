@@ -74,6 +74,37 @@ class WallpaperHistoryServiceTests: XCTestCase {
         XCTAssertTrue(result.isAll)
     }
 
+    func testFetchLatestWallpaperReturnsPlaylistWithSpecificMonitor() {
+        let playlistId = UUID()
+        insertPlaylistModel(id: playlistId, targetMonitor: "DELL U2720Q")
+        subject.store(
+            PlaylistWallpaper(
+                date: Date(timeIntervalSince1970: 2000),
+                playlistId: playlistId,
+                targetMonitor: "DELL U2720Q"
+            )
+        )
+
+        let result = subject.fetchLatestWallpaper(monitorFilter: .all)
+        guard let result else {
+            XCTFail("latest wallpaper should exist")
+            return
+        }
+        switch result.kind {
+        case .playlist(let playlist):
+            XCTAssertEqual(playlist.id, playlistId)
+            switch playlist.target {
+            case .specificMonitor(let screen):
+                XCTAssertEqual(screen.name, "DELL U2720Q")
+            default:
+                XCTFail("playlist target should be specific monitor name")
+            }
+        default:
+            XCTFail("latest wallpaper should be playlist")
+        }
+        XCTAssertFalse(result.isAll)
+    }
+
     func testFetchLatestWallpaperReturnsNilWhenPlaylistCannotBeResolved() {
         subject.store(
             YouTubeWallpaper(
@@ -212,7 +243,7 @@ class WallpaperHistoryServiceTests: XCTestCase {
         )
     }
 
-    private func insertPlaylistModel(id: UUID) {
+    private func insertPlaylistModel(id: UUID, targetMonitor: String? = nil) {
         let realm = realmService.buildRealm()
         let model = PlaylistModel(
             date: Date(timeIntervalSince1970: 500),
@@ -222,6 +253,7 @@ class WallpaperHistoryServiceTests: XCTestCase {
             videoSize: VideoSize.aspectFill.rawValue,
             backgroundColor: 0xFFFFFF,
             isMute: true,
+            targetMonitor: targetMonitor,
             items: [PlaylistItemModel(url: URL(fileURLWithPath: "/tmp/playlist.mov"))]
         )
         try! realm.write {
@@ -262,6 +294,12 @@ class PlaylistPlaybackModeTests: XCTestCase {
         XCTAssertEqual(result.videoSize, playlist.videoSize)
         XCTAssertEqual(result.backgroundColor, playlist.backgroundColor)
         XCTAssertEqual(result.isMute, playlist.isMute)
+        switch (result.target, playlist.target) {
+        case (.specificMonitor(let resultScreen), .specificMonitor(let playlistScreen)):
+            XCTAssertEqual(resultScreen.name, playlistScreen.name)
+        default:
+            XCTFail("playlist target should be preserved")
+        }
     }
 
     private func makePlaylist(playbackMode: PlaylistPlaybackMode) -> Playlist {
@@ -272,12 +310,50 @@ class PlaylistPlaybackModeTests: XCTestCase {
             videoSize: .aspectFill,
             backgroundColor: 0x000000,
             isMute: true,
+            target: .specificMonitor(screen: SavedMonitorScreen(name: "DELL U2720Q")),
             videos: [
                 .init(url: URL(fileURLWithPath: "/tmp/1.mov")),
                 .init(url: URL(fileURLWithPath: "/tmp/2.mov")),
                 .init(url: URL(fileURLWithPath: "/tmp/3.mov"))
             ]
         )
+    }
+}
+
+class MonitorScreenResolverTests: XCTestCase {
+    private var subject: MonitorScreenResolverImpl!
+
+    override func setUpWithError() throws {
+        subject = .init()
+    }
+
+    func testConnectedMonitorsContainCurrentScreenNames() {
+        let monitorNames = Set(subject.connectedMonitors().map(\.name))
+        let currentScreenNames = Set(NSScreen.screens.map(\.localizedName))
+
+        XCTAssertEqual(monitorNames, currentScreenNames)
+    }
+
+    func testResolveScreenForConnectedMonitor() {
+        guard let monitor = subject.connectedMonitors().first else {
+            XCTFail("at least one screen should exist")
+            return
+        }
+
+        let result = subject.resolveScreen(for: monitor)
+
+        XCTAssertNotNil(result)
+        XCTAssertEqual(result?.localizedName, monitor.name)
+    }
+
+    func testResolveScreenReturnsNilForUnknownSavedMonitor() {
+        let unknownMonitorName = "unknown-\(UUID().uuidString)"
+
+        let result = subject.resolveScreen(
+            for: SavedMonitorScreen(name: unknownMonitorName)
+        )
+
+        XCTAssertNil(result)
     }
 }
 

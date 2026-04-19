@@ -51,7 +51,7 @@ class LocalVideoSelectionPresenterImpl: LocalVideoSelectionPresenter {
             case .allMonitors:
                 target = .sameOnAllMonitors
             case .screen(let nSScreen):
-                target = .specificMonitor(screen: nSScreen)
+                target = .specificMonitor(screen: ConnectedMonitorScreen(screen: nSScreen))
             }
 
             let input = VideoConfigInput(

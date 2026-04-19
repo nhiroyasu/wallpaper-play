@@ -29,6 +29,7 @@ class PlaylistRepositoryImpl: PlaylistRepository {
             videoSize: data.videoSize.rawValue,
             backgroundColor: data.backgroundColor,
             isMute: data.isMute,
+            targetMonitor: convertToTargetMonitorForDB(for: data.target),
             items: items
         )
 
@@ -97,7 +98,25 @@ class PlaylistRepositoryImpl: PlaylistRepository {
             videoSize: VideoSize(rawValue: model.videoSize) ?? .aspectFill,
             backgroundColor: model.backgroundColor,
             isMute: model.isMute,
+            target: convertToDisplayTarget(for: model.targetMonitor),
             videos: Array(videos)
         )
+    }
+
+    private func convertToTargetMonitorForDB(for target: WallpaperDisplayTarget) -> String? {
+        switch target {
+        case .sameOnAllMonitors:
+            return nil
+        case .specificMonitor(let screen):
+            return screen.name
+        }
+    }
+
+    private func convertToDisplayTarget(for targetMonitor: String?) -> WallpaperDisplayTarget {
+        if let targetMonitor {
+            return .specificMonitor(screen: SavedMonitorScreen(name: targetMonitor))
+        } else {
+            return .sameOnAllMonitors
+        }
     }
 }

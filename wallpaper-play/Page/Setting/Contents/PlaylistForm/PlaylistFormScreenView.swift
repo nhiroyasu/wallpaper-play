@@ -65,8 +65,17 @@ struct PlaylistFormScreenView: View {
                     .font(.system(size: 13))
             }
 
+            Picker("Display Target", selection: $vm.selectedDisplayTargetIndex) {
+                ForEach(vm.displayTargetTitles.indices, id: \.self) { index in
+                    Text(vm.displayTargetTitles[index]).tag(index)
+                }
+            }
+            .pickerStyle(.menu)
+            .font(.system(size: 13))
+
             Toggle("Mute", isOn: $vm.isMute)
                 .font(.system(size: 13))
+
 
             List {
                 Section {
@@ -160,6 +169,7 @@ struct PlaylistFormScreenView: View {
                     .fill(Color(NSColor.windowBackgroundColor).opacity(0.8))
             )
     }
+
 }
 
 private struct VideoThumbnailView: View {

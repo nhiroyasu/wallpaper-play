@@ -31,6 +31,7 @@ class ApplicationServiceImpl: ApplicationService {
     private let urlValidationService: any UrlValidationService
     private let appManager: any AppManager
     private let dockMenuBuilder: any DockMenuBuilder
+    private let monitorScreenResolver: any MonitorScreenResolver
 
     init(injector: any Injectable) {
         settingWindowService = SettingWindowServiceImpl()
@@ -44,6 +45,7 @@ class ApplicationServiceImpl: ApplicationService {
         urlResolverService = injector.build()
         urlValidationService = injector.build()
         appManager = injector.build()
+        monitorScreenResolver = injector.build()
         fileManager = .default
         dockMenuBuilder = injector.build()
     }
@@ -159,15 +161,16 @@ class ApplicationServiceImpl: ApplicationService {
         notificationManager.observe(name: .requestPlaylist, queue: .main) { [weak self] param in
             guard let self = self, let request = param as? PlaylistPlayRequest else { fatalError() }
             guard request.playlist.videos.isEmpty == false else { return }
+            guard let target = self.resolvePlaylistTarget(request.playlist.target) else { return }
             self.wallpaperWindowService.display(
                 wallpaperKind: .playlist(playlist: request.playlist),
-                target: .sameOnAllMonitors // FEATURE: To be implemented in the future so that users can select a monitor for playlist wallpapers.
+                target: target
             )
             self.wallpaperHistoryService.store(
                 PlaylistWallpaper(
                     date: Date(),
                     playlistId: request.playlist.id,
-                    targetMonitor: nil
+                    targetMonitor: self.convertToTargetMonitorForDB(for: request.playlist.target)
                 )
             )
         }
@@ -276,9 +279,12 @@ class ApplicationServiceImpl: ApplicationService {
             return
         }
 
-        for screen in NSScreen.screens {
+        for screen in monitorScreenResolver.allScreens() {
             if let (latestWallpaperForScreen, _) = wallpaperHistoryService.fetchLatestWallpaper(monitorFilter: .specificOrNil(specificMonitor: screen.localizedName)) {
-                wallpaperWindowService.display(wallpaperKind: latestWallpaperForScreen, target: .specificMonitor(screen: screen))
+                wallpaperWindowService.display(
+                    wallpaperKind: latestWallpaperForScreen,
+                    target: .specificMonitor(screen: ConnectedMonitorScreen(screen: screen))
+                )
             }
         }
     }
@@ -319,7 +325,19 @@ class ApplicationServiceImpl: ApplicationService {
         case .sameOnAllMonitors:
             return nil
         case .specificMonitor(let screen):
-            return screen.localizedName
+            return screen.name
+        }
+    }
+
+    private func resolvePlaylistTarget(_ target: WallpaperDisplayTarget) -> WallpaperDisplayTarget? {
+        switch target {
+        case .sameOnAllMonitors:
+            return .sameOnAllMonitors
+        case .specificMonitor(let screen):
+            guard let resolvedScreen = monitorScreenResolver.resolveScreen(for: screen) else {
+                return nil
+            }
+            return .specificMonitor(screen: ConnectedMonitorScreen(screen: resolvedScreen))
         }
     }
 }

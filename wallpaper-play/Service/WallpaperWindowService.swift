@@ -13,12 +13,14 @@ class WallpaperWindowServiceImpl: WallpaperWindowService {
     private let notificationManager: any NotificationManager
     private let youTubeContentsService: any YouTubeContentsService
     private let appState: AppState
+    private let monitorScreenResolver: any MonitorScreenResolver
 
     init(injector: any Injectable) {
         self.notificationManager = injector.build()
         self.wallpaperHistoryService = injector.build()
         self.youTubeContentsService = injector.build()
         self.appState = injector.build()
+        self.monitorScreenResolver = injector.build()
     }
     
     func display(wallpaperKind: WallpaperKind, target: WallpaperDisplayTarget) {
@@ -30,7 +32,7 @@ class WallpaperWindowServiceImpl: WallpaperWindowService {
             windowList = []
             appState.wallpapers.removeAll()
 
-            NSScreen.screens.forEach { [weak self] screen in
+            monitorScreenResolver.allScreens().forEach { [weak self] screen in
                 guard let self else { return }
                 let wallpaperWindowFrame = computeFittingWallpaperSize(screen: screen)
                 let windowLevel = computeWindowLevel(wallpaperKind: resolvedWallpaperKind)
@@ -52,7 +54,8 @@ class WallpaperWindowServiceImpl: WallpaperWindowService {
                 ))
             }
 
-        case .specificMonitor(let screen):
+        case .specificMonitor(let monitor):
+            guard let screen = monitorScreenResolver.resolveScreen(for: monitor) else { return }
             // reset wallpaper window and remove wallpaper state on the specific screen
             let windowInTargetScreens = windowList.filter { $0.screen == screen }
             windowInTargetScreens.forEach { $0.close() }
@@ -142,6 +145,7 @@ class WallpaperWindowServiceImpl: WallpaperWindowService {
                 videoSize: playlist.videoSize,
                 backgroundColor: playlist.backgroundColor,
                 isMute: true,
+                target: playlist.target,
                 videos: playlist.videos
             )
             return .playlist(playlist: mutedPlaylist)

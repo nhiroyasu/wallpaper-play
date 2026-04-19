@@ -1,5 +1,6 @@
 import Foundation
 import SwiftUI
+import AppKit
 import Injectable
 
 @MainActor
@@ -15,6 +16,8 @@ protocol PlaylistFormViewModel: ObservableObject {
     var videoSize: VideoSize { get set }
     var backgroundColor: Color { get set }
     var isMute: Bool { get set }
+    var displayTargetTitles: [String] { get }
+    var selectedDisplayTargetIndex: Int { get set }
     var canSave: Bool { get }
     var isPresentedAlert: Bool { get set }
     var alertMessage: String { get }
@@ -33,9 +36,11 @@ class PlaylistFormViewModelImpl: PlaylistFormViewModel {
     @Published var videoSize: VideoSize = .aspectFill
     @Published var backgroundColor: Color = .white
     @Published var isMute: Bool = true
+    @Published var selectedDisplayTargetIndex: Int = 0
     @Published var isPresentedAlert: Bool = false
     @Published private(set) var alertMessage: String = ""
     @Published var isPresentedIndicator: Bool = false
+    private let displayTargetMenu: [DisplayTargetMenu]
     private let fileSelectionManager: any FileSelectionManager
     private let useCase: any PlaylistFormUseCase
     private let submitCompletion: (() -> Void)?
@@ -46,9 +51,14 @@ class PlaylistFormViewModelImpl: PlaylistFormViewModel {
         useCase: any PlaylistFormUseCase,
         submitCompletion: (() -> Void)?
     ) {
+        self.displayTargetMenu = [.allMonitors] + NSScreen.screens.map { .screen($0) }
         self.fileSelectionManager = injector.build()
         self.useCase = useCase
         self.submitCompletion = submitCompletion
+    }
+
+    var displayTargetTitles: [String] {
+        displayTargetMenu.map(\.title)
     }
 
     func pickVideoFiles() {
@@ -86,6 +96,7 @@ class PlaylistFormViewModelImpl: PlaylistFormViewModel {
                 videoSize: videoSize,
                 backgroundColor: NSColor(backgroundColor).hex,
                 isMute: isMute,
+                target: convertToDisplayTarget(),
                 videoUrls: selectedFiles
             )
             submitCompletion?()
@@ -98,5 +109,18 @@ class PlaylistFormViewModelImpl: PlaylistFormViewModel {
 
     func didTapCloseButton() {
         transitionDelegate?.dismiss()
+    }
+
+    private func convertToDisplayTarget() -> WallpaperDisplayTarget {
+        guard displayTargetMenu.indices.contains(selectedDisplayTargetIndex) else {
+            return .sameOnAllMonitors
+        }
+
+        switch displayTargetMenu[selectedDisplayTargetIndex] {
+        case .allMonitors:
+            return .sameOnAllMonitors
+        case .screen(let nSScreen):
+            return .specificMonitor(screen: ConnectedMonitorScreen(screen: nSScreen))
+        }
     }
 }

@@ -19,6 +19,7 @@ class AppContainer {
         container.register((any FileSelectionManager).self) { _ in FileSelectionManagerImpl()}
         container.register((any AVPlayerManager).self) { _ in AVPlayerManagerImpl()}
         container.register((any CameraDeviceService).self) { _ in CameraDeviceServiceImpl() }
+        container.register((any MonitorScreenResolver).self) { _ in MonitorScreenResolverImpl() }
         container.register(AppState.self) { _ in AppState.shared }.inObjectScope(.container)
 
         // MARK: - DockMenu

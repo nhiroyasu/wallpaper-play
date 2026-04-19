@@ -10,6 +10,7 @@ class PlaylistModel: Object, DateSortable {
     @Persisted var videoSize: Int
     @Persisted var backgroundColor: ColorHex
     @Persisted var isMute: Bool
+    @Persisted var targetMonitor: String?
     @Persisted var items: List<PlaylistItemModel>
 
     convenience init(
@@ -20,6 +21,7 @@ class PlaylistModel: Object, DateSortable {
         videoSize: Int,
         backgroundColor: ColorHex,
         isMute: Bool,
+        targetMonitor: String?,
         items: [PlaylistItemModel]
     ) {
         self.init()
@@ -30,6 +32,7 @@ class PlaylistModel: Object, DateSortable {
         self.videoSize = videoSize
         self.backgroundColor = backgroundColor
         self.isMute = isMute
+        self.targetMonitor = targetMonitor
         self.items.append(objectsIn: items)
     }
 }
