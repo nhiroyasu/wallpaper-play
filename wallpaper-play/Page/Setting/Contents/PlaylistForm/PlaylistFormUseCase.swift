@@ -9,7 +9,8 @@ protocol PlaylistFormUseCase {
         backgroundColor: ColorHex,
         isMute: Bool,
         target: WallpaperDisplayTarget,
-        videoUrls: [URL]
+        videoUrls: [URL],
+        shouldApplyAfterSaving: Bool
     ) async throws
     func updatePlaylist(
         id: UUID,
@@ -19,7 +20,8 @@ protocol PlaylistFormUseCase {
         backgroundColor: ColorHex,
         isMute: Bool,
         target: WallpaperDisplayTarget,
-        videoUrls: [URL]
+        videoUrls: [URL],
+        shouldApplyAfterSaving: Bool
     ) async throws
 }
 
@@ -43,7 +45,8 @@ class PlaylistFormUseCaseImpl: PlaylistFormUseCase {
         backgroundColor: ColorHex,
         isMute: Bool,
         target: WallpaperDisplayTarget,
-        videoUrls: [URL]
+        videoUrls: [URL],
+        shouldApplyAfterSaving: Bool
     ) async throws {
         let id = UUID()
         let playlistDirectory = try getOrCreatePlaylistDirectory(id: id)
@@ -61,9 +64,11 @@ class PlaylistFormUseCaseImpl: PlaylistFormUseCase {
         )
 
         try await playlistRepository.save(playlist)
-        wallpaperRequestService.requestPlaylistWallpaper(
-            playlist: PlaylistPlayRequest(playlist: playlist)
-        )
+        if shouldApplyAfterSaving {
+            wallpaperRequestService.requestPlaylistWallpaper(
+                playlist: PlaylistPlayRequest(playlist: playlist)
+            )
+        }
     }
 
     func updatePlaylist(
@@ -74,7 +79,8 @@ class PlaylistFormUseCaseImpl: PlaylistFormUseCase {
         backgroundColor: ColorHex,
         isMute: Bool,
         target: WallpaperDisplayTarget,
-        videoUrls: [URL]
+        videoUrls: [URL],
+        shouldApplyAfterSaving: Bool
     ) async throws {
         let playlistDirectory = try getOrCreatePlaylistDirectory(id: id)
         let savedVideoUrls = try resolveEditedVideoFiles(videoUrls, playlistDirectory: playlistDirectory)
@@ -91,9 +97,11 @@ class PlaylistFormUseCaseImpl: PlaylistFormUseCase {
         )
 
         try await playlistRepository.replace(playlist)
-        wallpaperRequestService.requestPlaylistWallpaper(
-            playlist: PlaylistPlayRequest(playlist: playlist)
-        )
+        if shouldApplyAfterSaving {
+            wallpaperRequestService.requestPlaylistWallpaper(
+                playlist: PlaylistPlayRequest(playlist: playlist)
+            )
+        }
     }
 
     private func getOrCreatePlaylistDirectory(id: UUID) throws -> URL {

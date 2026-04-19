@@ -21,6 +21,7 @@ protocol PlaylistFormViewModel: ObservableObject {
     var videoSize: VideoSize { get set }
     var backgroundColor: Color { get set }
     var isMute: Bool { get set }
+    var isApplyAfterSaving: Bool { get set }
     var displayTargetTitles: [String] { get }
     var selectedDisplayTargetIndex: Int { get set }
     var canSave: Bool { get }
@@ -42,6 +43,7 @@ class PlaylistFormViewModelImpl: PlaylistFormViewModel {
     @Published var videoSize: VideoSize = .aspectFill
     @Published var backgroundColor: Color = .white
     @Published var isMute: Bool = true
+    @Published var isApplyAfterSaving: Bool = true
     @Published var selectedDisplayTargetIndex: Int = 0
     let displayTargetTitles: [String]
     @Published var isPresentedAlert: Bool = false
@@ -53,6 +55,7 @@ class PlaylistFormViewModelImpl: PlaylistFormViewModel {
     private let fileSelectionManager: any FileSelectionManager
     private let useCase: any PlaylistFormUseCase
     private let submitCompletion: (() -> Void)?
+    private var userSettingService: any UserSettingService
     weak var transitionDelegate: (any PlaylistFormTransitionDelegate)?
 
     init(
@@ -75,6 +78,8 @@ class PlaylistFormViewModelImpl: PlaylistFormViewModel {
         self.fileSelectionManager = injector.build()
         self.useCase = useCase
         self.submitCompletion = submitCompletion
+        self.userSettingService = injector.build()
+        self.isApplyAfterSaving = userSettingService.applyPlaylistAfterSaving
         applyContextInitialValues()
     }
 
@@ -115,6 +120,7 @@ class PlaylistFormViewModelImpl: PlaylistFormViewModel {
 
         isPresentedIndicator = true
         defer { isPresentedIndicator = false }
+        let shouldApplyAfterSaving = isApplyAfterSaving
         do {
             switch context {
             case .add:
@@ -125,7 +131,8 @@ class PlaylistFormViewModelImpl: PlaylistFormViewModel {
                     backgroundColor: NSColor(backgroundColor).hex,
                     isMute: isMute,
                     target: convertToDisplayTarget(),
-                    videoUrls: selectedFiles
+                    videoUrls: selectedFiles,
+                    shouldApplyAfterSaving: shouldApplyAfterSaving
                 )
             case .edit(let playlist):
                 try await useCase.updatePlaylist(
@@ -136,9 +143,11 @@ class PlaylistFormViewModelImpl: PlaylistFormViewModel {
                     backgroundColor: NSColor(backgroundColor).hex,
                     isMute: isMute,
                     target: convertToDisplayTarget(),
-                    videoUrls: selectedFiles
+                    videoUrls: selectedFiles,
+                    shouldApplyAfterSaving: shouldApplyAfterSaving
                 )
             }
+            userSettingService.applyPlaylistAfterSaving = shouldApplyAfterSaving
             submitCompletion?()
             transitionDelegate?.dismiss()
         } catch {
@@ -238,4 +247,5 @@ class PlaylistFormViewModelImpl: PlaylistFormViewModel {
         }
         return titles
     }
+
 }

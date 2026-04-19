@@ -11,69 +11,73 @@ struct PlaylistScreenView: View {
             List {
                 Section {
                     ForEach(vm.playlists, id: \.id) { playlist in
-                        HStack {
+                        HStack(spacing: 12) {
                             PlaylistThumbnailView(url: playlist.videos.first?.url)
-                                .frame(width: 96, height: 54)
+                                .frame(width: 112, height: 63)
                                 .clipped()
                                 .cornerRadius(8)
 
-                            VStack(alignment: .leading, spacing: 4) {
+                            VStack(alignment: .leading, spacing: 6) {
                                 Text(playlist.name)
-                                    .font(.system(size: 14))
-                                HStack(spacing: 4) {
-                                    Image(systemName: "video")
-                                        .font(.system(size: 12))
-                                    Text("\(playlist.videos.count)")
-                                        .font(.system(size: 12))
-                                        .foregroundColor(.secondary)
-                                }
+                                    .font(.system(size: 15, weight: .semibold))
+                                Label("\(playlist.videos.count)", systemImage: "video")
+                                    .font(.system(size: 12))
+                                    .foregroundColor(.secondary)
                             }
                             Spacer()
-                            HStack(spacing: 8) {
+                            HStack(spacing: 10) {
                                 Button {
                                     vm.didTapPlayPlaylistButton(id: playlist.id)
                                 } label: {
                                     Image(systemName: "play.fill")
+                                        .font(.system(size: 15, weight: .medium))
                                 }
                                 .buttonStyle(.borderless)
-                                .controlSize(.small)
+                                .controlSize(.regular)
+                                .help("Play")
 
                                 Button {
                                     vm.didTapEditPlaylistButton(playlist: playlist)
                                 } label: {
                                     Image(systemName: "pencil")
+                                        .font(.system(size: 15, weight: .medium))
                                 }
                                 .buttonStyle(.borderless)
-                                .controlSize(.small)
+                                .controlSize(.regular)
+                                .help("Edit")
 
                                 Button {
                                     deleteTarget = playlist
                                     isPresentedDeleteAlert = true
                                 } label: {
                                     Image(systemName: "trash")
+                                        .font(.system(size: 15, weight: .medium))
                                         .foregroundColor(.red)
                                 }
                                 .buttonStyle(.borderless)
-                                .controlSize(.small)
+                                .controlSize(.regular)
+                                .help("Delete")
                             }
                         }
+                        .padding(.vertical, 4)
                     }
-
-                    Button {
-                        vm.didTapAddPlaylistButton()
-                    } label: {
-                        Label {
-                            Text("Add Playlist")
-                        } icon: {
-                            Image(systemName: "plus.circle.fill")
-                        }
-                    }
-                    .buttonStyle(.plain)
-                    .padding()
-                    .frame(maxWidth: .infinity, alignment: .center)
                 } header: {
-                    Text("Playlists")
-                        .font(.headline)
+                    HStack {
+                        Text("Playlists")
+                        Spacer()
+                        Button {
+                            vm.didTapAddPlaylistButton()
+                        } label: {
+                            Label {
+                                Text("Add Playlist")
+                            } icon: {
+                                Image(systemName: "plus")
+                            }
+                        }
+                        .buttonStyle(.bordered)
+                    }
+                    .font(.headline)
+                    .padding()
                 }
             }
             .listStyle(.inset)

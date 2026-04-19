@@ -107,7 +107,6 @@ struct PlaylistFormScreenView: View {
                 } header: {
                     HStack {
                         Text("Videos")
-                            .font(.headline)
                         Spacer()
                         Button {
                             vm.pickVideoFiles()
@@ -115,45 +114,53 @@ struct PlaylistFormScreenView: View {
                             Label {
                                 Text("Add Videos")
                             } icon: {
-                                Image(systemName: "plus.circle.fill")
+                                Image(systemName: "plus")
                             }
                         }
-                        .buttonStyle(.plain)
+                        .buttonStyle(.bordered)
                     }
+                    .font(.headline)
+                    .padding()
                 }
             }
             .listStyle(.automatic)
 
-            if #available(macOS 12.0, *) {
-                Button {
-                    Task {
-                        await vm.savePlaylist()
+            HStack(spacing: 12) {
+                if #available(macOS 12.0, *) {
+                    Button {
+                        Task {
+                            await vm.savePlaylist()
+                        }
+                    } label: {
+                        Label {
+                            Text(vm.saveButtonTitle)
+                        } icon: {
+                            Image(systemName: "square.and.arrow.down")
+                        }
                     }
-                } label: {
-                    Label {
-                        Text(vm.saveButtonTitle)
-                    } icon: {
-                        Image(systemName: "square.and.arrow.down")
+                    .buttonStyle(.borderedProminent)
+                    .tint(.blue)
+                    .controlSize(.large)
+                    .disabled(!vm.canSave)
+                } else {
+                    Button {
+                        Task {
+                            await vm.savePlaylist()
+                        }
+                    } label: {
+                        Label {
+                            Text(vm.saveButtonTitle)
+                        } icon: {
+                            Image(systemName: "square.and.arrow.down")
+                        }
                     }
+                    .controlSize(.large)
+                    .disabled(!vm.canSave)
                 }
-                .buttonStyle(.borderedProminent)
-                .tint(.blue)
-                .controlSize(.large)
-                .disabled(!vm.canSave)
-            } else {
-                Button {
-                    Task {
-                        await vm.savePlaylist()
-                    }
-                } label: {
-                    Label {
-                        Text(vm.saveButtonTitle)
-                    } icon: {
-                        Image(systemName: "square.and.arrow.down")
-                    }
-                }
-                .controlSize(.large)
-                .disabled(!vm.canSave)
+                
+                Toggle("Apply after saving", isOn: $vm.isApplyAfterSaving)
+                    .toggleStyle(.checkbox)
+                    .font(.system(size: 13))
             }
         }
         .padding(16)

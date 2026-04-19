@@ -6,6 +6,7 @@ protocol UserSettingService {
     var launchAtLogin: Bool { get set }
     var visibilityIcon: Bool { get set }
     var openThisWindowAtFirst: Bool { get set }
+    var applyPlaylistAfterSaving: Bool { get set }
 }
 
 class UserSettingServiceImpl: UserSettingService {
@@ -45,6 +46,18 @@ class UserSettingServiceImpl: UserSettingService {
         }
         set {
             userDefaults.set(newValue, forKey: "openThisWindowAtFirst")
+        }
+    }
+
+    var applyPlaylistAfterSaving: Bool {
+        get {
+            if userDefaults.object(forKey: "applyPlaylistAfterSaving") == nil {
+                userDefaults.set(true, forKey: "applyPlaylistAfterSaving")
+            }
+            return userDefaults.bool(forKey: "applyPlaylistAfterSaving")
+        }
+        set {
+            userDefaults.set(newValue, forKey: "applyPlaylistAfterSaving")
         }
     }
 }
