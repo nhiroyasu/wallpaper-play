@@ -39,6 +39,14 @@ struct PlaylistScreenView: View {
                                 .controlSize(.small)
 
                                 Button {
+                                    vm.didTapEditPlaylistButton(playlist: playlist)
+                                } label: {
+                                    Image(systemName: "pencil")
+                                }
+                                .buttonStyle(.borderless)
+                                .controlSize(.small)
+
+                                Button {
                                     deleteTarget = playlist
                                     isPresentedDeleteAlert = true
                                 } label: {

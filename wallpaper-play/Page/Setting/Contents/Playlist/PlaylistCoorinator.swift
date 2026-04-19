@@ -25,9 +25,13 @@ class PlaylistCoordinator: EntryCoordinator {
 }
 
 extension PlaylistCoordinator: PlaylistTransitionDelegate {
-    func transitionToPlaylistForm(submitCompletion: (() -> Void)?) {
+    func transitionToPlaylistForm(
+        context: PlaylistFormContext,
+        submitCompletion: (() -> Void)?
+    ) {
         playlistFormCoordinator = PlaylistFormCoordinator(
             injector: injector,
+            context: context,
             submitCompletion: submitCompletion
         )
         playlistFormCoordinator?.present(from: viewController)

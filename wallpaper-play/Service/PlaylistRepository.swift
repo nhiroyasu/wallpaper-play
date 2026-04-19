@@ -3,6 +3,7 @@ import Injectable
 
 protocol PlaylistRepository {
     @MainActor func save(_ data: Playlist) async throws
+    @MainActor func replace(_ data: Playlist) async throws
     @MainActor func delete(id: UUID) async throws
     func fetchAll() -> [Playlist]
     func fetch(id: UUID) -> Playlist?
@@ -17,24 +18,33 @@ class PlaylistRepositoryImpl: PlaylistRepository {
 
     func save(_ data: Playlist) async throws {
         let realm = realmService.buildRealm()
-
-        let items: [PlaylistItemModel] = data.videos.map { video in
-            PlaylistItemModel(url: video.url)
-        }
-        let model = PlaylistModel(
-            date: Date(),
-            id: data.id,
-            name: data.name,
-            playbackMode: data.playbackMode.rawValue,
-            videoSize: data.videoSize.rawValue,
-            backgroundColor: data.backgroundColor,
-            isMute: data.isMute,
-            targetMonitor: convertToTargetMonitorForDB(for: data.target),
-            items: items
-        )
+        let model = buildModel(data)
 
         do {
             try await realm.asyncWrite {
+                realm.add(model)
+            }
+        } catch {
+            #if DEBUG
+            fatalError(error.localizedDescription)
+            #else
+            NSLog(error.localizedDescription, [])
+            #endif
+        }
+    }
+
+    func replace(_ data: Playlist) async throws {
+        let realm = realmService.buildRealm()
+        let model = buildModel(data)
+
+        do {
+            try await realm.asyncWrite {
+                let existingModel = realm.objects(PlaylistModel.self)
+                    .filter("uuid == %@", data.id)
+                    .first
+                if let existingModel {
+                    realm.delete(existingModel)
+                }
                 realm.add(model)
             }
         } catch {
@@ -85,6 +95,23 @@ class PlaylistRepositoryImpl: PlaylistRepository {
             NSLog(error.localizedDescription, [])
             #endif
         }
+    }
+
+    private func buildModel(_ data: Playlist) -> PlaylistModel {
+        let items: [PlaylistItemModel] = data.videos.map { video in
+            PlaylistItemModel(url: video.url)
+        }
+        return PlaylistModel(
+            date: Date(),
+            id: data.id,
+            name: data.name,
+            playbackMode: data.playbackMode.rawValue,
+            videoSize: data.videoSize.rawValue,
+            backgroundColor: data.backgroundColor,
+            isMute: data.isMute,
+            targetMonitor: convertToTargetMonitorForDB(for: data.target),
+            items: items
+        )
     }
 
     private func map(_ model: PlaylistModel) -> Playlist {

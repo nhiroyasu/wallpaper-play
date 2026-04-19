@@ -6,13 +6,16 @@ import Injectable
 class PlaylistFormCoordinator: PresentCoordinator {
     private var viewController: PlaylistFormViewController!
     private let injector: any Injectable
+    private let context: PlaylistFormContext
     private let submitCompletion: (() -> Void)?
 
     init(
         injector: any Injectable,
+        context: PlaylistFormContext,
         submitCompletion: (() -> Void)?
     ) {
         self.injector = injector
+        self.context = context
         self.submitCompletion = submitCompletion
     }
 
@@ -26,6 +29,7 @@ class PlaylistFormCoordinator: PresentCoordinator {
         let vm = PlaylistFormViewModelImpl(
             injector: injector,
             useCase: useCase,
+            context: context,
             submitCompletion: submitCompletion
         )
         vm.transitionDelegate = self

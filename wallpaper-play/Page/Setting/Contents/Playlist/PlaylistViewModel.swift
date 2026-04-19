@@ -2,7 +2,10 @@ import Foundation
 
 @MainActor
 protocol PlaylistTransitionDelegate: AnyObject {
-    func transitionToPlaylistForm(submitCompletion: (() -> Void)?)
+    func transitionToPlaylistForm(
+        context: PlaylistFormContext,
+        submitCompletion: (() -> Void)?
+    )
 }
 
 @MainActor
@@ -13,6 +16,7 @@ protocol PlaylistViewModel: ObservableObject {
     func fetchPlaylists()
     func deletePlaylist(id: UUID) async
     func didTapAddPlaylistButton()
+    func didTapEditPlaylistButton(playlist: Playlist)
     func didTapPlayPlaylistButton(id: UUID)
 }
 
@@ -42,7 +46,13 @@ class PlaylistViewModelImpl: PlaylistViewModel {
     }
 
     func didTapAddPlaylistButton() {
-        transitionDelegate?.transitionToPlaylistForm { [weak self] in
+        transitionDelegate?.transitionToPlaylistForm(context: .add) { [weak self] in
+            self?.fetchPlaylists()
+        }
+    }
+
+    func didTapEditPlaylistButton(playlist: Playlist) {
+        transitionDelegate?.transitionToPlaylistForm(context: .edit(playlist: playlist)) { [weak self] in
             self?.fetchPlaylists()
         }
     }

@@ -131,7 +131,7 @@ struct PlaylistFormScreenView: View {
                     }
                 } label: {
                     Label {
-                        Text("Save")
+                        Text(vm.saveButtonTitle)
                     } icon: {
                         Image(systemName: "square.and.arrow.down")
                     }
@@ -147,7 +147,7 @@ struct PlaylistFormScreenView: View {
                     }
                 } label: {
                     Label {
-                        Text("Save")
+                        Text(vm.saveButtonTitle)
                     } icon: {
                         Image(systemName: "square.and.arrow.down")
                     }
