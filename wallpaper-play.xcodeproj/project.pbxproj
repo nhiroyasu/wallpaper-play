@@ -35,9 +35,10 @@
 		4F2801822BDDEEB4003F36A6 /* WallMovieUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2801802BDDEEB4003F36A6 /* WallMovieUITestsLaunchTests.swift */; };
 		4F2801872BDDF1C5003F36A6 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 4F2801862BDDF1C5003F36A6 /* RealmSwift */; };
 		4F2801892BDDF1CD003F36A6 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 4F2801882BDDF1CD003F36A6 /* Realm */; };
-		4F28018B2BDDF4DD003F36A6 /* db_schema_v2.realm in Resources */ = {isa = PBXBuildFile; fileRef = 4F28018A2BDDF4DD003F36A6 /* db_schema_v2.realm */; };
-		4F28018C2BDDF4F7003F36A6 /* RealmMigrationServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2801832BDDEFB1003F36A6 /* RealmMigrationServiceTests.swift */; };
-		4F28018F2BDE364D003F36A6 /* copy_description_for_youtube.html in Resources */ = {isa = PBXBuildFile; fileRef = 4F28018D2BDE3511003F36A6 /* copy_description_for_youtube.html */; };
+			4F28018B2BDDF4DD003F36A6 /* db_schema_v2.realm in Resources */ = {isa = PBXBuildFile; fileRef = 4F28018A2BDDF4DD003F36A6 /* db_schema_v2.realm */; };
+			4F28018C2BDDF4F7003F36A6 /* RealmMigrationServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2801832BDDEFB1003F36A6 /* RealmMigrationServiceTests.swift */; };
+			4FD90DD42F94D672007DCB4B /* WallpaperHistoryServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD90DD32F94D672007DCB4B /* WallpaperHistoryServiceTests.swift */; };
+			4F28018F2BDE364D003F36A6 /* copy_description_for_youtube.html in Resources */ = {isa = PBXBuildFile; fileRef = 4F28018D2BDE3511003F36A6 /* copy_description_for_youtube.html */; };
 		4F2801912BDE3764003F36A6 /* copy_description_for_web.html in Resources */ = {isa = PBXBuildFile; fileRef = 4F2801902BDE3764003F36A6 /* copy_description_for_web.html */; };
 		4F2D558E289567D200363292 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2D558C289567D200363292 /* AboutViewController.swift */; };
 		4F2D558F289567D200363292 /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F2D558D289567D200363292 /* AboutViewController.xib */; };
@@ -48,7 +49,6 @@
 		4F5EA7FD2DBD04940024DB7E /* YouTubePlayRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5EA7FC2DBD04940024DB7E /* YouTubePlayRequest.swift */; };
 		4F5EA7FF2DBD049C0024DB7E /* WebPlayRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5EA7FE2DBD049C0024DB7E /* WebPlayRequest.swift */; };
 		4F5EA8012DBD04A40024DB7E /* CameraPlayRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5EA8002DBD04A40024DB7E /* CameraPlayRequest.swift */; };
-		4FD19A7C2F7E4A9D00AA11B1 /* PlaylistPlayRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD19A7D2F7E4A9D00AA11B1 /* PlaylistPlayRequest.swift */; };
 		4F5EA8042DBD11380024DB7E /* NSScreen+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5EA8032DBD11340024DB7E /* NSScreen+.swift */; };
 		4F5EA8062DBD13A10024DB7E /* DisplayTargetMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5EA8052DBD13A10024DB7E /* DisplayTargetMenu.swift */; };
 		4F6A4D052896444100F7B40D /* LaunchAtLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 4F6A4D042896444100F7B40D /* LaunchAtLogin */; };
@@ -132,6 +132,8 @@
 		4FC182F6285E06E40042FAF6 /* PreferenceUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC182F5285E06E40042FAF6 /* PreferenceUseCase.swift */; };
 		4FC182F8285E06EA0042FAF6 /* PreferencePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC182F7285E06EA0042FAF6 /* PreferencePresenter.swift */; };
 		4FC182FA285E1B780042FAF6 /* PreferenceCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC182F9285E1B780042FAF6 /* PreferenceCoordinator.swift */; };
+		4FD19A7C2F7E4A9D00AA11B1 /* PlaylistPlayRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD19A7D2F7E4A9D00AA11B1 /* PlaylistPlayRequest.swift */; };
+		4FD90DD12F94CB33007DCB4B /* PlaylistWallpaper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD90DD02F94CB33007DCB4B /* PlaylistWallpaper.swift */; };
 		4FDE8AD1286DE1750028E062 /* Statable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDE8AD0286DE1750028E062 /* Statable.swift */; };
 		4FDEFC1B2C96CD25009A062A /* db_schema_v4.realm in Resources */ = {isa = PBXBuildFile; fileRef = 4FDEFC1A2C96CD25009A062A /* db_schema_v4.realm */; };
 		4FDEFC1E2C96D680009A062A /* NSWindowLevel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDEFC1C2C96D517009A062A /* NSWindowLevel+.swift */; };
@@ -219,10 +221,11 @@
 		4F25C1CF284E642E00397737 /* LocalVideoSelectionUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalVideoSelectionUseCase.swift; sourceTree = "<group>"; };
 		4F25C1D3284E673A00397737 /* URLResolverService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLResolverService.swift; sourceTree = "<group>"; };
 		4F25C1D5284F718C00397737 /* NSImageView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSImageView+.swift"; sourceTree = "<group>"; };
-		4F28017F2BDDEEB4003F36A6 /* WallMovieUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WallMovieUITests.swift; sourceTree = "<group>"; };
-		4F2801802BDDEEB4003F36A6 /* WallMovieUITestsLaunchTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WallMovieUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		4F2801832BDDEFB1003F36A6 /* RealmMigrationServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmMigrationServiceTests.swift; sourceTree = "<group>"; };
-		4F28018A2BDDF4DD003F36A6 /* db_schema_v2.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = db_schema_v2.realm; sourceTree = "<group>"; };
+			4F28017F2BDDEEB4003F36A6 /* WallMovieUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WallMovieUITests.swift; sourceTree = "<group>"; };
+			4F2801802BDDEEB4003F36A6 /* WallMovieUITestsLaunchTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WallMovieUITestsLaunchTests.swift; sourceTree = "<group>"; };
+			4F2801832BDDEFB1003F36A6 /* RealmMigrationServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmMigrationServiceTests.swift; sourceTree = "<group>"; };
+			4FD90DD32F94D672007DCB4B /* WallpaperHistoryServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallpaperHistoryServiceTests.swift; sourceTree = "<group>"; };
+			4F28018A2BDDF4DD003F36A6 /* db_schema_v2.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = db_schema_v2.realm; sourceTree = "<group>"; };
 		4F28018D2BDE3511003F36A6 /* copy_description_for_youtube.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = copy_description_for_youtube.html; sourceTree = "<group>"; };
 		4F2801902BDE3764003F36A6 /* copy_description_for_web.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = copy_description_for_web.html; sourceTree = "<group>"; };
 		4F2D558C289567D200363292 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
@@ -234,7 +237,6 @@
 		4F5EA7FC2DBD04940024DB7E /* YouTubePlayRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubePlayRequest.swift; sourceTree = "<group>"; };
 		4F5EA7FE2DBD049C0024DB7E /* WebPlayRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebPlayRequest.swift; sourceTree = "<group>"; };
 		4F5EA8002DBD04A40024DB7E /* CameraPlayRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPlayRequest.swift; sourceTree = "<group>"; };
-		4FD19A7D2F7E4A9D00AA11B1 /* PlaylistPlayRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistPlayRequest.swift; sourceTree = "<group>"; };
 		4F5EA8032DBD11340024DB7E /* NSScreen+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSScreen+.swift"; sourceTree = "<group>"; };
 		4F5EA8052DBD13A10024DB7E /* DisplayTargetMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayTargetMenu.swift; sourceTree = "<group>"; };
 		4F6A4D0628964E5100F7B40D /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
@@ -332,6 +334,8 @@
 		4FC182F5285E06E40042FAF6 /* PreferenceUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceUseCase.swift; sourceTree = "<group>"; };
 		4FC182F7285E06EA0042FAF6 /* PreferencePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencePresenter.swift; sourceTree = "<group>"; };
 		4FC182F9285E1B780042FAF6 /* PreferenceCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceCoordinator.swift; sourceTree = "<group>"; };
+		4FD19A7D2F7E4A9D00AA11B1 /* PlaylistPlayRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistPlayRequest.swift; sourceTree = "<group>"; };
+		4FD90DD02F94CB33007DCB4B /* PlaylistWallpaper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistWallpaper.swift; sourceTree = "<group>"; };
 		4FDE8AD0286DE1750028E062 /* Statable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Statable.swift; sourceTree = "<group>"; };
 		4FDEFC1A2C96CD25009A062A /* db_schema_v4.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = db_schema_v4.realm; sourceTree = "<group>"; };
 		4FDEFC1C2C96D517009A062A /* NSWindowLevel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSWindowLevel+.swift"; sourceTree = "<group>"; };
@@ -452,6 +456,7 @@
 		4F5EA8072DBDC2D80024DB7E /* RealmObject */ = {
 			isa = PBXGroup;
 			children = (
+				4FD90DD02F94CB33007DCB4B /* PlaylistWallpaper.swift */,
 				4FE5903F2F2DE93A00133680 /* PlaylistModel.swift */,
 				4F03CEED285A170E009FDC6F /* LocalVideoWallpaper.swift */,
 				4F03CEEF285A1801009FDC6F /* YouTubeWallpaper.swift */,
@@ -531,17 +536,18 @@
 			path = "wallpaper-play";
 			sourceTree = "<group>";
 		};
-		4F8A58EA284CA01B00557FDD /* wallpaper-playTests */ = {
-			isa = PBXGroup;
-			children = (
-				4F2801852BDDEFDE003F36A6 /* TestRealm */,
-				4F8A58EB284CA01B00557FDD /* YouTubeContentsServiceTests.swift */,
-				4F7B56032BDDE6FF00D427C6 /* TestInjector.swift */,
-				4F2801832BDDEFB1003F36A6 /* RealmMigrationServiceTests.swift */,
-			);
-			path = "wallpaper-playTests";
-			sourceTree = "<group>";
-		};
+			4F8A58EA284CA01B00557FDD /* wallpaper-playTests */ = {
+				isa = PBXGroup;
+				children = (
+					4F2801852BDDEFDE003F36A6 /* TestRealm */,
+					4F8A58EB284CA01B00557FDD /* YouTubeContentsServiceTests.swift */,
+					4F7B56032BDDE6FF00D427C6 /* TestInjector.swift */,
+					4F2801832BDDEFB1003F36A6 /* RealmMigrationServiceTests.swift */,
+					4FD90DD32F94D672007DCB4B /* WallpaperHistoryServiceTests.swift */,
+				);
+				path = "wallpaper-playTests";
+				sourceTree = "<group>";
+			};
 		4F8A5904284CA02F00557FDD /* Page */ = {
 			isa = PBXGroup;
 			children = (
@@ -1038,6 +1044,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FD90DD12F94CB33007DCB4B /* PlaylistWallpaper.swift in Sources */,
 				4F2161FE2850FA37000673EF /* PreferenceViewController.swift in Sources */,
 				4FBD510628850AAF002DF955 /* WebPageSelectionPresenter.swift in Sources */,
 				4FB0F3F12854D1ED004E6D51 /* YouTubeSelectionCoordinator.swift in Sources */,
@@ -1149,15 +1156,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4F8A58E3284CA01B00557FDD /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4F28018C2BDDF4F7003F36A6 /* RealmMigrationServiceTests.swift in Sources */,
-				4F8A58EC284CA01B00557FDD /* YouTubeContentsServiceTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
+			4F8A58E3284CA01B00557FDD /* Sources */ = {
+				isa = PBXSourcesBuildPhase;
+				buildActionMask = 2147483647;
+				files = (
+					4F28018C2BDDF4F7003F36A6 /* RealmMigrationServiceTests.swift in Sources */,
+					4FD90DD42F94D672007DCB4B /* WallpaperHistoryServiceTests.swift in Sources */,
+					4F8A58EC284CA01B00557FDD /* YouTubeContentsServiceTests.swift in Sources */,
+				);
+				runOnlyForDeploymentPostprocessing = 0;
+			};
 		4F8A58ED284CA01B00557FDD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;

@@ -163,6 +163,13 @@ class ApplicationServiceImpl: ApplicationService {
                 wallpaperKind: .playlist(playlist: request.playlist),
                 target: .sameOnAllMonitors // FEATURE: To be implemented in the future so that users can select a monitor for playlist wallpapers.
             )
+            self.wallpaperHistoryService.store(
+                PlaylistWallpaper(
+                    date: Date(),
+                    playlistId: request.playlist.id,
+                    targetMonitor: nil
+                )
+            )
         }
     }
 
