@@ -7,6 +7,7 @@ enum WallpaperKind {
     case youtube(videoId: String, isMute: Bool, videoSize: VideoSize)
     case web(url: URL, arrowOperation: Bool)
     case camera(deviceId: String, videoSize: VideoSize)
+    case playlist(playlist: Playlist)
     case unknown
 }
 
@@ -44,6 +45,13 @@ class WallpaperPresenterImpl: NSObject, WallpaperPresenter {
             } else {
                 .none
             }
+        case .playlist(let playlist):
+                .playlist(
+                    urls: playlist.videos.map(\.url), // TODO: playbackModeによって配列を変える
+                    videoSize: playlist.videoSize,
+                    isMute: playlist.isMute,
+                    backgroundColor: NSColor(hex: playlist.backgroundColor, alpha: 1.0)
+                )
         case .unknown:
             .none
         }

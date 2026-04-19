@@ -9,11 +9,13 @@ protocol PlaylistUseCase {
 
 class PlaylistUseCaseImpl: PlaylistUseCase {
     private let playlistRepository: any PlaylistRepository
+    private let wallpaperRequestService: any WallpaperRequestService
     private let applicationFileManager: any ApplicationFileManager
     private let fileManager: FileManager
 
     init(injector: any Injectable) {
         self.playlistRepository = injector.build()
+        self.wallpaperRequestService = injector.build()
         self.applicationFileManager = injector.build()
         self.fileManager = .default
     }
@@ -34,6 +36,15 @@ class PlaylistUseCaseImpl: PlaylistUseCase {
         try fileManager.removeItem(at: playlistDirectory)
     }
 
-    func playPlaylist(id _: UUID) {
+    func playPlaylist(id: UUID) {
+        guard let playlist = playlistRepository.fetch(id: id) else {
+            return
+        }
+        guard playlist.videos.isEmpty == false else {
+            return
+        }
+        wallpaperRequestService.requestPlaylistWallpaper(
+            playlist: PlaylistPlayRequest(playlist: playlist)
+        )
     }
 }

@@ -5,6 +5,7 @@ protocol PlaylistRepository {
     @MainActor func save(_ data: Playlist) async throws
     @MainActor func delete(id: UUID) async throws
     func fetchAll() -> [Playlist]
+    func fetch(id: UUID) -> Playlist?
 }
 
 class PlaylistRepositoryImpl: PlaylistRepository {
@@ -48,20 +49,19 @@ class PlaylistRepositoryImpl: PlaylistRepository {
         let realm = realmService.buildRealm()
         let models = realm.objects(PlaylistModel.self).sorted(byKeyPath: "date", ascending: false)
         let list = models.map { model in
-            let videos = model.items.map { item in
-                Playlist.Video(url: item.url)
-            }
-            return Playlist(
-                id: model.uuid,
-                name: model.name,
-                playbackMode: PlaylistPlaybackMode(rawValue: model.playbackMode) ?? .inOrder,
-                videoSize: VideoSize(rawValue: model.videoSize) ?? .aspectFill,
-                backgroundColor: model.backgroundColor,
-                isMute: model.isMute,
-                videos: Array(videos)
-            )
+            self.map(model)
         }
         return Array(list)
+    }
+
+    func fetch(id: UUID) -> Playlist? {
+        let realm = realmService.buildRealm()
+        guard let model = realm.objects(PlaylistModel.self)
+            .filter("uuid == %@", id)
+            .first else {
+            return nil
+        }
+        return map(model)
     }
 
     func delete(id: UUID) async throws {
@@ -84,5 +84,20 @@ class PlaylistRepositoryImpl: PlaylistRepository {
             NSLog(error.localizedDescription, [])
             #endif
         }
+    }
+
+    private func map(_ model: PlaylistModel) -> Playlist {
+        let videos = model.items.map { item in
+            Playlist.Video(url: item.url)
+        }
+        return Playlist(
+            id: model.uuid,
+            name: model.name,
+            playbackMode: PlaylistPlaybackMode(rawValue: model.playbackMode) ?? .inOrder,
+            videoSize: VideoSize(rawValue: model.videoSize) ?? .aspectFill,
+            backgroundColor: model.backgroundColor,
+            isMute: model.isMute,
+            videos: Array(videos)
+        )
     }
 }

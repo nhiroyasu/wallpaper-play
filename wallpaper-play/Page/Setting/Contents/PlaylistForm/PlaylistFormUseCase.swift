@@ -13,13 +13,13 @@ protocol PlaylistFormUseCase {
 }
 
 class PlaylistFormUseCaseImpl: PlaylistFormUseCase {
-    private let notificationManager: any NotificationManager
+    private let wallpaperRequestService: any WallpaperRequestService
     private let playlistRepository: any PlaylistRepository
     private let applicationFileManager: any ApplicationFileManager
     private let fileManager: FileManager
 
     init(injector: any Injectable) {
-        self.notificationManager = injector.build()
+        self.wallpaperRequestService = injector.build()
         self.playlistRepository = injector.build()
         self.applicationFileManager = injector.build()
         self.fileManager = .default
@@ -34,7 +34,6 @@ class PlaylistFormUseCaseImpl: PlaylistFormUseCase {
         videoUrls: [URL]
     ) async throws {
         let id = UUID()
-        let fileManager = FileManager.default
         guard let playlistsRootDirectory = applicationFileManager.getDirectory("playlist") else {
             throw NSError(domain: "PlaylistFormUseCase", code: 1)
         }
@@ -74,10 +73,8 @@ class PlaylistFormUseCaseImpl: PlaylistFormUseCase {
         )
 
         try await playlistRepository.save(playlist)
-
-        notificationManager.push(
-            name: .requestPlaylist,
-            param: id
+        wallpaperRequestService.requestPlaylistWallpaper(
+            playlist: PlaylistPlayRequest(playlist: playlist)
         )
     }
 }

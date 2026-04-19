@@ -1,11 +1,6 @@
 import Foundation
 import AVKit
 
-enum VideoRepeatType {
-    case oneLoop
-    case listLoop
-}
-
 struct VideoContent {
     let asset: AVAsset
     let item: AVPlayerItem
@@ -21,17 +16,27 @@ protocol AVPlayerManager {
     func start() throws
     func stop() throws
     func mute(_ value: Bool) throws
-    func loop(type: VideoRepeatType) throws
+    func loop() throws
     func loopOff() throws
     func clear()
 }
 
 class AVPlayerManagerImpl: AVPlayerManager {
     private var player: AVQueuePlayer?
-    private var looper: AVPlayerLooper?
+    private var endObserver: NSObjectProtocol?
+    private var isLooping = false
     
     private var videoContentList: [VideoContent] = []
+
+    deinit {
+        removeEndObserver()
+    }
+
     func set(_ urls: [URL]) -> AVPlayer {
+        player?.pause()
+        player?.removeAllItems()
+        removeEndObserver()
+        isLooping = false
         videoContentList = urls.map { .init(url: $0) }
         let player = AVQueuePlayer(items: videoContentList.map { $0.item })
         self.player = player
@@ -59,25 +64,50 @@ class AVPlayerManagerImpl: AVPlayerManager {
         player.isMuted = value
     }
     
-    func loop(type: VideoRepeatType) throws {
-        guard let player = player, let item = videoContentList.first?.item else {
+    func loop() throws {
+        guard player != nil, !videoContentList.isEmpty else {
             throw NSError(domain: "did not set player instance or video contents", code: 1)
         }
-        looper = AVPlayerLooper(player: player, templateItem: item)
+        guard endObserver == nil else { return }
+        isLooping = true
+        endObserver = NotificationCenter.default.addObserver(
+            forName: .AVPlayerItemDidPlayToEndTime,
+            object: nil,
+            queue: nil
+        ) { [weak self] notification in
+            self?.queueDidFinish(notification)
+        }
     }
     
     func loopOff() throws {
-        if let looper = looper {
-            looper.disableLooping()
-        } else {
+        guard endObserver != nil, isLooping else {
             throw NSError(domain: "did not set looper", code: 2)
         }
+        isLooping = false
+        removeEndObserver()
     }
     
     func clear() {
         player?.pause()
+        player?.removeAllItems()
+        removeEndObserver()
+        isLooping = false
         videoContentList.removeAll()
         player = nil
-        looper = nil
+    }
+
+    private func queueDidFinish(_ notification: Notification) {
+        guard isLooping else { return }
+        guard let item = notification.object as? AVPlayerItem else { return }
+        guard videoContentList.contains(where: { $0.item === item }) else { return }
+        item.seek(to: .zero) { [weak self] _ in
+            self?.player?.insert(item, after: nil)
+        }
+    }
+
+    private func removeEndObserver() {
+        guard let endObserver else { return }
+        NotificationCenter.default.removeObserver(endObserver)
+        self.endObserver = nil
     }
 }

@@ -48,6 +48,7 @@
 		4F5EA7FD2DBD04940024DB7E /* YouTubePlayRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5EA7FC2DBD04940024DB7E /* YouTubePlayRequest.swift */; };
 		4F5EA7FF2DBD049C0024DB7E /* WebPlayRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5EA7FE2DBD049C0024DB7E /* WebPlayRequest.swift */; };
 		4F5EA8012DBD04A40024DB7E /* CameraPlayRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5EA8002DBD04A40024DB7E /* CameraPlayRequest.swift */; };
+		4FD19A7C2F7E4A9D00AA11B1 /* PlaylistPlayRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD19A7D2F7E4A9D00AA11B1 /* PlaylistPlayRequest.swift */; };
 		4F5EA8042DBD11380024DB7E /* NSScreen+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5EA8032DBD11340024DB7E /* NSScreen+.swift */; };
 		4F5EA8062DBD13A10024DB7E /* DisplayTargetMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5EA8052DBD13A10024DB7E /* DisplayTargetMenu.swift */; };
 		4F6A4D052896444100F7B40D /* LaunchAtLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 4F6A4D042896444100F7B40D /* LaunchAtLogin */; };
@@ -233,6 +234,7 @@
 		4F5EA7FC2DBD04940024DB7E /* YouTubePlayRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubePlayRequest.swift; sourceTree = "<group>"; };
 		4F5EA7FE2DBD049C0024DB7E /* WebPlayRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebPlayRequest.swift; sourceTree = "<group>"; };
 		4F5EA8002DBD04A40024DB7E /* CameraPlayRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPlayRequest.swift; sourceTree = "<group>"; };
+		4FD19A7D2F7E4A9D00AA11B1 /* PlaylistPlayRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistPlayRequest.swift; sourceTree = "<group>"; };
 		4F5EA8032DBD11340024DB7E /* NSScreen+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSScreen+.swift"; sourceTree = "<group>"; };
 		4F5EA8052DBD13A10024DB7E /* DisplayTargetMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayTargetMenu.swift; sourceTree = "<group>"; };
 		4F6A4D0628964E5100F7B40D /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
@@ -439,6 +441,7 @@
 			isa = PBXGroup;
 			children = (
 				4F5EA8002DBD04A40024DB7E /* CameraPlayRequest.swift */,
+				4FD19A7D2F7E4A9D00AA11B1 /* PlaylistPlayRequest.swift */,
 				4F5EA7FE2DBD049C0024DB7E /* WebPlayRequest.swift */,
 				4F5EA7FC2DBD04940024DB7E /* YouTubePlayRequest.swift */,
 				4F5EA7FA2DBD04840024DB7E /* VideoPlayRequest.swift */,
@@ -1088,6 +1091,7 @@
 				4F7BEAC82D31FE5E008B0A35 /* CameraSelectionPresenter.swift in Sources */,
 				4F8A5939284CD65900557FDD /* YouTubeContentsService.swift in Sources */,
 				4FE5903E2F2DE86600133680 /* Playlist.swift in Sources */,
+				4FD19A7C2F7E4A9D00AA11B1 /* PlaylistPlayRequest.swift in Sources */,
 				4F5EA7FB2DBD04840024DB7E /* VideoPlayRequest.swift in Sources */,
 				4FAD5E1F2BE3634B00DB51DC /* WallpaperRequestService.swift in Sources */,
 				4F8A5957284D1A2C00557FDD /* LocalVideoSelectionViewController.swift in Sources */,

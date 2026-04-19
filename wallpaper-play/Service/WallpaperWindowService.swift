@@ -115,7 +115,7 @@ class WallpaperWindowServiceImpl: WallpaperWindowService {
 
     private func computeWindowLevel(wallpaperKind: WallpaperKind) -> NSWindow.Level {
         switch wallpaperKind {
-        case .video, .youtube, .unknown:
+        case .video, .youtube, .playlist, .unknown:
             return .desktopAbove
         case let .web(_, arrowOperation):
             return arrowOperation ? .desktopIconAbove : .desktopAbove
@@ -133,6 +133,17 @@ class WallpaperWindowServiceImpl: WallpaperWindowService {
             return .video(url: url, mute: true, videoSize: videoSize, backgroundColor: backgroundColor)
         case .youtube(let videoId, _, let videoSize):
             return .youtube(videoId: videoId, isMute: true, videoSize: videoSize)
+        case .playlist(let playlist):
+            let mutedPlaylist = Playlist(
+                id: playlist.id,
+                name: playlist.name,
+                playbackMode: playlist.playbackMode,
+                videoSize: playlist.videoSize,
+                backgroundColor: playlist.backgroundColor,
+                isMute: true,
+                videos: playlist.videos
+            )
+            return .playlist(playlist: mutedPlaylist)
         case .web, .camera, .unknown:
             return baseWallpaperKind
         }

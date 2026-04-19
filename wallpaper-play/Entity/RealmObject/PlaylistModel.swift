@@ -27,6 +27,9 @@ class PlaylistModel: Object, DateSortable {
         self.uuid = id
         self.name = name
         self.playbackMode = playbackMode
+        self.videoSize = videoSize
+        self.backgroundColor = backgroundColor
+        self.isMute = isMute
         self.items.append(objectsIn: items)
     }
 }

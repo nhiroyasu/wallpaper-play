@@ -117,28 +117,28 @@ class ApplicationServiceImpl: ApplicationService {
     }
 
     private func setUpRequestVideoNotification() {
-        notificationManager.observe(name: .requestVideo) { [weak self] param in
+        notificationManager.observe(name: .requestVideo, queue: .main) { [weak self] param in
             guard let self = self, let request = param as? VideoPlayRequest else { fatalError() }
             self.displayLocalVideo(request: request, shouldSavedHistory: true)
         }
     }
 
     private func setUpRequestYouTubeNotification() {
-        notificationManager.observe(name: .requestYouTube) { [weak self] param in
+        notificationManager.observe(name: .requestYouTube, queue: .main) { [weak self] param in
             guard let self = self, let request = param as? YouTubePlayRequest else { fatalError() }
             self.displayYouTube(videoId: request.videoId, isMute: request.isMute, shouldSavedHistory: true, videoSize: request.videoSize, target: request.target)
         }
     }
     
     private func setUpRequestWebPageNotification() {
-        notificationManager.observe(name: .requestWebPage) { [weak self] param in
+        notificationManager.observe(name: .requestWebPage, queue: .main) { [weak self] param in
             guard let self = self, let request = param as? WebPlayRequest else { fatalError() }
             self.displayWebPage(url: request.url, arrowOperation: request.arrowOperation, shouldSavedHistory: true, target: request.target)
         }
     }
 
     private func setUpRequestCameraNotification() {
-        notificationManager.observe(name: .requestCamera) { [weak self] param in
+        notificationManager.observe(name: .requestCamera, queue: .main) { [weak self] param in
             guard let self = self, let request = param as? CameraPlayRequest else { fatalError() }
             self.wallpaperWindowService.display(
                 wallpaperKind: WallpaperKind.camera(deviceId: request.deviceId, videoSize: request.videoSize),
@@ -156,8 +156,13 @@ class ApplicationServiceImpl: ApplicationService {
     }
 
     private func setUpRequestPlaylistNotification() {
-        notificationManager.observe(name: .requestPlaylist) { [weak self] param in
-            // TODO: Implement playlist handling
+        notificationManager.observe(name: .requestPlaylist, queue: .main) { [weak self] param in
+            guard let self = self, let request = param as? PlaylistPlayRequest else { fatalError() }
+            guard request.playlist.videos.isEmpty == false else { return }
+            self.wallpaperWindowService.display(
+                wallpaperKind: .playlist(playlist: request.playlist),
+                target: .sameOnAllMonitors // FEATURE: To be implemented in the future so that users can select a monitor for playlist wallpapers.
+            )
         }
     }
 
