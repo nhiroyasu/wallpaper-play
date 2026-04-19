@@ -29,7 +29,7 @@ class CameraSelectionPresenterImpl: CameraSelectionPresenter {
         case .allMonitors:
             target = .sameOnAllMonitors
         case .screen(let nSScreen):
-            target = .specificMonitor(screen: nSScreen)
+            target = .specificMonitor(screen: ConnectedMonitorScreen(screen: nSScreen))
         }
 
         useCase.requestSettingWallpaper(selectedCamera.uniqueID, videoSize: videoSize, target: target)

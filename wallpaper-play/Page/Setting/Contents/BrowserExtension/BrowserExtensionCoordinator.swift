@@ -2,7 +2,7 @@ import AppKit
 import Swinject
 import Injectable
 
-class BrowserExtensionCoordinator: Coordinator {
+class BrowserExtensionCoordinator: EntryCoordinator {
     private var viewController: BrowserExtensionViewController!
     private let injector: any Injectable
 

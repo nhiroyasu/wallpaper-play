@@ -13,15 +13,18 @@ class WallpaperWindowServiceImpl: WallpaperWindowService {
     private let notificationManager: any NotificationManager
     private let youTubeContentsService: any YouTubeContentsService
     private let appState: AppState
+    private let monitorScreenResolver: any MonitorScreenResolver
 
     init(injector: any Injectable) {
         self.notificationManager = injector.build()
         self.wallpaperHistoryService = injector.build()
         self.youTubeContentsService = injector.build()
         self.appState = injector.build()
+        self.monitorScreenResolver = injector.build()
     }
     
     func display(wallpaperKind: WallpaperKind, target: WallpaperDisplayTarget) {
+        let resolvedWallpaperKind = resolvePlaybackOrderIfNeeded(wallpaperKind)
         switch target {
         case .sameOnAllMonitors:
             // reset all wallpaper windows and remove all wallpaper states
@@ -29,11 +32,11 @@ class WallpaperWindowServiceImpl: WallpaperWindowService {
             windowList = []
             appState.wallpapers.removeAll()
 
-            NSScreen.screens.forEach { [weak self] screen in
+            monitorScreenResolver.allScreens().forEach { [weak self] screen in
                 guard let self else { return }
                 let wallpaperWindowFrame = computeFittingWallpaperSize(screen: screen)
-                let windowLevel = computeWindowLevel(wallpaperKind: wallpaperKind)
-                let actualWallpaperKind = muteWallpaperKindIfNeeded(baseWallpaperKind: wallpaperKind, on: screen)
+                let windowLevel = computeWindowLevel(wallpaperKind: resolvedWallpaperKind)
+                let actualWallpaperKind = muteWallpaperKindIfNeeded(baseWallpaperKind: resolvedWallpaperKind, on: screen)
                 let window = buildWallpaperWindow(
                     screen: screen,
                     windowLevel: windowLevel,
@@ -51,19 +54,20 @@ class WallpaperWindowServiceImpl: WallpaperWindowService {
                 ))
             }
 
-        case .specificMonitor(let screen):
+        case .specificMonitor(let monitor):
+            guard let screen = monitorScreenResolver.resolveScreen(for: monitor) else { return }
             // reset wallpaper window and remove wallpaper state on the specific screen
             let windowInTargetScreens = windowList.filter { $0.screen == screen }
             windowInTargetScreens.forEach { $0.close() }
             windowList.removeAll { $0.screen == screen }
 
             let wallpaperWindowFrame = computeFittingWallpaperSize(screen: screen)
-            let windowLevel = computeWindowLevel(wallpaperKind: wallpaperKind)
+            let windowLevel = computeWindowLevel(wallpaperKind: resolvedWallpaperKind)
             let window = buildWallpaperWindow(
                 screen: screen,
                 windowLevel: windowLevel,
                 wallpaperSize: wallpaperWindowFrame.size,
-                wallpaperKind: wallpaperKind
+                wallpaperKind: resolvedWallpaperKind
             )
             window.orderFront(nil)
             windowList.append(window)
@@ -73,7 +77,7 @@ class WallpaperWindowServiceImpl: WallpaperWindowService {
             appState.wallpapers.removeAll { $0.screenIdentifier == screen.deviceIdentifier }
             appState.wallpapers.append(.init(
                 screenIdentifier: screen.deviceIdentifier,
-                kind: wallpaperKind
+                kind: resolvedWallpaperKind
             ))
         }
     }
@@ -115,7 +119,7 @@ class WallpaperWindowServiceImpl: WallpaperWindowService {
 
     private func computeWindowLevel(wallpaperKind: WallpaperKind) -> NSWindow.Level {
         switch wallpaperKind {
-        case .video, .youtube, .unknown:
+        case .video, .youtube, .playlist, .unknown:
             return .desktopAbove
         case let .web(_, arrowOperation):
             return arrowOperation ? .desktopIconAbove : .desktopAbove
@@ -133,8 +137,29 @@ class WallpaperWindowServiceImpl: WallpaperWindowService {
             return .video(url: url, mute: true, videoSize: videoSize, backgroundColor: backgroundColor)
         case .youtube(let videoId, _, let videoSize):
             return .youtube(videoId: videoId, isMute: true, videoSize: videoSize)
+        case .playlist(let playlist):
+            let mutedPlaylist = Playlist(
+                id: playlist.id,
+                name: playlist.name,
+                playbackMode: playlist.playbackMode,
+                videoSize: playlist.videoSize,
+                backgroundColor: playlist.backgroundColor,
+                isMute: true,
+                target: playlist.target,
+                videos: playlist.videos
+            )
+            return .playlist(playlist: mutedPlaylist)
         case .web, .camera, .unknown:
             return baseWallpaperKind
+        }
+    }
+
+    private func resolvePlaybackOrderIfNeeded(_ wallpaperKind: WallpaperKind) -> WallpaperKind {
+        switch wallpaperKind {
+        case .playlist(let playlist):
+            return .playlist(playlist: playlist.resolvedForPlayback())
+        default:
+            return wallpaperKind
         }
     }
 }

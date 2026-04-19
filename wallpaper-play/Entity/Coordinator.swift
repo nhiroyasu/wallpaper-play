@@ -4,11 +4,13 @@ public protocol WindowCoordinator {
     func createWindow() -> NSWindow
 }
 
-public protocol Coordinator {
+@MainActor
+public protocol BaseCoordinator {}
+
+public protocol EntryCoordinator: BaseCoordinator {
     func create() -> NSViewController
 }
 
-public protocol NavigationCoordinator: Coordinator {
-    func start()
-    func dismiss()
+public protocol PresentCoordinator: BaseCoordinator {
+    func present(from parentVC: NSViewController)
 }

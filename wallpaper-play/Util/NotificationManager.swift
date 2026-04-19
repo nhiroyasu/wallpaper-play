@@ -6,14 +6,17 @@ extension Notification.Name {
     static let requestVideo = Notification.Name("requestVideo")
     static let requestWebPage = Notification.Name("requestWebPage")
     static let requestCamera = Notification.Name("requestCamera")
+    static let requestPlaylist = Notification.Name("requestPlaylist")
     static let selectedSideMenu = Notification.Name("selectedSideBar")
     static let requestVisibilityIcon = Notification.Name("requestVisibilityIcon")
+    static let showSettingWindowWithPreferenceMenu = Notification.Name("showSettingWindowWithPreferenceMenu")
 }
 
 /// @mockable
 protocol NotificationManager {
     func push(name: Notification.Name, param: Any?)
     func observe(name: Notification.Name, handler: @escaping (Any?) -> Void)
+    func observe(name: Notification.Name, queue: OperationQueue?, handler: @escaping (Any?) -> Void)
     func publisher(for name: Notification.Name) -> AnyPublisher<Any?, Never>
 }
 
@@ -27,7 +30,11 @@ class NotificationManagerImpl: NotificationManager {
     }
     
     func observe(name: Notification.Name, handler: @escaping (Any?) -> Void) {
-        NotificationCenter.default.addObserver(forName: name, object: nil, queue: nil) { notification in
+        self.observe(name: name, queue: nil, handler: handler)
+    }
+
+    func observe(name: Notification.Name, queue: OperationQueue?, handler: @escaping (Any?) -> Void) {
+        NotificationCenter.default.addObserver(forName: name, object: nil, queue: queue) { notification in
             let param = notification.userInfo?["param"]
             handler(param)
         }

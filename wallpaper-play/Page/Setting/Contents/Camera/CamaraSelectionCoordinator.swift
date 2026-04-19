@@ -3,7 +3,7 @@ import AppKit
 import Swinject
 import Injectable
 
-class CameraSelectionCoordinator: Coordinator {
+class CameraSelectionCoordinator: EntryCoordinator {
     private var viewController: CameraSelectionViewController!
     private let injector: any Injectable
 

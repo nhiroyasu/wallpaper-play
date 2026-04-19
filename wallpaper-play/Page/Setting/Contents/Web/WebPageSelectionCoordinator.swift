@@ -2,7 +2,7 @@ import AppKit
 import Swinject
 import Injectable
 
-class WebPageSelectionCoordinator: Coordinator {
+class WebPageSelectionCoordinator: EntryCoordinator {
     private var viewController: WebPageSelectionViewController!
     private let injector: any Injectable
 

@@ -2,7 +2,7 @@ import AppKit
 import Swinject
 import Injectable
 
-class PreferenceCoordinator: Coordinator {
+class PreferenceCoordinator: EntryCoordinator {
     private var viewController: PreferenceViewController!
     private let injector: any Injectable
 

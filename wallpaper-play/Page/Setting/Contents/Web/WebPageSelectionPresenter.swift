@@ -38,7 +38,7 @@ class WebPageSelectionPresenterImpl: WebPageSelectionPresenter {
             case .allMonitors:
                 target = .sameOnAllMonitors
             case .screen(let nSScreen):
-                target = .specificMonitor(screen: nSScreen)
+                target = .specificMonitor(screen: ConnectedMonitorScreen(screen: nSScreen))
             }
 
             useCase.requestWallpaper(url: url, arrowOperation: arrowOperation, target: target)

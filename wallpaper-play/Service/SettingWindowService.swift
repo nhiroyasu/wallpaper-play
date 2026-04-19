@@ -1,6 +1,7 @@
 import AppKit
 import Injectable
 
+@MainActor
 protocol SettingWindowService {
     func show()
     func close()
@@ -8,6 +9,7 @@ protocol SettingWindowService {
 
 final class SettingWindowServiceImpl: SettingWindowService {
     private var windowController: SettingWindowController?
+    private var coordinator: SettingCoordinator!
 
     func show() {
         if let windowController {
@@ -16,7 +18,7 @@ final class SettingWindowServiceImpl: SettingWindowService {
         } else {
             let windowController = SettingWindowController(windowNibName: String(describing: SettingWindowController.self))
             if (windowController.contentViewController as? SettingSplitViewController) == nil {
-                let coordinator = SettingCoordinator(injector: Injector.shared)
+                coordinator = SettingCoordinator(injector: Injector.shared)
                 windowController.contentViewController = coordinator.create()
             }
             windowController.window?.center()
@@ -27,5 +29,6 @@ final class SettingWindowServiceImpl: SettingWindowService {
 
     func close() {
         windowController?.close()
+        coordinator = nil
     }
 }

@@ -21,23 +21,28 @@ protocol WallpaperHistoryService {
     func store(_ video: LocalVideoWallpaper)
     func store(_ webpage: WebPageWallpaper)
     func store(_ camera: CameraWallpaper)
+    func store(_ playlist: PlaylistWallpaper)
     func fetchYouTube() -> [YouTubeWallpaper]
     func fetchVideo() -> [LocalVideoWallpaper]
     func fetchWebPage() -> [WebPageWallpaper]
     func fetchCamera() -> [CameraWallpaper]
+    func fetchPlaylist() -> [PlaylistWallpaper]
     func fetchLatestYouTube(monitorFilter: MonitorFilter) -> YouTubeWallpaper?
     func fetchLatestVideo(monitorFilter: MonitorFilter) -> LocalVideoWallpaper?
     func fetchLatestWebPage(monitorFilter: MonitorFilter) -> WebPageWallpaper?
     func fetchLatestCamera(monitorFilter: MonitorFilter) -> CameraWallpaper?
+    func fetchLatestPlaylist(monitorFilter: MonitorFilter) -> PlaylistWallpaper?
     func fetchLatestWallpaper(monitorFilter: MonitorFilter) -> (kind: WallpaperKind, isAll: Bool)?
 }
 
 class WallpaperHistoryServiceImpl: WallpaperHistoryService {
     
     private let realmService: any RealmService
+    private let playlistRepository: any PlaylistRepository
     
     init(injector: any Injectable) {
         realmService = injector.build()
+        playlistRepository = injector.build()
     }
     
     func store(_ youtube: YouTubeWallpaper) {
@@ -100,6 +105,21 @@ class WallpaperHistoryServiceImpl: WallpaperHistoryService {
         }
     }
 
+    func store(_ playlist: PlaylistWallpaper) {
+        let realm = realmService.buildRealm()
+        do {
+            try realm.write {
+                realm.add(playlist)
+            }
+        } catch {
+            #if DEBUG
+            fatalError(error.localizedDescription)
+            #else
+            NSLog(error.localizedDescription, [])
+            #endif
+        }
+    }
+
     func fetchYouTube() -> [YouTubeWallpaper] {
         let realm = realmService.buildRealm()
         let results = realm.objects(YouTubeWallpaper.self)
@@ -121,6 +141,12 @@ class WallpaperHistoryServiceImpl: WallpaperHistoryService {
     func fetchCamera() -> [CameraWallpaper] {
         let realm = realmService.buildRealm()
         let results = realm.objects(CameraWallpaper.self)
+        return results.map { $0 }
+    }
+
+    func fetchPlaylist() -> [PlaylistWallpaper] {
+        let realm = realmService.buildRealm()
+        let results = realm.objects(PlaylistWallpaper.self)
         return results.map { $0 }
     }
 
@@ -187,13 +213,30 @@ class WallpaperHistoryServiceImpl: WallpaperHistoryService {
             .first
     }
 
+    func fetchLatestPlaylist(monitorFilter: MonitorFilter) -> PlaylistWallpaper? {
+        let predicate = monitorFilter.predicate()
+
+        let realm = realmService.buildRealm()
+        var collection = realm
+            .objects(PlaylistWallpaper.self)
+
+        if let predicate {
+            collection = collection
+                .filter(predicate)
+        }
+        return collection
+            .sorted(byKeyPath: "date", ascending: false)
+            .first
+    }
+
     func fetchLatestWallpaper(monitorFilter: MonitorFilter) -> (kind: WallpaperKind, isAll: Bool)? {
         let videoFirst = fetchLatestVideo(monitorFilter: monitorFilter)
         let youtubeFirst = fetchLatestYouTube(monitorFilter: monitorFilter)
         let webpageFirst = fetchLatestWebPage(monitorFilter: monitorFilter)
         let cameraFirst = fetchLatestCamera(monitorFilter: monitorFilter)
+        let playlistFirst = fetchLatestPlaylist(monitorFilter: monitorFilter)
 
-        let videoList: [(any DateSortable)?] = [videoFirst, youtubeFirst, webpageFirst, cameraFirst]
+        let videoList: [(any DateSortable)?] = [videoFirst, youtubeFirst, webpageFirst, cameraFirst, playlistFirst]
         let latestVideo = videoList.compactMap { $0 }.max { v1, v2 in v1.date < v2.date }
         
         if let video = latestVideo as? LocalVideoWallpaper {
@@ -223,6 +266,14 @@ class WallpaperHistoryServiceImpl: WallpaperHistoryService {
             let videoSize = VideoSize(rawValue: video.size) ?? .aspectFill
             return (
                 kind: .camera(deviceId: video.deviceId, videoSize: videoSize),
+                isAll: video.targetMonitor == nil
+            )
+        } else if let video = latestVideo as? PlaylistWallpaper {
+            guard let playlist = playlistRepository.fetch(id: video.playlistId) else {
+                return nil
+            }
+            return (
+                kind: .playlist(playlist: playlist),
                 isAll: video.targetMonitor == nil
             )
         } else {

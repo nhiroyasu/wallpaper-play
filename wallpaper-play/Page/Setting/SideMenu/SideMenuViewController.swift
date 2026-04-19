@@ -6,6 +6,7 @@ enum SideMenuItem: String, CaseIterable {
     case youtube = "YouTube"
     case webpage = "Web"
     case camera = "Camera"
+    case playlist = "Playlist"
     case browserExtension = "Browser Extension"
     case preference = "Preference"
     case about = "About"
@@ -20,6 +21,8 @@ enum SideMenuItem: String, CaseIterable {
             return NSImage(systemSymbolName: "safari.fill", accessibilityDescription: nil)
         case .camera:
             return NSImage(systemSymbolName: "camera.fill", accessibilityDescription: nil)
+        case .playlist:
+            return NSImage(systemSymbolName: "forward.circle.fill", accessibilityDescription: nil)
         case .browserExtension:
             return NSImage(systemSymbolName: "puzzlepiece.extension.fill", accessibilityDescription: nil)
         case .preference:

@@ -2,7 +2,7 @@ import Foundation
 import RealmSwift
 import Injectable
 
-let REALM_SCHEMA_VERSION: UInt64 = 9
+let REALM_SCHEMA_VERSION: UInt64 = 12
 
 public enum RealmConfigType {
     case release
@@ -66,6 +66,7 @@ public class RealmManagerImpl: RealmService {
             migrationService.migrateForV3(migration: migration, oldSchemaVersion: oldSchemaVersion)
             migrationService.migrateForV4(migration: migration, oldSchemaVersion: oldSchemaVersion)
             migrationService.migrateForV8(migration: migration, oldSchemaVersion: oldSchemaVersion)
+            migrationService.migrateForV12(migration: migration, oldSchemaVersion: oldSchemaVersion)
         }
 
         switch type {
