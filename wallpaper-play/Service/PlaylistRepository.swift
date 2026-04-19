@@ -25,11 +25,8 @@ class PlaylistRepositoryImpl: PlaylistRepository {
                 realm.add(model)
             }
         } catch {
-            #if DEBUG
-            fatalError(error.localizedDescription)
-            #else
             NSLog(error.localizedDescription, [])
-            #endif
+            throw error
         }
     }
 
@@ -48,11 +45,8 @@ class PlaylistRepositoryImpl: PlaylistRepository {
                 realm.add(model)
             }
         } catch {
-            #if DEBUG
-            fatalError(error.localizedDescription)
-            #else
             NSLog(error.localizedDescription, [])
-            #endif
+            throw error
         }
     }
 
@@ -89,11 +83,8 @@ class PlaylistRepositoryImpl: PlaylistRepository {
                 realm.delete(model)
             }
         } catch {
-            #if DEBUG
-            fatalError(error.localizedDescription)
-            #else
             NSLog(error.localizedDescription, [])
-            #endif
+            throw error
         }
     }
 
