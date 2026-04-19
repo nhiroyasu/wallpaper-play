@@ -18,8 +18,8 @@ class AppContainer {
         container.register((any YouTubeContentsService).self) { _ in YouTubeContentsServiceImpl()}
         container.register((any FileSelectionManager).self) { _ in FileSelectionManagerImpl()}
         container.register((any AVPlayerManager).self) { _ in AVPlayerManagerImpl()}
-        container.register((any SettingWindowService).self) { _ in SettingWindowServiceImpl() }
         container.register((any CameraDeviceService).self) { _ in CameraDeviceServiceImpl() }
+        container.register((any MonitorScreenResolver).self) { _ in MonitorScreenResolverImpl() }
         container.register(AppState.self) { _ in AppState.shared }.inObjectScope(.container)
 
         // MARK: - DockMenu
@@ -31,13 +31,13 @@ class AppContainer {
 
         // MARK: - some dependencies
 
+        container.register((any PlaylistRepository).self) { injector in PlaylistRepositoryImpl(injector: injector) }
         container.register((any WallpaperRequestService).self) { injector in WallpaperRequestServiceImpl(injector: injector) }
         container.register((any RealmMigrationService).self) { injector in RealmMigrationServiceImpl(injector: injector) }
         container.register((any RealmService).self) { injector in RealmManagerImpl(injector: injector) }
         container.register((any UserSettingService).self) { _ in UserSettingServiceImpl(userDefaults: UserDefaults.standard) }.inObjectScope(.container)
         container.register((any WallpaperWindowService).self) { injector in WallpaperWindowServiceImpl(injector: injector) }
         container.register((any WallpaperHistoryService).self) { injector in WallpaperHistoryServiceImpl(injector: injector) }
-        container.register((any ApplicationService).self) { injector in ApplicationServiceImpl(injector: injector) }
 
         return container
     }

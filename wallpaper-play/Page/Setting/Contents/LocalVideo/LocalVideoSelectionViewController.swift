@@ -155,7 +155,7 @@ extension LocalVideoSelectionViewController: LocalVideoSelectionViewOutput {
         setUpVideoView(player: player)
         do {
             try avManager.mute(true)
-            try avManager.loop(type: .oneLoop)
+            try avManager.loop()
             try avManager.start()
         } catch {
             #if DEBUG

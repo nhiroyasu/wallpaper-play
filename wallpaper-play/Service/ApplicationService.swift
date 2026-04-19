@@ -3,6 +3,7 @@ import Injectable
 import RealmSwift
 import AppKit
 
+@MainActor
 protocol ApplicationService {
     func applicationDidFinishLaunching()
     func applicationOpen(urls: [URL])
@@ -11,15 +12,16 @@ protocol ApplicationService {
     func didTapWallPaperItem()
     func didTapPreferenceItem()
     func didTapOpenRealm()
+    func didTapOpenApplicationSupport()
     func dockMenu() -> NSMenu
 }
 
 class ApplicationServiceImpl: ApplicationService {
     
+    private let settingWindowService: any SettingWindowService
     private let realmService: any RealmService
     private let notificationManager: any NotificationManager
     private let wallpaperWindowService: any WallpaperWindowService
-    private let settingWindowService: any SettingWindowService
     private let wallpaperHistoryService: any WallpaperHistoryService
     private let applicationFileManager: any ApplicationFileManager
     private let fileManager: FileManager
@@ -29,12 +31,13 @@ class ApplicationServiceImpl: ApplicationService {
     private let urlValidationService: any UrlValidationService
     private let appManager: any AppManager
     private let dockMenuBuilder: any DockMenuBuilder
+    private let monitorScreenResolver: any MonitorScreenResolver
 
     init(injector: any Injectable) {
+        settingWindowService = SettingWindowServiceImpl()
         realmService = injector.build()
         notificationManager = injector.build()
         wallpaperWindowService = injector.build()
-        settingWindowService = injector.build()
         wallpaperHistoryService = injector.build()
         applicationFileManager = injector.build()
         userSetting = injector.build()
@@ -42,6 +45,7 @@ class ApplicationServiceImpl: ApplicationService {
         urlResolverService = injector.build()
         urlValidationService = injector.build()
         appManager = injector.build()
+        monitorScreenResolver = injector.build()
         fileManager = .default
         dockMenuBuilder = injector.build()
     }
@@ -54,7 +58,9 @@ class ApplicationServiceImpl: ApplicationService {
         setUpRequestVisibilityIconNotification()
         setUpRequestWebPageNotification()
         setUpRequestCameraNotification()
+        setUpRequestPlaylistNotification()
         setUpScreenParamNotification()
+        setShowingSettingWindowNotification()
         setUpAppIcon()
         setUpFlag = true
     }
@@ -101,33 +107,40 @@ class ApplicationServiceImpl: ApplicationService {
         }
     }
 
+    func didTapOpenApplicationSupport() {
+        guard let url = try? fileManager.url(for: .applicationSupportDirectory, in: .userDomainMask, appropriateFor: nil, create: true) else {
+            return
+        }
+        NSWorkspace.shared.open(url)
+    }
+
     func dockMenu() -> NSMenu {
         dockMenuBuilder.build()
     }
 
     private func setUpRequestVideoNotification() {
-        notificationManager.observe(name: .requestVideo) { [weak self] param in
+        notificationManager.observe(name: .requestVideo, queue: .main) { [weak self] param in
             guard let self = self, let request = param as? VideoPlayRequest else { fatalError() }
             self.displayLocalVideo(request: request, shouldSavedHistory: true)
         }
     }
 
     private func setUpRequestYouTubeNotification() {
-        notificationManager.observe(name: .requestYouTube) { [weak self] param in
+        notificationManager.observe(name: .requestYouTube, queue: .main) { [weak self] param in
             guard let self = self, let request = param as? YouTubePlayRequest else { fatalError() }
             self.displayYouTube(videoId: request.videoId, isMute: request.isMute, shouldSavedHistory: true, videoSize: request.videoSize, target: request.target)
         }
     }
     
     private func setUpRequestWebPageNotification() {
-        notificationManager.observe(name: .requestWebPage) { [weak self] param in
+        notificationManager.observe(name: .requestWebPage, queue: .main) { [weak self] param in
             guard let self = self, let request = param as? WebPlayRequest else { fatalError() }
             self.displayWebPage(url: request.url, arrowOperation: request.arrowOperation, shouldSavedHistory: true, target: request.target)
         }
     }
 
     private func setUpRequestCameraNotification() {
-        notificationManager.observe(name: .requestCamera) { [weak self] param in
+        notificationManager.observe(name: .requestCamera, queue: .main) { [weak self] param in
             guard let self = self, let request = param as? CameraPlayRequest else { fatalError() }
             self.wallpaperWindowService.display(
                 wallpaperKind: WallpaperKind.camera(deviceId: request.deviceId, videoSize: request.videoSize),
@@ -139,6 +152,25 @@ class ApplicationServiceImpl: ApplicationService {
                     deviceId: request.deviceId,
                     size: request.videoSize.rawValue,
                     targetMonitor: convertToTargetMonitorForDB(for: request.target)
+                )
+            )
+        }
+    }
+
+    private func setUpRequestPlaylistNotification() {
+        notificationManager.observe(name: .requestPlaylist, queue: .main) { [weak self] param in
+            guard let self = self, let request = param as? PlaylistPlayRequest else { fatalError() }
+            guard request.playlist.videos.isEmpty == false else { return }
+            guard let target = self.resolvePlaylistTarget(request.playlist.target) else { return }
+            self.wallpaperWindowService.display(
+                wallpaperKind: .playlist(playlist: request.playlist),
+                target: target
+            )
+            self.wallpaperHistoryService.store(
+                PlaylistWallpaper(
+                    date: Date(),
+                    playlistId: request.playlist.id,
+                    targetMonitor: self.convertToTargetMonitorForDB(for: request.playlist.target)
                 )
             )
         }
@@ -231,15 +263,28 @@ class ApplicationServiceImpl: ApplicationService {
         }
     }
 
+    private func setShowingSettingWindowNotification() {
+        notificationManager.observe(name: .showSettingWindowWithPreferenceMenu) { [weak self] _ in
+            self?.settingWindowService.show()
+
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) { [weak self] in
+                self?.notificationManager.push(name: .selectedSideMenu, param: SideMenuItem.preference)
+            }
+        }
+    }
+
     private func displayLatestWallpaper() {
         if let (latestWallpaper, isAll) = wallpaperHistoryService.fetchLatestWallpaper(monitorFilter: .all), isAll {
             wallpaperWindowService.display(wallpaperKind: latestWallpaper, target: .sameOnAllMonitors)
             return
         }
 
-        for screen in NSScreen.screens {
+        for screen in monitorScreenResolver.allScreens() {
             if let (latestWallpaperForScreen, _) = wallpaperHistoryService.fetchLatestWallpaper(monitorFilter: .specificOrNil(specificMonitor: screen.localizedName)) {
-                wallpaperWindowService.display(wallpaperKind: latestWallpaperForScreen, target: .specificMonitor(screen: screen))
+                wallpaperWindowService.display(
+                    wallpaperKind: latestWallpaperForScreen,
+                    target: .specificMonitor(screen: ConnectedMonitorScreen(screen: screen))
+                )
             }
         }
     }
@@ -280,7 +325,19 @@ class ApplicationServiceImpl: ApplicationService {
         case .sameOnAllMonitors:
             return nil
         case .specificMonitor(let screen):
-            return screen.localizedName
+            return screen.name
+        }
+    }
+
+    private func resolvePlaylistTarget(_ target: WallpaperDisplayTarget) -> WallpaperDisplayTarget? {
+        switch target {
+        case .sameOnAllMonitors:
+            return .sameOnAllMonitors
+        case .specificMonitor(let screen):
+            guard let resolvedScreen = monitorScreenResolver.resolveScreen(for: screen) else {
+                return nil
+            }
+            return .specificMonitor(screen: ConnectedMonitorScreen(screen: resolvedScreen))
         }
     }
 }

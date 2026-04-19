@@ -6,6 +6,7 @@ protocol WallpaperRequestService {
     func requestYoutubeWallpaper(youtube: YouTubePlayRequest)
     func requestWebWallpaper(web: WebPlayRequest)
     func requestCameraWallpaper(camera: CameraPlayRequest)
+    func requestPlaylistWallpaper(playlist: PlaylistPlayRequest)
 }
 
 class WallpaperRequestServiceImpl: WallpaperRequestService {
@@ -29,5 +30,9 @@ class WallpaperRequestServiceImpl: WallpaperRequestService {
 
     func requestCameraWallpaper(camera: CameraPlayRequest) {
         notificationManager.push(name: .requestCamera, param: camera)
+    }
+
+    func requestPlaylistWallpaper(playlist: PlaylistPlayRequest) {
+        notificationManager.push(name: .requestPlaylist, param: playlist)
     }
 }

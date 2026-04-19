@@ -131,6 +131,9 @@
 		4FC182F6285E06E40042FAF6 /* PreferenceUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC182F5285E06E40042FAF6 /* PreferenceUseCase.swift */; };
 		4FC182F8285E06EA0042FAF6 /* PreferencePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC182F7285E06EA0042FAF6 /* PreferencePresenter.swift */; };
 		4FC182FA285E1B780042FAF6 /* PreferenceCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC182F9285E1B780042FAF6 /* PreferenceCoordinator.swift */; };
+		4FD19A7C2F7E4A9D00AA11B1 /* PlaylistPlayRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD19A7D2F7E4A9D00AA11B1 /* PlaylistPlayRequest.swift */; };
+		4FD90DD12F94CB33007DCB4B /* PlaylistWallpaper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD90DD02F94CB33007DCB4B /* PlaylistWallpaper.swift */; };
+		4FD90DD42F94D672007DCB4B /* WallpaperHistoryServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD90DD32F94D672007DCB4B /* WallpaperHistoryServiceTests.swift */; };
 		4FDE8AD1286DE1750028E062 /* Statable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDE8AD0286DE1750028E062 /* Statable.swift */; };
 		4FDEFC1B2C96CD25009A062A /* db_schema_v4.realm in Resources */ = {isa = PBXBuildFile; fileRef = 4FDEFC1A2C96CD25009A062A /* db_schema_v4.realm */; };
 		4FDEFC1E2C96D680009A062A /* NSWindowLevel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDEFC1C2C96D517009A062A /* NSWindowLevel+.swift */; };
@@ -141,6 +144,18 @@
 		4FDF1DEF285EAF7100ABBE8D /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDF1DEE285EAF7100ABBE8D /* AppManager.swift */; };
 		4FDF1DF5285ECA1900ABBE8D /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 4FDF1DF4285ECA1900ABBE8D /* Swinject */; };
 		4FDF1DF7285ECAB600ABBE8D /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDF1DF6285ECAB500ABBE8D /* Coordinator.swift */; };
+		4FE590342F2DB5E300133680 /* PlaylistFormCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE590332F2DB5E300133680 /* PlaylistFormCoordinator.swift */; };
+		4FE590362F2DB67B00133680 /* PlaylistFormScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE590352F2DB67600133680 /* PlaylistFormScreenView.swift */; };
+		4FE590382F2DB68200133680 /* PlaylistFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE590372F2DB67D00133680 /* PlaylistFormViewModel.swift */; };
+		4FE5903A2F2DE25600133680 /* PlaylistFormUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE590392F2DE25200133680 /* PlaylistFormUseCase.swift */; };
+		4FE5903C2F2DE85200133680 /* PlaylistPlaybackMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE5903B2F2DE85200133680 /* PlaylistPlaybackMode.swift */; };
+		4FE5903E2F2DE86600133680 /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE5903D2F2DE86600133680 /* Playlist.swift */; };
+		4FE590402F2DE94300133680 /* PlaylistModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE5903F2F2DE93A00133680 /* PlaylistModel.swift */; };
+		4FE590422F2DEFF800133680 /* PlaylistRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE590412F2DEFE300133680 /* PlaylistRepository.swift */; };
+		4FE590452F2E384600133680 /* PlaylistCoorinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE590442F2E384200133680 /* PlaylistCoorinator.swift */; };
+		4FE590472F2E384E00133680 /* PlaylistScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE590462F2E384900133680 /* PlaylistScreenView.swift */; };
+		4FE590492F2E385500133680 /* PlaylistViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE590482F2E385100133680 /* PlaylistViewModel.swift */; };
+		4FE5904B2F2E386200133680 /* PlaylistUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE5904A2F2E385D00133680 /* PlaylistUseCase.swift */; };
 		4FE7384A2C867D4300EE18D1 /* Injectable in Frameworks */ = {isa = PBXBuildFile; productRef = 4FE738492C867D4300EE18D1 /* Injectable */; };
 		C63438112D8FC901001240F4 /* video_scaler.js in Resources */ = {isa = PBXBuildFile; fileRef = C63438102D8FC901001240F4 /* video_scaler.js */; };
 /* End PBXBuildFile section */
@@ -318,6 +333,9 @@
 		4FC182F5285E06E40042FAF6 /* PreferenceUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceUseCase.swift; sourceTree = "<group>"; };
 		4FC182F7285E06EA0042FAF6 /* PreferencePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencePresenter.swift; sourceTree = "<group>"; };
 		4FC182F9285E1B780042FAF6 /* PreferenceCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceCoordinator.swift; sourceTree = "<group>"; };
+		4FD19A7D2F7E4A9D00AA11B1 /* PlaylistPlayRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistPlayRequest.swift; sourceTree = "<group>"; };
+		4FD90DD02F94CB33007DCB4B /* PlaylistWallpaper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistWallpaper.swift; sourceTree = "<group>"; };
+		4FD90DD32F94D672007DCB4B /* WallpaperHistoryServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallpaperHistoryServiceTests.swift; sourceTree = "<group>"; };
 		4FDE8AD0286DE1750028E062 /* Statable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Statable.swift; sourceTree = "<group>"; };
 		4FDEFC1A2C96CD25009A062A /* db_schema_v4.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = db_schema_v4.realm; sourceTree = "<group>"; };
 		4FDEFC1C2C96D517009A062A /* NSWindowLevel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSWindowLevel+.swift"; sourceTree = "<group>"; };
@@ -327,6 +345,18 @@
 		4FDEFC262C96F8EF009A062A /* WebConfiguration+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WebConfiguration+.swift"; sourceTree = "<group>"; };
 		4FDF1DEE285EAF7100ABBE8D /* AppManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
 		4FDF1DF6285ECAB500ABBE8D /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		4FE590332F2DB5E300133680 /* PlaylistFormCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistFormCoordinator.swift; sourceTree = "<group>"; };
+		4FE590352F2DB67600133680 /* PlaylistFormScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistFormScreenView.swift; sourceTree = "<group>"; };
+		4FE590372F2DB67D00133680 /* PlaylistFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistFormViewModel.swift; sourceTree = "<group>"; };
+		4FE590392F2DE25200133680 /* PlaylistFormUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistFormUseCase.swift; sourceTree = "<group>"; };
+		4FE5903B2F2DE85200133680 /* PlaylistPlaybackMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistPlaybackMode.swift; sourceTree = "<group>"; };
+		4FE5903D2F2DE86600133680 /* Playlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playlist.swift; sourceTree = "<group>"; };
+		4FE5903F2F2DE93A00133680 /* PlaylistModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistModel.swift; sourceTree = "<group>"; };
+		4FE590412F2DEFE300133680 /* PlaylistRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistRepository.swift; sourceTree = "<group>"; };
+		4FE590442F2E384200133680 /* PlaylistCoorinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistCoorinator.swift; sourceTree = "<group>"; };
+		4FE590462F2E384900133680 /* PlaylistScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistScreenView.swift; sourceTree = "<group>"; };
+		4FE590482F2E385100133680 /* PlaylistViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistViewModel.swift; sourceTree = "<group>"; };
+		4FE5904A2F2E385D00133680 /* PlaylistUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistUseCase.swift; sourceTree = "<group>"; };
 		C63438102D8FC901001240F4 /* video_scaler.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = video_scaler.js; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -386,6 +416,8 @@
 				4FDEFC1C2C96D517009A062A /* NSWindowLevel+.swift */,
 				4FDEFC1F2C96E36A009A062A /* ColorHex.swift */,
 				4FDEFC222C96E40A009A062A /* NSColor+.swift */,
+				4FE5903D2F2DE86600133680 /* Playlist.swift */,
+				4FE5903B2F2DE85200133680 /* PlaylistPlaybackMode.swift */,
 				4FDEFC262C96F8EF009A062A /* WebConfiguration+.swift */,
 			);
 			path = Entity;
@@ -413,6 +445,7 @@
 			isa = PBXGroup;
 			children = (
 				4F5EA8002DBD04A40024DB7E /* CameraPlayRequest.swift */,
+				4FD19A7D2F7E4A9D00AA11B1 /* PlaylistPlayRequest.swift */,
 				4F5EA7FE2DBD049C0024DB7E /* WebPlayRequest.swift */,
 				4F5EA7FC2DBD04940024DB7E /* YouTubePlayRequest.swift */,
 				4F5EA7FA2DBD04840024DB7E /* VideoPlayRequest.swift */,
@@ -423,6 +456,8 @@
 		4F5EA8072DBDC2D80024DB7E /* RealmObject */ = {
 			isa = PBXGroup;
 			children = (
+				4FD90DD02F94CB33007DCB4B /* PlaylistWallpaper.swift */,
+				4FE5903F2F2DE93A00133680 /* PlaylistModel.swift */,
 				4F03CEED285A170E009FDC6F /* LocalVideoWallpaper.swift */,
 				4F03CEEF285A1801009FDC6F /* YouTubeWallpaper.swift */,
 				4FBD510B288559A8002DF955 /* WebPageWallpaper.swift */,
@@ -508,6 +543,7 @@
 				4F8A58EB284CA01B00557FDD /* YouTubeContentsServiceTests.swift */,
 				4F7B56032BDDE6FF00D427C6 /* TestInjector.swift */,
 				4F2801832BDDEFB1003F36A6 /* RealmMigrationServiceTests.swift */,
+				4FD90DD32F94D672007DCB4B /* WallpaperHistoryServiceTests.swift */,
 			);
 			path = "wallpaper-playTests";
 			sourceTree = "<group>";
@@ -567,6 +603,7 @@
 				4FB0F4062858A272004E6D51 /* WallpaperWindowService.swift */,
 				4FAD5E1E2BE3634B00DB51DC /* WallpaperRequestService.swift */,
 				4F03CEF1285B64B2009FDC6F /* WallpaperHistoryService.swift */,
+				4FE590412F2DEFE300133680 /* PlaylistRepository.swift */,
 				4FB1BD42295E900100F476CD /* SettingWindowService.swift */,
 				4F8A5938284CD65900557FDD /* YouTubeContentsService.swift */,
 				4FBD510928855046002DF955 /* UrlValidationService.swift */,
@@ -602,6 +639,8 @@
 		4F8A5952284D18C400557FDD /* Contents */ = {
 			isa = PBXGroup;
 			children = (
+				4FE590432F2E383000133680 /* Playlist */,
+				4FE590322F2DB5D200133680 /* PlaylistForm */,
 				4F7BEAC42D31FE1E008B0A35 /* Camera */,
 				4FE738422C82F35200EE18D1 /* LocalVideo */,
 				4FE738432C82F37D00EE18D1 /* YouTube */,
@@ -675,6 +714,28 @@
 				4FC182ED285E00540042FAF6 /* SwitchCell.xib */,
 			);
 			path = SwitchCell;
+			sourceTree = "<group>";
+		};
+		4FE590322F2DB5D200133680 /* PlaylistForm */ = {
+			isa = PBXGroup;
+			children = (
+				4FE590392F2DE25200133680 /* PlaylistFormUseCase.swift */,
+				4FE590332F2DB5E300133680 /* PlaylistFormCoordinator.swift */,
+				4FE590352F2DB67600133680 /* PlaylistFormScreenView.swift */,
+				4FE590372F2DB67D00133680 /* PlaylistFormViewModel.swift */,
+			);
+			path = PlaylistForm;
+			sourceTree = "<group>";
+		};
+		4FE590432F2E383000133680 /* Playlist */ = {
+			isa = PBXGroup;
+			children = (
+				4FE590442F2E384200133680 /* PlaylistCoorinator.swift */,
+				4FE590462F2E384900133680 /* PlaylistScreenView.swift */,
+				4FE590482F2E385100133680 /* PlaylistViewModel.swift */,
+				4FE5904A2F2E385D00133680 /* PlaylistUseCase.swift */,
+			);
+			path = Playlist;
 			sourceTree = "<group>";
 		};
 		4FE738412C82F34200EE18D1 /* SideMenu */ = {
@@ -983,6 +1044,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FD90DD12F94CB33007DCB4B /* PlaylistWallpaper.swift in Sources */,
 				4F2161FE2850FA37000673EF /* PreferenceViewController.swift in Sources */,
 				4FBD510628850AAF002DF955 /* WebPageSelectionPresenter.swift in Sources */,
 				4FB0F3F12854D1ED004E6D51 /* YouTubeSelectionCoordinator.swift in Sources */,
@@ -1009,6 +1071,7 @@
 				4FB1BD41295E8ECE00F476CD /* DockMenuBuilder.swift in Sources */,
 				4FB0F3EF2854A17C004E6D51 /* WallpaperCoordinator.swift in Sources */,
 				4F03CEEC285A1654009FDC6F /* DateSortable.swift in Sources */,
+				4FE590402F2DE94300133680 /* PlaylistModel.swift in Sources */,
 				4F8A5954284D18E400557FDD /* SideMenuViewController.swift in Sources */,
 				4FAF30362BE391B100B9E381 /* BrowserExtensionViewController.swift in Sources */,
 				4FDEFC1E2C96D680009A062A /* NSWindowLevel+.swift in Sources */,
@@ -1016,6 +1079,8 @@
 				4F01693C284D1D2E00C12ED6 /* SideMenuCell.swift in Sources */,
 				4FB1BD3D295E8C9300F476CD /* DockMenuItemBuilder.swift in Sources */,
 				4F5EA7FF2DBD049C0024DB7E /* WebPlayRequest.swift in Sources */,
+				4FE5903A2F2DE25600133680 /* PlaylistFormUseCase.swift in Sources */,
+				4FE590422F2DEFF800133680 /* PlaylistRepository.swift in Sources */,
 				4F6A4D22289653F100F7B40D /* Localization.swift in Sources */,
 				4FB85C5C2D34D9880016E171 /* AVLayerVideoGravity+.swift in Sources */,
 				4FBD50FF28850A38002DF955 /* WebPageSelectionCoordinator.swift in Sources */,
@@ -1032,6 +1097,8 @@
 				4F8A592D284CB4DE00557FDD /* NSView+.swift in Sources */,
 				4F7BEAC82D31FE5E008B0A35 /* CameraSelectionPresenter.swift in Sources */,
 				4F8A5939284CD65900557FDD /* YouTubeContentsService.swift in Sources */,
+				4FE5903E2F2DE86600133680 /* Playlist.swift in Sources */,
+				4FD19A7C2F7E4A9D00AA11B1 /* PlaylistPlayRequest.swift in Sources */,
 				4F5EA7FB2DBD04840024DB7E /* VideoPlayRequest.swift in Sources */,
 				4FAD5E1F2BE3634B00DB51DC /* WallpaperRequestService.swift in Sources */,
 				4F8A5957284D1A2C00557FDD /* LocalVideoSelectionViewController.swift in Sources */,
@@ -1045,10 +1112,12 @@
 				4FB85C602D34DEDE0016E171 /* CameraDeviceService.swift in Sources */,
 				4FB0F3F32854D2C5004E6D51 /* LocalVideoSelectionCoordinator.swift in Sources */,
 				4F7BEAD22D31FEFB008B0A35 /* CameraSelectionViewController.swift in Sources */,
+				4FE5903C2F2DE85200133680 /* PlaylistPlaybackMode.swift in Sources */,
 				4F8A595D284D1B5000557FDD /* YouTubeSelectionViewController.swift in Sources */,
 				4F8A5942284CEEFE00557FDD /* NSCollectionView+.swift in Sources */,
 				4F03CEE6285A107F009FDC6F /* LocalVideoConfig.swift in Sources */,
 				4F8A58DA284CA01A00557FDD /* AppDelegate.swift in Sources */,
+				4FE590472F2E384E00133680 /* PlaylistScreenView.swift in Sources */,
 				4F2161FB2850D1FB000673EF /* AntialiasedImageView.swift in Sources */,
 				4F5EA8042DBD11380024DB7E /* NSScreen+.swift in Sources */,
 				4F03CEEE285A170E009FDC6F /* LocalVideoWallpaper.swift in Sources */,
@@ -1057,6 +1126,7 @@
 				4F2D559328956D4F00363292 /* AboutCoordinator.swift in Sources */,
 				4FB85C622D34E1460016E171 /* AppState.swift in Sources */,
 				4F8A593B284CE3E200557FDD /* UserSettingService.swift in Sources */,
+				4FE590342F2DB5E300133680 /* PlaylistFormCoordinator.swift in Sources */,
 				4F03CEF2285B64B2009FDC6F /* WallpaperHistoryService.swift in Sources */,
 				4F8A5922284CA28100557FDD /* FileSelectionManager.swift in Sources */,
 				4F03CEF0285A1801009FDC6F /* YouTubeWallpaper.swift in Sources */,
@@ -1064,14 +1134,19 @@
 				4F25C1D6284F718C00397737 /* NSImageView+.swift in Sources */,
 				4FDE8AD1286DE1750028E062 /* Statable.swift in Sources */,
 				4F2161F6284FBDEF000673EF /* SystemWallpaperService.swift in Sources */,
+				4FE590382F2DB68200133680 /* PlaylistFormViewModel.swift in Sources */,
 				4F5EA7F92DBD01600024DB7E /* WallpaperDisplayTarget.swift in Sources */,
 				4F25C1CE284E63F400397737 /* LocalVideoSelectionPresenter.swift in Sources */,
 				4F7B56022BDDE58100D427C6 /* RealmMigrationService.swift in Sources */,
 				4F25C1D4284E673A00397737 /* URLResolverService.swift in Sources */,
+				4FE590362F2DB67B00133680 /* PlaylistFormScreenView.swift in Sources */,
+				4FE590452F2E384600133680 /* PlaylistCoorinator.swift in Sources */,
 				4F03CEF4285B79F4009FDC6F /* ApplicationFileManager.swift in Sources */,
+				4FE590492F2E385500133680 /* PlaylistViewModel.swift in Sources */,
 				4FC182FA285E1B780042FAF6 /* PreferenceCoordinator.swift in Sources */,
 				4FBD510A28855046002DF955 /* UrlValidationService.swift in Sources */,
 				4FBD50FC2885089A002DF955 /* WebPageSelectionViewController.swift in Sources */,
+				4FE5904B2F2E386200133680 /* PlaylistUseCase.swift in Sources */,
 				4F25C1C8284E635300397737 /* YouTubeSelectionPresenter.swift in Sources */,
 				4F6A4D2A289D6F1300F7B40D /* NonInteractionView.swift in Sources */,
 				4F8A5928284CAB3F00557FDD /* VideoView.swift in Sources */,
@@ -1086,6 +1161,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4F28018C2BDDF4F7003F36A6 /* RealmMigrationServiceTests.swift in Sources */,
+				4FD90DD42F94D672007DCB4B /* WallpaperHistoryServiceTests.swift in Sources */,
 				4F8A58EC284CA01B00557FDD /* YouTubeContentsServiceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1330,7 +1406,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 22;
+				CURRENT_PROJECT_VERSION = 23;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 2CMV7D36JC;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -1345,7 +1421,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.8.1;
+				MARKETING_VERSION = 1.9.0;
 				OTHER_SWIFT_FLAGS = "-enable-upcoming-feature ExistentialAny";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.debug.nhiro1109.wallpaper-play";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1364,7 +1440,7 @@
 				CODE_SIGN_ENTITLEMENTS = "wallpaper-play/wallpaper-play.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 22;
+				CURRENT_PROJECT_VERSION = 23;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 2CMV7D36JC;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -1379,7 +1455,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.8.1;
+				MARKETING_VERSION = 1.9.0;
 				OTHER_SWIFT_FLAGS = "-enable-upcoming-feature ExistentialAny";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.nhiro1109.wallpaper-play";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1480,7 +1556,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 22;
+				CURRENT_PROJECT_VERSION = 23;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 2CMV7D36JC;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -1497,7 +1573,7 @@
 				);
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 1.8.1;
+				MARKETING_VERSION = 1.9.0;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -1518,7 +1594,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CODE_SIGN_ENTITLEMENTS = "Wallpaper Paly SafariEextension/Wallpaper_Paly_SafariEextension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 22;
+				CURRENT_PROJECT_VERSION = 23;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 2CMV7D36JC;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -1535,7 +1611,7 @@
 				);
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 1.8.1;
+				MARKETING_VERSION = 1.9.0;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,

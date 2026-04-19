@@ -39,6 +39,8 @@ class YouTubeContentsServiceImpl: YouTubeContentsService {
     }
 
     func buildIFrameURLRequest(url: URL) -> URLRequest {
+        // bug-fix: YouTube Embed 153 error
+        // Ref: https://stackoverflow.com/questions/79761743/youtube-video-in-webview-gives-error-code-153-on-android
         var urlRequest = URLRequest(url: url)
         urlRequest.setValue(Bundle.main.bundleIdentifier ?? "com.nhiro1109.wallpaper-play", forHTTPHeaderField: "Referer")
         urlRequest.setValue("strict-origin-when-cross-origin", forHTTPHeaderField: "Referrer-Policy")

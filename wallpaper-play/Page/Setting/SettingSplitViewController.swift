@@ -17,6 +17,7 @@ class SettingSplitViewController: NSSplitViewController {
     var youtubeSelectionViewController: YouTubeSelectionViewController!
     var webpageSelectionViewController: WebPageSelectionViewController!
     var cameraSelectionViewController: CameraSelectionViewController!
+    var playlistViewController: PlaylistViewController!
     var browserExtensionViewController: BrowserExtensionViewController!
     var preferenceViewController: PreferenceViewController!
     var aboutViewController: AboutViewController!
@@ -106,6 +107,8 @@ class SettingSplitViewController: NSSplitViewController {
             return webpageSelectionViewController
         case .camera:
             return cameraSelectionViewController
+        case .playlist:
+            return playlistViewController
         case .browserExtension:
             return browserExtensionViewController
         case .preference:

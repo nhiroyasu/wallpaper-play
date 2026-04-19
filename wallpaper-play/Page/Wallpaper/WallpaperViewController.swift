@@ -65,7 +65,7 @@ extension WallpaperViewController: WallpaperViewOutput {
             videoView.setBackgroundColor(backgroundColor)
             do {
                 try avManager.mute(mute)
-                try avManager.loop(type: .listLoop)
+                try avManager.loop()
                 try avManager.start()
             } catch {
                 fatalError(error.localizedDescription)
@@ -111,6 +111,21 @@ extension WallpaperViewController: WallpaperViewOutput {
                 #else
                 NSLog(error.localizedDescription, [])
                 #endif
+            }
+        case let .playlist(urls, videoSize, mute, backgroundColor):
+            allClear()
+            videoView.isHidden = false
+            let player = avManager.set(urls)
+            let layer = AVPlayerLayer(player: player)
+            layer.videoGravity = videoSize.videoGravity
+            videoView.setPlayerLayer(layer)
+            videoView.setBackgroundColor(backgroundColor)
+            do {
+                try avManager.mute(mute)
+                try avManager.loop()
+                try avManager.start()
+            } catch {
+                fatalError(error.localizedDescription)
             }
 
         case .none:
@@ -164,5 +179,6 @@ enum WallpaperDisplayType {
     case youtube(URLRequest, videoSize: VideoSize)
     case web(URL, arrowOperation: Bool)
     case camera(captureDevice: AVCaptureDevice, videoSize: VideoSize)
+    case playlist(urls: [URL], videoSize: VideoSize, isMute: Bool, backgroundColor: NSColor?)
     case none
 }

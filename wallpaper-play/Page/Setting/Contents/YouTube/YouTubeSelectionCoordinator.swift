@@ -2,7 +2,7 @@ import AppKit
 import Swinject
 import Injectable
 
-class YouTubeSelectionCoordinator: Coordinator {
+class YouTubeSelectionCoordinator: EntryCoordinator {
     private var viewController: YouTubeSelectionViewController!
     private let injector: any Injectable
 
