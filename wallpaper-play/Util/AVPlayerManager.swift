@@ -23,7 +23,11 @@ protocol AVPlayerManager {
 
 class AVPlayerManagerImpl: AVPlayerManager {
     private var player: AVQueuePlayer?
-    private var endObserver: NSObjectProtocol?
+
+    // Looper: Used when there is only one video being played
+    private var playerLooper: AVPlayerLooper?
+    // An Observer for looping when there are two or more videos playing
+    private var endObserverForLooper2: (any NSObjectProtocol)?
     private var isLooping = false
     
     private var videoContentList: [VideoContent] = []
@@ -33,6 +37,8 @@ class AVPlayerManagerImpl: AVPlayerManager {
     }
 
     func set(_ urls: [URL]) -> AVPlayer {
+        playerLooper?.disableLooping()
+        playerLooper = nil
         player?.pause()
         player?.removeAllItems()
         removeEndObserver()
@@ -65,29 +71,39 @@ class AVPlayerManagerImpl: AVPlayerManager {
     }
     
     func loop() throws {
-        guard player != nil, !videoContentList.isEmpty else {
+        guard let player = player, !videoContentList.isEmpty else {
             throw NSError(domain: "did not set player instance or video contents", code: 1)
         }
-        guard endObserver == nil else { return }
+        guard !isLooping else { return }
+
         isLooping = true
-        endObserver = NotificationCenter.default.addObserver(
-            forName: .AVPlayerItemDidPlayToEndTime,
-            object: nil,
-            queue: nil
-        ) { [weak self] notification in
-            self?.queueDidFinish(notification)
+        if videoContentList.count == 1 {
+            player.removeAllItems()
+            playerLooper = AVPlayerLooper(player: player, templateItem: videoContentList[0].item)
+        } else {
+            endObserverForLooper2 = NotificationCenter.default.addObserver(
+                forName: AVPlayerItem.didPlayToEndTimeNotification,
+                object: nil,
+                queue: .main
+            ) { [weak self] notification in
+                self?.queueDidFinish(notification)
+            }
         }
     }
     
     func loopOff() throws {
-        guard endObserver != nil, isLooping else {
+        guard isLooping else {
             throw NSError(domain: "did not set looper", code: 2)
         }
         isLooping = false
+        playerLooper?.disableLooping()
+        playerLooper = nil
         removeEndObserver()
     }
     
     func clear() {
+        playerLooper?.disableLooping()
+        playerLooper = nil
         player?.pause()
         player?.removeAllItems()
         removeEndObserver()
@@ -106,8 +122,8 @@ class AVPlayerManagerImpl: AVPlayerManager {
     }
 
     private func removeEndObserver() {
-        guard let endObserver else { return }
-        NotificationCenter.default.removeObserver(endObserver)
-        self.endObserver = nil
+        guard let endObserverForLooper2 else { return }
+        NotificationCenter.default.removeObserver(endObserverForLooper2)
+        self.endObserverForLooper2 = nil
     }
 }
